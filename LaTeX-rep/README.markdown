@@ -1,8 +1,11 @@
-Author: Ignas Anikevicius
 Repo Title: LaTeX-rep
+=====================
+Author: Ignas Anikevicius
+-------------------------
 
-This consists of:
-
+What is included:
+-----------------
 
 !!!NOTE:!!!
+-----------
 This is a work in progress repo, so nothing should (or will) work.
