@@ -1,3 +1,8 @@
-This is the github repository for my summer-project.
+LaTeX-www
+=========
 
-This is a work in progress repo, so nothing should (or will) work.
+TODO:
+-----
+    Find a good template (either Wiki, or something similar and OSS)
+    Integrate the git repo well in the website
+    Dynamic generation of the fields from the files
