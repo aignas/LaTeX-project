@@ -1,1 +1,3 @@
-
+*.log
+*.aux
+*eps-converted-to.pdf
