@@ -28,19 +28,23 @@ What should be included:
 
 List of Journals covered:
 -------------------------
-    * All ACS journals:
-    * Nature Publication Group journals
+    * All ACS (American Chemistry Soc) journals
+    * All NPG (Nature Publication Group) journals
     * Wiley VCH journals (Angew Chem, etc)
     * Science journals
-    * PNAS
+    * PNAS journals
+    * RSC journals
 
-List of templates:
+Thesis writing:
 -----------------
-    * Report writing
-        Template from CUED website
     * Thesis writing
         The requirements are found
         A lot of info on how to write, need to filter
         will have to write (or edit?) the files
     * Include the templates for the journals
 
+Report (CPGS, PtIII) writing:
+--------------
+    * Report writing
+        Template from CUED website
+    * fix the template from Eric to make the code better.
