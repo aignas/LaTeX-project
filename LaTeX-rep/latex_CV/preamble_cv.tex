@@ -1,7 +1,8 @@
-% Premable by Ted Pavlic and modified by Ignas Anikevicius to suit my needs
+% Original premable is by Ted Pavlic
+% modified by Ignas Anikevicius
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[10pt]{article}
+\documentclass[11pt]{article}
 % This is a helpful package that puts math inside length specifications
 \usepackage{calc}
 
@@ -11,13 +12,13 @@
 \newlength{\bibhang}
 \setlength{\bibhang}{1em}
 \newlength{\bibsep}
- {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+    {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
 \newenvironment{bibsection}%
-        {\vspace{-\baselineskip}\begin{list}{}{%
-       \setlength{\leftmargin}{\bibhang}%
-       \setlength{\itemindent}{-\leftmargin}%
-       \setlength{\itemsep}{\bibsep}%
-       \setlength{\parsep}{\z@}%
+    {\vspace{-\baselineskip}\begin{list}{}{%
+        \setlength{\leftmargin}{\bibhang}%
+        \setlength{\itemindent}{-\leftmargin}%
+        \setlength{\itemsep}{\bibsep}%
+        \setlength{\parsep}{\z@}%
         \setlength{\partopsep}{0pt}%
         \setlength{\topsep}{0pt}}}
         {\end{list}\vspace{-.6\baselineskip}}
@@ -28,19 +29,19 @@
 
 %% Use these lines for letter-sized paper
 %\usepackage[paper=letterpaper,
-%            %includefoot, % Uncomment to put page number above margin
-%            marginparwidth=1.2in,     % Length of section titles
-%            marginparsep=.05in,       % Space between titles and text
-%            margin=1in,               % 1 inch margins
-%            includemp]{geometry}
+%       %includefoot, % Uncomment to put page number above margin
+%       marginparwidth=1.2in,     % Length of section titles
+%       marginparsep=.05in,       % Space between titles and text
+%       margin=1in,               % 1 inch margins
+%       includemp]{geometry}
 
 %% Use these lines for A4-sized paper
 \usepackage[paper=a4paper,
-            %includefoot, % Uncomment to put page number above margin
-            marginparwidth=30.5mm,    % Length of section titles
-            marginparsep=1.5mm,       % Space between titles and text
-            margin=25mm,              % 25mm margins
-            includemp]{geometry}
+        %includefoot, % Uncomment to put page number above margin
+        marginparwidth=30.5mm,    % Length of section titles
+        marginparsep=1.5mm,       % Space between titles and text
+        margin=25mm,              % 25mm margins
+        includemp]{geometry}
 
 %% More layout: Get rid of indenting throughout entire document
 \setlength{\parindent}{0in}
@@ -57,18 +58,19 @@
 %       numbers (make sure includefoot is commented out above)
 %
 \usepackage{fancyhdr,lastpage}
+% Select the pagestyle. Fancy will give you all the footers, headers and so on.
 \pagestyle{fancy}
 %\pagestyle{empty}      % Uncomment this to get rid of page numbers
 \fancyhf{}\renewcommand{\headrulewidth}{0pt}
 \fancyfootoffset{\marginparsep+\marginparwidth}
 \newlength{\footpageshift}
 \setlength{\footpageshift}
-          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+        {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
 \lfoot{\hspace{\footpageshift}%
        \parbox{4in}{\, \hfill %
-                    \arabic{page} of \protect\pageref*{LastPage} % +LP
-%                    \arabic{page}                               % -LP
-                    \hfill \,}}
+       \arabic{page} of \protect\pageref*{LastPage} % +LP
+%      \arabic{page}                                % -LP
+       \hfill \,}}
 
 % Finally, give us PDF bookmarks
 \usepackage{color,hyperref}
@@ -104,11 +106,11 @@
 %
 % the picture will be flush right across from the name.
 \newcommand{\makeheading}[2][]%
-        {\hspace*{-\marginparsep minus \marginparwidth}%
-         \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
-             {\large \bfseries #2 \hfill #1}\\[-0.15\baselineskip]%
-                 \rule{\columnwidth}{1pt}%
-         \end{minipage}}
+    {\hspace*{-\marginparsep minus \marginparwidth}%
+    \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+        {\large \bfseries #2 \hfill #1}\\[-0.15\baselineskip]%
+        \rule{\columnwidth}{1pt}%
+    \end{minipage}}
 
 % The section headings
 %
@@ -192,4 +194,4 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% vim: textwidth=80:spell:spelllang=en_gb
+% vim: tw=80:spell:spelllang=en_gb
