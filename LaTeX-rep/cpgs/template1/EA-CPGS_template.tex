@@ -1,14 +1,8 @@
 %!TEX TS-program = latex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[a4wide,12pt]{report} %report
+\documentclass[a4paper,12pt]{report} %report
 \usepackage[left=1in, right=1in, top=0.75in, bottom=0.75in, includehead, headheight=17.6pt]{geometry}
-
-%\oddsidemargin=.1in
-%\evensidemargin=.2in
-%\textwidth=6.3in
-%\topmargin=-.5in
-%\textheight=9in
 
 \textfloatsep 0.25cm
 \intextsep 0.25cm
@@ -25,66 +19,39 @@
 \usepackage{graphicx}
 
 \usepackage{afterpage}
-\usepackage[superscript]{cite}
-\usepackage{citesort}
-\usepackage{overcite}
+\usepackage[superscript,ref]{cite}
 
 %\usepackage{chapterbib}
 
 \usepackage{array}
 \usepackage{float}
+
+% Everything for setting up the headers
 \usepackage{fancyhdr}
+\pagestyle{fancy}
 
-%\usepackage{palatino}
-
-%\oddsidemargin -0.35in
-%\evensidemargin -.5in
-
-%\textwidth=7in
-%\textheight=9in
-%\sectionskip=0.075in
+%\fancyfoot[C]{page \thepage}
+\cfoot{\thepage}
 
 %\topmargin=-0.75in
 \footskip=0.35in
 
-%\font\1 "TUE Scala" at 11pt
-%\font\a "TUE Scala Bold" at 12pt
-%\font\2 "TUE Scala Italic" at 14pt
-%\font\7 "Lucida Bright" at 10pt
-%\font\3 "Hoefler Text:mapping=tex-text;Style Options=Engraved Text;
-             % Letter Case=All Capitals;color=229966" at 24pt
-%\font\4 "Hoefler Text:mapping=tex-text;Letter Case=All Capitals" at 9 pt
-
-%\font\5="Apple Chancery:Letter Case=Small Caps;
-%Design Complexity=Simple Design Level" at 10pt
-%\font\6="Hoefler Text:%Letter Case=Small Caps;
-%Design Complexity=Simple Design Level" at 10pt
-%\font\6="TUE Scala:Letter Case=Small Caps;Design
-%Complexity=Simple Design Level" at 12pt
+% Set space package lets to control line spacing
 \usepackage{setspace} 
+% more on options visit https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Customizing_LaTeX#Spacing
 \doublespacing
 
 \title{Polymeric Building Blocks Prepared by RAFT Polymerization for Supramolecular Assembly Based on Cucurbit[8]uril}
+\author{Eric Andrew Appel}
 %\date{}
 \setcounter{page}{1}
 \setcounter{tocdepth}{1}
 %\setcounter{secnumdepth}{-2}
 
-
-\pagestyle{fancy}
-%\lhead{\it Research Proposal SCR}
-%\rhead{Eric Andrew Appel}
-%Melville Laboratory for Polymer Synthesis\\
-%University of Cambridge}
-
-%\fancyfoot[C]{page \thepage}
-\cfoot{\thepage}
-
-
+\fancyhead[RE, LO]{Eric Andrew Appel \\ \leftmark}
+\fancyhead[RO, LE]{Melville Laboratory for Polymer Synthesis\\ University of Cambridge}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 
 \begin{document}
 \begin{titlepage}
@@ -104,8 +71,6 @@
 \end{flushright}
 %\end{center}
 
-
-
 \vspace*{0.5cm}
 \begin{center}
 \Huge {Polymeric Building Blocks Prepared by RAFT Polymerization for Supramolecular Assembly Based on Cucurbit[8]uril}
@@ -113,7 +78,6 @@
 \vspace{0.75cm}
 \begin{center}
 \Large {Eric Andrew Appel} \\[3pt]
-%\textit{Jesus College}\\[1cm]
 \end{center}
 
 
@@ -229,9 +193,6 @@ VAc - vinyl acetate\\
 
 \tableofcontents
 
-\fancyhead[RE, LO]{Eric Andrew Appel\\ \it Contents}
-\fancyhead[RO, LE]{Melville Laboratory for Polymer Synthesis\\ University of Cambridge}
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -240,9 +201,6 @@ VAc - vinyl acetate\\
 
 
 \chapter{Introduction}
-
-\fancyhead[RE, LO]{Eric Andrew Appel\\ \it Chapter 1 - Introduction}
-\fancyhead[RO, LE]{Melville Laboratory for Polymer Synthesis\\ University of Cambridge}
 
 
 Supramolecular chemistry \cite{Lehn:1995p2342, Cram:1974p2474, PEDERSEN:1988p2572} is an extremely fast growing field, which focuses greatly on the concept of self assembly on the molecular level. 
@@ -304,9 +262,6 @@ Although it was first synthesized more than a century ago,\cite{Behrend:1905p100
 
 \chapter{Results and Discussion}
 
-\fancyhead[RE, LO]{Eric Andrew Appel\\ \it Chapter 2 - Results and Discussion}
-\fancyhead[RO, LE]{Melville Laboratory for Polymer Synthesis\\ University of Cambridge}
-
 
 
 \section{The Search for a Simple Path to Functional RAFT CTAs}
@@ -334,10 +289,6 @@ As several functional polymers of various types were now in hand, it was time to
 
 \chapter{Conclusions}
 
-\fancyhead[RE, LO]{Eric Andrew Appel\\ \it Chapter 3 - Conclusions}
-\fancyhead[RO, LE]{Melville Laboratory for Polymer Synthesis\\ University of Cambridge}
-
-
 
 Mono- and bis-Np functional RAFT CTAs have have been synthesized and have demonstrated to successfully confer control over the polymerization of a variety of hydrophobic, hydrophilic and stimuli-responsive monomers with excellent control over targeted molecular weight and PDI. 
 
@@ -349,8 +300,6 @@ Mono- and bis-Np functional RAFT CTAs have have been synthesized and have demons
 
 \chapter{Outlook and Future Work}
 
-\fancyhead[RE, LO]{Eric Andrew Appel\\ \it Chapter 4 - Outlook}
-\fancyhead[RO, LE]{Melville Laboratory for Polymer Synthesis\\ University of Cambridge}
 
 The development of functional RAFT CTAs that provide facile preparation of either semi-telechelic and telechelic polymers that can be dynamically interlinked with CB[8] offers many opportunities for further investigation into hierarchical self-assembly.
 
@@ -362,10 +311,6 @@ The development of functional RAFT CTAs that provide facile preparation of eithe
 
 \chapter{Experimental}
 
-
-
-\fancyhead[RE, LO]{Eric Andrew Appel\\ \it Chapter 5 - Experimental}
-\fancyhead[RO, LE]{Melville Laboratory for Polymer Synthesis\\ University of Cambridge}
 
 
 \section{Instrumentation and Materials}
@@ -461,9 +406,6 @@ Elemental: Found C, 63.20; H, 5.02; C$_{21}$H$_{20}$O$_2$S$_3$ required C, 62.96
 \addcontentsline{toc}{chapter}{\bibname}
 
 \bibliographystyle{achemso}
-
-\fancyhead[RE, LO]{Eric Andrew Appel\\ \it Bibliography}
-\fancyhead[RO, LE]{Melville Laboratory for Polymer Synthesis\\ University of Cambridge}
 
 \bibliography{cpgs}
 
