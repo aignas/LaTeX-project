@@ -1,0 +1,139 @@
+%        File: setup.tex
+%     Created: Tue Jul 12 11:00  2011 B
+% Last Change: Tue Jul 12 11:00  2011 B
+%
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{times}
+
+\usepackage{alltt}
+\usepackage{verbatim}
+
+\usepackage[]{hyperref}
+
+% Title and similar stuff
+\title{How to set up your computer to start using LaTeX}
+\author{Ignas Anikevicius}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Thank you for your interest in \LaTeX typesetting system and this article
+will help you to get you ready for starting to use \LaTeX on your
+computer.
+
+Although I would like to write a continuous text on how to install
+everything on different kinds of OSes (Operating Systems), I believe, that it
+is not necessary to duplicate any content, if it can be found in a better
+shape elsewhere. Therefore, I suggest you reading chapters of the book called
+\LaTeX hosted on the website called wikibooks.org. You can find an on-line
+version of the
+\href{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX}{book} or the
+\href{http://upload.wikimedia.org/wikipedia/commons/2/2d/LaTeX.pdf}{PDF}
+version of it, which I think is much more suitable for reading or printing.
+
+The list of the needed software is already there and if somebody feels very
+comfortable with his system, no specific directions should be necessary for
+them.
+
+\section{Software from the Department of Chemistry}
+
+Computer Office is already providing images for deploying the whole OS and
+necessary software for Chemistry Department members. As far as I was informed,
+there are images for Linux and Windows systems. For Macs, there are easy
+installers already available on \href{http://www.google.co.uk}{this page}.
+
+\section{Linux machines}
+
+\subsection{Introduction}
+
+There are various Linux Distributions, which are different in their philosophy
+and usually they have different base software. For our purposes the most
+important differences are those in how the packages are distributed and
+installed. If one feels comfortable with the package manager of his
+distribution, then the setup of the computer should be a very strait forward
+thing to do.
+
+\subsection{Debian family or '.deb' distributions}
+
+All Debian based distributions share a common package managing system and they
+have so-called .deb binary packages being distributed. As for list of the
+distributions which are based on Debian it is very lengthy, mainly because
+Ubuntu is based on Debian and all Ubuntu derivatives should fall under this
+category as well.
+
+% How to install the needed packages?
+
+\subsection{Redhat family or '.rpm' distributions}
+
+Here all distributions using '.rpm' packages would fall under this category.
+This includes Redhat, CentOS, Fedora, OpenSuSe and similar.
+
+\subsection{ArchLinux, Chakra}
+
+ArchLinux is a community based project and it usually provides a 'bleeding-edge'
+packages and sometimes things break. So once you have your \TeX setup up and
+running do not update the system if you need a stable system. However, ArchLinux
+probably provides the easiest and fastest way to install all the needed
+packages. Just execute these commands as root:
+
+\begin{verbatim}
+    pacman -S texlive-most
+\end{verbatim}
+
+\subsection{Gentoo, Funtoo, Sabayon}
+
+\section{Mac OS X}
+
+One can follow the links on the and get the '.dmg' files from the internet or
+use the aforementioned Departament installers. The recommended software
+includes:
+
+\begin{itemize}
+    \item Full installation of MacTeX distribution
+    \item Editors:
+        \begin{itemize}
+            \item For people who like well IDEs (Integrated Development
+                Environments), TeXShop is a really great choice
+            \item For people not being afraid of a steep learning curve, but
+                very rewarding results, Vim/Emacs should be their main choice
+        \end{itemize}
+    \item Bibliography managers:
+        \begin{itemize}
+            \item BibDesk could serve most of the people very well
+            \item Another approach would be to use the same Vim/Emacs setup as
+                both editors have a lot plug-ins to deal with various things
+        \end{itemize}
+    \item PDF viewers:
+        \begin{itemize}
+            \item If you do not care about loading times and stability of the
+                software but prefer a really elaborate feature-set, then choose
+                Adobe's products.
+            \item If you want a lighter alternative, then you can use Preview.
+                Skim might be also worth looking at.
+        \end{itemize}
+    \item Graphics post processing tools:
+        \begin{itemize}
+            \item Adobe Illustrator will definitely fulfil your requirements,
+                but it is really heavy.
+            \item A lighter but still capable of producing good quality graphics
+                could be open-source Inkcape software.
+        \end{itemize}
+\end{itemize}
+
+\section{Windows}
+
+You want to install MiKTeX distribution and it would be a clever thing to select
+an option to install the missing packages only when their are actually needed in
+the document. This will make you MiKTeX distribution smaller, but if you won't
+have an internet access when you need a new package, then you might have some
+inconveniences. Hence, the alternative of installing all the packages at once
+might be a safer option.
+
+\end{document}
+
+%vim: tw=80:spell:spelllang=en_gb
