@@ -1,0 +1,210 @@
+%        File: setup-alt.tex
+%     Created: Tue Jul 12 11:00  2011 B
+% Last Change: Tue Jul 12 11:00  2011 B
+%
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{times}
+
+\usepackage{alltt}
+\usepackage{verbatim}
+
+\usepackage[]{hyperref}
+
+% Title and similar stuff
+\title{How to set up your computer to start using LaTeX}
+\author{Ignas Anikevicius}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Thank you for your interest in \LaTeX typesetting system and this article
+will help you to get you ready for starting to use \LaTeX on your
+computer.
+
+Although I would like to write a continuous text on how to install
+everything on different kinds of OSes (Operating Systems), I believe, that it
+is not necessary to duplicate any content, if it can be found in a better
+shape elsewhere. Therefore, I suggest you reading chapters of the book called
+\LaTeX hosted on the website called wikibooks.org. You can find an on-line
+version of the
+\href{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX}{book} or the
+\href{http://upload.wikimedia.org/wikipedia/commons/2/2d/LaTeX.pdf}{PDF}
+version of it, which I think is much more suitable for reading or printing.
+
+The list of the needed software is already there and if somebody feels very
+comfortable with his system, no specific directions should be necessary for
+them.
+
+\section{Software from the Department of Chemistry}
+
+Computer Office is already providing images for deploying the whole OS and
+necessary software for Chemistry Department members. As far as I was informed,
+there are images for Linux and Windows systems. For Macs, there might be
+customized installers as well available on \href{http://www.google.co.uk}{this
+page}.
+
+\section{\LaTeX distribution installation}
+
+You need either of these:
+\begin{itemize}
+    \item ``\TeX Live'' \LaTeX distribution which is available for
+        Linux/Mac/Windows, but should be preferred on Linux machines.
+    \item ``MacTeX'' \LaTeX distribution which is available for Mac machines
+        only and should be the preferred option on these machines.
+    \item ``MikTeX'' \LaTeX distribution which is available for Windows machines
+        only and should be the preferred option on these machines.
+\end{itemize}
+
+\subsection{Notes for Linux users}
+
+Use your Linux Distribution package manager whenever you can and install ``\TeX
+Live'' only from there. These are the terminal commands how to get everything
+necessary on various Linux distributions:
+
+\begin{description}
+    \item[.deb based] 
+        This applies for all distributions which have their packages as files
+        with '.deb' extensions. These mainly include all Debian and Ubuntu
+        variants and derivatives. Issue these commands in terminal as root and
+        you are good to go.
+        % FIXME
+        \begin{verbatim}
+        # apt-get install texlive-most
+        \end{verbatim}
+
+    \item[.rpm based]
+        This applies for all distributions which have their packages as files
+        with '.rpm' extensions. These mainly include OpenSuSe, Fedora, CentOS,
+        RedHat and others. Issue these commands in terminal as root and you are
+        good to go.
+        % FIXME
+        \begin{verbatim}
+        # yum install texlive-most
+        \end{verbatim}
+
+    \item[ArchLinux and derivatives]
+        This applies for ArchLinux and Chackra distributions. Both use pacman as
+        their packages manager, so the following commands executed as
+        root user will suffice.
+        % FIXME
+        % Need to finish, elaborate on installation
+        \begin{verbatim}
+        # pacman -S texlive-most
+        \end{verbatim}
+    \item[Gentoo and derivatives]
+        This applies for Gentoo, Funtoo, Sabayon distributions. They all use
+        portage as their packages manager, so the following commands executed as
+        root user will suffice.
+        % FIXME
+        % Need to finish, elaborate on installation
+        \begin{verbatim}
+        # emerge -av texlive
+        \end{verbatim}
+    \item[Others]
+        Go to the project Wikipedias and find what they suggest doing.
+\end{description}
+
+\subsection{Notes for Mac users}
+
+For easier experience, just install the full MacTeX installation which can be
+found on the following \href{http://www.tug.org/mactex/}{website}.
+\footnote{The URL for the website is \url{http://www.tug.org/mactex/}}
+
+\subsection{Notes for Windows users}
+
+For easier experience, download MiKTeX installation files from
+\href{http://miktex.org/2.9/setup}{their website}.
+\footnote{The URL for the website is \url{http://miktex.org/2.9/setup}}
+There are mainly 2 wise options to select:
+\begin{description}
+    \item[Install everything] Although this might be very convenient as
+        one will not have to worry about missing packages, but it takes space.
+        On the other hand, slightly more than 1GB of occupied space on modern
+        computers will not make a difference.
+    \item[Install a base system] This is the alternative, which would take less
+        space. What is more, one can select an option where necessary packages
+        could be installed on the fly without any user intervention.
+\end{description}
+
+\section{Editing a .tex file}
+
+Mainly there are two choices:
+\begin{itemize}
+    \item IDE (Integrated Development Environment)
+    \item a simple text editor
+\end{itemize}
+
+While IDEs
+\footnote{an example of an IDE for HTML would be
+Dreamweaver\textsuperscript{\copyright}. Note, that I am not affiliated with
+Adobe\textsuperscript{\copyright} or any of its partners and I do not have
+claims towards its trademarks or copyrighted IP.}
+generally will provide a user with much more integrated environment,
+this does not necessarily mean, that producing \LaTeX documents with an IDE is
+generally faster. There are many very powerful text editors, which might have a
+steep learning curve, but once mastered, they are very fast. What is more, some
+text editors might be better in some tasks than other, so there is no such thing
+as ``the best'' IDE or text editor for \LaTeX.
+
+\subsection{Cross-platform software}
+
+The software which is most worth mentioning is listed bellow:
+\begin{description}
+    \item[VIM \& Emacs] This editor is the best in my opinion. It is very fast,
+        lightweight and it can be customized a lot. Although it has a steep
+        learning curve, it is very rewarding afterwards and reading any of books
+        on VIM would help a lot. Emacs is also good, and many argue that it is
+        better than VIM. This has much to do with so-called editor wars.
+        \footnote{Editor wars on Wikipedia:
+        \url{http://en.wikipedia.org/wiki/Editor_war}}
+
+        Whichever you choose, you will find that they both have extensible
+        resources on the internet and very good plug-ins for \LaTeX document
+        production.
+    \item[LyX] {\bfseries DO NOT USE THIS WORD PROCESSOR!!!} Although it might
+        be very tempting to use something similar to Word or LibreOffice Writer
+        and achieve \LaTeX typeset document quality, you will often get into
+        trouble if you choose this option. LyX might be very good as a reference
+        tool as one can search for \LaTeX commands how to do certain things, it
+        is not useful in anything else if one wants to USE \LaTeX .
+\end{description}
+
+\subsection{Linux software}
+
+\begin{description}
+    \item[Kile] This is an IDE for Linux.
+\end{description}
+
+\subsection{Mac OS X software}
+
+\begin{description}
+    \item[TeXShop] This is probably the best IDE after the aforementioned
+        editors for processing \LaTeX documents.
+\end{description}
+
+\subsection{Windows software}
+
+\begin{description}
+    \item[TeXnicCenter] This is probably the best tool for \LaTeX in this OS
+        after the aforementioned editors. Note, that this is an IDE and not a
+        text editor.
+\end{description}
+
+\section{Bibliography management software}
+
+\begin{itemize}
+    \item Jabref
+    \item Bibdesk
+    \item Vim and Emacs
+\end{itemize}
+
+\section{PDF viewers}
+
+Good PDF viewers are different across different platforms. I believe, that you
+might say, that Adobe's PDF viewer is very good, but;
+
