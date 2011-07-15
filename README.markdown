@@ -1,24 +1,6 @@
 LaTeX-rep
 =========
 
-TODO:
------
-    * Link to the needed files
-        or download them into the repository
-        or write a script, so that the files would be updated every now and then
-        
-        contact the people, who own the files
-
-    * Ask Scherman students for:
-        a list of journals they are writing the publications to
-        things which were very tedious to do
-        things which need to be done
-
-    * Send the memo to various people:
-        need to know to whom can I send this
-
-    * Get access to the server
-
 What should be included:
 -----------------
     * cls, sty and bib files for
@@ -48,3 +30,28 @@ Report (CPGS, PtIII) writing:
     * Report writing
         Template from CUED website
     * fix the template from Eric to make the code better.
+
+Dir Tree Struct:
+----
+    About 
+        - Why the project was started
+        - what it covers
+        - Acknowledgments
+    Setup
+        - Setup Necessary software
+        - Setup software for good graphics processing
+        - setup for fonts
+        - setup for collaborative writting
+    Produce
+        - Report stylefile
+        - Thesis stylefile
+        - Scientific paper templates
+        - CV sylefile
+        - Presentation, unique style for cambridge students?
+        - Posters
+    Tips
+        - Eps and Psfrag
+        - XeTeX for fonts
+        - Collaborate using git or mercurial or other versioning tools
+
+
