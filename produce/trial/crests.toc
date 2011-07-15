@@ -1,0 +1,13 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Heading on level\xspace 0 (chapter)}{7}
+\contentsline {section}{\numberline {1.1}Heading on level\xspace 1 (section)}{7}
+\contentsline {subsection}{\numberline {1.1.1}Heading on level\xspace 2 (subsection)}{8}
+\contentsline {subsubsection}{Heading on level\xspace 3 (subsection)}{9}
+\contentsline {paragraph}{Heading on level\xspace 4 (paragraph)}{10}
+\contentsline {section}{\numberline {1.2}Lists}{11}
+\contentsline {subsection}{\numberline {1.2.1}Example for list\xspace (itemize)}{11}
+\contentsline {subsubsection}{Example for list\xspace (4*itemize)}{12}
+\contentsline {subsection}{\numberline {1.2.2}Example for list\xspace (enumerate)}{14}
+\contentsline {subsubsection}{Example for list\xspace (4*enumerate)}{16}
+\contentsline {subsection}{\numberline {1.2.3}Example for list\xspace (description)}{18}
+\contentsline {subsubsection}{Example for list\xspace (4*description)}{19}

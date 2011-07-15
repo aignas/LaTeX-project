@@ -1,0 +1,197 @@
+%------------------------------------------------------------
+%     
+%     T H E S I S   T E M P L A T E   F O R   T H E 
+%
+%          U N I V E R S I T Y   O F   Y O R K
+%
+%------------------------------------------------------------
+%
+%  Written by Luke Abraham May 2006
+%
+%  The Author found this template suitable for the submission
+%  of a Ph.D. Thesis in Dec 2006 (final submission May 2007).
+%  Any changes to the regulations since then may render this 
+%  template invalid - please consult
+%
+%     http://www.york.ac.uk/admin/gso/thesis.htm
+%     http://www.york.ac.uk/admin/gso/binding.htm
+%
+%  for current guidelines
+%
+%  The author submitted his degree in Physics, so the 
+%  template is designed for maths-heavy subjects.
+%  The author also recommends the use of SUBVERSION as a
+%  version repository system to maintain thesis updates.
+%
+%    http://subversion.tigris.org/
+% 
+%  I have also included a Makefile which contains the handy
+%  LaTeX commands and is suitable for use on the Linux/Unix
+%  system.
+%
+%  With thanks to Maff Glover, Josh Uretsky and Iain Hall
+%  for useful additions to this template
+%
+%------------------------------------------------------------
+
+% York is one sided in most situations
+\documentclass[12pt,a4paper,onesided]{report}
+
+% Use the following to selectively exclude chapters
+%\includeonly{cover,abstract,acknowledge,declare,chapter1,chapter2}
+
+% Package for figures
+\usepackage[dvips]{graphicx}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{mathptmx}
+
+% packages for maths symbols
+\usepackage{amsmath}
+\usepackage{amsmath} 
+\usepackage{amsbsy}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+% algorithm package
+\usepackage{algorithm}
+\usepackage{algorithmic}
+% allows for color - probably not needed
+\usepackage{color}
+% allows for three-part tables
+\usepackage{threeparttable}
+% extra maths scripts - could cause problems on older tetex installs
+\usepackage[mathscr]{euscript}
+\usepackage{eufrak}
+\usepackage{bbold}
+
+% font stuff - at the time of writing the offical University font is
+% Palatino, hence its use here! 
+\usepackage[T1,OT1]{fontenc}
+\usepackage{palatino}
+% other fonts
+%\usepackage{times}
+%\usepackage{bookman}
+% uses paltino font with CM mathematics
+%\usepackage{palatcm}
+
+% underlining
+\usepackage[normalem]{ulem}
+
+% random stuff copied from elsewhere that I can't really 
+% remember what it does - best to leave it alone
+  \makeatletter
+  \def\@dotsep{4.5}
+  \makeatother
+
+% increases the column seperation in tables (I think)
+\setlength{\tabcolsep}{5pt}
+
+% new definition of a space for typesetting
+\newlength{\myVSpace}
+\setlength{\myVSpace}{1ex}
+\newcommand\xstrut{\raisebox{-.5\myVSpace}
+  {\rule{0pt}{\myVSpace}}
+}
+\addtolength{\myVSpace}{10pt}
+
+% handy math macros
+\newcommand{\dif}{\mathrm{d}}
+\def\dbar{{\mathchar'26\mkern-9mu \mathrm{d}}}
+\newcommand{\Ang}{\mbox{\AA}}
+\newcommand{\ev}{\mbox{eV}}
+\newcommand{\ma}{\mbox{a}}
+\newcommand{\mb}{\mbox{b}}
+
+% use natbib package - it is the best - BUT, remember the syntax
+% for full functionality
+% use \citep{} for (ref (Year))
+% and \citet{} for ref (Year)
+% see documentation for more information
+\usepackage[square]{natbib}
+
+% use the 'geometry' package to setup page margins easily  :-)
+% THESE ARE THE UNIVERSITY MARGINS
+\usepackage[left=4.0cm,top=2.5cm,right=2.5cm,bottom=2cm,footskip=1cm]{geometry} 
+
+%% Various parameters
+%\setlength{\textheight}{229mm}
+%\setlength{\topmargin}{-5.4mm}
+%\setlength{\textwidth}{150mm}
+%\setlength{\oddsidemargin}{14.6mm}
+%\setlength{\evensidemargin}{14.6mm}
+%% fix annoying right margin
+%\addtolength{\oddsidemargin}{-1.0cm}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{4}
+
+
+% remove indentation from start of paragraphs
+\setlength{\parindent}{0pt}
+
+% gap between paragraphs
+\setlength{\parskip}{5pt}
+
+% ONE AND A HALF LINE SPACING
+\onehalfspacing
+
+\begin{document}
+% page numbers are 1, 2 etc.
+\pagenumbering{arabic}
+\include{cover}          % This is the front page
+\addcontentsline{toc}{chapter}{\numberline { }Abstract}
+\include{abstract}       % Apstract
+\addcontentsline{toc}{chapter}{\numberline { }Contents}
+\tableofcontents
+% list of figures, tables etc - will then be added to table of contents
+\listoffigures
+\addcontentsline{toc}{chapter}{\numberline { }List of Figures}
+\listoftables
+\addcontentsline{toc}{chapter}{\numberline { }List of Tables}
+% add list of algorithms if needed
+\listofalgorithms
+\addcontentsline{toc}{chapter}{\numberline { }List of Algorithms}
+\addcontentsline{toc}{chapter}{\numberline { }Declarations}
+\include{declare}        % (optional) - declarations of previous papers
+\addcontentsline{toc}{chapter}{\numberline { }Acknowledgements}
+\include{acknowledge} % Acknowledgements
+\newpage
+
+% now set up what pages look like
+\pagestyle{fancy}
+\fancyhead[L]{\textsl{\chaptername\ \thechapter}}
+\fancyhead[R]{\textsl{\leftmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+
+
+% include the chapters - these are contained in the sub-directories
+\include{chap1/chap1}
+\include{chap2/chap2}
+\include{chap3/chap3}
+\include{chap4/chap4}
+\include{chap5/chap5}
+\include{chap6/chap6}
+\include{chap7/chap7}
+% put in the appendix
+\appendix
+% need to change ``Chapter A'' to ``Appendix A''
+\renewcommand{\chaptername}{Appendix}
+\include{appA/appA}
+
+%\fancyhf
+\fancyhead[L]{\textsl{}}
+\fancyhead[R]{\textsl{\leftmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+% include the bibliography
+\bibliographystyle{refs/plainnat}
+\renewcommand{\chaptermark}[1]{\thechapter{#1}{}}
+\addcontentsline{toc}{chapter}{\numberline { }Bibliography}
+% need to change ``Chapter'' to ``Bibliogoraphy''
+\renewcommand{\chaptername}{Bibliography}
+\bibliography{refs/thesis.bib}
+
+\end{document}

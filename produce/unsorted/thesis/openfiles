@@ -1,0 +1,13 @@
+#!/bin/csh -f
+
+# this scripts opens the .tex files in the thesis driectory and subdirectory
+
+# these lines don't work, I don't know why
+#set filelist=`$PWD/abstract.tex $PWD/acknowledge.tex $PWD/cover.tex $PWD/declare.tex $PWD/thesis.tex appA/appA.tex $PWD/chap2/chap2.tex  $PWD/chap4/chap4.tex  $PWD/chap6/chap6.tex $PWD/chap1/chap1.tex $PWD/chap3/chap3.tex $PWD/chap5/chap5.tex $PWD/chap7/chap7.tex`
+#set emax=`/usr/bin/emacs`
+
+#echo $emax $filelist "&"
+#$emax $filelist &
+
+echo "emacs refs/*.bib */*.tex *.tex &"
+emacs refs/*.bib */*.tex *.tex &
