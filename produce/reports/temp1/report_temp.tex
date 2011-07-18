@@ -1,0 +1,242 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is a Template for CPGS and Part III Reports for the Department of
+% Chemistry. It should be used as a starting point to typeset your reports.
+% Everything is set up in the preamble, so that the changes would be easy to
+% make. However, if you are happy with the formatting, do not change anything
+% unless you really know what you are doing.
+%
+% For those who want to learn more LaTeX and know how everything was done,
+% please read through the preamble and enjoy. I hope that the extensive
+% documentation will help you to understand everything. If you can think of a
+% better way to do things, please submit a patch to the file and I will be happy
+% to ammed the changes.
+%
+% The file is GPL licensed.
+%
+% Written by Ignas Anikevicius
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,12pt,oneside]{book}
+\usepackage[left=3cm, right=3cm, top=2cm, bottom=3cm, includehead, headheight=17.6pt]{geometry}
+
+\usepackage[]{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{textcomp}
+\usepackage[english]{babel}
+
+% Just for testing purposes
+\usepackage{blindtext}
+
+\usepackage{afterpage}
+\usepackage[superscript]{cite}
+\usepackage{setspace}
+%\onehalfspacing
+\doublespacing
+
+\usepackage[]{graphicx}
+\usepackage{epstopdf}
+\epstopdfsetup{verbose=false,
+               update=true}
+
+\usepackage{array}
+\usepackage{float}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Font definitions and XeTeX usage
+\usepackage{ifxetex}
+\ifxetex
+    \usepackage{xltxtra}
+    \defaultfontfeatures{Mapping=tex-text} % To support LaTeX quoting style
+    \setromanfont{Gentium}
+\else
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+    \usepackage{lmodern}
+    \usepackage{times}
+\fi
+
+% Run texcount on test.tex and write results to test.sum
+\immediate\write18{texcount -inc report_temp.tex > report_temp.sum}
+% Define macro \wordcount for including the counts
+\usepackage{verbatim}
+\newcommand{\wordcount}{
+\clearpage\thispagestyle{empty}
+\verbatiminput{report_temp.sum}
+}
+
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\address}[1]{
+    \renewcommand{\address}{#1}}
+\newcommand{\supervisor}[1]{
+    \renewcommand{\supervisor}{#1}}
+\newcommand{\college}[2]{
+    \renewcommand{\college}{#1}
+    \newcommand{\collegecrest}{#2.eps}}
+\newcommand{\laboratory}[1]{
+    \renewcommand{\laboratory}{#1}}
+
+\fancypagestyle{preface}{
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+}
+
+\newenvironment{preface}[1]{
+    \thispagestyle{preface}
+    \fancyfoot[C]{\thepage}
+    \begin{center}
+        \@section*{#1}
+    \end{center}
+    }{
+    \clearpage{}
+}
+    
+
+\renewcommand{\maketitle}{
+\begin{titlepage}
+
+    \begin{figure}[h]
+        %\begin{center}
+        \begin{flushright}
+            \includegraphics[width=0.45\textwidth]{CUnibig.eps}
+        \end{flushright}
+    \end{figure}
+    \begin{flushright}
+        \address
+    \end{flushright}
+    %\end{center}
+
+    \vspace*{0.5cm}
+    \begin{center}
+        \Huge\@title
+    \end{center}
+    \vspace{0.75cm}
+    \begin{center}
+        \Large\@author \\[3pt]
+    \end{center}
+
+    \begin{figure}[h]
+        \begin{center}
+            \includegraphics[width=0.15\textwidth]{\collegecrest}
+        \end{center}
+    \end{figure}
+
+    \vspace{-1.2cm}
+    \begin{center}
+        \Large {\it \college{} College}\\
+    \end{center}
+
+    \vspace{0.25cm}
+    \begin{center}
+        \Large {\supervisor}\\
+        \@date
+    \end{center}
+
+
+\end{titlepage}
+
+\fancyhead[RE, LO]{\@author \\ \leftmark}
+\fancyhead[RO, LE]{\laboratory{} \\ University of Cambridge}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% Fields for the title page
+%
+% Author's Name
+\author{Ignas Anikevicius}
+% Title of the report
+\title{Cambridge Heraldry Project for the LaTeX website}
+% Insert the adress of the laboratory
+% Supervisor's name
+\supervisor{Dr Oren A. Scherman}
+% College. Please enter in the first field the full college name and in the
+% second the shortening which is used in the address of the website. Eg 
+%       \college{St. Catharine's}{caths}
+%       \college{Gonville & Caius}{caius}
+\college{Jesus}{jesus}
+\laboratory{Melville Laboratory for Polymer Synthesis}
+\address{\laboratory{} \\
+        The University Chemical Laboratory \\
+        Lensfield Road, Cambridge, CB2 1EW \\
+        United Kingdom}
+\date{\today}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% Produce the title page
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Declaration
+%
+\begin{preface}{Declaration}
+    %includeonly{preface-dec.tex}
+    \blindtext
+\end{preface}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Acknowledgements
+%
+\begin{preface}{Acknowledgements}
+    %includeonly{preface-ack.tex}
+    \blindtext
+\end{preface}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Abstract Here
+%
+\begin{preface}{Abstract}
+    %includeonly{preface-abs.tex}
+    \blindtext
+\end{preface}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Table of contents
+%
+\tableofcontents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Start the document and include chapters one by one. Which is the most sensible
+% way as it gives you easier control over your workflow. Eg. one can include
+% only needed chapters with \includeonly command
+%\includeonly{chapter1.tex}
+%\includeonly{chapter2.tex}
+%\includeonly{chapter3.tex}
+%\includeonly{chapter4.tex}
+%\includeonly{chapter5.tex}
+
+% Some text just to get feeling how it looks like
+\Blinddocument
+\Blinddocument
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Word count script, which will give you the number of words
+%
+\singlespacing{\wordcount}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
