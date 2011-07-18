@@ -45,6 +45,7 @@
 \usepackage{float}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
+\usepackage[version=3]{mhchem}
 
 % Font definitions and XeTeX usage
 \usepackage{ifxetex}
@@ -58,6 +59,8 @@
     \usepackage{lmodern}
     \usepackage{times}
 \fi
+
+\usepackage{acronym}
 
 % Run texcount on test.tex and write results to test.sum
 \immediate\write18{texcount -inc report_temp.tex > report_temp.sum}
@@ -91,11 +94,15 @@
     \thispagestyle{preface}
     \fancyfoot[C]{\thepage}
     \begin{center}
-        \@section*{#1}
+        \section*{#1}
     \end{center}
     }{
     \clearpage{}
 }
+
+\renewcommand{\chaptermark}[1]{
+ \markboth{\textit{\chaptername
+ \ \thechapter - #1}}{}}
     
 
 \renewcommand{\maketitle}{
@@ -183,7 +190,7 @@
 % Declaration
 %
 \begin{preface}{Declaration}
-    %includeonly{preface-dec.tex}
+    %\include{preface-dec.tex}
     \blindtext
 \end{preface}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -193,7 +200,7 @@
 % Acknowledgements
 %
 \begin{preface}{Acknowledgements}
-    %includeonly{preface-ack.tex}
+    %\include{preface-ack.tex}
     \blindtext
 \end{preface}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -203,8 +210,23 @@
 % Abstract Here
 %
 \begin{preface}{Abstract}
-    %includeonly{preface-abs.tex}
+    %\include{preface-abs.tex}
     \blindtext
+\end{preface}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Abbreviations Here
+%
+\begin{preface}{Abreviations}
+    \begin{acronym}
+        \acro{d2o}[\ce{D2O}]{deuterated water}
+        \acro{dmf}[DMF]{di-methyl-furane}
+        \acro{thf}[THF]{tetra-hydro-furane}
+        \acro{dmso}[DMSO]{di-methyl-sulfoxide}
+        \acro{rtm}[RTM]{please read the manual}
+    \end{acronym}
 \end{preface}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -220,15 +242,20 @@
 % Start the document and include chapters one by one. Which is the most sensible
 % way as it gives you easier control over your workflow. Eg. one can include
 % only needed chapters with \includeonly command
-%\includeonly{chapter1.tex}
-%\includeonly{chapter2.tex}
-%\includeonly{chapter3.tex}
-%\includeonly{chapter4.tex}
-%\includeonly{chapter5.tex}
+%\include{chapter1.tex}
+%\include{chapter2.tex}
+%\include{chapter3.tex}
+%\include{chapter4.tex}
+%\include{chapter5.tex}
 
 % Some text just to get feeling how it looks like
 \Blinddocument
 \Blinddocument
+
+\ac{d2o} is not \ac{dmf}.
+
+\ac{dmf} is not \ac{d2o}.
+
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
