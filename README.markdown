@@ -31,27 +31,3 @@ Report (CPGS, PtIII) writing:
         Template from CUED website
     * fix the template from Eric to make the code better.
 
-Dir Tree Struct:
-----
-    About 
-        - Why the project was started
-        - what it covers
-        - Acknowledgments
-    Setup
-        - Setup Necessary software
-        - Setup software for good graphics processing
-        - setup for fonts
-        - setup for collaborative writting
-    Produce
-        - Report stylefile
-        - Thesis stylefile
-        - Scientific paper templates
-        - CV sylefile
-        - Presentation, unique style for cambridge students?
-        - Posters
-    Tips
-        - Eps and Psfrag
-        - XeTeX for fonts
-        - Collaborate using git or mercurial or other versioning tools
-
-
