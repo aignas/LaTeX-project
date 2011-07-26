@@ -1,32 +1,37 @@
 TODO:
 -----
-    * Link to the needed files
-        or download them into the repository
-        or write a script, so that the files would be updated every now and then
-        
-        Contact the people, who own the files
+Priorities:
+    * CPGS/PtIII
+    * PhD (Update the previous template)
+    * Journals
+    * Posters
+    * Presentations
+    * Git
 
-    * Ask Scherman students for:
-        a list of journals they are writing the publications to
-        things which were very tedious to do
-        things which need to be done
+--------------------------------------------------------------------
 
-    * Send the memo to various people:
-        need to know to whom can I send this
+    * Journal files:
+        Grab everything (possibly with a script)
+        And let people know the links where they were fetched from
+
+    * Keeler notes:
+        SyncTeX usage with MiKTeX and Sumatra
+        The handouts, two layer eps files. One layer is the figure, another is the anotations
+        Font similarities
 
     * Get access to the web-server
 
-    * Prof. Wales:
-        Get the archive
-        Ask him about website themes/building and Drupal usage
+    * Send a memo to colleges
 
-Go through all the sent stuff
-Ask Ying to write small notes on Debian (ie. what packages are necessary, etc.)
-Setup.tex
-    * Fix Distribution notes to actually link to the project wikis were possible
-    * Finnish the editor section
-    * Finnish the PDF section
-    * Produce notes on graphics formats
+    * Prof. Wales:
+        Get the archive on 15th of August
+        Ask his people to give some posters, presentations.
+
+    * Go through all the sent stuff
+    * Finish Setup.tex
+        * Finnish the editor section
+        * Finnish the PDF section
+        * Produce notes on graphics formats
 
 Setup section:
     * Set up notes
