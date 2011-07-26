@@ -1,0 +1,47 @@
+\makeatletter
+
+\renewcommand{\maketitle}{
+\begin{titlepage}
+    \begin{minipage}[]{.5\textwidth}
+        \includegraphics[width=0.45\textwidth]{CUnibig.eps} \\
+    \end{minipage}
+    \begin{minipage}[]{.5\textwidth}
+        \begin{flushright}
+            \address
+        \end{flushright}
+    \end{minipage}
+
+    \vspace{0.5cm}
+    \begin{center}
+        \Hline \\[0.4cm]
+        \Huge{\@title}\\
+        \Hline \\[0.8cm]
+        \normalsize{\subnotes}
+    \end{center}
+
+    \vspace{1.75cm}
+
+    \vfill
+
+    \begin{minipage}[]{.5\textwidth}
+        \centering
+        \normalsize{\textit{Author:}}\\
+        \Large\@author
+    \end{minipage}
+    \begin{minipage}[]{.5\textwidth}
+        \begin{flushright}
+            \includegraphics[width=0.15\textwidth]{\collegecrest} \\
+            \Large {\it \college{} College}
+        \end{flushright}
+    \end{minipage}
+
+    \vspace{1.5cm}
+
+    \Large\supervisor
+
+    \begin{center}
+        \@date
+    \end{center}
+\end{titlepage}
+}
+\makeatother

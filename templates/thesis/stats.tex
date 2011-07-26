@@ -1,0 +1,17 @@
+%        File: cpgs-stats.tex
+%     Created: Wed Jul 20 04:00  2011 B
+% Last Change: Wed Jul 20 04:00  2011 B
+%
+\documentclass[a4paper]{article}
+\usepackage{verbatim}
+
+\immediate\write18{texcount -inc -sum erc-cpgs-example.tex > erc-cpgs.stats}
+\newcommand{\wordcount}{
+\clearpage
+\pagestyle{empty}
+\begin{multicols}{2}
+    \verbatiminput{erc-cpgs-example.sum}
+\end{multicols}}
+
+\begin{document}
+\end{document}

@@ -1,0 +1,174 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is a Template for CPGS and Part III Reports for the Department of
+% Chemistry. It should be used as a starting point to typeset your reports.
+% Everything is set up in the preamble, so that the changes would be easy to
+% make. However, if you are happy with the formatting, do not change anything
+% unless you really know what you are doing.
+%
+% For those who want to learn more LaTeX and know how everything was done,
+% please read through the preamble and enjoy. I hope that the extensive
+% documentation will help you to understand everything. If you can think of a
+% better way to do things, please submit a patch to the file and I will be happy
+% to ammed the changes.
+%
+% The file is GPL licensed.
+%
+% Written by Ignas Anikevicius
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Preamble of the file
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Definition of the class. Do not change this line unless you want to make your own template
+\documentclass[a4paper,phd]{book-CUCD}
+\usepackage[english,british]{babel}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Font related stuff
+%%%%%%%%%%%%%%%
+% Get UTF, Type1 fonts working and change Computer Modern font to times
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{times}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages to ease dealing with figures and Tables
+%%%%%%%%%%%%%%%
+
+% Add png, jpg, pdf support into LaTeX
+\usepackage[]{graphicx}
+% Directories where your figures are placed
+\graphicspath{
+{./front/figs_eps//}
+{./chap1/figs_eps//}
+{./chap2/figs_eps//}
+{./chap3/figs_eps//}
+% add more if you have more chapters !
+{./appA/figs_eps//}
+}
+
+% Usage of .eps in pdflatex
+\usepackage[update,verbose=false]{epstopdf}
+
+% Get different kinds of floats working
+%%\usepackage{float}
+
+% Get nice tables
+%\usepackage{booktabs}
+
+% Get nice alignment inside the table
+%\usepackage{dcolumn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage[]{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+
+%\usepackage[version=3]{mhchem}
+
+%\usepackage{array}
+
+%\usepackage{acronym}
+
+%\usepackage[superscript]{cite}
+\usepackage[sort]{natbib}
+
+% Run texcount on test.tex and write results to test.sum
+%\immediate\write18{echo `texcount -inc -sum -1 erc-cpgs-example.tex` > erc-cpgs-example.totsum}
+% Define macro \wordcount for including the counts
+%\newcommand{\wordcount}{\input{erc-cpgs-example.totsum}}
+
+%\renewcommand{\chaptermark}[1]{\markboth{\textit{\chaptername\ \thechapter\ -\ #1}}{}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Edit this file to change your title page
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fields for the title page
+%%%%%%%%%%%%%%%
+
+\author{John Smith}
+\title{A Very Interesting Study About Waffles and How Do You
+Make Syrup Out of Every Impossible Plant.}
+\supervisor{Prof. Smith}
+% College. Please enter in the first field the full college name and in the
+% second the file-name how the crest-file of your college is named. Examples:
+%       \college{St. Catharine's}{caths}
+%       \college{Gonville & Caius}{caius}
+\college{All Saints}{allsaints}
+\laboratory{Laboratory of Science}
+\address{\laboratory{} \\
+        The University Chemical Laboratory \\
+        Lensfield Road, Cambridge, CB2 1EW \\
+        United Kingdom}
+\subnotes{This dissertation is submitted for the degree of
+    Doctor of Philosophy}
+% Enter the date
+\date{January 1, 1990}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\includeonly{./chap1/chap1.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Front matter section
+\frontmatter
+
+\include{front/cover2}
+\include{front/abstract}
+
+\tableofcontents
+%\listoffigures
+%\listoftables
+%\listofalgorithms
+
+\include{front/abrev}
+\include{front/declare}
+\include{front/acknowledge}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Main matter section
+% 
+\mainmatter
+\pagestyle{fancy}
+
+\include{chap1/chap1}
+\include{chap2/chap2}
+\include{chap3/chap3}
+\include{chap4/chap4}
+\include{chap5/chap5}
+\include{chap6/chap6}
+
+\appendix
+%\renewcommand{\thechaptername}{Appendix}
+\include{appA/appA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Bibliography
+%
+
+\bibliographystyle{plain}
+\bibliography{./refs/bibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+% vim: tw=80:spell:spelllang=en_gb
