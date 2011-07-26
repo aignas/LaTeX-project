@@ -1,0 +1,8 @@
+\glossarysection[\glossarytoctitle]{\glossarytitle}\glossarypreamble
+\begin{theglossary}\glossaryheader
+\glsgroupheading{S}\relax \glsresetentrylist %
+\glossaryentryfield{sample}{\glsnamefont{sample}}{a sample entry}{\relax }{\glossaryentrynumbers{\relax 
+		\setentrycounter{page}\glsnumberformat{1}}}%
+\glossaryentryfield{sample2}{\glsnamefont{sample2}}{a sample entry to try it out}{\relax }{\glossaryentrynumbers{\relax 
+		\setentrycounter{page}\glsnumberformat{1}}}%
+\end{theglossary}\glossarypostamble

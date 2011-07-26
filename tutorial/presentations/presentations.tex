@@ -1,0 +1,68 @@
+%\documentclass[utf8x,hyperref={unicode},handout]{beamer}
+\documentclass[utf8x,hyperref={unicode}]{beamer}
+\usecolortheme{beaver}
+\setbeamercovered{transparent}
+\mode<presentation>
+
+% New commands which ease the work. Units and relative uncertainties
+\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+\newcommand{\relerr}[1]{\ensuremath{ \cfrac{\Delta #1}{#1}}}
+\newcommand{\eten}[1]{\ensuremath{ \times 10^{#1}}}
+\newcommand{\DP}[2]{\ensuremath{\cfrac{\partial #1}{\partial #2}}}
+\newcommand{\DD}[2]{\ensuremath{\cfrac{\mathrm{d} #1}{\mathrm{d} #2}}}
+\newcommand{\dd}[1]{\ensuremath{\mathrm{d}#1}}
+
+\title{Title of the presentation}
+\subtitle{Subtitle of it}
+\author{Author Name}
+\date[] % (optional)
+{Molecular Computer Science Conference}
+%\subject{Chemija}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\AtBeginSection[]
+{
+\begin{frame}
+  \frametitle{Contents:}
+  \large
+  \tableofcontents[currentsection,hideothersubsections]
+  \normalsize
+\end{frame}
+}
+
+\section{First section}
+
+\begin{frame}
+    \frametitle{Exploring beamer package}
+    You can do a lot of very nice things. Like having very nice equations:
+    \begin{equation}
+        \dd f = \DD{f}{x}\dd x + \DD{f}{y}\dd y
+        \label{eq:exact_diff}
+    \end{equation}
+    Also you can
+    \pause
+    hide
+    \pause
+    text
+    \pause
+    like
+    \pause
+    this.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Next Slide}
+    One can make several columns inside a slide anywhere (s)he wants.
+    %
+    %\begin{columns}
+    %    <++>
+    %\end{columns}<++>
+    Inserting graphics is also very easy.
+\end{frame}
+
+\end{document}
