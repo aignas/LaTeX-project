@@ -1,0 +1,167 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html
+      xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>-- </title>
+      <meta name="HW.ad-path" content="/site/feature/contribinfo/prep/TeX_help/scifile.dvi" />
+      <link rel="stylesheet" type="text/css" media="all" href="/shared/css/hw-global.css" />
+      <link rel="stylesheet" type="text/css" media="print" href="/shared/css/hw-print.css" />
+      <link rel="stylesheet" type="text/css" media="all"
+            href="/publisher/css/hw-publisher-global.css" />
+      <link rel="stylesheet" type="text/css" media="all"
+            href="/publisher/css/hw-publisher-sidebars.css" />
+      <link rel="stylesheet" type="text/css" media="all" href="/local/css/hw-local-all.css" />
+      <link rel="stylesheet" type="text/css" media="all"
+            href="/publisher/css/hw-publisher-page-proxied.css" />
+      <link rel="stylesheet" type="text/css" media="all" href="/site/global_styles.css" /><script type="text/javascript" id="session-d1106978319e1">var callbackToken='548A456B8585B1E';</script><script type="text/javascript" id="session-d1106978319e3">
+			var OAS_country_code = 'GB';
+			
+			
+			
+			
+				
+        var OAS_sitepage = window.location.hostname + window.location.pathname;
+    
+		
+			var OAS_usertype = 'INST';
+		</script><script type="text/javascript"
+              src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script><script type="text/javascript"
+              src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script><script type="text/javascript" src="/publisher/js/publisher-library.js"></script><script type="text/javascript" src="/shared/js/hw-shared.js"></script><script type="text/javascript" src="/publisher/js/publisher-shared.js"></script><script type="text/javascript" src="/site/global_js.js"></script><script type="text/javascript"
+              src="http://oascentral.sciencemag.org/Scripts/oas_analytics.js"></script><script type="text/javascript" src="/publisher/js/oas_ads.js"></script></head>
+   <body>
+      <div class="hw-gen-page sci pagetype-journal-content pagetype-proxied hw-pub-id-static_feature"
+           id="pageid-feature">
+         <div id="hd">
+            <div id="hd-main">
+               <div id="hd-logo"><a href="http://www.sciencemag.org/" title="*Science*/AAAS" tabindex="2"><em>Science</em>/AAAS</a></div>
+               <ul id="nav-util">
+                  <li><a href="http://aaas.org/" tabindex="3">AAAS.ORG</a></li>
+                  <li><a href="/feedback" tabindex="4">Feedback</a></li>
+                  <li><a href="/site/help/" tabindex="5">Help</a></li>
+                  <li class="last"><a href="http://www.sciencemag.org/help/librarians/" tabindex="6">Librarians</a></li>
+               </ul>
+               <div id="hd-search">
+                  <form id="global_search_form" name="global_search_form" action="/switch">
+                     <fieldset><select id="site_area" name="site_area" size="1" tabindex="7">
+                           <option value="sci" selected="selected">Science Magazine</option>
+                           <option value="sciencenow">Daily News</option>
+                           <option value="sigtrans">Science Signaling</option>
+                           <option value="scitransmed">Science Translational Medicine</option>
+                           <option value="sageke">SAGE KE</option>
+                           <option value="scirecruit">Science Careers</option>
+                           <option value="searchall">All HighWire Journals</option></select><input type="text" id="search-terms" name="fulltext" value="Enter Search Term"
+                               tabindex="8" /><input type="image" src="/publisher/img/spacer.gif" class="search-submit"
+                               value="submit"
+                               tabindex="9" /><a href="/search" tabindex="10">Advanced</a></fieldset>
+                  </form>
+               </div>
+               <div id="authstring">
+                  <ul>
+                     <li class="subscr-ref">CAMBRIDGE UNIVERSITY LIBRARY</li>
+                     <li class="no-left-border"><a href="/cgi/alerts/main">
+                           Alerts
+                           </a></li>
+                     <li><a href="/site/my_account/access_rights.xhtml">
+                           Access Rights
+                           </a></li>
+                     <li><a href="/site/my_account/">
+                           My Account
+                           </a></li>
+                     <li><a href="/login?uri=http%3A%2F%2Fwww.sciencemag.org%2Fsite%2Ffeature%2Fcontribinfo%2Fprep%2FTeX_help%2Fscifile.dvi">
+                           <strong xmlns="">Sign In</strong></a></li>
+                  </ul>
+               </div>
+               <ul id="nav-main" class="nav-main">
+                  <li class="item" id="nav_news"><a href="http://news.sciencemag.org/" id="nav-main-news" tabindex="14">News</a></li>
+                  <li class="item" id="nav_magazine"><a href="http://www.sciencemag.org/journals" id="nav-main-journals" tabindex="15">Science Journals</a></li>
+                  <li class="item" id="nav_careers"><a id="nav-main-careers" href="http://sciencecareers.sciencemag.org/"
+                        tabindex="16">Careers</a></li>
+                  <li class="item" id="nav_communities"><a id="nav-main-communities" href="http://blogs.sciencemag.org" tabindex="17">Communities</a></li>
+                  <li class="item" id="nav_multimedia"><a href="http://www.sciencemag.org/multimedia/" id="nav-main-multimedia"
+                        tabindex="18">Multimedia</a></li>
+                  <li class="item" id="nav_collections"><a href="http://www.sciencemag.org/cgi/collection" id="nav-main-topics"
+                        tabindex="19">Topics</a></li>
+               </ul><a href="/subscriptions/indiv_sub.xhtml" id="hd-subscribe" tabindex="20">Subscribe</a><a name="SectionNavigation" id="SectionNavigation"></a><div id="hd-sub">
+                  <ul id="nav-sub" class="tab-list">
+                     <li id="subnav_science_home"><a href="/magazine"><em>Science</em> Home</a></li>
+                     <li id="subnav_current_issue"><a href="/content/current">Current Issue</a></li>
+                     <li id="subnav_prev_issues"><a href="/content">Previous Issues</a></li>
+                     <li id="subnav_science_express"><a href="/content/early/recent"><em>Science</em> Express</a></li>
+                     <li id="subnav_science_products"><a href="/products/"><em>Science</em> Products</a></li>
+                     <li id="subnav_my_science"><a href="/my_science/">My <em>Science</em></a></li>
+                     <li id="subnav_about_journal"><a href="/site/about/index.xhtml">About the Journal</a></li>
+                  </ul>
+               </div>
+            </div>
+            <div id="site-breadcrumbs-wrapper">
+               <ul id="site-breadcrumbs">
+                  <li class="firstcrumb"><a href="/">Home</a></li>
+                  <li class="lastcrumb"><span class="bc-sep"> &gt; </span><a href="/magazine"><em>Science</em> Magazine</a></li>
+               </ul>
+            </div>
+         </div>
+         <div id="leaderboard" class="leaderboard-ads"><script type="text/javascript">
+				OAS_AD('Top');
+			</script></div>
+         <div id="BodyWrapper">
+            <div id="content-block">
+               <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml"></xhtml:div>
+            </div>
+            <div id="col-2"></div>
+            <div id="col-3">
+               <div class="Promo" id="Promo160x120"><script language="javascript">
+			OAS_AD('Right1');
+		</script></div>
+               <div class="Ad" id="Ad160x600"><script language="javascript">
+			OAS_AD('Right2');
+		</script></div>
+               <div class="Ad" id="Ad160x600">
+                  <p class="AdInfo"><a href="http://www.sciencemag.org/site/help/advertisers/index.xhtml">To Advertise</a><span class="Invisible">|</span><a href="http://www.sciencemag.org/site/products/">Find Products</a></p>
+               </div>
+            </div>
+         </div>
+         <div id="footer">
+            <div id="ISSNLine">
+               <p><em>Science</em>. ISSN 0036-8075 (print), 1095-9203 (online)
+                  		
+               </p>
+            </div>
+            <div id="FooterWrapper"><a href="http://www.aaas.org/" title="Go to AAAS website"><img src="/publisher/icons/logo.aaas.footer.gif" alt="AAAS Logo" width="52"
+                       height="16"
+                       border="0"
+                       id="logo_aaas" /></a><a href="http://highwire.stanford.edu/" title="Go to High Wire Press website"><img src="/publisher/icons/logo.hwp.footer.gif" alt="HWP Logo" width="115"
+                       height="19"
+                       border="0"
+                       id="logo_hwp" /></a><div class="footer-links"><a href="http://news.sciencemag.org/">News</a>  |  
+                  			<a href="http://www.sciencemag.org/journals/">Science Journals</a>  |  
+                  			<a href="http://sciencecareers.sciencemag.org">Careers</a>  |  
+                  			<a href="http://blogs.sciencemag.org/">Blogs and Communities</a>  | 
+                  			<a href="http://www.sciencemag.org/site/multimedia/">Multimedia</a>  |  
+                  			<a href="http://www.sciencemag.org/cgi/collection">Collections</a>  |  
+                  			<a href="http://www.sciencemag.org/help">Help</a>  |  
+                  			<a href="http://www.sciencemag.org/help/about/site_map.dtl">Site Map</a>  |  
+                  			<a href="http://www.sciencemag.org/rss">RSS</a></div>
+               <div class="footer-links"><a href="http://www.sciencemag.org/site/subscriptions">Subscribe</a>  |  
+                  			<a href="http://www.sciencemag.org/cgi/feedback">Feedback</a>  |  
+                  			<a href="http://www.sciencemag.org/site/help/about/privacy.xhtml">Privacy / Legal</a>  | 
+                  			<a href="http://www.sciencemag.org/site/help/about/index.xhtml">About Us</a>  | 
+                  			<a href="http://www.sciencemag.org/site/help/advertisers/index.xhtml">Advertise With Us</a>  |  
+                  			<a href="http://www.sciencemag.org/site/help/about/contact.xhtml">Contact Us</a></div>
+               <div id="copyright">
+                  <p><a href="/site/help/about/copyright.xhtml">© 2011 American Association for the Advancement of Science. All Rights Reserved</a>.<br />AAAS is a partner of <a target="_blank" href="http://www.who.int/hinari/en/">HINARI</a>, <a target="_blank" href="http://www.aginternetwork.org/en/">AGORA</a>, <a target="_blank" href="http://www.oaresciences.org/en">OARE</a>, <a target="_blank" href="http://www.eifl.net/cps/sections/home">eIFL</a>, <a target="_blank" href="http://www.patientinform.org/">PatientInform</a>, <a target="_blank" href="http://www.crossref.org/">CrossRef</a>, and <a target="_blank" href="http://www.projectcounter.org/">COUNTER</a>.
+                  </p>
+               </div>
+            </div><script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script><script type="text/javascript">
+        var pageTracker = _gat._getTracker("UA-2369900-1");
+        pageTracker._trackPageview();
+        </script><script type="text/javascript" language="JavaScript" src="/site/elqNow/elqCfg.js"></script><script type="text/javascript" language="JavaScript" src="/site/elqNow/elqImg.js"></script><script type="text/javascript" language="JavaScript" src="/site/elqNow2/elqCfg.js"></script><script type="text/javascript" language="JavaScript" src="/site/elqNow2/elqImg.js"></script></div>
+      </div>
+   </body>
+</html>
