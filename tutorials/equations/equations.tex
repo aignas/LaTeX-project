@@ -1,26 +1,11 @@
-\documentclass[a4paper,11pt]{article}
-\usepackage[utf8x]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{fullpage}
-\linespread{1.1}
-\usepackage{mathpazo}
-\usepackage{verbatim}
-\usepackage{listings}
-\lstset{
-%language=TeX,
-breaklines=True}
-\usepackage[]{color}
+% Clever thing to minimize the files I need to edit to change how the files are
+% looking. The following one line comment is to trick VIM-LaTeX
+% \documentclass{article}
+\input{./../template_preamble.tex}
+
+% Custom things
 \usepackage[version=3]{mhchem}
-
-\usepackage[]{hyperref}
-
-% New commands which ease the work. Units and relative uncertainties
-\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
-\newcommand{\relerr}[1]{\ensuremath{ \cfrac{\Delta #1}{#1}}}
-\newcommand{\eten}[1]{\ensuremath{ \times 10^{#1}}}
-\newcommand{\DP}[2]{\ensuremath{\cfrac{\partial #1}{\partial #2}}}
-\newcommand{\DD}[2]{\ensuremath{\cfrac{\mathrm{d} #1}{\mathrm{d} #2}}}
-\newcommand{\dd}[1]{\ensuremath{\mathrm{d}#1}}
+\usepackage[]{amsmath}
 
 \title{Getting nice equations in the text}
 \author{Ignas Anikevicius}

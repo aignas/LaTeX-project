@@ -12,21 +12,28 @@ tutorials on:
         - finish it by adding some more examples?
     * Graphics
         - Good graphics production
-        - epstopdf package
-        - picture environment to include LaTeX code
     * Setup
         - finish several sections so that it would look more complete
     * Tables
         - add more examples?
-
-Other which are needed (order = relevance):
+    * Fonts
+        - times, mathpazo and links
+        - xetex
+        - lualatex
+        - font encoding
     * CUCD Template usage
     * Citations
+        - achemso package usage
+        - \cite{cite1, cite2, cite3} _NOT_ \cite{cite1} \cite{cite2]...
+        - do not use cite package if you use achemso
+        - everything then work well
+        - mciteplus goodies
     * Defining commands
-    * Fonts
     * Beamer for presentations
     * Beamer for posters
     * GIT for LaTeX
+
+Other which are needed (order = relevance):
 
 TODO:
     Look what information is available on CUED and link to it.

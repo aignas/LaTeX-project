@@ -1,0 +1,39 @@
+\documentclass[a0paper]{scrartcl}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fullpage}
+\linespread{1.2}
+\usepackage{mathpazo}
+
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{listings}
+\lstset{
+language=[LaTeX]TeX,
+%keywordstyle={\color{OliveGreen}\bfseries},
+backgroundcolor=\color[HTML]{FFFAC9},
+numbers=left,
+numberstyle=\footnotesize,
+%frame=single,
+breaklines=True}
+
+\usepackage[]{hyperref}
+
+% New commands which ease the work. Units and relative uncertainties
+\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+\newcommand{\relerr}[1]{\ensuremath{ \cfrac{\Delta #1}{#1}}}
+\newcommand{\eten}[1]{\ensuremath{ \times 10^{#1}}}
+\newcommand{\DP}[2]{\ensuremath{\cfrac{\partial #1}{\partial #2}}}
+\newcommand{\DD}[2]{\ensuremath{\cfrac{\mathrm{d} #1}{\mathrm{d} #2}}}
+\newcommand{\dd}[1]{\ensuremath{\mathrm{d}#1}}
+
+\title{Example of a Poster using KOMA-script class}
+\subtitle{This might be the best bet}
+\author{Ignas Anikevicius}
+
+\begin{document}
+
+\maketitle
+
+\end{document}
+
+

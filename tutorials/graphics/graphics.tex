@@ -1,30 +1,18 @@
-\documentclass[a4paper,11pt]{article}
-\usepackage[utf8x]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{fullpage}
-\linespread{1.1}
-\usepackage{mathpazo}
-\usepackage{listings}
-\lstset{
-%language=TeX,
-breaklines=True}
-\usepackage[]{color}
+% Clever thing to minimize the files I need to edit to change how the files are
+% looking. The following one line comment is to trick VIM-LaTeX
+% \documentclass{article}
+\input{./../template_preamble.tex}
+
+% Custom things
 \usepackage[version=3]{mhchem}
 \usepackage{float}
+\usepackage{calc}
+\usepackage[]{amsmath}
 
 \usepackage[pdftex]{graphicx}
 \graphicspath{{./figs/}}
 \usepackage[update,verbose=false]{epstopdf}
 
-\usepackage[]{hyperref}
-
-% New commands which ease the work. Units and relative uncertainties
-\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
-\newcommand{\relerr}[1]{\ensuremath{ \cfrac{\Delta #1}{#1}}}
-\newcommand{\eten}[1]{\ensuremath{ \times 10^{#1}}}
-\newcommand{\DP}[2]{\ensuremath{\cfrac{\partial #1}{\partial #2}}}
-\newcommand{\DD}[2]{\ensuremath{\cfrac{\mathrm{d} #1}{\mathrm{d} #2}}}
-\newcommand{\dd}[1]{\ensuremath{\mathrm{d}#1}}
 
 \title{Getting good quality graphics inside a \LaTeX\ document}
 \author{Ignas Anikevicius}
@@ -72,6 +60,7 @@ If you feel that you have not found enough information on the graphics usage in
         Graphics}
 \end{itemize}
 
+\clearpage
 \section{Inserting a simple figure}
 
 Inserting a simple figure can be as easy as:
@@ -86,6 +75,7 @@ will fix these nuances:
 And our figure will look as follows:
 \input{fig2.tex}
 
+\clearpage
 \section{Directory setting for graphics, their formats and \LaTeX\ compilers}
 
 The most convenient way nowadays to produce documents from \LaTeX\ source code
@@ -112,12 +102,26 @@ This means, that the \verb|epstopdf| package will convert the \verb|.eps|
 graphics only when they are newer than the \verb|.pdf| versions, which might
 speed up the compiling time significantly.
 
+\clearpage
 \section{Overlaying a figure with \LaTeX\ code}
 
 This is the most interesting capability of \LaTeX\ although it might be
 considered as 'fiddly' by some users, as it requires some trial and error, but
 it can be very useful in some cases (eg. Having a lot of figures with chemical
 structures and getting them cross-referenced and numbered correctly).
+
+The example in the figure \ref{fig:plot3} just shows how one could do that. It
+is using the native \LaTeX\ environment \verb|picture| and the only package you
+need to use additionally is \verb|calc|, so this has very low requirements and
+is very straightforward.
+
+\input{fig3.tex}
+\lstinputlisting{fig3.tex}
+
+However, there are some nuances. To begin with, you need to know the aspect
+ratio of your picture, which is not a problem most of the times, since you set
+the size of your picture your self. If the picture is raster graphics, then the
+ratio is very easily found by just dividing width and height of the image.
 
 \end{document}
 

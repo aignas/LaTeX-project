@@ -1,0 +1,99 @@
+% Clever thing to minimize the files I need to edit to change how the files are
+% looking. The following one line comment is to trick VIM-LaTeX
+% \documentclass{article}
+\input{./../template_preamble.tex}
+
+% Custome packages
+\usepackage[]{amsmath}
+\usepackage{blindtext}
+\usepackage{multicol}
+\usepackage[english,british]{babel}
+
+\usepackage{stfloats}
+\usepackage{booktabs}
+\usepackage{array}
+
+\title{Getting nice tables in the text}
+\author{Ignas Anikevicius}
+
+\begin{document}
+
+\maketitle
+
+Tables is usually the most difficult thing to do properly in \LaTeX . It is very
+hard to cover everything needed to get nice tables in your document, so if you
+feel, that you have not found your answers in this document, please refer to
+this 
+\href{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Tables#The_table_environment_-_captioning_etc}{book}.
+
+\section{Simple table usage}
+
+Here I will give two examples of table making. One is using the internal \LaTeX\
+table-making framework. Another is using a \verb|booktabs| package, which seems
+to provide better looking tables.
+
+\input{tab1.tex}
+\input{tab2.tex}
+
+As you can see, Table \ref{tab:table2} looks far better, because of different
+spacing and line widths. The tables were produced using the code shown bellow:
+\lstinputlisting{tab1.tex}
+\lstinputlisting{tab2.tex}
+
+\section{Multiple lines in table cells}
+
+The basic method of constructing tables which was covered in the previous
+section is good only if you do not need to specify the width of the columns and
+you do not need to break the text inside a cell.
+
+Suppose we add one more column into our table and make use of the ability in
+provided by the \verb|array| package to get any environments working inside a
+cell. To get more information on this please refer to this 
+\href{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Tables#The_table_environment_-_captioning_etc}{book}.
+
+\input{tab4.tex}
+\lstinputlisting{tab4.tex}
+
+\section{Tables in documents with more than one column}
+
+\begin{multicols}{2}
+        \input{tab5.tex}
+
+            Usually scientific journals use two-columns text layout, which sometimes
+                complicates float placement inside text. This is because not all figures can
+                    be made narrow enough to fit into one column of text and if it needs to be
+                        larger, then we get some nasty overlapping, which is the least we want.
+
+                            The ``trick'' there is to use a 'stared' version of the \verb|table|
+                                environment (ie. \verb|table*|). However, this has some limitations as the
+                                    table float then can be added only to the top of the page. A package
+                                        \verb|stfloats| seems to offer slightly more flexibility over the placement
+                                            as it provides means to put the float on the bottom of the page, however,
+                                                the float still can not be placed in the middle of the page.
+
+                                                    In my opinion these options are the only one which look really good, so I do
+                                                        not see any limitations here, it is just it is slightly harder to deal with
+                                                            such floats than with simple floats.
+
+                                                                Because I need more text, I will insert some dummy text using a package
+                                                                    \verb|blindtext| and command \verb|\blindtext|.
+
+                                                                        ----------------
+                                                                            \textbf{Dummy text start}
+
+                                                                                \blindtext
+
+                                                                                    \blindtext
+
+                                                                                        ----------------
+                                                                                            \textbf{Dummy text finish}
+                                                                                        \end{multicols}
+
+                                                                                        The source code for the table \ref{tab:table5} is shown bellow:
+                                                                                        \lstinputlisting{tab5.tex}
+
+                                                                                        \end{document}
+
+                                                                                        % Editor configuration:
+                                                                                        % vim: tw=80:spell:spelllang=en_gb
+

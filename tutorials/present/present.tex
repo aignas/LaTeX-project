@@ -1,0 +1,63 @@
+% Clever thing to minimize the files I need to edit to change how the files are
+% looking. The following one line comment is to trick VIM-LaTeX
+% \documentclass{article}
+\input{./../template_preamble.tex}
+
+% Custom packages
+\usepackage[]{cite}
+\usepackage{framed}
+
+\title{How to make presentations with \LaTeX{}}
+\author{Ignas Anikevicius}
+
+\begin{document}
+
+\maketitle
+
+\begin{framed}
+\begin{center}
+{\color{Red} TODO}
+\begin{itemize}
+    \item Elaborate more on Beamer package
+    \item More on KOMAscript
+    \item More on others?
+\end{itemize}
+\end{center}
+\end{framed}
+
+Here I will talk as to how get \LaTeX\ working for the production of the
+presentations. There are numerous ways how you could do a presentation in
+\LaTeX{}. One of
+them is to use already existing packages, of which \verb|beamer| is the most
+popular one. However, you can use standard document classes as well
+\cite{PracTeX-komapres}.
+
+There is also another source of information \cite{latexwikibook:presentations},
+which might be a good starting point for example of Beamer package.
+
+\section{Beamer package}
+
+As mentioned before, the \verb|beamer| package is the most popular among
+scientists and it works quite well with PGF/TikZ packages which might make it
+the best solution out there. It is very straight forward to use it --- it
+defines several new environments (eg \verb|frame|, \verb|column| etc) and
+commands (eg \verb|\frametitle|, \verb|\pause| etc).
+
+In order to make your presentation stand out from other people, it might be
+advisable to read the aforementioned article \cite{PracTeX-komapres}, which
+might help you a lot in understanding how to make your presentation good and
+unique.
+
+\section{KOMAscript class}
+
+This way seems to be much more extensible and faster once it is learned,
+however, appear to have slightly higher learning curve than the \verb|beamer|
+just because of these options.
+
+\bibliographystyle{plain}
+\bibliography{./../tutorial}
+
+\end{document}
+
+% Editor configuration:
+% vim: tw=80:spell:spelllang=en_gb

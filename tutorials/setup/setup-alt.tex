@@ -1,15 +1,11 @@
 % TODO change verbatim into listings
-\documentclass[a4paper]{article}
-\usepackage[utf8x]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{fullpage}
-\linespread{1.1}
-\usepackage{mathpazo}
-\usepackage{verbatim}
-\usepackage{listings}
+% Clever thing to minimize the files I need to edit to change how the files are
+% looking. The following one line comment is to trick VIM-LaTeX
+% \documentclass{article}
+\input{./../template_preamble.tex}
 
-\usepackage[]{hyperref}
-
+% Custom stuff
+\lstset{language=bash,numbers=none}
 \newcommand{\MiKTeX}{MiK\TeX}
 \newcommand{\MacTeX}{Mac\TeX}
 
@@ -79,8 +75,8 @@ Here is a list of most popular distributions and links to their Wikipedia Pages:
         pages can be used. However, for full installation of \TeX\ Live you can try
         these terminal commands (issue them as root):
 \begin{lstlisting}
-# aptitude update
-# aptitude install texlive-full
+aptitude update
+aptitude install texlive-full
 \end{lstlisting}
 
     \item[.rpm based]
@@ -88,7 +84,7 @@ Here is a list of most popular distributions and links to their Wikipedia Pages:
         manager and install the full \TeX\ Live distribution. The following
         command executed in terminal as root should work:
 \begin{lstlisting}
-# yum install texlive-full
+yum install texlive-full
 \end{lstlisting}
 
     \item[ArchLinux and derivatives]
@@ -96,7 +92,7 @@ Here is a list of most popular distributions and links to their Wikipedia Pages:
         distributions. Both use pacman as their packages manager, so the
         following commands executed as root user will suffice:
 \begin{lstlisting}
-# pacman -S texlive-most texlive-lang
+pacman -S texlive-most texlive-lang
 \end{lstlisting}
         NB the second package texlive-lang is for the different languages
         support and if you use only English language, then you are free to
@@ -112,7 +108,7 @@ Here is a list of most popular distributions and links to their Wikipedia Pages:
 
         For checking the list of functionality for texlive distribution, enter:
 \begin{lstlisting}
-# equery uses texlive
+equery uses texlive
 \end{lstlisting}
         and you will get the list of available use flags.
         You will have to enable the needed flags in the
