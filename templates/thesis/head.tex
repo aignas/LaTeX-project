@@ -1,0 +1,140 @@
+% Definition of the class. Do not change this line unless you want to make your own template
+\documentclass[report]{scrbook-cucd}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages to ease dealing with figures and Tables
+%%%%%%%%%%%%%%%
+
+% Add png, jpg, pdf support into LaTeX
+\usepackage[]{graphicx} % Add png, jpg, pdf support into pdflatex
+\graphicspath{          % Directories where your figures are placed
+{./front/figs_eps//}    %       add 'front/figs_eps' dir
+{./chap1/figs_eps//}    %       add 'chap1/figs_eps' dir
+{./appA/figs_eps//}     % 
+}                       % add more if you need to!
+                        % NB the figure names must be unique!
+
+\usepackage[            % Convert eps figs on the fly using the pdflatex
+    update,             %       convert them if they were changed
+    verbose=false,      %       do not output unintresting stuff
+    ]{epstopdf}         %
+                                    
+% Get nice tables
+\usepackage{booktabs}
+% Get nice alignment inside the table
+\usepackage{dcolumn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[]{amsmath}
+\usepackage{blindtext}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsfonts}
+\usepackage[version=3]{mhchem}
+\usepackage{pbox}
+\usepackage{calc}
+\usepackage{array}
+\usepackage{acronym}
+\usepackage{achemso}
+\usepackage{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fields for the title page
+%%%%%%%%%%%%%%%
+
+\author{John Smith}
+\title{A Very Interesting Study About Waffles and How Do You
+Make Syrup Out of Every Impossible Plant.}
+\supervisor{
+    Prof. Severus Snape
+}
+
+%\college{Christ's College}
+%\college{Churchill \\College}
+%\college{Clare College}
+%\college{Clare Hall}
+%\college{Corpus Christi \\College}
+%\college{Darwin College}
+%\college{Downing College}
+%\college{Emmanuel \\College}
+%\college{Fitzwilliam \\College}
+%\college{Girton College}
+%\college{Gonville \& Caius \\College}
+%\college{Homerton \\College}
+%\college{Hughes Hall}
+%\college{Jesus College}
+%\college{King's College}
+%\college{Lucy Cavendish \\College}
+%\college{Magdalene \\College}
+%\college{Murray Edwards \\College}
+%\college{Newnham \\College}
+%\college{Pembroke \\College}
+%\college{Peterhouse \\College}
+%\college{Queens' College}
+%\college{Robinson \\College}
+%\college{St Catharine's \\College}
+%\college{St Edmund's \\College}
+%\college{St John's College}
+%\college{Selwyn College}
+%\college{Sidney Sussex \\College}
+%\college{Trinity College}
+%\college{Trinity Hall}
+%\college{Wolfson College}
+\college{The Only College}
+
+\laboratory{Laboratory of Science}
+\labaddress{Laboratory of Science \\
+    The University Chemical Laboratory \\
+    Lensfield Road, Cambridge, CB2 1EW \\
+    United Kingdom}
+\subtitle{This dissertation is submitted after being 
+    Pilled higher \& Deeper for 3 years}
+% Enter the date
+\date{January 1, 1990}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\includeonly{front/cover}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Front matter section
+
+\frontmatter
+\include{front/cover}
+\include{front/abstract}
+
+%\tableofcontents
+%\listoffigures
+%\listoftables
+
+\include{front/abrev}
+\include{front/declare}
+\include{front/acknowledge}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main matter section
+
+\mainmatter
+\include{chap1/chap1}
+%\Blinddocument
+%\Blinddocument
+
+\appendix
+\include{appA/appA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography
+
+%\bibliographystyle{achemso}
+%\bibliography{./refs/bibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
+% Editor settings:
+% vim: tw=80:spell:spelllang=en_gb
