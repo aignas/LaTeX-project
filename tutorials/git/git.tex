@@ -13,10 +13,10 @@ on the same documents}
 
 \maketitle
 
-\section{Introduction}
-
 \LaTeX{} is a very good tool for this purpose as the files are created in ASCII
 format and everybody can read it the same way.
+
+\tableofcontents
 
 \section{What is version control system (VCS)?}
 
@@ -47,17 +47,108 @@ other advantages one should be aware of:
 The last feature is the most useful for \LaTeX{} users once they need to work
 together with someone.
 
-\section{Using GIT and \LaTeX{}}
+\section{Using GIT and \LaTeX{} together}
+
+\subsection{Introduction on Git}
+
+Git is a fully open source Distributed Version Control System (DVCS) used for
+many major Open Source Software (OSS) projects.
+%
+This means, that you get an advanced tool totally for free and you have got an
+army of community members around the world from whom you can learn about git and
+find new 'tricks' almost every day.
+%
+Distributed VCS from a simple VCS differs in one aspect which makes the former
+much more flexible and simply better than the latter - every user has its own
+copy of the entire repository and can work on it in any possible way.
+%
+This has some implications:
+\begin{itemize}
+    \item The user can work off-line and then when he goes back on-line he can
+        submit the number of changes to the main repository.
+    \item If the main repository goes down or is compromised, you can get the
+        source code back to its original state simply because every user has a
+        copy of it.
+\end{itemize}
+
+
+
+What is more, git has introduced 'branching' mechanism into VCS.
+%
+Branching means, that you can create a branch of a repository and then make some
+changes on it and then merge it back whenever you want.
+%
+Or in the same way you can just abandon it, if you think that the changes you
+made where simply a mistake and you want the previous state of the repository
+back.
+%
+Or you can even 'cherry-pick' some changes from the branch and merge it back to
+the 'master' branch and discard the others.
+
+
+%TODO
+\textcolor{Red}{\bfseries 
+    Tell more about Git Pull Push requests.
+}
+
+This way one can have a very powerful tool to manage all the changes to the
+files on the system.
+
+\subsection{Using Git}
+
+Git system is very easy to use if you are used to working in shell (such as Bash
+or Zsh).
+%
+However, it might require more adjustment for those who have always been using
+Graphic User Interface and are not as comfortable without any buttons or icons
+to press.
+%
+Luckily there are GUI software, which might help you interface with a Git
+repository very easily:
+\begin{itemize}
+    \item Some
+    \item Or
+    \item Links
+    \item on
+    \item GIT
+    \item GUIS
+\end{itemize}
+
+\subsection{Combining \LaTeX{} and Git}
+
+\subsection{Some thoughts on more sophisticated approaches}
 
 \section{Using other VCS solutions}
 
 Using other VCS solutions is possible and highly recommended for people, who
-find GIT too hard. One very good alternative with slightly more intuitive
-command syntax might be Mercurial.
+find GIT too hard. 
+%
+One very good alternative might be the Mercurial versioning system, which
+receives a lot of praises amongst its users.
+%
+However, Mercurial seems to be not as popular as Git and hence, the resources on
+the web might not be as elaborate.
 
-There are also another VCS, which should be abandoned because of their
-inefficiency and limitations, but the fact is that they are still around. Those
-are Subversion (SVN) and CVS.
+For those people who know Subversion and CVS and claim that they are really good
+alternatives, I would advise to look into Mercurial and Git very seriously and
+consider switching over.
+%
+It is because the old SVN and CVS systems are slower, not as space-efficient and
+they are not as flexible.
+
+However, there is a SVN repository on the Chemistry Department servers, which
+would help you very much in setting up VCS repository which would not be public.
+%
+If you do not mind spending time learning an obsolete technology, then please
+start using SVN as soon as possible.
+%
+There are already good guides about how to use Subversion with \LaTeX{} and you
+can find them on the
+\uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Collaborative_Writing_of_LaTeX_Documents\#The_Version_Control_System_Subversion}{\LaTeX{}
+wikibook}.
+%
+Otherwise please ask the Computer Officers in the Department about how the
+things are going towards a git repository on their servers.
 
 \end{document}
 
