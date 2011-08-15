@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2010)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: bibliography.aux
+The style file: plain.bst
+Database file #1: ../tutorial.bib
+You're missing a field name---line 7 of file ../tutorial.bib
+ :     
+ :     %pages    = "",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You've used 1 entry,
+            2118 wiz_defined-function locations,
+            500 strings with 4083 characters,
+and the built_in function-call counts, 213 in all, are:
+= -- 16
+> -- 7
+< -- 0
++ -- 3
+- -- 2
+* -- 7
+:= -- 40
+add.period$ -- 2
+call.type$ -- 1
+change.case$ -- 4
+chr.to.int$ -- 0
+cite$ -- 1
+duplicate$ -- 7
+empty$ -- 23
+format.name$ -- 2
+if$ -- 43
+int.to.chr$ -- 0
+int.to.str$ -- 1
+missing$ -- 0
+newline$ -- 7
+num.names$ -- 2
+pop$ -- 8
+preamble$ -- 1
+purify$ -- 3
+quote$ -- 0
+skip$ -- 10
+stack$ -- 0
+substring$ -- 5
+swap$ -- 1
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 4
+warning$ -- 0
+while$ -- 2
+width$ -- 2
+write$ -- 9
+(There was 1 error message)

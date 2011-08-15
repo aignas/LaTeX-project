@@ -1,0 +1,70 @@
+% Clever thing to minimize the files I need to edit to change how the files are
+% looking. The following one line comment is to trick VIM-LaTeX
+% \documentclass{article}
+\input{./../template_preamble.tex}
+
+% Custom packages
+
+% Version of the XeTeX logo that doesn't depend on Ǝ being available in the font
+% NB: not suitable for use in italic!
+% Requires XeTeX 0.7 or later
+\def\reflect#1{{\setbox0=\hbox{#1}\rlap{\kern0.5\wd0
+  \special{x:gsave}\special{x:scale -1 1}}\box0 \special{x:grestore}}}
+\def\XeTeX{\leavevmode
+  \setbox0=\hbox{X\lower.5ex\hbox{\kern-.15em\reflect{E}}\kern-.1667em \TeX}%
+  \dp0=0pt\ht0=0pt\box0 }
+
+\title{Fonts in \LaTeX{}}
+\author{Ignas Anikevicius}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    Being able to customize fonts in your \verb|.tex| document can be tricky at
+    times, or as easy as loading a package or two. In this tutorial I will talk
+    through various ways on how to accomplish it.
+\end{abstract}
+
+\tableofcontents
+
+\section{The Font Catalogue}
+
+There is a very good resource for fonts, which outlines how to make different
+fonts working and it includes notes whether the mathematics mode is supported
+with those fonts. The resource is located at
+\href{http://www.tug.dk/FontCatalogue/}{\LaTeX\ font catalogue} website and you
+will find the information you search.
+
+As for fonts without the support for mathematical symbols, I would advice you
+\textbf{against} using them unless you do not use any mathematical  typesetting
+in your documents (e.g. this is good for letters and other text-only documents).
+However, if you need to do that, please consult professionals, some geek-written
+blogs or just people who are more experienced in that field.
+
+Now let's talk about commands involved setting different fonts. Usually you
+should declare in your preamble, that you will use Type1 fonts, which look
+better and most of the scientific journals require them. Here is how you do it:
+\begin{lstlisting}
+\usepackage[T1]{fontenc}
+\end{lstlisting}
+
+And then you put a package responsible for defining the font:
+\begin{description}
+    \item[times fonts] Just put \verb|\usepackage{mathptmx}| after the previous
+        command;
+    \item[palatino] Alternatively for palatino fonts, just write
+        \verb|\usepackage{mathpazo}| command;
+\end{description}
+
+\section{UTF8 usage}
+
+\section{\XeTeX{} usage}
+
+\end{document}
+
+% Editor configuration:
+% vim: tw=80:spell:spelllang=en_gb
+
+

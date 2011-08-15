@@ -4,6 +4,9 @@
 \input{./../template_preamble.tex}
 
 % Custome packages
+%\usepackage{framed}
+%\definecolor{shadecolor}{HTML}{F7ECE1}
+%\definecolor{shadecolor2}{HTML}{F2DDC8}
 \usepackage[]{amsmath}
 \usepackage{blindtext}
 \usepackage{multicol}
@@ -57,43 +60,44 @@ cell. To get more information on this please refer to this
 \section{Tables in documents with more than one column}
 
 \begin{multicols}{2}
-        \input{tab5.tex}
+    \input{tab5.tex}
 
-            Usually scientific journals use two-columns text layout, which sometimes
-                complicates float placement inside text. This is because not all figures can
-                    be made narrow enough to fit into one column of text and if it needs to be
-                        larger, then we get some nasty overlapping, which is the least we want.
+    Usually scientific journals use two-columns text layout, which sometimes
+    complicates float placement inside text. This is because not all figures can
+    be made narrow enough to fit into one column of text and if it needs to be
+    larger, then we get some nasty overlapping, which is the least we want.
 
-                            The ``trick'' there is to use a 'stared' version of the \verb|table|
-                                environment (ie. \verb|table*|). However, this has some limitations as the
-                                    table float then can be added only to the top of the page. A package
-                                        \verb|stfloats| seems to offer slightly more flexibility over the placement
-                                            as it provides means to put the float on the bottom of the page, however,
-                                                the float still can not be placed in the middle of the page.
+    The ``trick'' there is to use a 'stared' version of the \verb|table|
+    environment (ie. \verb|table*|). However, this has some limitations as the
+    table float then can be added only to the top of the page. A package
+    \verb|stfloats| seems to offer slightly more flexibility over the placement
+    as it provides means to put the float on the bottom of the page, however,
+    the float still can not be placed in the middle of the page.
 
-                                                    In my opinion these options are the only one which look really good, so I do
-                                                        not see any limitations here, it is just it is slightly harder to deal with
-                                                            such floats than with simple floats.
+    In my opinion these options are the only one which look really good, so I do
+    not see any limitations here, it is just it is slightly harder to deal with
+    such floats than with simple floats.
 
-                                                                Because I need more text, I will insert some dummy text using a package
-                                                                    \verb|blindtext| and command \verb|\blindtext|.
+    Because I need more text, I will insert some dummy text using a package
+    \verb|blindtext| and command \verb|\blindtext|.
 
-                                                                        ----------------
-                                                                            \textbf{Dummy text start}
+    ----------------
+    \textbf{Dummy text start}
 
-                                                                                \blindtext
+    \blindtext
 
-                                                                                    \blindtext
+    \blindtext
 
-                                                                                        ----------------
-                                                                                            \textbf{Dummy text finish}
-                                                                                        \end{multicols}
+    ----------------
+    \textbf{Dummy text finish}
+\end{multicols}
 
-                                                                                        The source code for the table \ref{tab:table5} is shown bellow:
-                                                                                        \lstinputlisting{tab5.tex}
+The source code for the table \ref{tab:table5} is shown bellow:
+\lstinputlisting{tab5.tex}
 
-                                                                                        \end{document}
 
-                                                                                        % Editor configuration:
-                                                                                        % vim: tw=80:spell:spelllang=en_gb
+\end{document}
+
+% Editor configuration:
+% vim: tw=80:spell:spelllang=en_gb
 

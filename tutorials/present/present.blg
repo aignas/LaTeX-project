@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2010)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: present.aux
+The style file: plain.bst
+Database file #1: ./../tutorial.bib
+You're missing a field name---line 7 of file ./../tutorial.bib
+ :     
+ :     %pages    = "",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--empty year in PracTeX-komapres
+You've used 2 entries,
+            2118 wiz_defined-function locations,
+            506 strings with 4182 characters,
+and the built_in function-call counts, 427 in all, are:
+= -- 36
+> -- 14
+< -- 0
++ -- 6
+- -- 4
+* -- 21
+:= -- 79
+add.period$ -- 5
+call.type$ -- 2
+change.case$ -- 8
+chr.to.int$ -- 0
+cite$ -- 3
+duplicate$ -- 17
+empty$ -- 41
+format.name$ -- 4
+if$ -- 85
+int.to.chr$ -- 0
+int.to.str$ -- 2
+missing$ -- 1
+newline$ -- 12
+num.names$ -- 4
+pop$ -- 12
+preamble$ -- 1
+purify$ -- 6
+quote$ -- 0
+skip$ -- 17
+stack$ -- 0
+substring$ -- 10
+swap$ -- 2
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 8
+warning$ -- 1
+while$ -- 4
+width$ -- 3
+write$ -- 19
+(There was 1 error message)

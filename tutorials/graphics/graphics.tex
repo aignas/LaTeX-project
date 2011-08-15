@@ -12,6 +12,10 @@
 \usepackage[pdftex]{graphicx}
 \graphicspath{{./figs/}}
 \usepackage[update,verbose=false]{epstopdf}
+\usepackage{tikz}
+\newlength{\tikzunit}
+\usepackage{subfig}
+\newcommand{\compx}[1]{\textbf{#1}}
 
 
 \title{Getting good quality graphics inside a \LaTeX\ document}
@@ -63,65 +67,88 @@ If you feel that you have not found enough information on the graphics usage in
 \clearpage
 \section{Inserting a simple figure}
 
-Inserting a simple figure can be as easy as:
+Inserting a figure is a really easy task and it can be accomplished with the
+following code. Note, that there is an option to the \verb|\includegraphics|
+command which scales the image, so that its width would not exceed the text
+width.
 \lstinputlisting{fig1.tex}
-which will produce the following:
+And our figure will look as follows:
 \input{fig1.tex}
 
-However one can immediately notice, that the figure is not scaled and the
-caption text is slightly to far from the actual figure, so these small changes
-will fix these nuances:
-\lstinputlisting{fig2.tex}
-And our figure will look as follows:
-\input{fig2.tex}
-
-\clearpage
 \section{Directory setting for graphics, their formats and \LaTeX\ compilers}
 
 The most convenient way nowadays to produce documents from \LaTeX\ source code
-is to use the \verb|pdftex| or \verb|pdflatex| compiler. It is very convenient
-as one does not need to convert the \verb|.ps| file every time before viewing it
-with a viewer. Also there are other benefits to use this compiler.
+is to use the \verb|pdftex| or \verb|pdflatex| compiler. It is because it
+produces a \verb|.pdf| file directly and you do not need to convert the
+\verb|.ps| file every time before viewing it with a viewer. Also with
+\verb|pdflatex| you can use more graphics formats:
+\begin{description}
+    \item[.pdf] This is the native graphics vector format for this compiler
+    \item[.eps] This format also can be used with pdflatex, but you need to use
+        the \verb|epstopdf| package, which will convert them to \verb|pdf| files
+        on the fly. There are also options to make the convertion only when the
+        \verb|.eps| figures are changed, which speeds up everything
+        substantially.
+    \item[.png, .jpg] At last you can use this format too if you need to import
+        raster graphics into your document, which might ease a lot of things.
+\end{description}
 
-Using \verb|graphicx| package with this compiler lets you use \verb|.jpg|,
-\verb|.png| and \verb|.pdf| graphics inside your document. You might ask:
-``What about my \verb|.eps| figures?'' The simple answer is to use
-\verb|epstopdf| package, which would convert \verb|.eps| figures to \verb|.pdf|
-figures on-the-fly.
-
-What is more, which \verb|graphicx| package it is possible to give directory
-names where \LaTeX\ should search for figures. The best example would be the
-preamble of this file:
+For all these features, one should use the \verb|graphicx| package as this is
+the recommended way to do it. What is more, this packages provides some other
+useful commands. You can tell it where to search for figures by issuing the
+\lstinline|\graphicspath{{./path/to/your/directory}}| command. What is more, you can
+specify several directories in the following way
+\lstinline|\graphicspath{{./dir1}{./dir2}}|. The symbols \verb|./| mean, that the top
+directory is where the \verb|.tex| file is located. So if you have the following
+directory structure:
+\begin{lstlisting}
+some document
+    |-figures
+    |-mytexfile.tex
+\end{lstlisting}
+you will need to issue \verb|\graphicspath{{./figures}|. The preamble of this
+file contains the following lines:
 \begin{lstlisting}
 \usepackage[pdftex]{graphicx}
 \graphicspath{{./figs/}}
 \usepackage[update,verbose=false]{epstopdf}
 \end{lstlisting}
 
-This means, that the \verb|epstopdf| package will convert the \verb|.eps|
-graphics only when they are newer than the \verb|.pdf| versions, which might
-speed up the compiling time significantly.
+The options for the \verb|epstopdf| package mean, that it will convert the
+\verb|.eps| graphics only when they are updated and it will not output any
+errors.
 
-\clearpage
 \section{Overlaying a figure with \LaTeX\ code}
 
-This is the most interesting capability of \LaTeX\ although it might be
-considered as 'fiddly' by some users, as it requires some trial and error, but
-it can be very useful in some cases (eg. Having a lot of figures with chemical
-structures and getting them cross-referenced and numbered correctly).
+Although there are different ways of how to overlay text onto graphics, I will
+examine only one of them - the \verb|TikZ| package, which seems to be much
+easier to use and more powerful than the native \LaTeX\ \verb|picture|
+environment.
 
-The example in the figure \ref{fig:plot3} just shows how one could do that. It
-is using the native \LaTeX\ environment \verb|picture| and the only package you
-need to use additionally is \verb|calc|, so this has very low requirements and
-is very straightforward.
+\subsection{TikZ package}
 
-\input{fig3.tex}
-\lstinputlisting{fig3.tex}
+Let's look at the example bellow, which has to do more with chemistry than the
+figure \ref{fig:plot1}. The thing, which we want to do is to put 4 structures
+and then label them. The final image is shown in the figure \ref{fig:struct1-2},
+where the work-flow is explained in the figure \ref{fig:struct1-1} on page
+\pageref{fig:struct1-1}.
 
-However, there are some nuances. To begin with, you need to know the aspect
-ratio of your picture, which is not a problem most of the times, since you set
-the size of your picture your self. If the picture is raster graphics, then the
-ratio is very easily found by just dividing width and height of the image.
+\input{fig3-2.tex}
+\input{fig3-1.tex}
+
+You can check out the code listing for creating the figure \ref{fig:struct1-1}
+bellow:
+\lstinputlisting{fig3-2.tex}
+
+This way one can create good figures very easily. What is more, if you have just
+simple structure images you do not have to worry about placing them correctly
+using your mouse or making sure that the font will be the same as in all the
+other text if you overlay everything using this \LaTeX\ package.
+
+There is another example shown in the figure \ref{fig:struct2}. This is a true
+scientific quality figure and with overlaying text on top you ensure, that it
+will be readable in your document.
+\input{fig4.tex}
 
 \end{document}
 

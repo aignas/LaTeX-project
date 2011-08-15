@@ -1,0 +1,4 @@
+\contentsline {section}{\numberline {1}The acronym package}{1}{section.1}
+\contentsline {subsection}{\numberline {1.1}An example}{1}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Code used for the example}{2}{subsection.1.2}
+\contentsline {section}{\numberline {2}The glossaries package}{2}{section.2}

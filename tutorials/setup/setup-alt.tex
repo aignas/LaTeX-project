@@ -5,6 +5,8 @@
 \input{./../template_preamble.tex}
 
 % Custom stuff
+\usepackage{perpage}
+\MakePerPage{footnote}
 \lstset{language=bash,numbers=none}
 \newcommand{\MiKTeX}{MiK\TeX}
 \newcommand{\MacTeX}{Mac\TeX}
@@ -17,7 +19,7 @@
 
 \maketitle
 
-\section{Introduction}
+\tableofcontents
 
 Thank you for your interest in \LaTeX\ typesetting system and this article
 will help you to get you ready for starting to use \LaTeX\ on your
@@ -29,13 +31,14 @@ is not necessary to duplicate any content, if it can be found in a better
 shape elsewhere. Therefore, I suggest you reading chapters of the book called
 \LaTeX\ hosted on the website called wikibooks.org. You can find an on-line
 version of the
-\href{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX}{book} or the
-\href{http://upload.wikimedia.org/wikipedia/commons/2/2d/LaTeX.pdf}{PDF}
+\uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX}{book} or the
+\uurl{http://upload.wikimedia.org/wikipedia/commons/2/2d/LaTeX.pdf}{PDF}
 version of it, which I think is much more suitable for reading or printing.
 
 The list of the needed software is already there and if somebody feels very
 comfortable with his system, no specific directions should be necessary for
 them.
+
 
 \section{Software from the Department of Chemistry}
 
@@ -66,11 +69,8 @@ Here is a list of most popular distributions and links to their Wikipedia Pages:
 
 \begin{description}
     \item[.deb based] 
-        \href{http://wiki.debian.org/Latex}{Debian},
-        \footnote{The URL for Debian wiki is \url{http://wiki.debian.org/Latex}}
-        \href{https://help.ubuntu.com/community/LaTeX}{Ubuntu},
-        \footnote{The URL for Ubuntu wiki is
-        \url{https://help.ubuntu.com/community/LaTeX}}
+        \uurl{http://wiki.debian.org/Latex}{Debian},
+        \uurl{https://help.ubuntu.com/community/LaTeX}{Ubuntu},
         and for distributions, which are derived from these two, the same wiki
         pages can be used. However, for full installation of \TeX\ Live you can try
         these terminal commands (issue them as root):
@@ -120,7 +120,7 @@ emerge -av texlive
         packages via \verb|/etc/portage/package.accept_keywords|.
 
         Gentoo has a very good
-        \href{http://www.gentoo.org/proj/en/tex/texlive-migration-guide.xml}{Wiki}
+        \uurl{http://www.gentoo.org/proj/en/tex/texlive-migration-guide.xml}{Wiki}
         page documenting the installation.
     \item[Others]
         Install the \TeX\ Live distribution via your distributions packet
@@ -131,14 +131,12 @@ emerge -av texlive
 \subsection{Notes for Mac users}
 
 For easier experience, just install the full \MacTeX\ installation which can be
-found on the following \href{http://www.tug.org/mactex/}{website}.
-\footnote{The URL for the \MacTeX\ website is \url{http://www.tug.org/mactex/}}
+found on the following \uurl{http://www.tug.org/mactex/}{website}.
 
 \subsection{Notes for Windows users}
 
 For easier experience, download \MiKTeX\ installation files from
-\href{http://miktex.org/2.9/setup}{their website}.
-\footnote{The URL for the website is \url{http://miktex.org/2.9/setup}}
+\uurl{http://miktex.org/2.9/setup}{their website}.
 There are mainly 2 wise options to select:
 \begin{description}
     \item[Install everything] Although this might be very convenient as
@@ -154,9 +152,8 @@ There are mainly 2 wise options to select:
 
 Mainly there are two choices:
 \begin{itemize}
-    \item IDE (Integrated Development Environment)
-        \footnote{\href{https://secure.wikimedia.org/wikipedia/en/wiki/Integrated_development_environment}{Wikipedia
-        article}}
+    \item Integrated Development Environment
+        \uurl{https://secure.wikimedia.org/wikipedia/en/wiki/Integrated_development_environment}{IDE}
     \item Just a text editor.
 \end{itemize}
 
@@ -176,9 +173,7 @@ The most important projects are mentioned bellow:
         
         This being said, everybody admit, that Emacs is also good, and many
         argue that it is better than VIM. This has much to do with so-called
-        editor wars.
-        \footnote{Editor wars on
-        \href{http://en.wikipedia.org/wiki/Editor_war}{Wikipedia}}
+        \uurl{http://en.wikipedia.org/wiki/Editor_war}{editor wars}.
 
         Since both are very advanced editors, you will find that they have very
         powerful \LaTeX\ plug-ins, which might make the work faster than with
@@ -200,46 +195,77 @@ The most important projects are mentioned bellow:
         you want, or ask him to do and then you get errors, and spend so much
         precious time debugging instead of writing your thesis.
 
-    \item[TeXShop] This is probably the first good IDE for Mac, which was highly
-        successful and still is very popular.
+    \item[TeXShop] This is probably the first good \LaTeX\ IDE for Mac, which
+        was highly successful when it first came out. However, it is still being
+        widely used and most of Mac people will suggest it first.
 
-    \item[TeXnicCenter] This is one of better IDEs for \LaTeX\ typesetting in
-        Windows OS. 
+    \item[TeXnicCenter] \TeX nicCenter is probably the best choice for Windows
+        users, as it has a lot of functionality. If you choose this IDE, then
+        you won't have to worry about anything as there are a lot of resources
+        on the internet on how to get various features working and etc.
 
     \item[TeXworks] A cross-platform IDE which was inspired by \textbf{TeXShop}.
+        Note, that it is very useful as it comes with every \LaTeX\ distribution
+        by default (except for \TeX\ Live). Thus you can start using it very
+        quickly.
 
-    \item[TeXMaker] A good cross-platform IDE using Qt toolkit.
+    \item[TeXMaker] A good cross-platform IDE using Qt toolkit. This might be an
+        alternative to TeXworks, although there are better alternatives listed
+        above, so it is here just for completeness.
 \end{description}
 
 Other projects, which can be still very well used to achieve good results, but
 are somewhat less popular:
 \begin{description}
-    \item[Kile] This is an IDE for Linux.
-    \item[Geany] This is an IDE for Linux.
+    \item[Kile] This is an IDE for Linux, mostly suited for KDE users.
+    \item[Geany] This is an IDE for Linux, built with the GTK+ widget set and
+        might be the primary choice for those people who want an IDE, but
+        don't want to install Qt, or have other strong opinions towards the Qt
+        library.
         %FIXME
-    \item[Others] Need to add more.
+    \item[Others] There are probably more ways to create \verb|.tex| documents
+        than I have mentioned here and if you feel, that none of the solutions
+        works for you, please research the web and you'll find alternatives.
 \end{description}
 
-\section{Bibliography management software}
+\section{Bibliography management}
 
-Bibliography is usually managed through so-called Bib\TeX\ and there are various
-GUIs (Graphical User Interfaces) to deal with such things. 
-
-Some IDEs can interface with Bib\TeX, but may or may not require some additional
-setup. As of how to do this, the best place to search would be the documentation
-of your IDE of choice or some web-search engine (eg.
-\href{http://www.google.co.uk}{Google}, \href{http://www.bing.co.uk}{Bing},
-etc.)
-Also some more advanced text editors can also do it (eg. VIM and Emacs).
-However, there is a third category, which includes stand-alone software for
-managing bibliographies (eg. Jabref, Bibdesk (OS X only), )
-%FIXME need to find a list of tools for bib and Win
+Bibliography in \LaTeX\ can be managed in several ways and information on how it
+is done is given in the Bibliography Tutorial. Here I will just flick through
+different software which can act as a front-end to Bib\TeX{}. Those front-ends
+can be categorized as follows:
+\begin{description}
+    \item[\LaTeX\ IDEs]
+        Some \LaTeX\ IDEs are known to be able to manage \verb|.bib| files
+        (native Bib\TeX\ format), however, to check whether your is capable of
+        doing that, you should refer to the documentation of the software you
+        use or just quick-check on web-search engines like
+        \uurl{http://www.google.co.uk}{Google},
+        \uurl{http://www.bing.co.uk}{Bing} or
+        others.
+    \item[Text Editor]
+        You can manage the bibliography manually, by using just your text
+        editor. For this job I would suggest only the more advanced one like VIM
+        or Emacs, however, you can create the \verb|.bib| file with anything you
+        want, as long as it supports ASCII encoding (which should be the case
+        for all text editors). The templates can be found on the 
+        \uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Bibliography_Management\#Standard_templates}{\LaTeX{} wikibook}.
+    \item[Bib\TeX\ GUIs]
+        This is the third category and probably the most suited for the job.
+        There are wonderful bibliography managers, which can export the database
+        as \verb|.bib| files and, thus, can be easily used with \LaTeX{}. The
+        list of software can be found either on 
+        \uurl{https://secure.wikimedia.org/wikipedia/en/wiki/Comparison_of_reference_management_software}{Wikipedia} 
+        or
+        \uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Bibliography_Management\#Helpful_Tools}{\LaTeX{} wikibook}.
+\end{description}
 
 \section{PDF viewers}
 
 Good PDF viewers are different across different platforms. I believe, that you
 might want say, that Adobe's PDF viewer is very good, but the truth is that it
-is slow and not as reliable as others.
+is slow and not as reliable as others, so please be sure, that you check, or at
+least are aware of alternatives.
 
 A much better alternative might look \textbf{Foxit} PDF reader, which is
 available for both Linux and Windows operating systems. However, by no means it
@@ -251,26 +277,83 @@ most appealing PDF viewer.
 Linux users have a huge variety of PDF viewers to select from. One should search
 distribution's repositories, but just to mention a few:
 \begin{description}
-    \item[Evince] Default for GNOME;
-    \item[Okular] Default for KDE;
-    \item[epdf]
-    \item[zathura]
+    \item[IDE's viewer]
+        If you will be using a fully-fledged IDE for \LaTeX\ (like
+        \TeX{}works or similar), then it is very likely that you will not need
+        another PDF viewer for monitoring the changes to the \verb|.tex| file.
+    \item[Evince]
+        Default PDF viewer for GNOME. Supports Sync\TeX{}, which is very useful
+        for improving the user experience and document creating.
+    \item[Okular] 
+        Default PDF viewer for KDE. Like Evince, supports Sync\TeX{} and might
+        be more feature-full than the former.
     \item[mupdf]
+        This is a PDF rendering library with a very minimalistic viewer.
+        Although it might be very minimalistic, it is very fast and reliable.
+        This library is cross-platform, so the viewer might be available on
+        other platforms as well.
+    \item[zathura and apvlv]
+        These are minimalistic and very fast VIM-like PDF viewers.
 \end{description}
 
 \subsection{On Mac}
 
-The best choices seem to be viewers \textbf{Preview} and \textbf{Skim} as both
-are relatively light and provide a good number of features. There might be
-others, which I am not aware off as well.
+Your IDE is very likely to be bundled with some custom PDF viewer and thus you
+might not need an extra one. However if you need Sync\TeX{} support, which
+improves the user experience a lot, keep in mind, that not all IDE PDF viewer
+support it. In case you wanted the support in a external viewer, you should
+definitely check out \textbf{Skim} PDF viewer.
+
+A good choice just to preview files is the native program called
+\textbf{Preview}.
 
 \subsection{On Windows}
 
-The best choice would be a \textbf{Sumatra} PDF viewer. Other alternatives
-either need to be bought or they are not as reliable/complete as
-\textbf{Sumatra} PDF viewer.
+The best choice would be a \textbf{Sumatra} PDF viewer. It is based on very
+stable and fast MuPDF rendering library and it supports lots of other features,
+of which the most important one is Sync\TeX{}. This viewer launches immediately,
+which is very useful if you close and open the PDF files often.
+
+Other good alternatives either need to be paid for or they are not as
+reliable/feature-complete as the \textbf{Sumatra} PDF viewer.
 
 \section{Other useful software \& links}
+
+Here is a list of very useful internet resources on \LaTeX{} typesetting system:
+\begin{itemize}
+    \item
+        \uurl{http://www.eng.cam.ac.uk/help/tpl/textprocessing/}{CUED \LaTeX\
+        website} very good resource for some \LaTeX\ related matters;
+    \item
+        \uurl{http://tug.org/pracjourn/2010-2/toc.html}{Prac\TeX{} journal} is a
+        very good place for novel uses of \LaTeX{} and one can find very
+        interesting tutorials there;
+    \item
+        \uurl{http://stackoverflow.com/questions/tagged/latex}{stack\textbf{overflow}
+        archive} of answers to various \LaTeX{} related questions.
+    \item
+        \uurl{http://stackoverflow.com/questions/193298/best-practices-in-latex/196724}{Good
+        \LaTeX{} practices} on stack\textbf{overflow}.
+    \item
+        The aforementioned 
+        \uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX}{\LaTeX{}
+        wikibook}
+    \item
+        \uurl{http://www.ctan.org/}{CTAN \LaTeX{} repository}. This is the major
+        database of packages and document classes. If you do not find what you
+        want here, probably it does not exist (yet).
+    \item
+        \uurl{http://www.tug.dk/FontCatalogue/}{The \LaTeX{} font catalogue}. A
+        very good place to know how to get fonts working.
+    \item
+        \uurl{http://www.texample.net/}{\TeX{}amples page}. A good resource on
+        TikZ graphics package usage. It contains a lot of examples and might be
+        the best way to start learning it just by examining everything.
+    \item
+        \uurl{http://www.tug.org/metapost.html}{Metapost related links}. This is
+        yet another way to produce good quality scalable graphics. This library
+        is based on the MetaFont library by Donald Knuth (the \TeX{} father).
+\end{itemize}
 
 \end{document}
 

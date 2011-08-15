@@ -25,7 +25,7 @@
 \end{center}
 \end{framed}
 
-Here I will talk as to how get \LaTeX\ working for the production of the
+Here I will talk about getting \LaTeX\ working for the production of 
 presentations. There are numerous ways how you could do a presentation in
 \LaTeX{}. One of
 them is to use already existing packages, of which \verb|beamer| is the most
@@ -33,9 +33,9 @@ popular one. However, you can use standard document classes as well
 \cite{PracTeX-komapres}.
 
 There is also another source of information \cite{latexwikibook:presentations},
-which might be a good starting point for example of Beamer package.
+which might be a good starting point for using the Beamer document class.
 
-\section{Beamer package}
+\section{The beamer document class}
 
 As mentioned before, the \verb|beamer| package is the most popular among
 scientists and it works quite well with PGF/TikZ packages which might make it
@@ -43,16 +43,30 @@ the best solution out there. It is very straight forward to use it --- it
 defines several new environments (eg \verb|frame|, \verb|column| etc) and
 commands (eg \verb|\frametitle|, \verb|\pause| etc).
 
-In order to make your presentation stand out from other people, it might be
-advisable to read the aforementioned article \cite{PracTeX-komapres}, which
-might help you a lot in understanding how to make your presentation good and
-unique.
+The best way to learn it would be to examine the supplied example and comparing
+how the source file corresponds to what is produced in the final \verb|.pdf|
+document.
 
-\section{KOMAscript class}
+\section{Another approach}
 
-This way seems to be much more extensible and faster once it is learned,
-however, appear to have slightly higher learning curve than the \verb|beamer|
-just because of these options.
+This is an alternative method to create presentations. It involves using
+\verb|scrartcl| class which is then customized to a great extent. The
+decorations of the presentation are done by using the \verb|TikZ| package and
+since everything is done from scratch, the user will end up having a unique
+theme for his/her presentations.
+
+As you might understand, with a lot of customizability comes slightly steeper
+learning curve and one need to spend more time initially to get everything set
+up. However, then to convert an article to a presentation is much faster, which
+is mainly the point of this method. Also, you do not need to learn knew
+commands/environments, which might also be considered as an advantage of this
+method.
+
+There is an excellent example and article on the Prac\TeX\
+journal.\cite{PracTeX-komapres} Please download the zipped sources where you
+will find everything. You can check the presentation .tex file and change
+various parameters in the preamble and see how the style of presentation is
+affected.
 
 \bibliographystyle{plain}
 \bibliography{./../tutorial}

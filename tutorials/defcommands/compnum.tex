@@ -1,0 +1,32 @@
+So defining compound \cmp{cmp:benzene} and \cmp{cmp:naphtalene} is
+very easy.  Referencing them (Compound \ref{cmp:naphtalene} and
+\ref{cmp:benzene}) is also easy.
+Look at the figure \ref{fig:compeg} to see how you can incorporate it
+into figures.
+
+\begin{figure}[h]
+    \centering
+    \setlength{\tikzunit}{.085\textwidth}
+    \begin{tikzpicture}[scale=1.0,x=\tikzunit,y=\tikzunit]
+% ---- Draw a grid which should help to position things -----------
+%        \draw[step= .5,color=gray,thin,dashed] (-4,-4) grid (4,4);
+%        \draw[step=1.0,color=gray]             (-4,-4) grid (4,4);
+%        \draw[step=4.0,color=black]            (-4,-4) grid (4,4);
+%  Notes:
+%       just uncomment the lines with draw commands and the grid
+%       will appear.  The commands, I believe are self explanatory
+%       and it can be drawn as big as you want. The two coordinates
+%       denote lower left and upper right corners of the grid.
+% -----------------------------------------------------------------
+        \node(0,0){\includegraphics[width=7\tikzunit]{4struct.eps}};
+        \draw ( 2.1, 0.5) node{\cmp{cmp:naphtol}};
+        \draw (-2.1, 0.5) node{\cmp{cmp:TNT}};
+        \draw (-2.1,-3.5) node{\cmp{cmp:mCPBA}};
+        \draw ( 2.1,-3.5) node{\cmp{cmp:TsCl}};
+    \end{tikzpicture}
+    \caption{Overlaying \LaTeX{} commands on top of the figure. To
+    get the correct numbers we used a newly created
+    \texttt{cmp} command. As you see the order of the numbers is
+    determined by the order of code execution.}
+    \label{fig:compeg}
+\end{figure}

@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<cml>
+<MDocument>
+  <MChemicalStruct>
+    <molecule molID="m1">
+      <atomArray
+          atomID="a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 a23 a24 a25 a26 a27 a28 a29 a30 a31 a32 a33 a34 a35 a36 a37 a38 a39 a40 a41 a42 a43 a44 a45 a46 a47 a48 a49 a50 a51 a52 a53"
+          elementType="C C C C C C N O O N O O N O O C H H H C C C C C C C C C C O C C C C C C C O O O Cl H C C C C C C S Cl C O O"
+          formalCharge="0 0 0 0 0 0 1 0 -1 1 0 -1 1 0 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+          x2="-11.384999275207521 -11.384999275207525 -10.051320153379487 -8.717641031551448 -8.71764103155145 -10.051320153379487 -10.051320153379486 -11.384999275207523 -8.717641031551452 -7.383961909723414 -6.050282787895378 -7.383961909723414 -12.718678397035555 -12.718678397035557 -14.05235751886359 -7.383961909723412 -7.383961909723412 -6.050282787895375 -6.050282787895377 4.400000095367432 3.0663600953674326 1.7325660953674316 1.7325660953674316 3.0663600953674326 4.400000095367432 5.733640095367431 7.067434095367432 7.067434095367432 5.733640095367431 5.733601597007496 -12.100000381469727 -13.433669722517985 -13.433669722517985 -12.100000381469727 -10.766331040421468 -10.766331040421468 -9.432647028284237 -9.432637247612051 -8.098972796819194 -6.765288784681962 -12.100000381469727 -6.765288784681962 3.8500003814697266 2.516331040421468 2.516331040421468 3.8500003814697266 5.183669722517985 5.183669722517985 6.517353734655217 7.851032856483252 1.1826470282842374 5.692353906316594 7.245934987819153"
+          y2="4.084474103827226 5.624474103827227 3.3144741038272305 4.084474103827228 5.624474103827227 6.394474103827228 7.934474103827224 8.704474103827225 8.704474103827229 3.314474103827225 4.084474103827226 1.774474103827226 3.3144741038272287 1.7744741038272247 4.084474103827226 6.394474103827228 7.9344741038272275 5.624474103827229 7.16447410382723 4.730000276565551 5.500000276565552 4.730000276565551 3.1900002765655517 2.4200002765655517 3.1900002765655517 2.4200002765655517 3.1900002765655517 4.730000276565551 5.500000276565552 7.040000276084343 -6.654965813706138 -7.424982754265178 -8.96501663538326 -9.7350335759423 -8.96501663538326 -7.424982754265178 -6.654991224591287 -5.1149912246223455 -7.424999694886337 -6.655008165212445 -11.275033575942299 -5.115008165212445 -5.3899664240577 -6.159983364616741 -7.700017245734822 -8.470034186293862 -7.700017245734822 -6.159983364616741 -5.389991834942849 -6.159991834942849 -8.470008775408713 -3.9463125796004093 -3.957465890796307"
+          />
+      <bondArray>
+        <bond atomRefs2="a1 a2" order="2" />
+        <bond atomRefs2="a1 a3" order="1" />
+        <bond atomRefs2="a3 a4" order="2" />
+        <bond atomRefs2="a4 a5" order="1" />
+        <bond atomRefs2="a5 a6" order="2" />
+        <bond atomRefs2="a6 a2" order="1" />
+        <bond atomRefs2="a6 a7" order="1" />
+        <bond atomRefs2="a7 a8" order="2" />
+        <bond atomRefs2="a7 a9" order="1" />
+        <bond atomRefs2="a4 a10" order="1" />
+        <bond atomRefs2="a10 a11" order="2" />
+        <bond atomRefs2="a10 a12" order="1" />
+        <bond atomRefs2="a1 a13" order="1" />
+        <bond atomRefs2="a13 a14" order="2" />
+        <bond atomRefs2="a13 a15" order="1" />
+        <bond atomRefs2="a5 a16" order="1" />
+        <bond atomRefs2="a16 a17" order="1" />
+        <bond atomRefs2="a16 a18" order="1" />
+        <bond atomRefs2="a16 a19" order="1" />
+        <bond atomRefs2="a20 a21" order="1" />
+        <bond atomRefs2="a20 a25" order="2" />
+        <bond atomRefs2="a20 a29" order="1" />
+        <bond atomRefs2="a21 a22" order="2" />
+        <bond atomRefs2="a22 a23" order="1" />
+        <bond atomRefs2="a23 a24" order="2" />
+        <bond atomRefs2="a24 a25" order="1" />
+        <bond atomRefs2="a25 a26" order="1" />
+        <bond atomRefs2="a26 a27" order="2" />
+        <bond atomRefs2="a27 a28" order="1" />
+        <bond atomRefs2="a28 a29" order="2" />
+        <bond atomRefs2="a29 a30" order="1" />
+        <bond atomRefs2="a31 a32" order="1" />
+        <bond atomRefs2="a31 a36" order="2" />
+        <bond atomRefs2="a32 a33" order="2" />
+        <bond atomRefs2="a33 a34" order="1" />
+        <bond atomRefs2="a34 a35" order="2" />
+        <bond atomRefs2="a35 a36" order="1" />
+        <bond atomRefs2="a36 a37" order="1" />
+        <bond atomRefs2="a37 a38" order="2" />
+        <bond atomRefs2="a37 a39" order="1" />
+        <bond atomRefs2="a39 a40" order="1" />
+        <bond atomRefs2="a34 a41" order="1" />
+        <bond atomRefs2="a40 a42" order="1" />
+        <bond atomRefs2="a43 a44" order="1" />
+        <bond atomRefs2="a43 a48" order="2" />
+        <bond atomRefs2="a44 a45" order="2" />
+        <bond atomRefs2="a45 a46" order="1" />
+        <bond atomRefs2="a46 a47" order="2" />
+        <bond atomRefs2="a47 a48" order="1" />
+        <bond atomRefs2="a48 a49" order="1" />
+        <bond atomRefs2="a49 a50" order="1" />
+        <bond atomRefs2="a45 a51" order="1" />
+        <bond atomRefs2="a49 a52" order="2" />
+        <bond atomRefs2="a49 a53" order="2" />
+      </bondArray>
+    </molecule>
+  </MChemicalStruct>
+</MDocument>
+</cml>

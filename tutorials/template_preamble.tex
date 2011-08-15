@@ -1,9 +1,26 @@
-\documentclass[a4paper,11pt]{article}
-\usepackage[utf8x]{inputenc}
-\usepackage[T1]{fontenc}
+\documentclass{scrartcl}
+\KOMAoptions{
+    paper=a4,
+    fontsize=11pt,
+    DIV=calc
+}
+\renewcommand{\titlefont}{\rm\bfseries\LARGE}
+\usepackage{ifxetex}
+
+\ifxetex
+  \usepackage{fontspec}
+  \usepackage{xunicode}
+  \defaultfontfeatures{Mapping=tex-text} % To support LaTeX quoting style
+  \setromanfont{Hoefler Text}
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{mathpazo}
+\fi
 \usepackage{fullpage}
-\linespread{1.2}
-\usepackage{mathpazo}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage[]{amsmath}
 
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{listings}
@@ -16,11 +33,12 @@ numberstyle=\footnotesize,
 %frame=single,
 breaklines=True}
 
-\usepackage[]{hyperref}
+\usepackage[colorlinks,urlcolor=blue]{hyperref}
+\newcommand{\uurl}[2]{\href{#1}{#2}\footnote{The URL is \url{#1}}}
 
 % New commands which ease the work. Units and relative uncertainties
 \newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
-\newcommand{\relerr}[1]{\ensuremath{ \cfrac{\Delta #1}{#1}}}
+\newcommand{\rel}[1]{\ensuremath{ \cfrac{\Delta #1}{#1}}}
 \newcommand{\eten}[1]{\ensuremath{ \times 10^{#1}}}
 \newcommand{\DP}[2]{\ensuremath{\cfrac{\partial #1}{\partial #2}}}
 \newcommand{\DD}[2]{\ensuremath{\cfrac{\mathrm{d} #1}{\mathrm{d} #2}}}

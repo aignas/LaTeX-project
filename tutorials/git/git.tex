@@ -1,0 +1,67 @@
+% Clever thing to minimize the files I need to edit to change how the files are
+% looking. The following one line comment is to trick VIM-LaTeX
+% \documentclass{article}
+\input{./../template_preamble.tex}
+
+% Custom packages
+
+\title{How to use GIT version control system to backup and work collaboratively
+on the same documents}
+\author{Ignas Anikevicius}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\LaTeX{} is a very good tool for this purpose as the files are created in ASCII
+format and everybody can read it the same way.
+
+\section{What is version control system (VCS)?}
+
+There are many models of VCS, but the main idea in all of them remains the same.
+This is the ability of registering the changes to the files. A typical workflow
+can be described as follows:
+\begin{enumerate}
+    \item Repository is initialized with initial files.
+    \item Then a person copies the repository
+    \item makes some changes to the files
+    \item submits them back to the repository 
+    \item clever algorithms detect  which part(s) of the files were altered 
+    \item The files are updated and the changes being made are saved
+    \item Go back to point 2.
+\end{enumerate}
+
+As you see from this description it is clear that the whole history of how the
+files were changing is saved and, thus, they can be restored to any previous
+state. In addition to this being such a good back up tool, there are several
+other advantages one should be aware of:
+\begin{itemize}
+    \item It takes much less space than having multiple folders with different
+        versions of the files
+    \item One can spot what was changed much more easily
+    \item People can work on different parts of the file at the same time.
+\end{itemize}
+
+The last feature is the most useful for \LaTeX{} users once they need to work
+together with someone.
+
+\section{Using GIT and \LaTeX{}}
+
+\section{Using other VCS solutions}
+
+Using other VCS solutions is possible and highly recommended for people, who
+find GIT too hard. One very good alternative with slightly more intuitive
+command syntax might be Mercurial.
+
+There are also another VCS, which should be abandoned because of their
+inefficiency and limitations, but the fact is that they are still around. Those
+are Subversion (SVN) and CVS.
+
+\end{document}
+
+% Editor configuration:
+% vim: tw=80:spell:spelllang=en_gb
+
+
