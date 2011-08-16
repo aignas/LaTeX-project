@@ -1,7 +1,7 @@
-\contentsline {section}{\numberline {1}Creating the Database and BibT\kern -.1667em\lower .5ex\hbox {E}\kern -.125emX\spacefactor \@m \ usage}{1}{section.1}
+\contentsline {section}{\numberline {1}Creating the Database and BibT\kern -.1667em\lower .5ex\hbox {E}\kern -.125emX\spacefactor \@m \ usage}{2}{section.1}
 \contentsline {section}{\numberline {2}How to make citations}{2}{section.2}
 \contentsline {section}{\numberline {3}The cite package usage}{3}{section.3}
-\contentsline {section}{\numberline {4}The natbib package usage}{3}{section.4}
+\contentsline {section}{\numberline {4}The natbib package usage}{4}{section.4}
 \contentsline {section}{\numberline {5}The achemso packge usage}{4}{section.5}
 \contentsline {section}{\numberline {6}The Bib\LaTeX {} package usage}{4}{section.6}
 \contentsline {section}{\numberline {A}Acronyms used in the text}{5}{appendix.A}
