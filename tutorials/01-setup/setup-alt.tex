@@ -1,7 +1,9 @@
 % TODO change verbatim into listings
 % Clever thing to minimize the files I need to edit to change how the files are
 % looking. The following one line comment is to trick VIM-LaTeX
-% \documentclass{article}
+ \documentclass[
+    draft
+]{scrartcl}
 \input{./../template_preamble.tex}
 
 % Custom stuff
@@ -10,6 +12,7 @@
 \lstset{language=bash,numbers=none}
 \newcommand{\MiKTeX}{MiK\TeX}
 \newcommand{\MacTeX}{Mac\TeX}
+\newcommand{\stress}[1]{\textbf{\uppercase{#1}}}
 
 % Title and similar stuff
 \title{How to set up your computer to start using \LaTeX{}}
@@ -18,51 +21,80 @@
 \begin{document}
 
 \maketitle
-
 \tableofcontents
+\listoftodos
 
-Thank you for your interest in \LaTeX\ typesetting system and this article
-will help you to get you ready for starting to use \LaTeX\ on your
-computer.
+%
+Thank you for your interest in \LaTeX{} typesetting system and this article
+    will help you to get you ready for starting to use \LaTeX{} on your
+    computer.
 
+%
 Although I would like to write a continuous text on how to install
-everything on different kinds of OSes (Operating Systems), I believe, that it
-is not necessary to duplicate any content, if it can be found in a better
-shape elsewhere. Therefore, I suggest you reading chapters of the book called
-\LaTeX\ hosted on the website called wikibooks.org. You can find an on-line
-version of the
-\uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX}{book} or the
-\uurl{http://upload.wikimedia.org/wikipedia/commons/2/2d/LaTeX.pdf}{PDF}
-version of it, which I think is much more suitable for reading or printing.
+    everything on different kinds of OSes (Operating Systems), I believe, that
+    it is not necessary to duplicate any content, if it can be found in a better
+    shape elsewhere. 
+%
+Therefore, I suggest you reading chapters of the book called \LaTeX{} hosted on
+    the website called wikibooks.org. 
+%
+You can find an on-line version of the
+    \uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX}{book} or the
+    \uurl{http://upload.wikimedia.org/wikipedia/commons/2/2d/LaTeX.pdf}{PDF}
+    version of it, which I think is much more suitable for reading or printing.
 
+%
 The list of the needed software is already there and if somebody feels very
-comfortable with his system, no specific directions should be necessary for
-them.
+    comfortable with his system, no specific directions should be necessary for
+    them.
 
-
+% ----------------------------------------------------------------------
 \section{Software from the Department of Chemistry}
+% ----------------------------------------------------------------------
 
+%
 Computer Office is already providing images for deploying the whole OS and
-necessary software for Chemistry Department members. As far as I was informed,
-there are images for Linux and Windows systems. For Macs, there might be
-customized installers as well available on \url{http://www.google.co.uk}.
+    necessary software for Chemistry Department members. 
+%
+As far as I was informed, there are images for Linux and Windows systems.
+%
+For Macs, there might be customized installers as well available on
+    somelink.
+\todo{Ask computer officers for a link to the easy mac installers.}
 
-\section{\LaTeX\ distribution installation}
+% ----------------------------------------------------------------------
+\section{\LaTeX{} distribution installation}
+% ----------------------------------------------------------------------
 
-You need either of these:
-\begin{itemize}
-    \item ``\TeX\ Live'' \LaTeX\ distribution which is available for
-        Linux/Mac/Windows, but should be preferred on Linux machines.
-    \item ``\MacTeX'' \LaTeX\ distribution which is available for Mac machines
-        only and should be the preferred option on these machines.
-    \item ``\MiKTeX'' \LaTeX\ distribution which is available for Windows machines
-        only and should be the preferred option on these machines.
-\end{itemize}
+%
+There are several \LaTeX{} distributions which you can choose from and what
+    choice you make might influence your experience with \LaTeX{} a lot.
+%
+\begin{description}
+    \item[``\TeX{} Live''] distribution is available for Linux/Mac/Windows, but
+            is usually the preferred option on Linux machines.
+        %
+    \item[``\MacTeX''] distribution is mainly a compilation of the
+            ``\TeX{} Live'' software specifically tailored for machines running
+            OS X. 
+        %
+        This should be the preferred way of installing a \LaTeX{} distribution
+            on a Mac.
+        %
+    \item[``\MiKTeX''] distribution is available for Windows machines only and
+            it is designed so that everything is done for the user
+            automatically. 
+        %
+        This should be the preferred distribution on Windows OS, however, one
+            should keep in mind that the automation does not work $100\%$ all
+            the time and sometimes you will need to ``help it''.
+        %
+\end{description}
 
 \subsection{Notes for Linux users}
 
 Use your Linux Distribution package manager whenever you can and install
-``\TeX\ Live'' only from there. If you do not know how to do it, please refer to
+``\TeX{} Live'' only from there. If you do not know how to do it, please refer to
 your Distribution Wikipedia and search it for 'LaTeX' or 'TeX Live'.
 
 Here is a list of most popular distributions and links to their Wikipedia Pages:
@@ -72,7 +104,7 @@ Here is a list of most popular distributions and links to their Wikipedia Pages:
         \uurl{http://wiki.debian.org/Latex}{Debian},
         \uurl{https://help.ubuntu.com/community/LaTeX}{Ubuntu},
         and for distributions, which are derived from these two, the same wiki
-        pages can be used. However, for full installation of \TeX\ Live you can try
+        pages can be used. However, for full installation of \TeX{} Live you can try
         these terminal commands (issue them as root):
 \begin{lstlisting}
 aptitude update
@@ -81,7 +113,7 @@ aptitude install texlive-full
 
     \item[.rpm based]
         For Fedora, RedHat, CentOS and openSUSE distributions, use your package
-        manager and install the full \TeX\ Live distribution. The following
+        manager and install the full \TeX{} Live distribution. The following
         command executed in terminal as root should work:
 \begin{lstlisting}
 yum install texlive-full
@@ -116,39 +148,48 @@ equery uses texlive
 \begin{lstlisting}
 emerge -av texlive
 \end{lstlisting}
-        In order to get a newer version of \TeX\ Live, just unmask the needed
+        In order to get a newer version of \TeX{} Live, just unmask the needed
         packages via \verb|/etc/portage/package.accept_keywords|.
 
         Gentoo has a very good
         \uurl{http://www.gentoo.org/proj/en/tex/texlive-migration-guide.xml}{Wiki}
         page documenting the installation.
     \item[Others]
-        Install the \TeX\ Live distribution via your distributions packet
+        Install the \TeX{} Live distribution via your distributions packet
         manager. If you do not know how to do that, ask in the forums on your
         distribution web page.
 \end{description}
 
 \subsection{Notes for Mac users}
 
-For easier experience, just install the full \MacTeX\ installation which can be
+For easier experience, just install the full \MacTeX{} installation which can be
 found on the following \uurl{http://www.tug.org/mactex/}{website}.
 
 \subsection{Notes for Windows users}
 
-For easier experience, download \MiKTeX\ installation files from
+For easier experience, download \MiKTeX{} installation files from
 \uurl{http://miktex.org/2.9/setup}{their website}.
 There are mainly 2 wise options to select:
 \begin{description}
     \item[Install everything] Although this might be very convenient as
-        one will not have to worry about missing packages, but it takes space.
+            one will not have to worry about missing packages, but it takes
+            space.
+        %
         On the other hand, slightly more than 1GB of occupied space on modern
-        computers will not make a difference.
+            computers will not make a difference.
+        %
     \item[Install a base system] This is the alternative, which would take less
-        space. What is more, one can select an option where necessary packages
-        could be installed on the fly without any user intervention.
+            space. 
+        %
+        What is more, one can select an option where necessary packages
+            could be installed on the fly without any user intervention.
+        %
+        However, it might need some more configuration afterwards as it seems
+            that this method sometimes do not work ``automagically''.
+        %
 \end{description}
 
-\section{Editing a .tex file}
+\section{Editing a \ftype{tex} file}
 
 Mainly there are two choices:
 \begin{itemize}
@@ -157,203 +198,263 @@ Mainly there are two choices:
     \item Just a text editor.
 \end{itemize}
 
+%
 While IDEs generally will provide a user with much more integrated environment,
-this does not necessarily mean, that producing \LaTeX\ documents with an IDE is
-generally faster. There are many very powerful text editors, which might have a
-steep learning curve, but once mastered, they are very fast. What is more, some
-text editors might be better in some tasks than other, so there is no such thing
-as ``the best'' IDE or text editor for \LaTeX.
+    this does not necessarily mean, that producing \LaTeX{} documents with an
+    IDE is faster. 
+%
+There are many very powerful text editors, which might have a steep learning
+    curve, but once mastered, they are very fast.
+%
+What is more, some text editors might be better in some tasks than other, so
+    there is no such thing as ``the best'' IDE or text editor for \LaTeX.
 
+%
 The most important projects are mentioned bellow:
 \begin{description}
-    \item[VIM \& Emacs] VIM is the best editor, in my opinion. It is very fast,
-        lightweight and it can be customized a lot. Although it has a steep
-        learning curve, it is very rewarding afterwards and reading any of the
-        books on VIM would help a lot. 
+    \item[VIM \& Emacs] 
+        VIM is the best editor, in my opinion.
+        %
+        It is very fast, lightweight and it can be customized a lot.
+        %
+        Although it has a steep learning curve, it is very rewarding afterwards
+            and reading any of the books on VIM would help a lot. 
         
+        %
         This being said, everybody admit, that Emacs is also good, and many
-        argue that it is better than VIM. This has much to do with so-called
+            argue that it is better than VIM.
+        %
+        This has much to do with so-called
         \uurl{http://en.wikipedia.org/wiki/Editor_war}{editor wars}.
 
+        %
         Since both are very advanced editors, you will find that they have very
-        powerful \LaTeX\ plug-ins, which might make the work faster than with
-        most of the IDEs.
+            powerful \LaTeX{} plug-ins, which might make the work faster than
+            with most of the IDEs.
+        %
+        On the other hand, both editors present a user some difficulties while
+            learning the commands as the learning curve is somewhat steep(ish).
 
-    \item[LyX] This is a project, that aims the user to give a word-processor,
-        which would use \LaTeX\ internally. Although one can achieve really good
-        results with it, technically you do not write \LaTeX\ and it will not
-        help you at all with \LaTeX\ if you want to learn it. However, since it
-        does a lot of automatic things, it might be a very good reference tool
-        for searching hints how to achieve some things with \LaTeX\ (eg.
-        searching for symbols, remembering commands). 
+    \item[LyX] 
+        This is a project, that aims the user to give a word-processor, which
+            would use \LaTeX{} internally.
+        %
+        Although one can achieve really good results with it, technically you do
+            not write \LaTeX{} and it will not help you at all with \LaTeX{} if
+            you want to learn it.
+        %
+        However, since it does a lot of automatic things, it might be a very
+            good reference tool for searching hints how to achieve some things
+            with \LaTeX{} (e.g. searching for symbols, remembering commands). 
         
-        That said, I have to insist on you that {\bfseries YOU DO NOT USE THIS
-        WORD PROCESSOR, OTHER THAN FOR REFERENCE!} The reason is because
-        publishers do not accept LyX files and once you export them to \LaTeX\,
-        it becomes a mess. What is more, it will be easier to collaborate with
-        colleagues if you use \LaTeX\. And sometimes, it tries to do more, than
-        you want, or ask him to do and then you get errors, and spend so much
-        precious time debugging instead of writing your thesis.
+        %
+        That said, I would like to strongly advice you \stress{against using
+            this word processor, other than for reference matters!}
+        %
+        The reason is because publishers do not accept LyX files and once you
+            export them to \LaTeX{}, it becomes a mess.
+        %
+        What is more, it will be easier to collaborate with colleagues if you
+            use \LaTeX{}.
+        %
+        And sometimes, it tries to do more, than you want, or ask it to do and
+            then you get errors, and spend so much precious time debugging
+            instead of writing your thesis.
 
-    \item[TeXShop] This is probably the first good \LaTeX\ IDE for Mac, which
-        was highly successful when it first came out. However, it is still being
-        widely used and most of Mac people will suggest it first.
+        %
+    \item[TeXShop] 
+        This is probably the first good \LaTeX{} IDE for Mac, which was highly
+            successful when it first came out.
+        %
+        However, it is still being widely used and most of Mac people will
+            suggest it first.
 
-    \item[TeXnicCenter] \TeX nicCenter is probably the best choice for Windows
-        users, as it has a lot of functionality. If you choose this IDE, then
-        you won't have to worry about anything as there are a lot of resources
-        on the internet on how to get various features working and etc.
+        %
+    \item[\TeX{}nicCenter] 
+        \TeX{}nicCenter is probably the best choice for Windows users, as it has
+            a lot of functionality.
+        %
+        If you choose this IDE, then you won't have to worry about anything as
+            there are a lot of resources on the internet on how to get various
+            features working and etc.
+        %
+        What is also good about it, is that the user has complete control over
+            the majority of its settings and it is very easy for sophisticated
+            users to get what they want.
 
-    \item[TeXworks] A cross-platform IDE which was inspired by \textbf{TeXShop}.
-        Note, that it is very useful as it comes with every \LaTeX\ distribution
-        by default (except for \TeX\ Live). Thus you can start using it very
-        quickly.
+        %
+    \item[TeXworks]
+        A cross-platform IDE which was inspired by \textbf{TeXShop}.
+        %
+        Note, that it is very useful as it comes with every \LaTeX{}
+            distribution by default (except for \TeX{} Live).
+        %
+        Thus you can start using it very quickly.
 
-    \item[TeXMaker] A good cross-platform IDE using Qt toolkit. This might be an
-        alternative to TeXworks, although there are better alternatives listed
-        above, so it is here just for completeness.
+        %
+    \item[TeXMaker]
+        A good cross-platform IDE using Qt toolkit.
+        %
+        This might be an alternative to TeXworks, although there are better
+            alternatives listed above, so it is here just for completeness.
+        %
 \end{description}
 
 Other projects, which can be still very well used to achieve good results, but
-are somewhat less popular:
+    are somewhat less popular:
+%
 \begin{description}
-    \item[Kile] This is an IDE for Linux, mostly suited for KDE users.
-    \item[Geany] This is an IDE for Linux, built with the GTK+ widget set and
-        might be the primary choice for those people who want an IDE, but
-        don't want to install Qt, or have other strong opinions towards the Qt
-        library.
-        %FIXME
-    \item[Others] There are probably more ways to create \verb|.tex| documents
-        than I have mentioned here and if you feel, that none of the solutions
-        works for you, please research the web and you'll find alternatives.
+    \item[Kile]
+        This is an IDE for Linux, mostly suited for KDE users.
+        %
+    \item[Geany]
+        This is an IDE for Linux, built with the GTK+ widget set and might be
+            the primary choice for those people who want an IDE, but don't want
+            to install Qt, or have other strong opinions towards the Qt library.
+        %
+        \todo{Add more detail?}
+    \item[Others]
+        There are probably more ways to create \ftype{tex} documents than I have
+            mentioned here and if you feel, that none of the solutions works for
+            you, please research the web and you'll find alternatives.
 \end{description}
 
+% ----------------------------------------------------------------------
 \section{Bibliography management}
+% ----------------------------------------------------------------------
 
-Bibliography in \LaTeX\ can be managed in several ways and information on how it
-is done is given in the Bibliography Tutorial. Here I will just flick through
-different software which can act as a front-end to Bib\TeX{}. Those front-ends
-can be categorized as follows:
+%
+Bibliography in \LaTeX{} can be managed in several ways and information on how it
+    is done is given in the Bibliography Tutorial.
+    \todo{Link to it!}
+%
+Here I will just flick through different software which can act as a front-end
+    to Bib\TeX{}.
+%
+Those front-ends can be categorized as follows:
+%
 \begin{description}
-    \item[\LaTeX\ IDEs]
-        Some \LaTeX\ IDEs are known to be able to manage \verb|.bib| files
-        (native Bib\TeX\ format), however, to check whether your is capable of
-        doing that, you should refer to the documentation of the software you
-        use or just quick-check on web-search engines like
-        \uurl{http://www.google.co.uk}{Google},
-        \uurl{http://www.bing.co.uk}{Bing} or
-        others.
+    \item[\LaTeX{} IDEs]
+        Some \LaTeX{} IDEs are known to be able to manage \ftype{bib} files
+            (native Bib\TeX{} format), however, to check whether your is capable
+            of doing that, you should refer to the documentation of the software
+            you use or just quick-check on web-search engines like
+            \uurl{http://www.google.co.uk}{Google},
+            \uurl{http://www.bing.co.uk}{Bing} or others.
+        %
     \item[Text Editor]
         You can manage the bibliography manually, by using just your text
-        editor. For this job I would suggest only the more advanced one like VIM
-        or Emacs, however, you can create the \verb|.bib| file with anything you
-        want, as long as it supports ASCII encoding (which should be the case
-        for all text editors). The templates can be found on the 
-        \uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Bibliography_Management\#Standard_templates}{\LaTeX{} wikibook}.
-    \item[Bib\TeX\ GUIs]
+            editor.
+        %
+        For this job I would suggest only the more advanced one like VIM or
+            Emacs, however, you can create the \ftype{bib} file with anything
+            you want, as long as it supports ASCII encoding (which should be the
+            case for all text editors).
+        %
+        The templates can be found on the
+            \uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Bibliography_Management\#Standard_templates}{\LaTeX{}
+            wikibook}.
+        %
+    \item[Bib\TeX{} GUIs]
         This is the third category and probably the most suited for the job.
+        %
         There are wonderful bibliography managers, which can export the database
-        as \verb|.bib| files and, thus, can be easily used with \LaTeX{}. The
-        list of software can be found either on 
-        \uurl{https://secure.wikimedia.org/wikipedia/en/wiki/Comparison_of_reference_management_software}{Wikipedia} 
-        or
-        \uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Bibliography_Management\#Helpful_Tools}{\LaTeX{} wikibook}.
+            as \ftype{bib} files and, thus, can be easily used with \LaTeX{}.
+        %
+        The list of software can be found either on 
+            \uurl{https://secure.wikimedia.org/wikipedia/en/wiki/Comparison_of_reference_management_software}{Wikipedia} 
+            or
+            \uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Bibliography_Management\#Helpful_Tools}{\LaTeX{} wikibook}.
+        %
 \end{description}
 
+% ----------------------------------------------------------------------
 \section{PDF viewers}
+% ----------------------------------------------------------------------
 
-Good PDF viewers are different across different platforms. I believe, that you
-might want say, that Adobe's PDF viewer is very good, but the truth is that it
-is slow and not as reliable as others, so please be sure, that you check, or at
-least are aware of alternatives.
+%
+Good PDF viewers are different across different platforms.
+%
+I believe, that you might want say, that Adobe's PDF viewer is very good, but
+    the truth is that it is slow and not as reliable as others, so please be
+    sure, that you check, or at least are aware of alternatives.
 
+%
 A much better alternative might look \textbf{Foxit} PDF reader, which is
-available for both Linux and Windows operating systems. However, by no means it
-is the best solution and one should research a bit before settling down with the
-most appealing PDF viewer.
+    available for both Linux and Windows operating systems.
+%
+However, by no means it is the best solution and one should research a bit
+    before settling down with the most appealing PDF viewer.
 
+%
 \subsection{On Linux}
 
-Linux users have a huge variety of PDF viewers to select from. One should search
-distribution's repositories, but just to mention a few:
+%
+Linux users have a huge variety of PDF viewers to select from.
+%
+One should search distribution's repositories, but just to mention a few:
 \begin{description}
     \item[IDE's viewer]
-        If you will be using a fully-fledged IDE for \LaTeX\ (like
-        \TeX{}works or similar), then it is very likely that you will not need
-        another PDF viewer for monitoring the changes to the \verb|.tex| file.
+        If you will be using a fully-fledged IDE for \LaTeX{} (like \TeX{}works
+            or similar), then it is very likely that you will not need another
+            PDF viewer for monitoring the changes to the \ftype{tex} file.
+        %
     \item[Evince]
-        Default PDF viewer for GNOME. Supports Sync\TeX{}, which is very useful
-        for improving the user experience and document creating.
+        Default PDF viewer for GNOME.
+        %
+        Supports Sync\TeX{}, which is very useful for improving the user
+            experience and document creating.
+        %
     \item[Okular] 
-        Default PDF viewer for KDE. Like Evince, supports Sync\TeX{} and might
-        be more feature-full than the former.
+        Default PDF viewer for KDE.
+        %
+        Like Evince, supports Sync\TeX{} and might be more feature-full than the
+            former.
+        %
     \item[mupdf]
         This is a PDF rendering library with a very minimalistic viewer.
+        %
         Although it might be very minimalistic, it is very fast and reliable.
+        %
         This library is cross-platform, so the viewer might be available on
-        other platforms as well.
+            other platforms as well.
+        %
     \item[zathura and apvlv]
-        These are minimalistic and very fast VIM-like PDF viewers.
+        These are minimalistic and very fast VIM-like PDF viewers suited for
+            geeks.
+        %
 \end{description}
 
+%
 \subsection{On Mac}
 
 Your IDE is very likely to be bundled with some custom PDF viewer and thus you
-might not need an extra one. However if you need Sync\TeX{} support, which
-improves the user experience a lot, keep in mind, that not all IDE PDF viewer
-support it. In case you wanted the support in a external viewer, you should
-definitely check out \textbf{Skim} PDF viewer.
+    might not need an extra one.
+%
+However if you need Sync\TeX{} support, which improves the user experience a
+    lot, keep in mind, that not all IDE PDF viewer support it.
+%
+In case you wanted the support in a external viewer, you should definitely check
+    out \textbf{Skim} PDF viewer.
 
+%
 A good choice just to preview files is the native program called
-\textbf{Preview}.
+    \textbf{Preview}.
 
+%
 \subsection{On Windows}
 
-The best choice would be a \textbf{Sumatra} PDF viewer. It is based on very
-stable and fast MuPDF rendering library and it supports lots of other features,
-of which the most important one is Sync\TeX{}. This viewer launches immediately,
-which is very useful if you close and open the PDF files often.
+The best choice would be a \textbf{Sumatra} PDF viewer.
+%
+It is based on very stable and fast MuPDF rendering library and it supports lots
+    of other features, of which the most important one is Sync\TeX{}.
+%
+This viewer launches immediately, which is very useful if you close and open the
+    PDF files often.
 
-Other good alternatives either need to be paid for or they are not as
-reliable/feature-complete as the \textbf{Sumatra} PDF viewer.
-
-\section{Other useful software \& links}
-
-Here is a list of very useful internet resources on \LaTeX{} typesetting system:
-\begin{itemize}
-    \item
-        \uurl{http://www.eng.cam.ac.uk/help/tpl/textprocessing/}{CUED \LaTeX\
-        website} very good resource for some \LaTeX\ related matters;
-    \item
-        \uurl{http://tug.org/pracjourn/2010-2/toc.html}{Prac\TeX{} journal} is a
-        very good place for novel uses of \LaTeX{} and one can find very
-        interesting tutorials there;
-    \item
-        \uurl{http://stackoverflow.com/questions/tagged/latex}{stack\textbf{overflow}
-        archive} of answers to various \LaTeX{} related questions.
-    \item
-        \uurl{http://stackoverflow.com/questions/193298/best-practices-in-latex/196724}{Good
-        \LaTeX{} practices} on stack\textbf{overflow}.
-    \item
-        The aforementioned 
-        \uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX}{\LaTeX{}
-        wikibook}
-    \item
-        \uurl{http://www.ctan.org/}{CTAN \LaTeX{} repository}. This is the major
-        database of packages and document classes. If you do not find what you
-        want here, probably it does not exist (yet).
-    \item
-        \uurl{http://www.tug.dk/FontCatalogue/}{The \LaTeX{} font catalogue}. A
-        very good place to know how to get fonts working.
-    \item
-        \uurl{http://www.texample.net/}{\TeX{}amples page}. A good resource on
-        TikZ graphics package usage. It contains a lot of examples and might be
-        the best way to start learning it just by examining everything.
-    \item
-        \uurl{http://www.tug.org/metapost.html}{Metapost related links}. This is
-        yet another way to produce good quality scalable graphics. This library
-        is based on the MetaFont library by Donald Knuth (the \TeX{} father).
-\end{itemize}
+%
+Other alternatives either need to be paid for or they are not as
+    reliable/feature-complete as the \textbf{Sumatra} PDF viewer.
 
 \end{document}
 

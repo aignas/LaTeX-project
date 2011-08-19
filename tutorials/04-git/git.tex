@@ -1,9 +1,13 @@
 % Clever thing to minimize the files I need to edit to change how the files are
 % looking. The following one line comment is to trick VIM-LaTeX
-% \documentclass{article}
+\documentclass[
+    draft
+]{scrartcl}
 \input{./../template_preamble.tex}
 
 % Custom packages
+
+\newcommand{\TODO}[1]{\todo[inline]{#1}}
 
 \title{How to use GIT version control system to backup and work collaboratively
 on the same documents}
@@ -14,15 +18,21 @@ on the same documents}
 \maketitle
 
 \LaTeX{} is a very good tool for this purpose as the files are created in ASCII
-format and everybody can read it the same way.
-
+    format and everybody can read it the same way.
+%
 \tableofcontents
+\listoftodos
+\clearpage
 
+% ----------------------------------------------------------------------
 \section{What is version control system (VCS)?}
+% ----------------------------------------------------------------------
 
 There are many models of VCS, but the main idea in all of them remains the same.
-This is the ability of registering the changes to the files. A typical workflow
-can be described as follows:
+%
+This is the ability of registering the changes to the files. 
+%
+A typical workflow can be described as follows:
 \begin{enumerate}
     \item Repository is initialized with initial files.
     \item Then a person copies the repository
@@ -34,9 +44,12 @@ can be described as follows:
 \end{enumerate}
 
 As you see from this description it is clear that the whole history of how the
-files were changing is saved and, thus, they can be restored to any previous
-state. In addition to this being such a good back up tool, there are several
-other advantages one should be aware of:
+    files were changing is saved and, thus, they can be restored to any previous
+    state.
+%
+In addition to this being such a good back up tool, there are several
+    other advantages one should be aware of:
+%
 \begin{itemize}
     \item It takes much less space than having multiple folders with different
         versions of the files
@@ -44,23 +57,26 @@ other advantages one should be aware of:
     \item People can work on different parts of the file at the same time.
 \end{itemize}
 
+%
 The last feature is the most useful for \LaTeX{} users once they need to work
-together with someone.
+    together with someone.
 
+% ----------------------------------------------------------------------
 \section{Using GIT and \LaTeX{} together}
+% ----------------------------------------------------------------------
 
 \subsection{Introduction on Git}
 
 Git is a fully open source Distributed Version Control System (DVCS) used for
-many major Open Source Software (OSS) projects.
+    many major Open Source Software (OSS) projects.
 %
 This means, that you get an advanced tool totally for free and you have got an
-army of community members around the world from whom you can learn about git and
-find new 'tricks' almost every day.
+    army of community members around the world from whom you can learn about git
+    and find new 'tricks' almost every day.
 %
 Distributed VCS from a simple VCS differs in one aspect which makes the former
-much more flexible and simply better than the latter - every user has its own
-copy of the entire repository and can work on it in any possible way.
+    much more flexible and simply better than the latter - every user has its
+    own copy of the entire repository and can work on it in any possible way.
 %
 This has some implications:
 \begin{itemize}
@@ -72,53 +88,134 @@ This has some implications:
 \end{itemize}
 
 
-
+%
 What is more, git has introduced 'branching' mechanism into VCS.
 %
 Branching means, that you can create a branch of a repository and then make some
-changes on it and then merge it back whenever you want.
+    changes on it and then merge it back whenever you want.
 %
 Or in the same way you can just abandon it, if you think that the changes you
-made where simply a mistake and you want the previous state of the repository
-back.
+    made where simply a mistake and you want the previous state of the
+    repository back.
 %
 Or you can even 'cherry-pick' some changes from the branch and merge it back to
-the 'master' branch and discard the others.
+    the 'master' branch and discard the others.
 
 
-%TODO
-\textcolor{Red}{\bfseries 
-    Tell more about Git Pull Push requests.
-}
+\todo{Tell more about Git Pull Push requests.}
 
 This way one can have a very powerful tool to manage all the changes to the
-files on the system.
+    files on the system.
 
+%
 \subsection{Using Git}
 
 Git system is very easy to use if you are used to working in shell (such as Bash
-or Zsh).
+    or Zsh).
 %
 However, it might require more adjustment for those who have always been using
-Graphic User Interface and are not as comfortable without any buttons or icons
-to press.
+    Graphic User Interface and are not as comfortable without any buttons or
+    icons to press.
 %
 Luckily there are GUI software, which might help you interface with a Git
-repository very easily:
-\begin{itemize}
-    \item Some
-    \item Or
-    \item Links
-    \item on
-    \item GIT
-    \item GUIS
-\end{itemize}
+    repository very easily:
+%
+\todo{Add a list containing useful GUI soft for Linux, Mac and Windows OSes.}
 
+%
+\subsection{Essential git commands}
+
+%
+This section is probably more suited towards people who are using command line
+    interfaces to git, but I think all people should be aware of basic git
+    commands in order to understand the inner workings better.
+%
+There is a very good list of commands when you create a new 
+\uurl{http://www.github.com}{GitHub} repository:
+%
+\todo{Describe each of the commands}
+%
+\begin{description}
+    \item[Set up git] Commands for changing system wide settings:
+\begin{lstlisting}
+git config --global user.name "Your Name which will appear in log messages"
+git config --global user.email yourname@email.com
+\end{lstlisting}
+
+    \item[Initialize repository] Command for initializing repository:
+\begin{lstlisting}
+mkdir Project-name
+cd Project-name
+git init        # This is for initializing the git repository
+\end{lstlisting}
+
+    \item[Adding files] Commands for adding various files to already initialized
+        repositories:
+\begin{lstlisting}
+touch README                    # Create an empty text file
+git add README                  # Add file to the git repo file-list
+git commit -m 'first commit'    # Commit the changes
+\end{lstlisting}
+
+    \item[Synchronizing] Adding a remote server and synchronizing the
+        repositories
+\begin{lstlisting}
+git remote add origin git@gitserver.com:owner/Project-name.git
+git push -u origin master
+\end{lstlisting}
+
+\end{description}
+
+\todo{example of git repo init and tex dir structure and something else.}
+
+%
 \subsection{Combining \LaTeX{} and Git}
 
+%
+Like all software, git works best if it is used for the purposes it was built
+    for - ASCII text files, or in normal people language - pure text files.
+%
+Hence, anything, which can be actually be encoded in an ASCII file will be
+    stored very efficiently in a git repository.
+%
+The examples of such files would be:
+%
+\begin{description}
+    \item[Source Code Files] These are any files, which contain the source code
+        for any particular program. This is usually the case as the compiler
+        (software which produces executable files, in Windows known as
+        \ftype{exe} files) can only read pure text files.
+
+    \item[\ftype{tex} files] Yes, \TeX{} is written using ASCII file-formats and
+        this is the reason which makes it highly portable across different
+        operating systems.
+
+    \item[\ftype{eps} or other vector graphics files] Yes, you \emph{can} store
+        vector graphics in ASCII files, which makes it ideal for using with git.
+        As a side effect, you will have the whole history of the file!
+
+        \emph{NB} you need it to be truly vector graphics image, that means,
+        that if you import a \ftype{jpg}, \ftype{png}, or any other raster
+        graphics image into a \ftype{eps} figure, then it will definitely not
+        work, as effectively you only change the extension of the file.
+
+    \item[\ftype{csv} files] These files usually are used as a \emph{de facto}
+        format to output experimental data.
+\end{description}
+
+%
+As you see, if you are using \LaTeX{} typesetting system and you do not have to
+    deal with raster images, then you can have a very efficient set of tools.
+
+%
 \subsection{Some thoughts on more sophisticated approaches}
 
+\todo{remember what I wanted to tell here.}
+
+
+% ----------------------------------------------------------------------
 \section{Using other VCS solutions}
+% ----------------------------------------------------------------------
 
 Using other VCS solutions is possible and highly recommended for people, who
 find GIT too hard. 

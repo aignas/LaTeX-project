@@ -1,6 +1,6 @@
-% Clever thing to minimize the files I need to edit to change how the files are
-% looking. The following one line comment is to trick VIM-LaTeX
-% \documentclass{article}
+\documentclass[
+%    draft,
+]{scrartcl}
 \input{./../template_preamble.tex}
 
 % Custom things
@@ -9,7 +9,7 @@
 \usepackage{calc}
 \usepackage[]{amsmath}
 
-\usepackage[pdftex]{graphicx}
+\usepackage{graphicx}
 \graphicspath{{./figs/}}
 \usepackage[update,verbose=false]{epstopdf}
 \usepackage{tikz}
@@ -18,19 +18,29 @@
 \newcommand{\compx}[1]{\textbf{#1}}
 
 
-\title{Getting good quality graphics inside a \LaTeX\ document}
+\title{Getting good quality graphics inside a \LaTeX{} document}
 \author{Ignas Anikevicius}
 
+% ----------------------------------------------------------------------
 \begin{document}
+% ----------------------------------------------------------------------
 
 \maketitle
+\tableofcontents
+\listoftodos
+\clearpage
 
+% ----------------------------------------------------------------------
 \section{Introduction}
+% ----------------------------------------------------------------------
 
+%
 For publications and scientific articles, reports and thesis the most important
-thing is to make well looking graphics. For that there are several guidelines,
-which help one to get his figures look professionally, but at the same time not
-to overdo things as there is a limit of how good the quality has to be.
+    thing is to make well looking graphics. 
+%
+For that there are several guidelines, which help one to get his figures look
+    professionally, but at the same time not to overdo things as there is a
+    limit of how good the quality has to be.
 
 \begin{enumerate}
     \item Use vector graphics as much as possible. Especially where there is a
@@ -38,7 +48,7 @@ to overdo things as there is a limit of how good the quality has to be.
         or svg or any other vector graphics format, you will \textbf{not} gain
         any quality. More on this, please use
         \href{http://www.google.co.uk}{Google}
-    \item If you have to use raster graphics, please select \verb|png| format as
+    \item If you have to use raster graphics, please select \ftype{png} format as
         a better alternative where possible
     \item If you use raster graphics, do not exceed the final resolution of the
         picture to more than 600dpi as most of the printers are printing at
@@ -64,93 +74,356 @@ If you feel that you have not found enough information on the graphics usage in
         Graphics}
 \end{itemize}
 
+% ----------------------------------------------------------------------
 \clearpage
 \section{Inserting a simple figure}
+% ----------------------------------------------------------------------
 
+%
 Inserting a figure is a really easy task and it can be accomplished with the
-following code. Note, that there is an option to the \verb|\includegraphics|
-command which scales the image, so that its width would not exceed the text
-width.
+    following code. 
+%
+Note, that there is an option to the \verb|\includegraphics| command which
+    scales the image, so that its width would not exceed the text width.
+%
 \lstinputlisting{fig1.tex}
+%
 And our figure will look as follows:
+%
 \input{fig1.tex}
 
-\section{Directory setting for graphics, their formats and \LaTeX\ compilers}
+% ----------------------------------------------------------------------
+\clearpage
+\section{Directory setting for graphics, their formats and \LaTeX{} compilers}
+% ----------------------------------------------------------------------
 
-The most convenient way nowadays to produce documents from \LaTeX\ source code
-is to use the \verb|pdftex| or \verb|pdflatex| compiler. It is because it
-produces a \verb|.pdf| file directly and you do not need to convert the
-\verb|.ps| file every time before viewing it with a viewer. Also with
-\verb|pdflatex| you can use more graphics formats:
+%
+The most convenient way nowadays to produce documents from \LaTeX{} source code
+    is to use the \verb|pdftex| or \verb|pdflatex| compiler. 
+%
+It is because it produces a \ftype{pdf} file directly and you do not need to
+    convert the \ftype{ps} file every time before viewing it with a viewer.
+%
+Also with \verb|pdflatex| you can use more graphics formats:
+%
 \begin{description}
-    \item[.pdf] This is the native graphics vector format for this compiler
-    \item[.eps] This format also can be used with pdflatex, but you need to use
-        the \verb|epstopdf| package, which will convert them to \verb|pdf| files
-        on the fly. There are also options to make the convertion only when the
-        \verb|.eps| figures are changed, which speeds up everything
+    \item[\ftype{pdf}] This is the native graphics vector format for this compiler
+    \item[\ftype{eps}] This format also can be used with pdflatex, but you need to use
+        the \verb|epstopdf| package, which will convert them to
+        \ftype{pdf} files on the fly. There are also options to make the
+        conversion only when the \ftype{eps} figures are changed, which speeds
+        up everything
         substantially.
     \item[.png, .jpg] At last you can use this format too if you need to import
         raster graphics into your document, which might ease a lot of things.
 \end{description}
 
+%
 For all these features, one should use the \verb|graphicx| package as this is
-the recommended way to do it. What is more, this packages provides some other
-useful commands. You can tell it where to search for figures by issuing the
-\lstinline|\graphicspath{{./path/to/your/directory}}| command. What is more, you can
-specify several directories in the following way
-\lstinline|\graphicspath{{./dir1}{./dir2}}|. The symbols \verb|./| mean, that the top
-directory is where the \verb|.tex| file is located. So if you have the following
-directory structure:
+    the recommended way to do it. 
+%
+What is more, this packages provides some other useful commands. 
+%
+You can tell it where to search for figures by issuing the following command:
+%
+\begin{lstlisting}
+\graphicspath{{./path/to/your/directory}{./second/directory}}    
+\end{lstlisting}
+%
+The symbols \verb|./| mean, that the top directory is where the \ftype{tex} file
+    is located. 
+%
+So if you have the following directory structure:
+%
 \begin{lstlisting}
 some document
     |-figures
     |-mytexfile.tex
 \end{lstlisting}
-you will need to issue \verb|\graphicspath{{./figures}|. The preamble of this
-file contains the following lines:
+    %
+    you will need to issue \verb|\graphicspath{{./figures}|. 
+%
+The preamble of this file contains the following lines:
+%
 \begin{lstlisting}
 \usepackage[pdftex]{graphicx}
 \graphicspath{{./figs/}}
 \usepackage[update,verbose=false]{epstopdf}
 \end{lstlisting}
 
+%
 The options for the \verb|epstopdf| package mean, that it will convert the
-\verb|.eps| graphics only when they are updated and it will not output any
-errors.
+    \ftype{eps} graphics only when they are updated and it will not output any
+    errors.
 
-\section{Overlaying a figure with \LaTeX\ code}
+% ----------------------------------------------------------------------
+\clearpage
+\section{Overlaying a figure with \LaTeX{} code}
+% ----------------------------------------------------------------------
 
-Although there are different ways of how to overlay text onto graphics, I will
-examine only one of them - the \verb|TikZ| package, which seems to be much
-easier to use and more powerful than the native \LaTeX\ \verb|picture|
-environment.
+%
+There are many ways how to overlay \LaTeX{} macros on top of a figure and I will
+    present some of them in this section.
+%
+These are using the native \env{picture} environment, whereas the other ways
+    rely on either of \pkg{XyPic}, \pkg{overpic} and \pkg{TikZ} packages.
+%
+As pure drawing tools, packages \pkg{XyPic} and \pkg{TikZ} seem to offer the
+    most comprehensive feature-set, however, \pkg{TikZ} package is newer and
+    overcomes some of the limitations imposed by \pkg{XyPic}.
+%
+What is more, \pkg{TikZ} works better with the \pkg{pdf\LaTeX{}} compiler as it
+    uses internal pdf specifications.
 
-\subsection{TikZ package}
+%
+In any case, if you got interested in any of these packages, please read the
+    notes bellow and for further information look upon the documentation on the
+    respective folders on CTAN.
 
+%
+\todo{link to CTAN}
+
+%
+\subsection{The \env{picture} Environment}
+
+%
+This is the most interesting capability of \LaTeX{} although it should be
+    considered as too 'fiddly' to actually be the quickest way to produce
+    content.
+%
+If you want to see an example figure and how it is made, please refer to the
+    sources of the document, the file is named \texttt{fig2.tex}
+
+%
+I do not advise you to use this tool as there are several issues with it.
+%
+To begin with, you need to know the aspect ratio of your picture, which is not a
+    problem most of the times, but still is far from the quickest way of doing
+    things.
+%
+Another is that the alignment of the elements is really tricky and there are no
+    quick macros to do such things like position text to the right of the
+    specified point.
+
+%
+For more information one should either refer to the \LaTeX{} documentation or
+    some books such as Leslie Lamport's original book on \LaTeX{} updated for
+    \LaTeXe{}.
+    \todo{Add links to documentation}
+
+%
+\subsection{The \pkg{overpic} Package}
+
+%
+The \pkg{overpic} package can be considered as slightly improved version of the
+    picture environment as it can draw a grid automatically and the position of
+    the text and the figure itself is somewhat better.
+%
+However, it is far too simple if one needs to add some graphics elements on top
+    of the figure as it is mostly suited with overlaying other figures or text
+    on top of the image.
+%
+What is more, you still got to position everything very carefully and if you
+    want or need more flexibility, than this package will not do the job.
+
+%
+To get more information please refer to the package documentation which can be
+    found by following \uurl{http://www.google.co.uk}{this link}.
+    \todo{Add documentation links}
+
+%
+\subsection{The \pkg{XyPic} Package}
+
+%
+This is yet another alternative for producing graphics inside \ftype{tex}
+    documents.
+%
+Since it was created more than 10 years ago, many requirements have changed and
+    new technologies have been created, but I believe, that there are still a
+    lot of people using it, because it just suits their needs.
+
+%
+In my opinion the drawback of this package is that might not work as expected if
+    a person uses the \texttt{latex} compiler and the does the file conversion
+    \ftype{dvi} \textrightarrow \ftype{ps} \textrightarrow \ftype{pdf}.
+%
+This is because for producing graphics the package uses glyphs (i.e. to produce
+    a long line it will use a lot of small dashes or dots and will not describe
+    line in a similar way as vector programs do, which is defining a curve).
+%
+Hence, I do not think, that it is in any way better thank the \pkg{TikZ}
+    package, about which I have written in the next section.
+%
+This said, feel free to test it and do not worry about any limitations if that
+    does not affect your picture quality/work-flow.
+
+%
+To get more information please refer to the package documentation which can be
+    found by following \uurl{http://www.google.co.uk}{this link}.
+    \todo{Add documentation links}
+
+%
+\subsection{Portable Graphics Format and \pkg{TikZ} macros}
+
+%
+Here I will describe shortly how to get the \pkg{TikZ} package working and why
+    it might be better than the solutions described above.
+%
+To begin with, Portable Graphics Format or PGF is a language for drawing quality
+    vector graphics.
+%
+It was designed after the Metapost language and is a very powerful tool for
+    dealing with vector images.
+%
+The \pkg{TikZ} package is mainly a set of macros for the PGF language and it is
+    in a sense very similar how \LaTeX{} is a set of macros for \TeX{}.
+
+%
+Over time TikZ and PGF combination got very powerful and the documentation
+    (v2.1) now contains over 600 pages, which is basically a lot of examples
+    explaining different functionality in the package.
+%
+If you can not find a way to do something, then please make sure, that you
+    search inside this huge document as well.
+
+%
+\subsubsection{Example 1: Overlaing a Simple Figure}
+
+%
 Let's look at the example bellow, which has to do more with chemistry than the
-figure \ref{fig:plot1}. The thing, which we want to do is to put 4 structures
-and then label them. The final image is shown in the figure \ref{fig:struct1-2},
-where the work-flow is explained in the figure \ref{fig:struct1-1} on page
-\pageref{fig:struct1-1}.
+    figure \ref{fig:plot1}.
+%
+The thing, which we want to do is to put 4 structures and then label them.
+%
+The final image is shown in the figure \ref{fig:struct1-2}, where the work-flow
+    is explained in the figure \ref{fig:struct1-1} on page
+    \pageref{fig:struct1-1}.
 
+%
 \input{fig3-2.tex}
-\input{fig3-1.tex}
 
+%
 You can check out the code listing for creating the figure \ref{fig:struct1-1}
-bellow:
-\lstinputlisting{fig3-2.tex}
+    bellow:
+    \lstinputlisting{fig3-2.tex}
 
-This way one can create good figures very easily. What is more, if you have just
-simple structure images you do not have to worry about placing them correctly
-using your mouse or making sure that the font will be the same as in all the
-other text if you overlay everything using this \LaTeX\ package.
+%
+\input{fig3-1.tex}
+%
+This way one can create good figures very easily.
+%
+What is more, if you have just simple structure images you do not have to worry
+    about placing them correctly using your mouse or making sure that the font
+    will be the same as in all the other text if you overlay everything using
+    this \LaTeX{} package.
 
-There is another example shown in the figure \ref{fig:struct2}. This is a true
-scientific quality figure and with overlaying text on top you ensure, that it
-will be readable in your document.
+%
+\comment{
+There is another example shown in the figure \ref{fig:struct2}.
+%
+This is a true scientific quality figure and with overlaying text on top you
+    ensure, that it will be readable in your document.
+    \input{fig4.tex}
+    }
+
+%
+\subsubsection{Example 2: Composing a Scheme of Individual Structures}
+
+%
+In this example I have created a simple scheme, which depicts a synthesis
+    pathway for 
+
+%
 \input{fig4.tex}
 
+\todo{Finish the scheme!}
+
+% ----------------------------------------------------------------------
+\clearpage
+\section{Substituting Postscript Code with \LaTeX{} Macros}
+% ----------------------------------------------------------------------
+
+%
+Another way to modify graphics is to use packages, which ease the replacement of
+    the Postscript code into \LaTeX{} commands, which gives you a lot of control
+    on the looks of your figures.
+%
+However, one must need to use a standard \verb|latex| compiler to leverage this
+    functionality, because otherwise, the \ftype{eps} figures will not be
+    post-processed by \TeX{}.
+%
+On the other hand, that was true only until recently when some people thought of
+    packages, which go around these limitations and psfrag-like substitution
+    becomes available using all compilers.
+
+\comment{
+%
+This approach gives you those nice fonts, which \LaTeX{} uses and one can
+    achieve very consistent looks over the entire document.
+%
+What is more, you can replace the Poscript code with your own created macros,
+    which might be very useful if you want to cross-reference some objects
+    inside the figures.
+    }
+
+%
+\subsection{The \pkg{psfrag} package}
+
+%
+The mechanism of how this package works is very simple.
+%
+You create markers inside a \ftype{eps} figure (e.g. TMP1, or TMP2) and then
+    replace them with \LaTeX{} macros by issuing the following command inside
+    the figure environment, but before \verb|includegraphics| command:
+%
+\begin{lstlisting}
+\psfrag{tag}[position][psposition][scale][rotation]{LaTeX construction}
+\end{lstlisting}
+
+%
+You can deduce, that with this approach one can get the same font-faces, which
+    are being used by \LaTeX{} and, what is more, the font sizes are retained
+    the same as in the .eps figure, so you are not tied to the \cmd{normalsize}
+    or \cmd{footnotesize} font sizes.
+%
+Although this might come handy at times, my personal opinion is that with more
+    flexibility one can introduce more inconsistencies.
+%
+Hence, one should avoid fiddling with the font-sizes a lot unless it is
+    necessary and everything should be defined via macros such as
+    \cmd{normalsize}, \cmd{tiny}, \cmd{footnotesize} and similar.
+
+%
+\subsection{The \pkg{pstool} package}
+
+%
+This is one of the packages, which let you use \pkg{psfrag} type functionality
+    without sacrificing the advantages of \pkg{pdflatex} compiler.
+%
+It basically processes the figures separately before including the as already
+    processed \ftype{pdf} files and one can get most of the psfrag functionality
+    this way.
+
+%
+Another advantage of this approach is that the figures are processes only when
+    needed and the compilation times decrease.
+
+%
+\subsection{The \pkg{pst-pdf} package}
+
+%
+This package does similar thing as \pkg{pstool}, but where the first is striving
+    to provide functionality of the \pkg{psfrag} package, the \pkg{pst-pdf}
+    package is for dealing with \pkg{pstricks} routines.
+%
+The mechanism of how it is done, is basically very similar to the approach
+    described above.
+    \todo{Links to the documentation}
+
+
+% ----------------------------------------------------------------------
 \end{document}
+% ----------------------------------------------------------------------
 
 % Editor configuration:
 % vim: tw=80:spell:spelllang=en_gb

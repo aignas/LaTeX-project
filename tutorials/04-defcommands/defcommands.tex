@@ -1,6 +1,6 @@
 % Clever thing to minimize the files I need to edit to change how the files are
 % looking. The following one line comment is to trick VIM-LaTeX
-%\documentclass{article}
+\documentclass{scrartcl}
 \input{./../template_preamble.tex}
 
 % Custom packages
@@ -32,7 +32,7 @@
     \label{#1}
 }
 
-\usepackage[pdftex]{graphicx}
+\usepackage{graphicx}
 \graphicspath{{./figs/}}
 \usepackage[update,verbose=false]{epstopdf}
 \usepackage{tikz}

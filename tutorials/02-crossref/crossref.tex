@@ -1,0 +1,95 @@
+% Clever thing to minimize the files I need to edit to change how the files are
+% looking. The following one line comment is to trick VIM-LaTeX
+% \documentclass{article}
+\input{./../template_preamble.tex}
+
+% Custom packages
+
+\title{Labels and Cross-referencing in \LaTeX{}}
+\author{Ignas Anikevicius}
+
+\begin{document}
+
+\maketitle
+
+This will be a short but \emph{very} meaningful tutorial on cross-references in
+\LaTeX{}
+%
+What makes \LaTeX{} cross-referencing so good is that you can literally refer to
+    almost any object you want, which makes it very useful.
+%
+The fact, that this task is trivial to do makes it very difficult to ignore it.
+
+%    
+Everything works via \verb|label| command, which defines a \emph{makrker}, to
+    which you can refer later on via \verb|ref| command.
+%
+So for example, referencing to a section called ``Introduction'' you just have
+    to specify it with the following code:
+%
+\begin{lstlisting}
+\section{Introduction}
+\label{sec:intro}
+\end{lstlisting}
+%
+or
+%
+\begin{lstlisting}
+\section{Introduction \label{sec:intro}}
+\end{lstlisting}
+%
+Both code variants will work and when you would execute a command
+    \verb|\ref{sec:intro}|, you would get a section number.
+%
+For getting a page-number you would similarly execute 
+    \verb|\pageref{sec:intro}| command.
+
+%
+Now note the prefix I have given to the newly created label.
+%
+Since one can refer to almost any object, it might get slightly confusing once
+    you have more than 10 references.
+%
+In order to avoid this, most \LaTeX{} users make labels with various prefixes,
+    which denote what type of object it is.
+%
+Common prefixes are as follows:
+%
+\begin{itemize}
+    \item \emph{sec:} for sections
+    \item \emph{subsec:} for sections or you can use \emph{ssec:}
+    \item \emph{eq:} for equations
+    \item \emph{fig:} for figures
+    \item \emph{tab:} for tables
+\end{itemize}
+
+Note, that the list of the prefixes is completely trivial, so you can use
+    whatever prefixes you like.
+%
+If you use packages, which provide new commands, or environments, then it would
+    be good idea to come up with prefixes for these things as well.
+%
+\begin{itemize}
+    \item \emph{schem:} for schemes
+    \item \emph{lst:} for code listings
+    \item \emph{cheq:} for chemical reaction equations
+\end{itemize}
+
+\emph{NOTE}, the prefix convention is not obligatory, so one can not use it, but
+    in the end, for bigger documents, it makes reading, and writing the document
+    so much easier.
+%
+Therefore, it would be a good idea to use it \emph{always}.
+
+For more information on cross-referencing, please read a chapter on
+    \uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Labels_and_Cross-referencing}{Labels
+    and Cross-referencing} on the 
+    \uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX}{\LaTeX{} wikibook}.
+
+
+\end{document}
+
+% Editor configuration:
+% vim: tw=80:spell:spelllang=en_gb
+
+

@@ -1,0 +1,21 @@
+\contentsline {section}{\numberline {1}Some History}{3}{section.1}
+\contentsline {section}{\numberline {2}Concept of Declarative Formatting}{3}{section.2}
+\contentsline {section}{\numberline {3}Reading List Before Starting Your First Document}{5}{section.3}
+\contentsline {section}{\numberline {4}Description of the Tutorials in this Repository}{5}{section.4}
+\contentsline {subsection}{\numberline {4.1}How to Setup Your Machine}{5}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Intermediate Skills}{6}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Managing Abbreviations and Glossaries Cleverly}{6}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}Managing Bibliography}{6}{subsubsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.3}Cross-referencing in \LaTeX {}}{6}{subsubsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.4}Mathematical and Chemical Equations}{6}{subsubsection.4.2.4}
+\contentsline {subsubsection}{\numberline {4.2.5}Different Fonts and Encodings in \LaTeX {}}{6}{subsubsection.4.2.5}
+\contentsline {subsubsection}{\numberline {4.2.6}Including Graphics, Producing Graphics in \LaTeX {}}{7}{subsubsection.4.2.6}
+\contentsline {subsubsection}{\numberline {4.2.7}Table Creation}{7}{subsubsection.4.2.7}
+\contentsline {subsection}{\numberline {4.3}Template-Related Things}{7}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Making Posters}{7}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}Producing Presentations}{7}{subsubsection.4.3.2}
+\contentsline {subsubsection}{\numberline {4.3.3}Template Instructions}{7}{subsubsection.4.3.3}
+\contentsline {subsection}{\numberline {4.4}Advanced Topics}{7}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Customizing \LaTeX {} to Your Own Needs: Defining Macros}{8}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}Getting Incremental Updates and other Goodies}{8}{subsubsection.4.4.2}
+\contentsline {section}{\numberline {5}List of Useful Links and Resources}{8}{section.5}

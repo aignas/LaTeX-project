@@ -1,6 +1,8 @@
 % Clever thing to minimize the files I need to edit to change how the files are
 % looking. The following one line comment is to trick VIM-LaTeX
-% \documentclass{article}
+\documentclass[
+    draft
+]{scrartcl}
 \input{./../template_preamble.tex}
 
 % Custom packages
@@ -14,6 +16,8 @@
 \begin{document}
 
 \maketitle
+\tableofcontents
+\listoftodos
 
 Bibliography can be very easily managed in \LaTeX\ and this tutorial will
 quickly explain how to get good results in relatively short time.  There are
@@ -29,7 +33,6 @@ you can read it on the LaTeX
 \uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Bibliography_Management}{wikibook}
 .\cite{latexwikibook:bibliography}
 
-\tableofcontents
 
 \section{Creating the Database and Bib\TeX\ usage}
 

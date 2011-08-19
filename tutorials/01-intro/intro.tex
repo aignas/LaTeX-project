@@ -1,0 +1,416 @@
+% Clever thing to minimize the files I need to edit to change how the files are
+% looking. The following one line comment is to trick VIM-LaTeX
+\documentclass[
+    draft
+    ]{scrartcl}
+\input{./../template_preamble.tex}
+
+% Customize
+\renewcommand{\quote}[1]{
+\begin{center}
+    \colorbox{myyellowl}{
+    \begin{minipage}[t]{.92\textwidth}
+        #1
+    \end{minipage}
+    }
+\end{center}
+}
+
+\title{\LaTeX{} Fundamentals}
+\author{Ignas Anikevicius}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\listoftodos
+\clearpage
+
+%
+In this document I will talk about the key features of \LaTeX{} and philosophy
+    behind it.
+%
+If you have not met \LaTeX{} before, it is crucial for you to be comfortable
+    with the concepts I am outlining in this document, or even better, read some
+    books on how to get started on \LaTeX{}.
+%
+I will also present some history on how \LaTeX{} was born, so if you would like
+    to know about anything similar like that, please continue reading.
+%In this tutorial I will assume that you have already successfully installed and
+%    configured your system and you are able to compile a simple standard
+%    document.
+
+% ----------------------------------------------------------------------
+\section{Some History}
+% ----------------------------------------------------------------------
+
+%
+\LaTeX{} was created as a set of different macros for \TeX{}, which at the time
+    was quite popular amongst scientists and people producing literature.
+%
+This short paragraph by Leslie Lamport (the author of \LaTeX{} summarizes the
+    reasons behind its creation very well on his
+    \uurl{http://research.microsoft.com/en-us/um/people/lamport/pubs/pubs.html\#latex}{website}:
+
+% Input the file containing the quote. Very useful to keep things tidy\ldots
+\quote{\input{lamportquote.tex}}
+
+% ----------------------------------------------------------------------
+\section{Concept of Declarative Formatting}
+% ----------------------------------------------------------------------
+
+%
+As you see, \LaTeX{} is just a set of macros for the \TeX{} typesetting system
+    created by Donald Knuth.
+%
+What is more, it does not add anything in particular very important apart from
+    emphasizing the point made by \TeX{}:
+%
+\quote{the content and the formatting should be as separate as possible.}
+
+%
+The above statement implies the following ideas:
+\begin{itemize}
+    \item The author can focus on the text more and he does not get distracted
+        by temptation to change the looks of the contents by pressing various
+        buttons and tweaking so that it appears nice in the text \emph{before}
+        final version is ready.
+
+    \item One should make the formatting of the document meaningful. What I want
+        to say, is that for example to emphasize some word you do not put a
+        command 
+\begin{lstlisting}
+\textit{emphasis}
+\end{lstlisting}
+        , which would look like
+        \emph{emphasis}, but you'd rather use a existing command (or
+        create/redefine one), so that you would write something like
+\begin{lstlisting}
+\emph{emphasis}
+\end{lstlisting}
+        or 
+\begin{lstlisting}
+\emphas{emphasis}
+\end{lstlisting}
+        and you get the same.
+
+        Well this has several advantages:
+        \begin{enumerate}
+            \item If you need to change the looks of how you emphasize the words
+                in the text, you just change the definition of the command you
+                are already using.
+                %
+                This simple change might save you a lot in the long run.
+
+            \item You do not have to think about how it will look in text if you
+                want to put emphasis on the text.
+                %
+                You just know, that that word will be emphasized and that's it.
+
+            \item The built in command \verb|\emph| already takes care of the
+                fact that if you want to emphasize some text in already
+                emphasized text, it will still get emphasized.
+                
+                For example:
+                
+                \emph{This is \emph{very} important text}.
+                
+                can be achieved by:
+\begin{lstlisting}
+\emph{This is \emph{very} important text}.
+\end{lstlisting}
+        \end{enumerate}
+    \item Since the formatting is completely separated from the content, it is
+        very easy to make the document look nice if the author has followed the
+        \LaTeX{} conventions and the formatting of the text is abstract.
+
+\end{itemize}
+
+There is a very great short article on this if you follow
+    \uurl{http://web.science.mq.edu.au/~rdale/resources/writingnotes/declform.html}{this
+    link}.
+
+% ----------------------------------------------------------------------
+\section{Reading List Before Starting Your First Document}
+% ----------------------------------------------------------------------
+
+%
+You can find a very good 
+    \uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX}{on-line book}
+    which can help you get started. Before continuing any further, you should
+    read or at least skim through the first 5 chapters:
+\begin{description}
+    \item[Introduction] Mainly what is \LaTeX{} and what software is needed for
+        it. It may serve as an addition to what is already written in the
+        'setup' tutorial;
+    \item[Absolute Beginners] Definitely read this if you hear the term \LaTeX{} the first
+        time, although others should also skim through this as it might
+        consolidate your knowledge;
+    \item[Basics] The same as above chapter;
+    \item[Document Structure] This might be more useful for \emph{Absolute
+        Beginners};
+    \item[Errors and Warnings] A very important chapter which might help you a
+        lot to understand what your \LaTeX{} program is telling you when you
+        make a mistake. It is advised to read it if you have problems with some
+        \LaTeX{} documents before reporting to anyone;
+\end{description}
+%
+If you like to have real books, check your preferred library for
+    ``\LaTeX{} - User's Guide and Reference Manual'' by Leslie Lamport.
+%
+And if you are thinking of buying one, consider buying this book first as
+    nothing can be better than the \LaTeX{} author himself explaining how to use
+    the system.
+
+%
+After having reading all the information I have presented here, I hope, that you
+    will be able to appreciate how \LaTeX{} is done and it will be easier for you
+    to start using \LaTeX{} the right way and after some time to notice, that
+    producing document in \LaTeX{} takes you less time than in any other tool.
+
+% ----------------------------------------------------------------------
+\section{Description of the Tutorials in this Repository}
+% ----------------------------------------------------------------------
+
+\todo{Put actual links to the tutorials?}
+
+%
+Here I will outline general contents of the repository so that it would be
+    easier to find various topics which are described in numerous tutorials I
+    produced over the summer.
+
+%
+\subsection{How to Setup Your Machine}
+
+%
+In this tutorial I have compiled a lot of information on how to prepare you
+    machine to use \LaTeX{}.
+%
+In there you will find everything you need to know about a \LaTeX{}
+    distribution, editing with an IDE or a simple text editor, managing your
+    bibliography database using sophisticated tools.
+
+%
+\subsection{Intermediate Skills}
+
+%
+There are number of tutorials which where written with chemists in mind, so
+    there are tips on how to deal with problems, which might arise for the
+    majority of you writing reports, papers and other documents.
+
+%
+\subsubsection{Managing Abbreviations and Glossaries Cleverly}
+
+%
+If you have ever tried to put together a big document and you needed to ensure
+    the integrity of all abbreviations you used and then you needed to compile a
+    list of it, then you will appreciate the usefulness of this tutorial.
+%
+It deals with automated, cross-referenced usage of abbreviations and, moreover,
+    it gives you directions how to manage glossaries with some specific \LaTeX{}
+    packages.
+
+%
+\subsubsection{Managing Bibliography}
+
+%
+In this tutorial I have described how to use different packages for bibliography
+    management and citations and it encapsulates most of the needed commands for
+    your everyday typesetting needs.
+%
+If you do not know how to make the reference list to appear in the way you want,
+    or you want something like footnoted citations, then you will find some
+    directions or code in this tutorial.
+    
+%
+\subsubsection{Cross-referencing in \LaTeX{}}
+
+%
+\LaTeX{} is very useful when it comes to cross referencing.
+%
+However, its vast capabilities might sometimes make you feel clumsy or lost, so
+    it is quite important to get some of the concepts right from the first time.
+%
+This tutorial is only 2 pages long, so it should not take too much time to skim
+    through.
+
+%
+\subsubsection{Mathematical and Chemical Equations}
+
+%
+In this tutorial I have made some notes on how to produce different formats of
+    equations and how to cross-reference them.
+%
+If you haven't used \pkg{mhchem} package, then you should check out the
+    subsection on quick typesetting of the equations of chemical reactions.
+    
+%
+\subsubsection{Different Fonts and Encodings in \LaTeX{}}
+
+%
+In this tutorial I am talking on how to customize your \LaTeX{} document in
+    order to get required fonts.
+%
+There is also section on how to incorporate Unicode characters into text if
+    needed (although \LaTeX{} has very powerful macros to typeset almost any
+    character you might want).
+%
+There you can find information on alternative \LaTeX{} compilers, which for more
+    technically inclined might be something worth trying out.
+
+%
+\subsubsection{Including Graphics, Producing Graphics in \LaTeX{}}
+
+%
+This is probably one of the most useful tutorials for scientists dealing with a
+    lot of graphics.
+%
+It covers basics of how to include simple figures and it also includes some
+    notes on how to overlay any figures with latex code.
+%
+The overlaying method is done with a very powerful \pkg{tikz} package, which can
+    be even used to create entire figures if needed.
+    
+%
+\subsubsection{Table Creation}
+
+%
+In this tutorial I have given some quick notes and examples on how to make
+    appealing tables using several \LaTeX{} packages, such as \pkg{booktabs} and
+    \pkg{array}.
+%
+It also includes information on how to include tables, which span over both
+    columns in two-column documents.
+
+%
+\subsection{Template-Related Things}
+
+%
+\subsubsection{Making Posters}
+\todo{Write notes!}
+
+%
+This tutorial quickly reviews some possible solutions for poster production in
+    \LaTeX{}.
+%
+Since there are numerous ways how to make a poster, there is not a single
+    perfect solution which might suit all, hence this is more or less a
+    compilation of notes where to find information and what packages to use.
+
+%    
+\subsubsection{Producing Presentations}
+
+%
+Presentations, like posters, are very personal, hence in this tutorial there are
+    some notes on how to use several packages and there is some discussion on
+    the work-flow on making the slides.
+%
+However, since it is very narrow field, it would be really hard to give you one
+    big tutorial on how to achieve things and, therefore, you will find more or
+    less guidelines and links to useful resources on presentation making in
+    \LaTeX{}.
+
+%
+\subsubsection{Template Instructions}
+
+%
+In this tutorial you can find some notes on how to use the templates found on
+    this website.
+%
+I hope that it will complement to the documentation already existing in the
+    templates quite well and you will be able to use the templates without any
+    troubles.
+
+%
+\subsection{Advanced Topics}
+
+%
+There are two more tutorials, which would be more suitable for people who
+    already know everything from the tutorials listed above and would like to
+    start creating their own macros or find out about tools which can make your
+    work easier.
+    
+%
+\subsubsection{Customizing \LaTeX{} to Your Own Needs: Defining Macros}
+
+%
+This tutorial is on defining your own macros which would make your text more
+    meaningful.
+%
+For example if you want to emphasize a package name by using a bold-face font,
+    then you should create your own macro for that with a name \verb|pkg| or
+    something similar.
+%
+This helps in two ways: first, you do not have to worry about making the looks
+    of all package names consistent, and second, you give to your text more
+    meaning as it can be clearly seen that what you emphasize is a package name.
+%
+Second part of the very same tutorial is about counters and using them to
+    enumerate chemical structures combining with the packages mentioned in the
+    graphics tutorial. \todo{Link to it, or at least emph it}
+
+%
+\subsubsection{Getting Incremental Updates and other Goodies}
+
+%
+This tutorial is on Version Control System usage with \LaTeX{} which in
+    simple-world terms means easier collaborative work and access to almost any
+    version of the file at any time.
+%
+This tutorial was written in order to make git version control system more
+    accessible to chemists and to provide an alternative (most say, that it is a
+    better one) to the old Subversion (SVN).
+%
+However, the Computing Officers have already created a SVN server in the
+    Department, so using it might be your only choice as of now.
+%
+For those who want invest time into newer and more advanced technology (git)
+    there are several notes on how to make that happen in the nearest future.
+
+% ----------------------------------------------------------------------
+\section{List of Useful Links and Resources}
+% ----------------------------------------------------------------------
+
+%
+Here is a list of very useful internet resources on \LaTeX{} typesetting system:
+\begin{itemize}
+    \item
+        \uurl{http://www.eng.cam.ac.uk/help/tpl/textprocessing/}{CUED \LaTeX\
+        website} very good resource for some \LaTeX\ related matters;
+    \item
+        \uurl{http://tug.org/pracjourn/2010-2/toc.html}{Prac\TeX{} journal} is a
+        very good place for novel uses of \LaTeX{} and one can find very
+        interesting tutorials there;
+    \item
+        \uurl{http://stackoverflow.com/questions/tagged/latex}{stack\textbf{overflow}
+        archive} of answers to various \LaTeX{} related questions.
+    \item
+        \uurl{http://stackoverflow.com/questions/193298/best-practices-in-latex/196724}{Good
+        \LaTeX{} practices} on stack\textbf{overflow}.
+    \item
+        The aforementioned 
+        \uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX}{\LaTeX{}
+        wikibook}
+    \item
+        \uurl{http://www.ctan.org/}{CTAN \LaTeX{} repository}. This is the major
+        database of packages and document classes. If you do not find what you
+        want here, probably it does not exist (yet).
+    \item
+        \uurl{http://www.tug.dk/FontCatalogue/}{The \LaTeX{} font catalogue}. A
+        very good place to know how to get fonts working.
+    \item
+        \uurl{http://www.texample.net/}{\TeX{}amples page}. A good resource on
+        TikZ graphics package usage. It contains a lot of examples and might be
+        the best way to start learning it just by examining everything.
+    \item
+        \uurl{http://www.tug.org/metapost.html}{Metapost related links}. This is
+        yet another way to produce good quality scalable graphics. This library
+        is based on the MetaFont library by Donald Knuth (the \TeX{} father).
+\end{itemize}
+
+
+\end{document}
+
+% Editor configuration:
+% vim: tw=80:spell:spelllang=en_gb

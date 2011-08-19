@@ -2,5 +2,5 @@
 \contentsline {subsection}{\numberline {1.1}Typesetting units correctly}{2}{subsection.1.1}
 \contentsline {subsection}{\numberline {1.2}Typesetting lengthy and tedious expressions quickly}{3}{subsection.1.2}
 \contentsline {section}{\numberline {2}Counters and more elaborate commands}{3}{section.2}
-\contentsline {subsection}{\numberline {2.1}Example}{3}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Example 2}{5}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.1}Example}{4}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Example 2}{6}{subsection.2.2}
