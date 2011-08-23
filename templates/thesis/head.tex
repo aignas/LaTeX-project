@@ -1,8 +1,11 @@
 % Definition of the class. Do not change this line unless you want to make your own template
-\documentclass[report]{scrbook-cucd}
+\documentclass[
+    phd,
+%    draft
+]{scrbook-cucd}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Packages to ease dealing with figures and Tables
+% Package definitions
 %%%%%%%%%%%%%%%
 
 % Add png, jpg, pdf support into LaTeX
@@ -19,31 +22,21 @@
     verbose=false,      %       do not output unintresting stuff
     ]{epstopdf}         %
                                     
-% Get nice tables
-\usepackage{booktabs}
 % Get nice alignment inside the table
 \usepackage{dcolumn}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[]{amsmath}
-\usepackage{blindtext}
 \usepackage{algorithm}
 \usepackage{algorithmic}
-\usepackage{amsfonts}
-\usepackage[version=3]{mhchem}
-\usepackage{pbox}
-\usepackage{calc}
-\usepackage{array}
-\usepackage{acronym}
 \usepackage{achemso}
-\usepackage{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Fields for the title page
 %%%%%%%%%%%%%%%
 
 \author{John Smith}
-\title{A Very Interesting Study About Waffles and How Do You
+\title{A Very Interesting Study About Waffles and How To
 Make Syrup Out of Every Impossible Plant.}
 \supervisor{
     Prof. Severus Snape
@@ -93,7 +86,7 @@ Make Syrup Out of Every Impossible Plant.}
 \date{January 1, 1990}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\includeonly{front/cover}
+%\includeonly{front/cover}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -104,11 +97,11 @@ Make Syrup Out of Every Impossible Plant.}
 \include{front/cover}
 \include{front/abstract}
 
-%\tableofcontents
+\tableofcontents
 %\listoffigures
 %\listoftables
 
-\include{front/abrev}
+\include{common/abrev}
 \include{front/declare}
 \include{front/acknowledge}
 
@@ -119,8 +112,9 @@ Make Syrup Out of Every Impossible Plant.}
 
 \mainmatter
 \include{chap1/chap1}
-%\Blinddocument
-%\Blinddocument
+\include{chap1/chap1}
+\include{chap1/chap1}
+\include{chap1/chap1}
 
 \appendix
 \include{appA/appA}

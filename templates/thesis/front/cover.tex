@@ -1,0 +1,71 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is the template for the title page. Please feel free to edit it to suit
+% your needs, but please DO NOT HARDCODE YOUR NAMES and USE THE COMMANDS
+% PROVIDED BY THE CLASS!!!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter                           % Make @ a simple letter
+\singlespacing
+
+\begin{titlepage}                       % Initialize titlepage environment
+\newgeometry{                           % Change the default geometry
+    right=1.8cm, left=1.8cm,            %
+    top=2.0cm, bottom=2cm,              %
+}                                       %
+
+\newlength{\titlewidth}
+\setlength{\titlewidth}{.95\textwidth}
+
+\begin{minipage}[]{65mm}
+    \raggedright                        % identifier according to the
+    \includegraphics[                   % regulations. Please do not edit its
+        width=65mm]{CUnibig.eps}        % dimensions
+\end{minipage}                          %
+\hfill
+\begin{minipage}[]{15mm}       % Here the crest and the name of the
+    \includegraphics[width=13mm]{empty} % font and make other adjustments if you
+\end{minipage}                          % how to fix it.
+\pbox[m]{52mm}{\LARGE\college}                      % like. However, make sure, that you
+
+\onehalfspacing                         % Switch to 1.5 spacing as it looks the 
+                                        % best for titles, authors and similar
+                                        % stuff
+
+\centering\vfill\vfill                  % Center and insert 2x white space
+
+\begin{minipage}[c]{\titlewidth}        %
+    \centering\huge                     %
+    \@title\vspace{5mm}                 %
+\end{minipage}                          %
+
+\vfill                                  % Insert white space
+
+\begin{minipage}[c]{.6\titlewidth}      %
+    \raggedright\large                  %
+    \begin{tabular}                     %
+        {>{\it}p{.4\textwidth}          %
+         >{\raggedleft}p{.6\textwidth}} %
+        Author: & \@author              %
+        \tabularnewline                 %
+        Supervised by: 
+        &
+        \pbox[t]{.6\textwidth}{\supervisor}    %
+    \end{tabular}                       %
+\end{minipage}                          %
+
+\vfill                                  % Insert white space
+
+\begin{minipage}[c]{.8\textwidth}       %
+    \centering                          %
+    \large\textit{\@subtitle}           %
+    \\\@date                            %
+\end{minipage}                          %
+\end{titlepage}                         %
+
+\defaultspacing                         % Return to default line spacing
+\restoregeometry                        % Return to the default geometry
+\makeatother                            
+\setcounter{page}{1}
+
+% Editor settings
+% vim: tw=80

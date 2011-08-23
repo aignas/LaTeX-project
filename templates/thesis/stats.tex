@@ -1,0 +1,32 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This file is for generation of the statistics about the file head.tex It is
+% prepared so that the user would get all the statistics from the files included
+% in the document and the document itself. This should help in order to get
+% better estimates of word count in theses and reports.
+%
+% However, since it is extremely difficult to calculate the word count correctly
+% in LaTeX documents, do not rely on this piece of software blindly and please
+% read its documentation on this link, which will explain you how to ensure,
+% that the produced results would be as close to the reality as possible.
+%
+% This said, please use it at YOUR OWN RISK!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,twocolumn]{scrartcl}
+\usepackage{listings}
+\newcommand{\filename}[1]{\renewcommand{\filename}{#1}}
+
+% Set the filename of the tex document
+\filename{head.tex}
+\title{Document statistics for \filename}
+\author{Computer program}
+
+% Execute the script before compiling the document
+\immediate\write18{texcount -inc -sum \filename > stats.data}
+\begin{document}
+\maketitle
+\lstinputlisting{stats.data}
+\end{document}
+
+% Editor settings:
+% vim: tw=80:spell:spelllang=en_gb

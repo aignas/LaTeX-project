@@ -1,9 +1,0 @@
-\select@language {british}
-\contentsline {chapter}{\numberline {1}Introduction}{1}
-\contentsline {section}{\numberline {1.1}First section}{1}
-\contentsline {chapter}{\numberline {2}Not Introduction}{3}
-\contentsline {chapter}{\numberline {3}Haha}{5}
-\contentsline {chapter}{\numberline {4}Things}{7}
-\contentsline {chapter}{\numberline {5}One more chapter on something}{9}
-\contentsline {chapter}{\numberline {6}Conclusions}{11}
-\contentsline {chapter}{\numberline {A}Recipe for Cinnamon Balls}{13}

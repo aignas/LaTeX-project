@@ -1,0 +1,96 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% GENERAL NOTE
+%
+% This template file is created by Ignas Anikevicius during a summer project and
+% it is based on the .tex file of my own CV. It might need to be adjusted until
+% it you will be satisfied with the formatting and the content.
+% 
+% Please READ the preamble_cv.tex file, which includes a lot of documentation
+% made by the original author of the CV example (Ted Pavlic). The file will give
+% you an insight how to make use of this powerful template.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Beginning of the template
+%
+% Loading .tex file containing the whole preamble which is very long
+\input{./preamble_cv.tex}
+
+\begin{document}
+
+\makeheading{Curriculum Vitae
+% Your name here
+\hfill John Kevin Smith}
+
+
+\section{Contact Information}
+%
+% NOTE: Mind where the & separators and \\ breaks are in the following
+%       table.
+%
+% ALSO: \rcollength is the width of the right column of the table
+%       (adjust it to your liking; default is 1.85in).
+%
+\newlength{\rcollength}\setlength{\rcollength}{2.15in}%
+%
+
+\vspace{-5pt}
+\textbf{Work Place Address}
+\vspace{3pt}
+
+\begin{tabular}[t]{@{}p{\textwidth-\rcollength-.3in}p{\rcollength}}
+  Department of Chemistry       & Phone:                        \\
+  University of Cambridge       & Mobile: 07777777777           \\
+  Lensfield Road                & E-mail: johnsmith@gmail.com   \\
+  Cambridge, CB2 1EW, UK        & {\bf or} jks99999@cam.ac.uk   \\
+\end{tabular}
+
+\vspace{8pt}
+\textbf{Home Address}
+\vspace{3pt}
+
+\begin{tabular}[t]{@{}p{\textwidth-\rcollength-.3in}p{\rcollength}}
+  Some College                  & Phone:                        \\
+  Some Street                   & Mobile: 07777777777           \\
+  Cambridge, CB9 RX1            & E-mail: johnsmith@gmail.com   \\
+  United Kingdom                & {\bf or} jks99999@cam.ac.uk   \\
+\end{tabular}
+
+\section{Citizenship}                           
+United Kingdom
+
+\section{Education}
+% TODO
+%       write a custom command to make these things easier?
+\textbf{PhD, Polymer Chemistry
+\hfill 1950-1960}\\
+{\em University of Cambridge, Trinity College}
+
+Thesis Title: {Very interesting research}
+
+\vspace{3pt}
+\textbf{MSc, Chemistry
+\hfill 1950-1960}\\
+{\em University of Cambridge, Trinity College}
+
+\section{Current Position}
+
+\section{Previous Positions}
+
+\section{Honours and Awards}
+
+\section{Professional Memberships}
+
+\section{Research Interests}
+\begin{innerlist}
+    \item Polymer based Chemistry
+    \item Nanotechnology
+\end{innerlist}
+
+\section{Publications}
+
+\end{document}
+% vim: textwidth=80:spell:spelllang=en_gb
