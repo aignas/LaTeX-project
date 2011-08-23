@@ -1,23 +1,165 @@
 % Clever thing to minimize the files I need to edit to change how the files are
 % looking. The following one line comment is to trick VIM-LaTeX
-% \documentclass{article}
+\documentclass[
+%    draft
+]{scrartcl}
 \input{./../template_preamble.tex}
 
-% Custome packages
-<+Custom Packages+>
+% Custom packages
 
-\title{<+TITLE+>}<++>
-\author{Ignas Anikevicius}
+\title{Posters and \LaTeX{}}
+\author{Ignas Anikevičius}
 
 \begin{document}
 
 \maketitle
+\tableofcontents
+\listoftodos
+\vskip 1em
 
-<++>
+%
+This tutorial quickly goes through several packages which can be used to make
+    posters.
+%
+Since there are a lot of ways of doing posters in \LaTeX{}, I feel that
+    information resources on this topic are somehow scattered and there is no
+    one good way of making posters as almost all of them have at least several
+    drawbacks.
+%
+I will try to inform you about these drawbacks and benefits here, but you should
+    definitely search for information yourself and decide on your own.
+
+% ----------------------------------------------------------------------
+\section{KOMA script article class - \pkg{scrartcl}}
+% ----------------------------------------------------------------------
+
+%
+This way would involve heavy tweaking of the standard KOMA script article class
+    - \pkg{scrartcl}.
+%
+The reason behind the choice of this document class is that it provides a lot of
+    customizability for things such as font selection and others.
+%
+This mainly would involve scaling all the fonts to the right size and the fonts
+    which should be used for this job would be Times/Helvetica/Courier
+    combination, which will always be a conservative, but wise choice.
+
+%
+The concept itself might sound as not very demanding and time consuming, but I
+    can assure you, that trying to produce a well looking document of A0 paper
+    size might not be very comfortable as the article classes are suited for
+    paper sizes comparable with A4.
+%
+A solution would be to produce the poster as a A4 page size document and then
+    scale it up to the required size.
+%
+However, might cause different problems as $1\unit{cm}$ on the paper will not be
+    equal to $1\unit{cm}$ on the poster and this might make the poster production
+    very cumbersome.
+
+%
+Since there are a lot of issues involved with making posters with standard
+    document classes, one should reconsider the idea before trying it out.
+    \todo{Finish it!}
+
+% ----------------------------------------------------------------------
+\section{The \pkg{a0poster} document class}
+% ----------------------------------------------------------------------
+
+%
+This is probably the main package for \LaTeX{} posters and there are many other
+    posters, which have been inspired or are based on this package.
+%
+There is a really extensive tutorial if you follow this 
+    \uurl{http://theoval.cmp.uea.ac.uk/~nlct/latex/posters/index.html}{link} and
+    there is even another website, which uses this document class and
+    \pkg{TikZ} package to create quite impressive graphics.
+
+% ----------------------------------------------------------------------
+\section{The \pkg{baposter} package}
+% ----------------------------------------------------------------------
+
+%
+This package seems to be a good alternative to the \pkg{a0poster} and the
+    project's homepage contains a lot of example posters, which were presumably
+    made by the author of the package.
+%
+The results seem to be good and this might be really worth looking at.
+%
+However, I should warn you, that this package doesn't seem to be accepted to the
+    CTAN website, which might not make people happy, who are very much concerned
+    with the out-of-the-box experience once they install their \TeX{}
+    distribution.
+
+%
+The website can be found by following
+    \uurl{http://www.brian-amberg.de/uni/poster/}{this link}.
+
+% ----------------------------------------------------------------------
+\section{The \pkg{beamer} document class and the \pkg{beamerposter} package}
+% ----------------------------------------------------------------------
+
+%
+The \pkg{beamer} document class is very useful in making presentation slides,
+    but its flexibility allows it to be a good solution for poster production
+%
+Since \pkg{beamer} uses the \pkg{TikZ} package a lot, it can draw those fancy
+    frames for blocks of text in the poster.
+%
+However, the \pkg{beamer} class itself still might lack some functionality which
+    would make poster making much more convenient, but luckily Philippe Dreuw
+    and Thomas Deselaers have created the \pkg{beamerposter} package, which is
+    just an extension of \pkg{beamer} and \pkg{a0poster} classes.
+
+%
+One can find examples and more information on their
+    \uurl{http://www-i6.informatik.rwth-aachen.de/~dreuw/latexbeamerposter.php}{website}.
+%
+For most people there should be no need to install the \pkg{beamerposter}
+    package separately as it is included in the latest \TeX{} distributions
+    (\TeX{} Live, Mac\TeX{} and MiK\TeX{}).
+%
+However, the CTAN folder for this package can be found
+    \uurl{http://www.ctan.org/tex-archive/macros/latex/contrib/beamerposter}{here}.
+
+%
+Other useful links for this package:
+\begin{itemize}
+    \item \uurl{http://robjhyndman.com/researchtips/beamer-poster/}{Rob J
+        Hyndman blog ``Research Tips''};
+    \item \uurl{http://robjhyndman.com/researchtips/beamer-poster/}{Beamerposter
+        Google Group};
+\end{itemize}
+
+% ----------------------------------------------------------------------
+\section{Other packages}
+% ----------------------------------------------------------------------
+
+%
+Of course there are several other packages and it probably would be a good idea
+    just to be aware of them so that when you \emph{need} an alternative, you
+    have a choice.
+%
+If you find the list incomplete, please let me know, and I will update the
+    document accordingly or please submit a patch to the git repository.
+
+\begin{itemize}
+    \item 
+        The \pkg{sciposter} package
+            \uurl{http://www.ctan.org/tex-archive/macros/latex/contrib/sciposter/}{CTAN
+            directory} shows, that the last update to this package was in 2006.
+        %
+        Therefore, I guess, that it would be wiser to go with the alternative
+            \pkg{beamerposter} package.
+        %
+        On the other hand, for people who are searching for some solutions, the
+            source code of the package might prove to be very valuable and it
+            might be able to adapt it to get even more functionality.
+        %
+\end{itemize}
+
 
 \end{document}
 
 % Editor configuration:
 % vim: tw=80:spell:spelllang=en_gb
-
-

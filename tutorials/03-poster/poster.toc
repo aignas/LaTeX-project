@@ -1,0 +1,5 @@
+\contentsline {section}{\numberline {1}KOMA script article class - \texttt {scrartcl}}{1}{section.1}
+\contentsline {section}{\numberline {2}The \texttt {a0poster} document class}{1}{section.2}
+\contentsline {section}{\numberline {3}The \texttt {baposter} package}{2}{section.3}
+\contentsline {section}{\numberline {4}The \texttt {beamer} document class and the \texttt {beamerposter} package}{2}{section.4}
+\contentsline {section}{\numberline {5}Other packages}{2}{section.5}
