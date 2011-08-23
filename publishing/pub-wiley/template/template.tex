@@ -1,0 +1,107 @@
+% ------------------------------------------------------------------------
+% Template for Wiley-VCH journals
+% ------------------------------------------------------------------------
+% 
+% If there are any problems, please ensure that the following:
+%       * You are using pdftex (or pdflatex) to compile your tex file
+%       * You have the following list of packages installed on your machine:
+%               - multicol
+%               - fix-cm
+%               - fixltx2e
+%               - geometry
+%               - balance
+%               - mathptmx
+%               - setspace
+%               - scrpage2
+%               - chemscheme
+%               - caption
+%               - footmisc
+%               - paralist
+%               - floatrow
+%       * You haven't made a typo while changing the default parameters
+%
+% If your errors are not resolved afters the above, then contact me and
+% I will try to help you sort things out.
+%
+%
+% Template and Class files made by Ignas Anikevicius
+%                          email:  anikevicius snail gmail dot com
+%
+% ------------------------------------------------------------------------
+
+\documentclass[ % This load the class file which takes care of all text layout for you
+    twocolumn,  %    Comment this for easier review process
+    10pt,       %    Change the font size for easier review process
+%    draft,      %    Usefull for checking hyphenation and other things
+                %    ONLY 1 of the following lines SHOULD BE uncommented
+    angewchem,  %       for Angew. Chem. Int. Ed.
+%    advmat,     %       for Adv. Mat., Adv. Func. Mat
+%    chemchem,   %       for ChemPhysChem, ChemBioChem
+%    chemeuas,   %       for Chem. Eur. J. or Chem. Asian J.
+%    eurjorgchem,%       for Eur. J. Org. Chem.
+%    jpolysci,   %       for J. Poly. Sci.
+%    macromol,   %       for Macrmol. Journals
+%    small,      %       for Small
+    ]{wileyvch} %
+
+% This command is for setting up the title appearing in the footer
+\JTitle{Chemistry - A European Journal}
+
+\usepackage[]{amsmath}  % more mathematical environments, proper math typesetting
+\usepackage{amssymb}    % a lot of useful symbols
+\usepackage{array}      % nice tables
+
+\usepackage{graphicx}           % provides include graphics command
+\graphicspath{{./figs_jpg_low/}}    % set the directory of the fig files
+\usepackage[update]{epstopdf}   % get .eps figures working with pdftex
+
+
+%\bibliography{bibfile} % Define where the bibliography can be found
+
+\JTitle{
+    Title of the paper withouth any aknowledgements
+}
+\JAuthor{
+    Author One,
+    Author Two\mailaddressedto
+}
+
+\makeatletter
+\title{\@JTitle{}
+\thanks{Acknowledgements
+}}
+\author{\@JAuthor{}
+\thanks{ Affiliated authors,
+\newline Afilliation text
+}}
+
+\date{}
+
+\makeatother
+\begin{document}
+
+\abstract{
+Put abstract here if needed
+}
+
+\maketitle
+
+If you need section heading, use the \textbackslash{}section command and
+if you think, that the alignment is not perfect, file a bug report on
+this website or send me an email via anikevicius snail gmail dot com.
+
+This template will be cleaned up and continuously improved.
+
+%\printbibliography
+
+%\TOCEntry{<+1+>}{<+2+>}{<+3+>}{<+4+>}
+% 1 - put either 1 or two for type 1 or 2
+% 2 - Put the catch phrase in
+% 3 - Put where to find a TOC image
+% 4 - Add description, Max 450 characters!
+% Example:
+%   \TOCEntry{1}{Catch Phrase}{toc.eps}{Some description}
+% or
+%   \TOCEntry{2}{Catch Phrase}{toc.eps}{Some description}
+
+\end{document}

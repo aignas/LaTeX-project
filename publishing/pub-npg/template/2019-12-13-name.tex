@@ -1,0 +1,51 @@
+\documentclass[
+    single,             % Single line spacing. For other results put onehalf or double
+    nmat,               % Available journals nmat, nchem, nnano
+    letter,             % letter or article
+    fontsize=10pt,      % fontsize
+    twocolumn           % twocolumn layout
+    ]{nature2}          % This class is based on scrartcl and it deals only with the layout of the document!
+%\documentclass{scrartcl}       % Always check whether your document compiles with a simple class
+\usepackage[T1]{fontenc}        % Use Type1 fonts
+\usepackage[utf8x]{inputenc}    % Set .tex encoding to utf8
+\usepackage[UKenglish]{babel}   % UK English hyphenation
+
+\usepackage{booktabs}   % Use booktabs and array for better tables
+\usepackage{array}      %
+
+\usepackage[version=3]{mhchem}  % mhchem for chemical formula typesetting
+
+\usepackage{graphicx}   % For including graphics
+\graphicspath{{./figs_eps/}}    % Specify directory of eps graphics
+\usepackage[update]{epstopdf}   % do not convert figures from eps during every compilation
+
+%\usepackage{url}        % Package for typesetting URLs
+
+\title{Not very long title}
+\author{Author A, Author B and Author C
+\thanks{Some Laboratory}}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+    <+ABSTRACT HERE+>
+\end{abstract}
+
+<+MAIN TEXT HERE+>
+
+\section{Methods}
+
+<+METHODS HERE+>
+
+%\section{References} 
+%\input{<+file bbl+>}
+\bibliographystyle{naturemag}
+\bibliography{<+YOUR BIB FILE+>}
+
+\section{Acknowledgements}
+
+\section{Additional Information}
+
+\end{document}  

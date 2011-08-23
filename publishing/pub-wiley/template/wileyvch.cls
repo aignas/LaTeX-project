@@ -27,13 +27,19 @@
 %\newboolean{JMacromol}  % Macromol {ChemPhys,RapidCom,Symposia}
 
 % Commands to display and change title of the journal 
-\newcommand{\@JTitle}{WileyVCH journal}
-\newcommand{\JTitle}[1]{\renewcommand{\@JTitle}{#1 }}
+\newcommand{\@JName}{WileyVCH journal}
+\newcommand{\JName}[1]{\renewcommand{\@JName}{#1 }}
 \newcommand{\JAbstract}{}
 \newcommand{\@JAbstracttext}{}
 \newcommand{\JAbstracttext}[1]{\renewcommand{\@JAbstracttext}{#1}}
 \newcommand{\Jabsnumcols}{1}
 \newcommand{\JmyHeader}{}
+\newcommand{\@JKeywordWord}{Keywords:}
+\newcommand{\JKeywordWord}[1]{\renewcommand{\@JKeywordWord}{#1}}
+\newcommand{\@JAuthor}{Mr. Author}
+\newcommand{\@JTitle}{Title of the paper}
+\newcommand{\JAuthor}[1]{\renewcommand{\@JAuthor}{#1}}
+\newcommand{\JTitle}[1]{\renewcommand{\@JTitle}{#1}}
 
 \newcommand{\@Jtitletext}{\LARGE\bfseries}
 \newcommand{\@Jauthortext}{\Large\it}
@@ -52,10 +58,10 @@
 \DeclareOption{onehalf}{\setboolean{OptOneHalf}{True}}
 \DeclareOption{double}{\setboolean{OptDouble}{True}}
 
-\DeclareOption{angew}{
+\DeclareOption{angewchem}{
     \setboolean{JAngew}{true}
 }
-\DeclareOption{mat}{
+\DeclareOption{advmat}{
     \setboolean{JMaterials}{true}
 }
 \DeclareOption{small}{
@@ -86,8 +92,9 @@
     mathptmx,   % Use Times fonts
     setspace,   % correct way to change line spacing
     scrpage2,   % Use for headers and footers
-    chemscheme, % New environment - scheme
+    floatrow,
     caption,    % Format the captions the correct way
+    chemscheme, % New environment - scheme
 }
 \RequirePackage[
     bottom,
@@ -134,6 +141,7 @@
 
     % remember to use [htp] or [htpb] for placement
 
+\renewcommand{\abstract}[1]{}
 
 \DefineFNsymbolsTM*{wileyalph}{
     {[a]}{[a]} % 1
@@ -167,6 +175,7 @@ under \@JWWW\space{} or from the author.}
 
 \setlength{\footnotesep}{1.5em}
 \definecolor{WileyGray}{gray}{.85}
+\definecolor{JKeywordBoxColour}{gray}{.75}
 
 \floatplacement{table}{htbp}
 \floatplacement{figure}{htbp}
@@ -197,16 +206,20 @@ under \@JWWW\space{} or from the author.}
 % ---- Angew group journals ----------------------------
 \ifJAngew
     \geometry{
-      paper     = a4paper,      %
-      text      = {174mm,238mm},%
-      top       = 20mm,         %
+      paper     = a4paper,      % The default page setting for the Angew
+      top       = 20mm,         % journals
       bottom    = 39mm,         %
       inner     = 18mm,         %
       outer     = 18mm,         %
       footskip  = 8mm,          %
       headsep   = 8mm,          %
       columnsep = 5mm           %
+%      text      = {174mm,238mm},%
     }                           %
+
+    \captionsetup{
+        labelfont = {it,bf,sf} % Change the caption setup
+    }
 
     \Jtitletext{\bfseries\LARGE}
     \Jauthortext{\large\it}
@@ -214,6 +227,13 @@ under \@JWWW\space{} or from the author.}
     \setlength{\Jauthtitlesep}{0.3em}
     \setlength{\Jauthtextsep}{.5em}
     \setfnsymbol{wiley}
+    \JKeywordWord{
+    \begin{tikzpicture}[baseline=(N.center)]
+        \node (N) {};
+        \draw[draw=white,fill=black!30] (N.mid east) circle (1em);
+        \draw[right] (N.mid west) node{\bfseries\sffamily Keywords:};
+    \end{tikzpicture}
+    }
 \fi
 
 \ifJSmall
@@ -226,6 +246,10 @@ under \@JWWW\space{} or from the author.}
       footskip  = 7.5mm,
       headsep   = 7.7mm,
       columnsep = 4.3mm
+    }
+
+    \captionsetup{
+        labelfont = {bf,sf} % Change the caption setup
     }
 
     \setJtopsep{0mm}
@@ -245,6 +269,10 @@ under \@JWWW\space{} or from the author.}
       footskip  = 11mm,
       headsep   = 4mm,
       columnsep = 5mm
+    }
+
+    \captionsetup{
+        labelfont = {bf,sf},    % Change the caption setup
     }
 
     \setJtopsep{-10mm}
@@ -295,6 +323,7 @@ under \@JWWW\space{} or from the author.}
     \newcommand{\bfalph}[1]{[\alph{#1}]}
     \renewcommand{\JmyHeader}{\hfill FULL PAPER}
     \setkomafont{pagehead}{\sffamily\bfseries\LARGE}
+    \JKeywordWord{\bfseries\sffamily Keywords:\space}
 \fi
 
 % ---- Renew some commands ---------------------------------------------
@@ -317,15 +346,18 @@ under \@JWWW\space{} or from the author.}
 \setlength{\parindent}{5mm}
 
 \renewcommand{\pagemark}{\scriptsize\textbf{\sffamily\upshape\thepage}}
-\newcommand{\myfoottitle}{\sffamily\upshape\scriptsize\@JTitle}
+\newcommand{\myfoottitle}{\sffamily\upshape\scriptsize\@JName}
 
 \newcommand{\JKsep}{\ensuremath{\cdot}\space}
 \newcommand{\JKeywords}[1]{
 \vspace{1em}
 {\centering
-    \colorbox{WileyGray}{
+    \colorbox{JKeywordBoxColour}{
     \begin{minipage}[t]{0.93\columnwidth}
-        \textbf{Keywords: }#1
+        \newcommand{\textwlbbl}[1]{%
+        \@JKeywordWord
+        #1
+        }
     \end{minipage}
 }}
 \vspace{.1em}
@@ -375,13 +407,13 @@ under \@JWWW\space{} or from the author.}
 
     \vskip 1em
     \textit{
-    \ifthenelse{\equal{#1}{1}}{\authorinfo}{
+    \ifthenelse{\equal{#1}{1}}{\@JAuthor}{
     Author(s), Corresponding Author(s)* \ldots\ldots\ldots\ldots Page Page
     }}
 
     \vskip 1em
     \textbf{
-    \ifthenelse{\equal{#1}{1}}{\titleinfo}{
+    \ifthenelse{\equal{#1}{1}}{\@JTitle}{
     Title Text}}
 \end{minipage}
 \begin{minipage}[t]{60mm}
@@ -434,13 +466,13 @@ under \@JWWW\space{} or from the author.}
 
     \vskip 1em
     \textit{
-    \ifthenelse{\equal{#1}{2}}{\authorinfo}{
+    \ifthenelse{\equal{#1}{2}}{\@JAuthor}{
     Author(s), Corresponding Author(s)* \ldots\ldots\ldots\ldots Page Page
     }}
 
     \vskip 1em
     \textbf{
-    \ifthenelse{\equal{#1}{2}}{\titleinfo}{
+    \ifthenelse{\equal{#1}{2}}{\@JTitle}{
     Title Text}}
 \end{minipage}
 \hspace{3mm}
@@ -455,7 +487,7 @@ under \@JWWW\space{} or from the author.}
             minimum height=28.5mm,
             color=WileyGray
             ]{};
-        \draw(0,0) node{
+        \draw(0,0) node{%
         \ifthenelse{\equal{#1}{2}}{
         \includegraphics[
             keepaspectratio,
@@ -469,11 +501,9 @@ under \@JWWW\space{} or from the author.}
         \end{minipage}
         }}};
     \end{tikzpicture}
-
-    \begin{multicols}{2}
-        \ifthenelse{\equal{#1}{2}}{#4}{
-        Text for Table of Contents, max. 450 characters.}
-    \end{multicols}
+    \vskip 1em
+    \ifthenelse{\equal{#1}{2}}{#4}{
+    Text for Table of Contents, max. 450 characters.}
 \end{minipage}
 }
 

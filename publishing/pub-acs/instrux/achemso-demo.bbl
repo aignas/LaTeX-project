@@ -1,0 +1,102 @@
+\providecommand*\mcitethebibliography{\thebibliography}
+\csname @ifundefined\endcsname{endmcitethebibliography}
+  {\let\endmcitethebibliography\endthebibliography}{}
+\begin{mcitethebibliography}{10}
+\providecommand*\natexlab[1]{#1}
+\providecommand*\mciteSetBstSublistMode[1]{}
+\providecommand*\mciteSetBstMaxWidthForm[2]{}
+\providecommand*\mciteBstWouldAddEndPuncttrue
+  {\def\EndOfBibitem{\unskip.}}
+\providecommand*\mciteBstWouldAddEndPunctfalse
+  {\let\EndOfBibitem\relax}
+\providecommand*\mciteSetBstMidEndSepPunct[3]{}
+\providecommand*\mciteSetBstSublistLabelBeginEnd[3]{}
+\providecommand*\EndOfBibitem{}
+\mciteSetBstSublistMode{f}
+\mciteSetBstMaxWidthForm{subitem}{(\alph{mcitesubitemcount})}
+\mciteSetBstSublistLabelBeginEnd
+  {\mcitemaxwidthsubitemform\space}
+  {\relax}
+  {\relax}
+
+\bibitem[Abarca et~al.(2000)Abarca, G\'omez-Sal, Mart\'in, Mena, Poblet, and
+  Y\'elamos]{Mena2000}
+Abarca,~A.; G\'omez-Sal,~P.; Mart\'in,~A.; Mena,~M.; Poblet,~J.~M.;
+  Y\'elamos,~C. \emph{Inorg. Chem.} \textbf{2000}, \emph{39}, 642--651\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Abernethy et~al.(2003)Abernethy, Codd, Spicer, and
+  Taylor]{Abernethy2003}
+Abernethy,~C.~D.; Codd,~G.~M.; Spicer,~M.~D.; Taylor,~M.~K. \emph{{J}. {A}m.
+  {C}hem. {S}oc.} \textbf{2003}, \emph{125}, 1128--1129\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Cotton et~al.(1999)Cotton, Wilkinson, Murillio, and
+  Bochmann]{Cotton1999}
+Cotton,~F.~A.; Wilkinson,~G.; Murillio,~C.~A.; Bochmann,~M. \emph{{A}dvanced
+  {I}norganic {C}hemistry}, 6th ed.; Wiley: Chichester, 1999\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Frisch et~al.(2004)Frisch, Trucks, Schlegel, Scuseria, Robb,
+  Cheeseman, Montgomery, Jr., A., Vreven, Kudin, Burant, Millam, Iyengar,
+  Tomasi, Barone, Mennucci, Cossi, Scalmani, Rega, Petersson, Nakatsuji, Hada,
+  Ehara, Toyota, Fukuda, Hasegawa, Ishida, Nakajima, Honda, Kitao, Nakai,
+  Klene, Li, Knox, Hratchian, Cross, Bakken, Adamo, Jaramillo, Gomperts,
+  Stratmann, Yazyev, Austin, Cammi, Pomelli, Ochterski, Ayala, Morokuma, Voth,
+  Salvador, Dannenberg, Zakrzewski, Dapprich, Daniels, Strain, Farkas, Malick,
+  Rabuck, Raghavachari, Foresman, Ortiz, Cui, Baboul, Clifford, Cioslowski,
+  Stefanov, Liu, Liashenko, Piskorz, Komaromi, Martin, Fox, Keith, Al-Laham,
+  Peng, Nanayakkara, Challacombe, Gill, Johnson, Chen, Wong, Gonzalez, and
+  Pople]{Pople2003}
+Frisch,~M.~J. et~al.  {G}aussian 03. Gaussian, Inc.: Wallingford, CT,
+  2004\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Arduengo et~al.(1992)Arduengo, Dias, Harlow, and Kline]{Arduengo1992}
+Arduengo,~A.~J.,~III; Dias,~H. V.~R.; Harlow,~R.~L.; Kline,~M.
+  \emph{{J}.~{A}m.\ {C}hem.\ {S}oc.} \textbf{1992}, \emph{114},
+  5530--5534\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Appelhans et~al.(2005)Appelhans, Zuccaccia, Kovacevic, Chianese,
+  Miecznikowski, Macchioni, Clot, Eisenstein, and Crabtree]{Eisenstein2005}
+Appelhans,~L.~N.; Zuccaccia,~D.; Kovacevic,~A.; Chianese,~A.~R.;
+  Miecznikowski,~J.~R.; Macchioni,~A.; Clot,~E.; Eisenstein,~O.;
+  Crabtree,~R.~H. \emph{{J}.~{A}m.\ {C}hem. {S}oc.} \textbf{2005}, \emph{127},
+  16299--16311\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Arduengo et~al.(1994)Arduengo, Gamper, Calabrese, and
+  Davidson]{Arduengo1994}
+Arduengo,~A.~J.,~III; Gamper,~S.~F.; Calabrese,~J.~C.; Davidson,~F.
+  \emph{J.~Am.\ Chem.\ Soc.} \textbf{1994}, \emph{116}, 4391--4394\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Not()]{Note-1}
+This is a note. The text will be moved the the references section. The title of
+  the section will change to ``Notes and References''.\relax
+\mciteBstWouldAddEndPunctfalse
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Not()]{Note-2}
+Ref.~\citenum {Cotton1999}, p.~1\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\end{mcitethebibliography}
