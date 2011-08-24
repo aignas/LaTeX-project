@@ -1,0 +1,50 @@
+\documentclass{standalone}
+\usepackage{tikz,amsmath,graphicx,calc,chemfig}
+\usepackage[update,verbose=false]{epstopdf}
+\usepackage[version=3]{mhchem}
+\graphicspath{{./figs/}}
+\usetikzlibrary{
+    arrows,
+    decorations.pathmorphing,
+    backgrounds,
+    positioning,
+    fit,
+    petri
+}
+\setatomsep{5mm}
+\setbondoffset{.5mm}
+\setcrambond{2.5pt}{1pt}{2pt}
+\setbondstyle{thick}
+\renewcommand*\printatom[1]{{\footnotesize\ensuremath{\mathsf{#1}}}}
+\definesubmol{no2}{*6(-\chemabove{N}{+}(=O)-O\rlap{${}^{-}$})}
+
+
+\begin{document}
+\begin{tikzpicture}
+    [scale=1,
+     structure/.style={rectangle,draw=white,fill=white,
+               outer xsep=.2cm,outer ysep=.2cm,minimum size=2mm,node distance=1.4cm},
+     label/.style={rectangle,fill=white,font=\bfseries,
+               outer ysep=.2cm,minimum size=4mm,},
+     arrow/.style={->,>=stealth',semithick},
+     reagent/.style={text width=2cm,font=\footnotesize,align=center,midway},
+     designbox/.style={rectangle,draw=black,thick,fill=red,
+               inner sep=0pt,minimum width=15mm, minimum height=2.5mm, node distance=0mm}]
+    %
+    \matrix[column sep=1.4cm,row sep=2cm]{
+        \node[structure] (TNT)       {\chemfig{*6((-O_2N)=-(-NO_2)=(-(<[::-80]H)(<:[::-40]H)(-[::60]H))-(-NO_2)=-)}}; &
+        \node[structure] (naphtol)   {\chemfig{*6(-=*6(=-=-(-O\rlap{${}^{-}$})=)-=-=)}}; &
+        \node[structure] (MalAnh)    {\chemfig{[:18]*5(=-[::60](=O)-O-[::60](=O)-)}}; \\
+        \node[structure] (mCPBA)     {\chemfig{*6(-(-Cl)=-*6(-*6(-O-O-H)=O)=-=)}}; &
+        \node[structure] (TsCl)      {\chemfig{*6((-H_3C)-=-(-S([:120]=O)([:60]=O)-[:-30]Cl)=-=)}}; &
+        \node[structure] (Hex-chair) {\chemfig{?-[:-50]-[:10]-[:-10]-[:130](-[:20]B)(-[:100]A)-[:190]?}}; \\
+    };
+
+    \draw (TNT.south)      node[label,yshift=-0.4cm]{TNT};
+    \draw (naphtol.south)  node[label,yshift=-0.4cm]{naphtol};
+    \draw (mCPBA.south)    node[label,yshift=-0.4cm]{mCPBA};
+    \draw (TsCl.south)     node[label,yshift=-0.4cm]{TsCl};
+    \draw (MalAnh.south)   node[label,yshift=-0.4cm]{Maleic Anhydride};
+    \draw (Hex-chair.south)node[label,yshift=-0.4cm]{Cyclohexane};
+\end{tikzpicture}
+\end{document}

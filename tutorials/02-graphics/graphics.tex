@@ -4,22 +4,14 @@
 \input{./../template_preamble.tex}
 
 % Custom things
-\usepackage[version=3]{mhchem}
-\usepackage{float}
-\usepackage{calc}
-\usepackage[]{amsmath}
-
-\usepackage{graphicx}
 \graphicspath{{./figs/}}
-\usepackage[update,verbose=false]{epstopdf}
-\usepackage{tikz}
 \newlength{\tikzunit}
-\usepackage{subfig}
+\newcommand{\scale}{.8}
 \newcommand{\compx}[1]{\textbf{#1}}
 
 
 \title{Getting good quality graphics inside a \LaTeX{} document}
-\author{Ignas Anikevicius}
+\author{Ignas Anikevičius}
 
 % ----------------------------------------------------------------------
 \begin{document}
@@ -28,9 +20,9 @@
 \maketitle
 \tableofcontents
 \listoftodos
-\clearpage
 
 % ----------------------------------------------------------------------
+\clearpage
 \section{Introduction}
 % ----------------------------------------------------------------------
 
@@ -114,7 +106,7 @@ Also with \verb|pdflatex| you can use more graphics formats:
         conversion only when the \ftype{eps} figures are changed, which speeds
         up everything
         substantially.
-    \item[.png, .jpg] At last you can use this format too if you need to import
+    \item[\ftype{png}, \ftype{jpg}] At last you can use this format too if you need to import
         raster graphics into your document, which might ease a lot of things.
 \end{description}
 
@@ -124,10 +116,11 @@ For all these features, one should use the \verb|graphicx| package as this is
 %
 What is more, this packages provides some other useful commands. 
 %
-You can tell it where to search for figures by issuing the following command:
+You can tell it where to search for figures by issuing the following command
+    (note the / symbol after the directory name):
 %
 \begin{lstlisting}
-\graphicspath{{./path/to/your/directory}{./second/directory}}    
+\graphicspath{{./path/to/your/directory/}{./second/directory/}}    
 \end{lstlisting}
 %
 The symbols \verb|./| mean, that the top directory is where the \ftype{tex} file
@@ -150,6 +143,11 @@ The preamble of this file contains the following lines:
 \graphicspath{{./figs/}}
 \usepackage[update,verbose=false]{epstopdf}
 \end{lstlisting}
+%
+There is one thing, which you should be aware of, that is all names should not
+    contain white-space as they are known to break on some setups.
+%
+So if it is working for you, it might not work for others.
 
 %
 The options for the \verb|epstopdf| package mean, that it will convert the
@@ -178,10 +176,16 @@ What is more, \pkg{TikZ} works better with the \pkg{pdf\LaTeX{}} compiler as it
 %
 In any case, if you got interested in any of these packages, please read the
     notes bellow and for further information look upon the documentation on the
-    respective folders on CTAN.
-
+    respective folders on \uurl{http://www.ctan.org/}{CTAN}.
 %
-\todo{link to CTAN}
+You can also find a very good guide if you refer to the 
+    \uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Creating_Graphics}{\LaTeX{}
+    wikibook}.
+%
+There are overviews of the \env{picture} environment, \pkg{XyPic} package,
+    \pkg{Tikz} package and the \pkg{ChemFig} package, although the later two
+    have very good documentation with lots of examples and one can learn how to
+    use the packages just by going through examples.
 
 %
 \subsection{The \env{picture} Environment}
@@ -209,7 +213,6 @@ Another is that the alignment of the elements is really tricky and there are no
 For more information one should either refer to the \LaTeX{} documentation or
     some books such as Leslie Lamport's original book on \LaTeX{} updated for
     \LaTeXe{}.
-    \todo{Add links to documentation}
 
 %
 \subsection{The \pkg{overpic} Package}
@@ -228,8 +231,9 @@ What is more, you still got to position everything very carefully and if you
 
 %
 To get more information please refer to the package documentation which can be
-    found by following \uurl{http://www.google.co.uk}{this link}.
-    \todo{Add documentation links}
+    found by following
+    \uurl{http://www.ctan.org/tex-archive/macros/latex/contrib/overpic}{this
+    link}.
 
 %
 \subsection{The \pkg{XyPic} Package}
@@ -259,8 +263,9 @@ This said, feel free to test it and do not worry about any limitations if that
 
 %
 To get more information please refer to the package documentation which can be
-    found by following \uurl{http://www.google.co.uk}{this link}.
-    \todo{Add documentation links}
+    found by following
+    \uurl{http://ctan.org/tex-archive/macros/generic/diagrams/xypic/}{this
+    link}.
 
 %
 \subsection{Portable Graphics Format and \pkg{TikZ} macros}
@@ -279,14 +284,27 @@ The \pkg{TikZ} package is mainly a set of macros for the PGF language and it is
     in a sense very similar how \LaTeX{} is a set of macros for \TeX{}.
 
 %
-Over time TikZ and PGF combination got very powerful and the documentation
+Over time \pkg{TikZ} and PGF combination got very powerful and the documentation
     (v2.1) now contains over 600 pages, which is basically a lot of examples
     explaining different functionality in the package.
 %
 If you can not find a way to do something, then please make sure, that you
     search inside this huge document as well.
+%
+The documentation is very helpful as all commands in the examples are
+    cross-referenced and if one clicks with the mouse on the command in the
+    example, then a thorough description of the command will appear with
+    explanation of all options and parameters.
+%
+The documentation can be found by going to
+    \uurl{http://mirrors.ctan.org/graphics/pgf/base/doc/generic/pgf/pgfmanual.pdf}{this
+    link}, whereas a web folder containing a lot of resources can be found by
+    following \uurl{http://www.ctan.org/tex-archive/graphics/pgf/base}{this
+    link} and there is also the \uurl{http://www.texample.net/}{TeXample}, which
+    is full of \pkg{TikZ} example figures.
 
 %
+\clearpage
 \subsubsection{Example 1: Overlaing a Simple Figure}
 
 %
@@ -295,20 +313,39 @@ Let's look at the example bellow, which has to do more with chemistry than the
 %
 The thing, which we want to do is to put 4 structures and then label them.
 %
-The final image is shown in the figure \ref{fig:struct1-2}, where the work-flow
-    is explained in the figure \ref{fig:struct1-1} on page
-    \pageref{fig:struct1-1}.
+The final image is shown in the figure \ref{fig:struct1}, where the work-flow
+    is explained in the figure \ref{fig:struct1multi} on page
+    \pageref{fig:struct1multi}.
 
 %
-\input{fig3-2.tex}
+\begin{figure}[h]
+    \centering
+    \includegraphics{fig3-2.pdf}
+    \caption{Overlaying \LaTeX\ commands to get some nice things.}
+    \label{fig:struct1}
+\end{figure}
 
 %
-You can check out the code listing for creating the figure \ref{fig:struct1-1}
+You can check out the code listing for creating the figure \ref{fig:struct1}
     bellow:
     \lstinputlisting{fig3-2.tex}
 
 %
-\input{fig3-1.tex}
+\begin{figure}[h]
+    \centering
+    \includegraphics{fig3-1.pdf}
+    \caption{
+    The work-flow how figure annotation using \pkg{TikZ} is done.
+    %
+    Part \textbf{a)} shows just a plain figure before annotation, where the
+        later steps (\textbf{b)} and \textbf{c)}) involve drawing a grid and the
+        positioning the labels at the right positions.
+    %
+    And \textbf{d)} shows the image after the grid was removed.
+    %
+    NB this illustration was done also using the very same \pkg{TikZ} package.}
+    \label{fig:struct1multi} 
+\end{figure}
 %
 This way one can create good figures very easily.
 %
@@ -318,25 +355,126 @@ What is more, if you have just simple structure images you do not have to worry
     this \LaTeX{} package.
 
 %
-\comment{
-There is another example shown in the figure \ref{fig:struct2}.
-%
-This is a true scientific quality figure and with overlaying text on top you
-    ensure, that it will be readable in your document.
-    \input{fig4.tex}
-    }
-
-%
+\clearpage
 \subsubsection{Example 2: Composing a Scheme of Individual Structures}
 
 %
-In this example I have created a simple scheme, which depicts a synthesis
-    pathway for 
+In this example I have used a scheme by Eric Appel to extract the structures of
+    the compounds and then I have put all the annotations using TikZ macros.
+%
+This way allows the user to use the same type of lines consistently throughout
+    all figures and the most importantly it allows to ensure, that the figures
+    remains scaled by the same factor.
+%
+You can see, that I have slightly scaled down the figures above the arrow and
+    the scaling factor there is $4/5$, but most importantly, all the figures
+    will be scaled the same way, because I have created a common style for them.
 
 %
-\input{fig4.tex}
+Another very good thing is that I have made this figure in a special
+\env{standalone} environment and this lets me do two things:
+\begin{enumerate}
+    \item
+        Compile only the figure, which lets me to preview it as a separate
+            \ftype{pdf} file and since the compilation time is decreased, I can
+            create it faster.
+        %
+    \item
+        Include the whole \ftype{tex} file in the document via \cmd{input}
+            command, so that I can get all cross-references right.
+\end{enumerate}
 
-\todo{Finish the scheme!}
+%
+\begin{figure}[h]
+    \centering
+    \textbf{Original:}\\
+    \includegraphics[scale=.9]{scheme-all.pdf}
+    \vskip .5em\hrule\vskip 1em
+    \textbf{Tikz:}\\
+    \includegraphics{fig4.pdf}
+    \caption{Comparison of two figures, one created with ChemDraw and Adobe
+        Illustrator by Eric Appel, whereas another, was created by me just using
+        the chemical structures as images and putting them into right order.
+        All the annotations where done in LaTeX and both figures are not
+        scaled.}
+    \label{fig:scheme}
+\end{figure}
+\todo{Try to make the scheme in fig \ref{fig:scheme} look nicer}
+
+%
+The code for the figure can be found in the \fname{fig4}{tex} in the same
+    directory as the sources of this tutorial.
+%
+There are several differences in style of composing the figure while compared
+    with the previous \pkg{TikZ} example.
+%
+To begin with, the previous example used absolute positions and it might have
+    probably been better to use \pkg{overpic} package, if I needed just to
+    overlay some text.
+%
+However, this example did not use absolute positions at all and everything is
+    done via different nodes and relative positioning.
+%
+This concept might be slightly harder from the first look, but it is actually
+    much easier to write, that \cmd{img1} will be to the left of \cmd{img2} and
+    in between there will be an arrow.
+%
+The source code of the figure is documented with further comments, should you
+    want any more explanation on the executed commands.
+
+My drawn example is just a proof of concept and I think that with a bit of
+    effort it can be made to look even better, but I just did not want to spend
+    too much time on this.
+%
+However, one can note very easily, that the fonts in the structures are not the
+    same as the surrounding annotations.
+%
+The solution to this is described in the next sub-sub-section.
+
+%
+\clearpage
+\subsubsection{Example 3: Using \pkg{ChemFig} Package to Draw 2D Structures}
+
+%
+The third example shows third case scenario, where one might want to create
+    entire structures using \LaTeX{} macros.
+%
+For this job I chose to use the \pkg{ChemFig} package, which is just a set of
+    macros for the \pkg{TikZ} package, which ease the creation of 2D structures.
+%
+I have redraw the structures used earlier (fig. \ref{fig:struct1}), which for
+    me did not look right, as the text was way too small and the alignment was
+    not perfect.
+
+%
+This time, using \pkg{ChemFig} and \pkg{TikZ} I could create much nicer figures,
+    and for those who are worrying about how much time it takes, I can answer,
+    that it actually takes less time to get this perfectly looking figure, than
+    trying to make your software use the same fonts you use in your document and
+    then overlay the figure with text.
+%
+The results are shown in the figure \ref{fig:chemfig}.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics{fig5.pdf}
+%    \input{fig5.tex}
+    \caption{
+    \pkg{ChemFig} and \pkg{TikZ} usage to create very good-looking
+        figures.
+    %
+    Note that the charge signs are different, and this is just to
+        show different options, which are provided by this package.}
+    \label{fig:chemfig}
+\end{figure}
+
+%
+In my opinion this is the best way to produce good looking structures and in my
+    experience it has only one glitch, where it has problems with positioning
+    text containing superscripts and subscripts (as said in the documentation).
+%
+However, I do think, that it is not impossible to fix it and it should get
+    improved soon.
 
 % ----------------------------------------------------------------------
 \clearpage

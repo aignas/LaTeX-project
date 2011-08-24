@@ -1,6 +1,8 @@
 % Clever thing to minimize the files I need to edit to change how the files are
 % looking. The following one line comment is to trick VIM-LaTeX
-% \documentclass{article}
+\documentclass[
+    draft
+]{scrartcl}
 \input{./../template_preamble.tex}
 
 % Custom packages
@@ -21,14 +23,12 @@
 \begin{document}
 
 \maketitle
-
-\begin{abstract}
-    Being able to customize fonts in your \verb|.tex| document can be tricky at
-    times, or as easy as loading a package or two. In this tutorial I will talk
-    through various ways on how to accomplish it.
-\end{abstract}
-
 \tableofcontents
+\listoftodos
+
+Being able to customize fonts in your \verb|.tex| document can be tricky at
+times, or as easy as loading a package or two. In this tutorial I will talk
+through various ways on how to accomplish it.
 
 \section{UTF8 usage}
 

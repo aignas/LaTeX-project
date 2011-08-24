@@ -1,6 +1,8 @@
 % Clever thing to minimize the files I need to edit to change how the files are
 % looking. The following one line comment is to trick VIM-LaTeX
-% \documentclass{article}
+\documentclass[
+    draft
+]{scrartcl}
 \input{./../template_preamble.tex}
 
 % Custom packages
@@ -13,63 +15,220 @@
 \begin{document}
 
 \maketitle
+\tableofcontents
+\listoftodos
+\vskip 1em
 
-\begin{framed}
-\begin{center}
-{\color{Red} TODO}
-\begin{itemize}
-    \item Elaborate more on Beamer package
-    \item More on KOMAscript
-    \item More on others?
-\end{itemize}
-\end{center}
-\end{framed}
+%
+This tutorial is for the production of scientific presentations using the
+    \LaTeX{} typesetting system.
+%
+There are numerous ways of making a presentation in \LaTeX{} mostly because
+    there are a lot of views on how presentations should look like and how they
+    should be prepared.
+%
+The most convenient way is to use common packages such as \pkg{beamer},
+    \pkg{prosper}, \pkg{slides}, however, one can also tame the standard
+    document classes, such as \pkg{scrartcl} \cite{PracTeX-komapres}.
 
-Here I will talk about getting \LaTeX\ working for the production of 
-presentations. There are numerous ways how you could do a presentation in
-\LaTeX{}. One of
-them is to use already existing packages, of which \verb|beamer| is the most
-popular one. However, you can use standard document classes as well
-\cite{PracTeX-komapres}.
-
+%
 There is also another source of information \cite{latexwikibook:presentations},
-which might be a good starting point for using the Beamer document class.
+    which might be a good starting point for using the Beamer document class.
+%
+Also, only the \pkg{beamer} and the \pkg{scrartcl} ways of making presentations
+    will be presented here as the first seems to be the most popular and
+    reliable way of making presentations, whereas the second way brings more
+    insights on how you can customize a class to typeset almost any document.
 
+% ----------------------------------------------------------------------
 \section{The beamer document class}
+% ----------------------------------------------------------------------
 
-As mentioned before, the \verb|beamer| package is the most popular among
-scientists and it works quite well with PGF/TikZ packages which might make it
-the best solution out there. It is very straight forward to use it --- it
-defines several new environments (eg \verb|frame|, \verb|column| etc) and
-commands (eg \verb|\frametitle|, \verb|\pause| etc).
+%
+As mentioned before, the \pkg{beamer} package is the most popular among
+    scientists and it works quite well with PGF/TikZ packages which might make
+    it the best solution out there.
+%
+It is very straight forward to use it --- it defines several new environments
+    (e.g. \cmd{frame}, \cmd{columnt} etc.) and commands (e.g. \cmd{frametitle},
+    \cmd{pause} etc.).
 
-The best way to learn it would be to examine the supplied example and comparing
-how the source file corresponds to what is produced in the final \verb|.pdf|
-document.
+%
+The best way to learn anything is by example.
+%
+Since this is not an exception, there are very good tutorials on the website
+    which describe the use of \pkg{beamer} document class.
+%
+The list is as follows:
+%
+\begin{description}
+    \item
+        [\uurl{http://www.math.utah.edu/~smith/AmberSmith_GSAC_Beamer.pdf}{A
+            Beamer tutorial by Amber Smith}] 
+        %
+        This is just a showcase of what \pkg{beamer} is capable of.
+        %
+        However, the author does not mention the \pkg{TikZ} package, which is
+            actually written by the same author and it integrates with
+            \pkg{beamer} very well.
+    %
+    \item
+        [\uurl{http://www.uncg.edu/.../Charles\%20Batts\%20-\%20Beamer\%20Tutorial.pdf}{A
+            Beamer tutorial by Charles Batts}] 
+        %
+        This tutorial explains the beamer capabilities very well and gives lots
+            of examples.
+        %
+        I do think, that it is very suitable for learning and getting acquainted
+            with \pkg{beamer}.
+    %
+    \item
+        [\uurl{http://tug.org/pracjourn/2010-2/hofert.html}{Scientific
+            Presentations using KOMA script classes}]
+        %
+        Although this link contains an article about making scientific
+            presentation using a standard \pkg{scrartcl} class provided by KOMA
+            script, it actually contains several very good references on how to
+            make your presentations look nice and informative.
+        %
+        \pkg{Beamer} presentations might look much better with minimal amount of
+            effort and this article becomes very useful as it points out some
+            mistakes, which are made by inexperienced presenters.
+        %
+        Reading this will definitely help you to get professional presentations
+            quickly.
+    %
+    \item
+        [\uurl{http://www.tug.org/pracjourn/2005-4/mertz/}{Beamer by Example}]
+        %
+        This is yet another Prac\TeX{} article and it is also on teaching the
+            reader how to use \pkg{beamer} class to get well looking
+            presentations.
+    %
+    \item
+        [\uurl{http://www.tug.org/pracjourn/2010-1/dohmen/dohmen.pdf}{Dual
+            screen beamer presentations}]
+        %
+        This article give a very interesting insight on how one can adapt
+            \pkg{beamer} for dual screen presentations.
+        %
+        Recommended for advanced \pkg{beamer} and \LaTeX{} users.
+    %
+\end{description}
 
-\section{Another approach}
+%
+By following the links to the Prac\TeX{} journal articles one could find
+    example-files as well as sources for the article.
+%
+Examining those files might prove to be a very valuable experience and it is
+    highly recommended to check out the examples if they are supplied in the
+    archive file.
 
-This is an alternative method to create presentations. It involves using
-\verb|scrartcl| class which is then customized to a great extent. The
-decorations of the presentation are done by using the \verb|TikZ| package and
-since everything is done from scratch, the user will end up having a unique
-theme for his/her presentations.
+% ----------------------------------------------------------------------
+\section{Using a Standard Document Class}
+% ----------------------------------------------------------------------
 
+%
+This is an alternative method to create presentations.
+%
+It involves using \pkg{scrartcl} class which is then customized to a great
+    extent.
+%
+The decorations of the presentation are done by using the \pkg{TikZ} package and
+    since everything is done from scratch, the user will end up having a unique
+    theme for his/her presentations.
+
+%
 As you might understand, with a lot of customizability comes slightly steeper
-learning curve and one need to spend more time initially to get everything set
-up. However, then to convert an article to a presentation is much faster, which
-is mainly the point of this method. Also, you do not need to learn knew
-commands/environments, which might also be considered as an advantage of this
-method.
+    learning curve and one need to spend more time initially to get everything
+    set up.
+%
+However, then to convert an article to a presentation is much faster, which is
+    mainly the point of this method.
+%
+Also, you do not need to learn knew commands/environments, which might also be
+    considered as an advantage of this method.
 
-There is an excellent example and article on the Prac\TeX\
-journal.\cite{PracTeX-komapres} Please download the zipped sources where you
-will find everything. You can check the presentation .tex file and change
-various parameters in the preamble and see how the style of presentation is
-affected.
+%
+There is an excellent example and article on the aforementioned
+    PracTeX{} journal\cite{PracTeX-komapres}.
+%
+Please download the zipped sources where you will find everything.
+%
+You can check the presentation \ftype{tex} file and change various parameters in
+    the preamble and see how the style of presentation is affected.
 
+% ----------------------------------------------------------------------
+\section{Thoughts on a Clever Work-flow}
+% ----------------------------------------------------------------------
+
+%
+As might know from the mentioned resources, when making presentation one mostly
+    has to divide the content to slides either by some sort of manual page
+    breaks or by encapsulating everything in a \pkg{frame} environment which
+    will automatically do that.
+%
+There is also another issue, that one might spend quite a lot of time while
+    making a slide so that everything would look very good and redoing all the
+    slides for every new presentation or talk one has to give might bee too time
+    consuming.
+%
+These are the reasons why a clever working system is very important and it might
+    decrease the time consumption substantially without sacrificing the quality
+    of the slides.
+
+%
+\todo{Add a note about GROUP YOUR SLIDES}
+
+%
+Do not make all your slides in one file as it has several drawbacks:
+\begin{description}
+    \item[File becomes very large]
+        It gets harder and harder to find things when one needs to edit
+            something or do other kind of tinkering.
+    %
+    \item[Harder to reuse content]
+        It is not very convenient to search in big files for information
+            every time you need to access some information you have already
+            typeset.
+    %
+    \item[Hard to deduce the length of a part]
+        It is much harder to get an impression of the length of some section of
+            the presentation as the file gets bigger because the line count of
+            the file does not reflect the individual section sizes at all.
+\end{description}
+
+%
+A much more clever approach would be to make slides in batches.
+%
+For example, if one has 4 sections in a presentation, then 4 different files
+    will ease the organization substantially.
+%
+Some people even tend to have all slides as separate \ftype{tex} files, which
+    get compiled when needed and then the resultant \ftype{pdf} files are used
+    when needed.
+%
+This has a huge benefit, that every slide will look exactly as intended,
+    however, it also means, that such features as table of contents or the
+    highlighting of the current section must be either hard-coded or not shown
+    at all.
+
+%
+Therefore, a good work-flow would consist of having different \ftype{tex} files
+    for different subtopics and then combining them when needed.
+%
+Using the \pkg{beamer} package would ensure that all text will appear on the
+    slide and that it will be of required aspect-ratio and resolution.
+%
+What is more, it will give those very handy features like linking and table of
+    contents inside the document.
+    \todo{finish about this kind of work-flow}
+
+% ----------------------------------------------------------------------
+% \section{Bibliography}
 \bibliographystyle{plain}
 \bibliography{./../tutorial}
+% ----------------------------------------------------------------------
 
 \end{document}
 
