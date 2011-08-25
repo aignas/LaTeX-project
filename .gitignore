@@ -1,6 +1,20 @@
+# LaTeX related ignores
 *.log
 *.aux
 *.out
+*.tdo
+*.toc
+acs*.bib
+*.bbl
+*.blg
+*.nav
+*.snm
+
+# Do not add the Compiled .pdf files
 *eps-converted-to.pdf
+
+# Do not add University Identifiers
 generic_CB*
+
+# Do not add zip files
 *.zip
