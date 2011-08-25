@@ -18,6 +18,13 @@ function clean_zips {
     return 0
 }
 
+function upload_zips {
+    for file in ./*.zip; do
+        echo "Uploading ${file}
+    done
+    return 0
+}
+
 case $1 in
     --zip|-z)
         zip_folders

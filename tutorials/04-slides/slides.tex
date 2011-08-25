@@ -217,11 +217,74 @@ This has a huge benefit, that every slide will look exactly as intended,
 Therefore, a good work-flow would consist of having different \ftype{tex} files
     for different subtopics and then combining them when needed.
 %
+The whole file and directory structure would be as follows:
+\begin{lstlisting}
+- archive
+    | - Sn2mechanism.tex
+    | - Sn2mechanism-HighE.tex
+    | - Sn2mechanism-thermodynamics.tex
+    |----------------------------------------------------------------
+     This would include all the .tex files which contain different
+     sections or even subsections which can be incorporated into one
+     presentation very easily. One can even put single slides in
+     different .tex files and the choice is mainly up to the user.
+
+     The names of the .tex files should be unique and meaningful.
+
+     If the user wants, he can split the folder into several smaller 
+     for easier organization.
+    |----------------------------------------------------------------
+- 2002-04-12-SomeConference
+    |- 2002-04-12-SomeConference.tex
+  ......
+- 2011-10-03-CambridgeFreshers
+    | - 2011-10-03-CambridgeFreshers.tex
+    |----------------------------------------------------------------
+     All the presentations should be dated in order to find the
+     easier and get them organized.
+    
+     Also files should have the same name. This way, the produced pdf
+     file will have a meaningful name as well.
+    |----------------------------------------------------------------
+- figures_eps
+- figures_ai
+- figures_pdf
+- figures_jpg
+- figures_png
+- figuers_...
+    |----------------------------------------------------------------
+     figure files should be put in different folders according to
+     their extension. This helps to keep things tidy and easy to find.
+     However, one should then ensure, that the figures are given
+     meaningful and unique names.
+    
+     The figure paths, which would be used should be included via the
+     /graphicspath{{dir1}{dir2}{dir3}} command
+    |----------------------------------------------------------------
+- references
+    | Journals.bib
+    | Books.bib
+    | MyPublicationList.bib
+    | ... etc ....
+    |----------------------------------------------------------------
+     Keep your bibliography databases here, so that it would be easy
+     to find. Multiple files can be included at once if needed.
+    |----------------------------------------------------------------
+- macros.tex
+    |----------------------------------------------------------------
+     This file ideally should contain all the useful macros and
+     package options so that the style of slides would be consistent.
+     This file should be 
+    |----------------------------------------------------------------
+\end{lstlisting}
+%
 Using the \pkg{beamer} package would ensure that all text will appear on the
     slide and that it will be of required aspect-ratio and resolution.
 %
-What is more, it will give those very handy features like linking and table of
+What is more, it will give those very useful features like linking and table of
     contents inside the document.
+%
+
     \todo{finish about this kind of work-flow}
 
 % ----------------------------------------------------------------------

@@ -1,6 +1,6 @@
 %documentclass{letter}
 \KOMAoptions{
-    fontsize=11pt
+    fontsize=10pt
 }
 \setkomafont{pagenumber}{\bfseries\upshape\oldstylenums}
 \renewcommand{\titlefont}{\rm\bfseries\LARGE}
@@ -18,23 +18,31 @@
 \else
   \usepackage[utf8]{inputenc}
   \usepackage[T1]{fontenc}
-  \usepackage{lmodern}
+  \usepackage{lmodern,textcomp}
 \fi
 
 \usepackage{
-    textcomp,
-    lastpage,
+%    standalone,
+%    lastpage,
     geometry,
-    setspace,
-    amsmath,
     scrpage2,
+%    setspace,
+    amsmath,
     caption,
-    standalone,
-    hyperref
+    calc,
+%    floatrow,
+}
+\usepackage{
+%    xcolor,
+    graphicx,
+    tikz,
+    chemfig
 }
 \usepackage[final]{listings}
-\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[version=3]{mhchem}
+\usepackage[update,verbose=false]{epstopdf}
 \usepackage[colorinlistoftodos,obeyDraft]{todonotes}
+\usepackage{hyperref}
 
 
 % Set the geometry
@@ -52,13 +60,22 @@
 \geometry{inner=3.0cm, outer=2.5cm}
 }
 
-\onehalfspacing
+%\onehalfspacing
 
 % Setup hyperref
 \hypersetup{
     colorlinks,
     urlcolor=blue,
     breaklinks
+}
+
+\usetikzlibrary{
+    arrows,
+    decorations.pathmorphing,
+    backgrounds,
+    positioning,
+    fit,
+    petri
 }
 
 % Define collors
@@ -88,6 +105,7 @@
 % Text mode commands
 \newcommand{\uurl}[2]{\href{#1}{#2}\footnote{The URL is \url{#1}}}
 \newcommand{\ftype}[1]{\texttt{.#1}}
+\newcommand{\fname}[2]{\texttt{#1.#2}}
 \newcommand{\pkg}[1]{\texttt{#1}}
 \newcommand{\env}[1]{\texttt{#1}}
 \newcommand{\cmd}[1]{\texttt{\textbackslash{}#1}}
@@ -138,3 +156,9 @@
 }
 
 \renewcommand{\thefigure}{\oldstylenums{\arabic{figure}}}
+
+\setatomsep{5mm}
+\setbondoffset{.5mm}
+\setcrambond{2.5pt}{1pt}{2pt}
+\setbondstyle{thick}
+\renewcommand*\printatom[1]{{\footnotesize\ensuremath{\mathsf{#1}}}}
