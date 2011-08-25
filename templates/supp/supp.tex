@@ -1,0 +1,89 @@
+% ------------------------------------------------------------------------------
+\documentclass[
+    11pt,       % Fontsize
+%    draft,      % Draft option for checking bad things in the manuscript.
+    BCOR=5mm,   % Ammount of extra space left for binding
+    DIV=14      % Insert higher number for smaller margins.
+    ]{scrartcl}
+
+\usepackage[T1]{fontenc} % Modern font encoding
+\usepackage[utf8]{inputenc} % UTF8 encoding
+\usepackage[scaled=.875]{helvet}  % Helvetica font for sans serif
+\usepackage{mathptmx,courier,textcomp,amsmath,amsfonts,amssymb}
+\usepackage{setspace}
+\onehalfspacing % Change this command to \doublespacing if required
+
+\usepackage{floatrow,caption}    % For creating charts, graphs and schemes
+\captionsetup{
+   format = plain,      % Format of the caption
+   labelfont = {bf},    % font of the label.
+}
+\usepackage{achemso}            % Loads the achemso citation style
+\usepackage[version=3]{mhchem}  % insert chemical formuale with \ce{H2O} command.
+\usepackage[english]{babel}
+
+\usepackage{graphicx}           % Package for including figures
+\usepackage[update]{epstopdf}   % Eps figures in pdfLaTeX
+\usepackage{afterpage}
+\usepackage{authblk}            % Advanced author and affiliation setup
+
+% Redefinition of counters. Add more if needed, or change these values.
+\renewcommand{\thefigure}{S\arabic{figure}}     % Figure counter becomes S1, S2
+\renewcommand{\thetable}{S\arabic{table}}       % Table counter becomes S1, S2
+\renewcommand{\thesection}{S.\arabic{section}}  % Section counter becomes S.1, S.2
+\renewcommand{\thepage}{S\arabic{page}}         % Page counter becomes S1, S2
+
+\renewcommand\Authfont{\bfseries\sffamily}
+\renewcommand\Affilfont{\mdseries\itshape\normalsize}
+
+% ------------------------------------------------------------------------------------------------
+% package for dummy text, delete this field when the template is in use!
+\usepackage{blindtext}
+% ------------------------------------------------------------------------------------------------
+
+\title{Long long long long long title}
+\author[1]{Author 1}
+\author[2]{Author 2}
+\author[1]{Author 5}
+\author[2]{Author 6}
+\author[1]{Author 3}
+\author[1]{Author 4}
+\affil[1]{Affiliation 1}
+\affil[2]{Affiliation 2}
+\date{} % delete this line to display the current date
+
+
+
+% ------------------------------------------------------------------------------
+\begin{document}
+% ------------------------------------------------------------------------------
+
+\maketitle
+
+% ------------------------------------------------------------------------------
+\section{Section One}
+% ------------------------------------------------------------------------------
+
+\Blindtext
+
+\paragraph{New unindented paragraph with first words in bold.}\blindtext
+
+% ------------------------------------------------------------------------------
+\section{Section Two}
+% ------------------------------------------------------------------------------
+
+\Blindtext
+
+% ------------------------------------------------------------------------------
+\section{Section Three}
+% ------------------------------------------------------------------------------
+
+\Blindtext
+
+% ------------------------------------------------------------------------------
+% Bibliography
+\bibliographystyle{achemso}
+%\bibliography{yourbibfile}
+% ------------------------------------------------------------------------------
+
+\end{document}
