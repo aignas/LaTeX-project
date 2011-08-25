@@ -1,3 +1,0 @@
-\contentsline {section}{\numberline {1}The beamer document class}{1}{section.1}
-\contentsline {section}{\numberline {2}Using a Standard Document Class}{2}{section.2}
-\contentsline {section}{\numberline {3}Thoughts on a Clever Work-flow}{2}{section.3}

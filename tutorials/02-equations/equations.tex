@@ -1,25 +1,28 @@
 % Clever thing to minimize the files I need to edit to change how the files are
 % looking. The following one line comment is to trick VIM-LaTeX
-% \documentclass{article}
+\documentclass[
+    draft
+]{scrartcl}
 \input{./../template_preamble.tex}
 
 % Custom things
-\usepackage[version=3]{mhchem}
-\usepackage[]{amsmath}
 
 \title{Getting nice equations in the text}
-\author{Ignas Anikevicius}
+\author{Ignas Anikevičius}
 
 \begin{document}
 
 \maketitle
+\tableofcontents
+\listoftodos
+\vskip 1em
 
 In this short tutorial I will explain how to make simple equations. This will
 include chemical equations as well. In order to get the required packages in
 order to do these things, please look in to the source (.tex) file of this
 document. If you feel, that you need more information on typesetting various
 mathematical formulas, please refer to this online 
-\href{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Mathematics}{book}.
+\uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Mathematics}{book}.
 
 \section{Single-line mathematical equations}
 

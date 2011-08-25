@@ -4,7 +4,7 @@
 \input{./../template_preamble.tex}
 
 % Custom things
-\graphicspath{{./figs/}}
+\graphicspath{{./figs/}{./figs_tex/}}
 \newlength{\tikzunit}
 \newcommand{\scale}{.8}
 \newcommand{\compx}[1]{\textbf{#1}}
@@ -78,11 +78,11 @@ Inserting a figure is a really easy task and it can be accomplished with the
 Note, that there is an option to the \verb|\includegraphics| command which
     scales the image, so that its width would not exceed the text width.
 %
-\lstinputlisting{fig1.tex}
+\lstinputlisting{./figs_tex/fig1.tex}
 %
 And our figure will look as follows:
 %
-\input{fig1.tex}
+\input{./figs_tex/fig1.tex}
 
 % ----------------------------------------------------------------------
 \clearpage
@@ -328,7 +328,7 @@ The final image is shown in the figure \ref{fig:struct1}, where the work-flow
 %
 You can check out the code listing for creating the figure \ref{fig:struct1}
     bellow:
-    \lstinputlisting{fig3-2.tex}
+    \lstinputlisting{./figs_tex/fig3-2.tex}
 
 %
 \begin{figure}[h]
@@ -458,7 +458,7 @@ The results are shown in the figure \ref{fig:chemfig}.
 \begin{figure}[htpb]
     \centering
     \includegraphics{fig5.pdf}
-%    \input{fig5.tex}
+%    \input{./figs_tex/fig5.tex}
     \caption{
     \pkg{ChemFig} and \pkg{TikZ} usage to create very good-looking
         figures.

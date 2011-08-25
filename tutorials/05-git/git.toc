@@ -1,8 +1,0 @@
-\contentsline {section}{\numberline {1}What is version control system (VCS)?}{2}{section.1}
-\contentsline {section}{\numberline {2}Using GIT and \LaTeX {} together}{2}{section.2}
-\contentsline {subsection}{\numberline {2.1}Introduction on Git}{2}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Using Git}{3}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Essential git commands}{3}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Combining \LaTeX {} and Git}{4}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}Some thoughts on more sophisticated approaches}{4}{subsection.2.5}
-\contentsline {section}{\numberline {3}Using other VCS solutions}{5}{section.3}
