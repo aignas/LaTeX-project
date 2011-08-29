@@ -24,33 +24,57 @@
 \maketitle
 
 \tableofcontents
-\listoftodos
-\clearpage
+\listoftodos{\vskip 1em}
 
 %
-In this document I will talk about the key features of \LaTeX{} and philosophy
-    behind it.
+In this document you can find information on the key features of the \LaTeX{}
+    typesetting system and some thoughts on the philosophy behind them.
 %
-If you have not met \LaTeX{} before, it is crucial for you to be comfortable
-    with the concepts I am outlining in this document, or even better, read some
-    books on how to get started on \LaTeX{}.
+If this is the first time you hear about \LaTeX{}, then it is quite important
+    for you to feel comfortable with the basic structure and ideas of this
+    typesetting system.
 %
-I will also present some history on how \LaTeX{} was born, so if you would like
-    to know about anything similar like that, please continue reading.
-%In this tutorial I will assume that you have already successfully installed and
-%    configured your system and you are able to compile a simple standard
-%    document.
+It might be also very useful to know some history behind \LaTeX{} as it might
+    help you acknowledge the differences between \TeX{} and \LaTeX{}
+%
+If you feel, that you need more information, please refer to the \LaTeX{}
+    wikibook, which is one of the best on-line resources for \LaTeX{}, or Leslie
+    Lamport's book on \LaTeXe{}.
+%
+The link to this book can be found either on the Chemistry Department's \LaTeX{}
+    website, or at the end of document.
+    \todo{Create a Proper Citation for Leslie Lamport?}
 
 % ----------------------------------------------------------------------
 \section{Some History}
 % ----------------------------------------------------------------------
 
 %
-\LaTeX{} was created as a set of different macros for \TeX{}, which at the time
-    was quite popular amongst scientists and people producing literature.
+The introduction to the Wikipedia article about \TeX{} typesetting system
+    describes the \TeX{} system very well in just two sentences:
 %
-This short paragraph by Leslie Lamport (the author of \LaTeX{} summarizes the
-    reasons behind its creation very well on his
+\quote{
+\TeX{} is a typesetting system designed and mostly written by Donald Knuth.
+    \vskip .5em
+
+Together with the METAFONT language for font description and the Computer Modern
+    family of typefaces, TeX was designed with two main goals in mind: to allow
+    anybody to produce high-quality books using a reasonable amount of effort,
+    and to provide a system that would give exactly the same results on all
+    computers, now and in the future.
+    }
+
+%
+\TeX was a very powerful language, but it did not have any powerful macros
+    bundled with it, so people had to write macros, which was not very exciting
+    thing to do.
+%
+In this way \LaTeX{} was created, which is just a set of macros written by
+    Leslie Lamport for his own project and released as a package, so that other
+    people could reuse them.
+%
+This short paragraph by Leslie Lamport himself summarizes the reasons behind its
+    creation very well on his
     \uurl{http://research.microsoft.com/en-us/um/people/lamport/pubs/pubs.html\#latex}{website}:
 
 % Input the file containing the quote. Very useful to keep things tidy\ldots
@@ -61,11 +85,8 @@ This short paragraph by Leslie Lamport (the author of \LaTeX{} summarizes the
 % ----------------------------------------------------------------------
 
 %
-As you see, \LaTeX{} is just a set of macros for the \TeX{} typesetting system
-    created by Donald Knuth.
-%
-What is more, it does not add anything in particular very important apart from
-    emphasizing the point made by \TeX{}:
+The reason why \LaTeX{} was created is just to further emphasize the point made
+    by \TeX{}:
 %
 \quote{the content and the formatting should be as separate as possible.}
 
@@ -136,10 +157,13 @@ There is a very great short article on this if you follow
 % ----------------------------------------------------------------------
 
 %
-You can find a very good 
+You can find a very good
     \uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX}{on-line book}
-    which can help you get started. Before continuing any further, you should
-    read or at least skim through the first 5 chapters:
+    which can help you get started. 
+%
+Before continuing any further, you should read or at least skim through the
+    first 5 chapters:
+%
 \begin{description}
     \item[Introduction] Mainly what is \LaTeX{} and what software is needed for
         it. It may serve as an addition to what is already written in the
@@ -156,8 +180,12 @@ You can find a very good
         \LaTeX{} documents before reporting to anyone;
 \end{description}
 %
-If you like to have real books, check your preferred library for
-    ``\LaTeX{} - User's Guide and Reference Manual'' by Leslie Lamport.
+If you like to have real books, check your preferred library for the newest
+    version of ``\LaTeX{} - User's Guide and Reference Manual'' by Leslie
+    Lamport.
+%
+It should have a note, that it is updated for the \LaTeXe{}, which is just the
+    most recent version of \LaTeX{}.
 %
 And if you are thinking of buying one, consider buying this book first as
     nothing can be better than the \LaTeX{} author himself explaining how to use
