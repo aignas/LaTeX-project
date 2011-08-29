@@ -1,4 +1,3 @@
-% TODO change verbatim into listings
 % Clever thing to minimize the files I need to edit to change how the files are
 % looking. The following one line comment is to trick VIM-LaTeX
  \documentclass[
@@ -22,8 +21,7 @@
 
 \maketitle
 \tableofcontents
-\listoftodos
-\vskip 1em
+\listoftodos{\vskip 1em}
 
 %
 Thank you for your interest in \LaTeX{} typesetting system and this article
@@ -45,11 +43,11 @@ You can find an on-line version of the
     version of it, which I think is much more suitable for reading or printing.
 
 %
-The list of the needed software is already there and if somebody feels very
-    comfortable with his system, no specific directions should be necessary for
-    them.
+The list of the needed software is already there and if you feel very
+    comfortable with your system, no specific directions should be necessary.
 
 % ----------------------------------------------------------------------
+\comment{
 \section{Software from the Department of Chemistry}
 % ----------------------------------------------------------------------
 
@@ -62,6 +60,7 @@ As far as I was informed, there are images for Linux and Windows systems.
 For Macs, there might be customized installers as well available on
     somelink.
 \todo{Ask computer officers for a link to the easy mac installers.}
+}
 
 % ----------------------------------------------------------------------
 \section{\LaTeX{} distribution installation}
@@ -75,20 +74,27 @@ There are several \LaTeX{} distributions which you can choose from and what
     \item[``\TeX{} Live''] distribution is available for Linux/Mac/Windows, but
             is usually the preferred option on Linux machines.
         %
-    \item[``\MacTeX''] distribution is mainly a compilation of the
+    \item[``\MacTeX{}''] distribution is mainly a compilation of the
             ``\TeX{} Live'' software specifically tailored for machines running
             OS X. 
         %
         This should be the preferred way of installing a \LaTeX{} distribution
             on a Mac.
         %
-    \item[``\MiKTeX''] distribution is available for Windows machines only and
+    \item[``pro\TeX{}t''] distribution is available for Windows machines only and
             it is designed so that everything is done for the user
             automatically. 
         %
-        This should be the preferred distribution on Windows OS, however, one
-            should keep in mind that the automation does not work $100\%$ all
-            the time and sometimes you will need to ``help it''.
+        It is based on \MiKTeX{} -- another \TeX{} distribution for Windows OS,
+            but it offers a much more integrated installation and is very suited
+            for beginners as it contains the full \TeX{} distribution
+            installation, a good editor and GhostScript installation (program
+            for \ftype{ps} files) as well.
+        %
+        This should be the preferred distribution on Windows OS if you are a
+        beginner, otherwise please research ways of how to install a
+        \TeX{} Live distribution as it seems to be more secure and faster in
+        some occasions. 
         %
 \end{description}
 
@@ -168,27 +174,52 @@ found on the following \uurl{http://www.tug.org/mactex/}{website}.
 
 \subsection{Notes for Windows users}
 
-For easier experience, download \MiKTeX{} installation files from
-\uurl{http://miktex.org/2.9/setup}{their website}.
-There are mainly 2 wise options to select:
+%
+For easier experience, download pro\TeX{}t installation files from
+    \uurl{http://www.tug.org/protext/}{their website}.
+%
+The installation above will provide you with a \TeX{}nicCenter \LaTeX{} IDE and
+    full \TeX{} distribution installation.
+
+%
+Another option would be to install either the \MiKTeX{} distribution directly
+    instead of the pro\TeX{}t distribution.
+%
+It can be downloaded from \uurl{http://www.miktex.org/2.9/setup}{this web site}
+    and there are two options of installation:
 \begin{description}
-    \item[Install everything] Although this might be very convenient as
+    \item[Install everything] 
+        Although this might be very convenient as
             one will not have to worry about missing packages, but it takes
             space.
         %
         On the other hand, slightly more than 1GB of occupied space on modern
             computers will not make a difference.
         %
-    \item[Install a base system] This is the alternative, which would take less
+    \item[Install a base system] 
+        This is the alternative, which would take less
             space. 
         %
         What is more, one can select an option where necessary packages
             could be installed on the fly without any user intervention.
         %
         However, it might need some more configuration afterwards as it seems
-            that this method sometimes do not work ``automagically''.
+            that this method sometimes does not work ``automagically''.
         %
 \end{description}
+
+%
+And yet the last option would be to install the \TeX{} Live distribution.
+%
+This might be the preferred way for people who want to have the same environment
+    across all Operating Systems they use.
+%
+What is more, sometimes it may compile the documents faster and it is thought to
+    be a more secure distribution.
+%
+For ways how to install this distribution, please use
+    \href{http://www.google.co.uk}{google}.
+
 
 \section{Editing a \ftype{tex} file}
 
@@ -208,7 +239,7 @@ There are many very powerful text editors, which might have a steep learning
     curve, but once mastered, they are very fast.
 %
 What is more, some text editors might be better in some tasks than other, so
-    there is no such thing as ``the best'' IDE or text editor for \LaTeX.
+    there is no such thing as ``the best'' IDE or text editor for \LaTeX{}.
 
 %
 The most important projects are mentioned bellow:
@@ -263,7 +294,7 @@ The most important projects are mentioned bellow:
             instead of writing your thesis.
 
         %
-    \item[TeXShop] 
+    \item[\TeX{}Shop] 
         This is probably the first good \LaTeX{} IDE for Mac, which was highly
             successful when it first came out.
         %
@@ -284,7 +315,7 @@ The most important projects are mentioned bellow:
             users to get what they want.
 
         %
-    \item[TeXworks]
+    \item[\TeX{}works]
         A cross-platform IDE which was inspired by \textbf{TeXShop}.
         %
         Note, that it is very useful as it comes with every \LaTeX{}
@@ -293,10 +324,10 @@ The most important projects are mentioned bellow:
         Thus you can start using it very quickly.
 
         %
-    \item[TeXMaker]
+    \item[\TeX{}Maker]
         A good cross-platform IDE using Qt toolkit.
         %
-        This might be an alternative to TeXworks, although there are better
+        This might be an alternative to \TeX{}works, although there are better
             alternatives listed above, so it is here just for completeness.
         %
 \end{description}
