@@ -1,0 +1,33 @@
+This is the package "elsarticle-ecrc" for generating CRC journal articles using the Elsevier LaTeX document class elsarticle.
+
+This version 1.2 dated 09 May 2011
+************************************************************
+
+The following files are included:
+* The elsarticle document class, elsarticle.cls
+* The documentation, elsdoc.pdf
+* A bibliographic style file for the numbered reference style, elsarticle-num.bst
+* The package file for Elsevier CRC, ecrc.sty
+* Sample journal logo files elsevier-logo-3p, SDlogo-3p (in PDF and PS format)
+* A template manuscript file, ecrc-template.tex
+
+All the above are also available at http://www.elsevier.com/latex
+
+(NB other bibliographic styles are available on the main elsarticle page, but Elsevier CRC generally uses a numbered reference style)
+
+
+To use:
+1. Unpack all the files into the same folder
+2. Edit the manuscript file ecrc-template.tex according to the instructions in that file, and save with a new name
+3. Compile with PDFLaTeX (and BibTeX if desired)
+
+
+**************************************************************
+*                                                            *
+* Important note on usage                                    *
+* -----------------------                              	     *
+* Files using ecrc should normally be compiled with PDFLaTeX *
+* Using standard LaTeX should work, but may produce clashes  *
+*                                                            *
+**************************************************************
+
