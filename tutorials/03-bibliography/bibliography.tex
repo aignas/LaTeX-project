@@ -1,7 +1,7 @@
 % Clever thing to minimize the files I need to edit to change how the files are
-% looking. The following one line comment is to trick VIM-LaTeX
+% looking. 
 \documentclass[
-    draft
+%    draft
 ]{scrartcl}
 \input{./../template_preamble.tex}
 
@@ -17,40 +17,52 @@
 
 \maketitle
 \tableofcontents
-\listoftodos
+\listoftodos{\vskip 1em}
 
-Bibliography can be very easily managed in \LaTeX\ and this tutorial will
-quickly explain how to get good results in relatively short time.  There are
-mainly two frameworks which can be used --- \verb|BibTeX| and the
-\verb|bibliography| environment. The latter might not be the most convenient
-one, and it will not be talked about much. What you do there is you enter
-the whole bibliography in the \verb|bibliography| environment. Previously
-mentioned two choices are superior to this as the bibliography database can
-be edited with external programs and thus the productivity might increase.
+%
+Bibliography can be very easily managed in \LaTeX{} and this tutorial will
+    quickly explain how to get good results in relatively short time.
+%
+There are mainly two frameworks which can be used --- \pkg{BibTeX} and the
+    \env{bibliography} environment. 
+%
+The latter might not be the most convenient one if you have a big document, 
+    and it will not be talked about much, however, if you want to know about it
+    more, then please refer to the link bellow.
+%
+What you do there is you enter the whole bibliography in the \env{bibliography}
+    environment.
+%
+Previously mentioned two choices are superior to this as the bibliography
+    database can be edited with external programs and thus the productivity
+    might increase.
 
-If you feel that you want to read more about various bibliography formats,
-you can read it on the LaTeX
-\uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Bibliography_Management}{wikibook}
-.\cite{latexwikibook:bibliography}
+%
+If you feel that you want to read more about various bibliography formats, you
+    can read it on the LaTeX
+    \uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Bibliography_Management}{wikibook}
+    .\cite{latexwikibook:bibliography}
 
+% ----------------------------------------------------------------------
+\section{Creating the Database and Bib\TeX{} usage}
+% ----------------------------------------------------------------------
 
-\section{Creating the Database and Bib\TeX\ usage}
-
+%
 Before citing any authors one would need to create a database, which would
-consist of all things the author needs to cite. 
+    consist of all things the author needs to cite. 
 %
 This might be everything, from articles to scientific blogs or something
-similar. 
+    similar. 
 %
 Moreover, one might have different bibliography databases for different things
-(e.g. one for articles, one for books etc.). 
+    (e.g. one for articles, one for books etc.). 
 %
 It does not matter in how many files do you have the bibliography list split,
-\LaTeX\ will load all the files and you won't have to worry. 
+    \LaTeX{} will load all the files and you won't have to worry. 
 %
 This can be done with relatively easy commands shown in the listing
-\ref{lst:egbib} (if you are using Bib\TeX\ then these commands are inserted in
-the text, where you want the reference list to appear).
+    \ref{lst:egbib} (if you are using Bib\TeX{} then these commands are inserted
+    in the text, where you want the reference list to appear).
 %
 \begin{lstlisting}[caption={Example code to get BibTeX working},label=lst:egbib]
 \bibliographystyle{plain}       % Load the plain style
@@ -59,33 +71,35 @@ the text, where you want the reference list to appear).
                                 % file.
 \end{lstlisting}
 
-
-
+%
 And now we need to know how to create the database files themselves, namely,
-\verb|file1| and \verb|file2| files. 
+    \verb|file1| and \verb|file2| files. 
 %
 These can be created either with a simple text editor while using templates from
-this
-\uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Bibliography_Management\#Standard_templates}{link}
-where the way multiple authors are handled is described slightly above in the
-web page.
+    this
+    \uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Bibliography_Management\#Standard_templates}{link}
+    where the way multiple authors are handled is described slightly above in
+    the web page.
 
-
-
+%
 The bibliography can be created with software having a \ac{gui}. 
 %
 This might be a much easier way for Windows and Mac users as the \ac{oses} tend
-to focus on GUI software rather then \ac{cli} software.
+    to focus on GUI software rather then \ac{cli} software.
 %
 The list of supposedly good software for managing bibliography goes bellow:
 %
 \begin{description}
-    \item[JabRef] This is a very good program written in JAVA, which means that
-        it will work on all systems in the same way. So this can be used by
-        \textbf{Linux}, \textbf{Mac} and \textbf{Windows} users.
+    \item[JabRef]
+        This is a very good program written in JAVA, which means that it will
+            work on all systems in the same way. So this can be used by
+            \textbf{Linux}, \textbf{Mac} and \textbf{Windows} users.
+        %
         
-    \item[BibDesk] This is a quite good software package for \textbf{Mac} users
-        which may be an alternative for the \textbf{JabRef}.
+    \item[BibDesk]
+        %
+        This is a quite good software package for \textbf{Mac} users which may
+            be an alternative for the \textbf{JabRef}.
 \end{description}
 
 
@@ -93,48 +107,48 @@ The list of supposedly good software for managing bibliography goes bellow:
 \section{How to make citations}
 % ---------------------------------------------------------------------
 
-
+%
 Since we have a database, from which we can get the citations and the
-information about the sources, we should now learn how to make the citations.
+    information about the sources, we should now learn how to make the
+    citations.
 %
 Basically I can cite a source with a simple command
-\verb|\cite{Knut:LaTeX1977}|, which will give me a citations. 
+    \verb|\cite{Knut:LaTeX1977}|, which will give me a citations. 
 %
 However, its appearance is determined by the style of the bibliography. 
 %
 The style can be altered via \LaTeX\ packages, and it should be done as the last
-thing in your document. 
+    thing in your document. 
 %
 All the stiling and formatting should be taken care off at the last stage of
-your work. 
+    your work. 
 %
 Just for the time being, let's suppose, that we are using the \verb{plain{ style
-which could be invoked as shown in the listing \ref{lst:egbib}.
+    which could be invoked as shown in the listing \ref{lst:egbib}.
 %
 The \verb{\cite{ command would just give you a bracketed citation like ``[1]'',
-or ``[2,3,4]'', or even ``[2-4]''. 
+    or ``[2,3,4]'', or even ``[2-4]''. 
 %
 For the later two examples one should use \verb|\cite{source1,source2,source3}|
-structure to get the formating as above.
+    structure to get the formating as above.
 
-
-
+%
 If you want some source to appear in the bibliography list, but do not have any
-particular reason to cite it, just issue \verb|\nocite{somesource}| command.
+    particular reason to cite it, just issue \verb|\nocite{somesource}| command.
 
-
-
+%
 If you want several sources to appear under the same number (eg. ``[7]''), but
-in the bibliography list it to appear as a itemized list (ie.
-7.a)\ldots b)\ldots c)\ldots), then you should use the \verb|mciteplus| package.
+    in the bibliography list it to appear as a itemized list (ie.  7.a)\ldots
+    b)\ldots c)\ldots), then you should use the \verb|mciteplus| package.
 %
 Its documentation can be found following this
-\uurl{http://mirror.ctan.org/macros/latex/contrib/mciteplus/mciteplus_doc.pdf}{link},
-but the same functionality is provided by the \verb|achemso package|, so if you
-use achemso you \textbf{do not} need to include the \verb|mciteplus| package.
+    \uurl{http://mirror.ctan.org/macros/latex/contrib/mciteplus/mciteplus_doc.pdf}{link},
+    but the same functionality is provided by the \verb|achemso package|, so if
+    you use achemso you \textbf{do not} need to include the \verb|mciteplus|
+    package.
 %
 Once you have the necessary packages loaded, you can just issue
-\verb|\cite{source1, *source2, *source3}| to get the desired effect. 
+    \verb|\cite{source1, *source2, *source3}| to get the desired effect. 
 %
 However there are several limitations:
 %
@@ -159,21 +173,21 @@ However there are several limitations:
         the package.
 \end{itemize}
 
-
 % ---------------------------------------------------------------------
 \section{The cite package usage}
 % ---------------------------------------------------------------------
 
-
+%
 If you want to gain more control over how the citations appear in the text, you
-can use the \verb|cite| package. 
+    can use the \verb|cite| package. 
 %
 Like all packages, it is invoked with \verb|\usepackage[]{cite}| written in the
-preamble where the options to the package go between the ``[]'' brackets.
+    preamble where the options to the package go between the ``[]'' brackets.
 %
 It would worth reading about the options on your-own in the documentation of the
-package which can be found through
-\uurl{http://mirrors.ctan.org/macros/latex/contrib/cite/cite.pdf}{this link}.
+    package which can be found through
+    \uurl{http://mirrors.ctan.org/macros/latex/contrib/cite/cite.pdf}{this
+    link}.
 %
 Please, read it before you use it!
 
@@ -182,70 +196,80 @@ Please, read it before you use it!
 % ---------------------------------------------------------------------
 
 The \verb|natbib| package can give you more styles of citations and it provides
-eveon more extensibility than the \verb|cite| package. 
+    eveon more extensibility than the \verb|cite| package. 
 %
 If you feel, that the \verb|cite| package does not provide what you want, please
-try this package and please read about it on
-\uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Bibliography_Management\#Natbib}{this source}.
+    try this package and please read about it on
+    \uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Bibliography_Management\#Natbib}{this
+    source}.
 %
 The documentation can be found
-\uurl{ftp://ftp.tex.ac.uk/tex-archive/macros/latex/contrib/natbib/natbib.pdf}
-{here}, whereas a useful reference-sheet-web-page can be found
-\uurl{http://merkel.zoneo.net/Latex/natbib.php}{here}.
+    \uurl{ftp://ftp.tex.ac.uk/tex-archive/macros/latex/contrib/natbib/natbib.pdf}
+    {here}, whereas a useful reference-sheet-web-page can be found
+    \uurl{http://merkel.zoneo.net/Latex/natbib.php}{here}.
 
 % ---------------------------------------------------------------------
 \section{The achemso packge usage}
 % ---------------------------------------------------------------------
 
 Achemso package might be very useful for many people who want to get the
-citations as superscripts and the Bibliography list as in the \ac{acs} journals.
+    citations as superscripts and the Bibliography list as in the \ac{acs} journals.
 %
 If you use it, be sure, that you do not use natbib, cite or any other packages
-which manage bibliographies, as you can experience unexpected results while
-theses packages try to redefine the commands.
+    which manage bibliographies, as you can experience unexpected results while
+    theses packages try to redefine the commands.
 %
 For the usage of this package, please read the 
-\uurl{http://www.tex.ac.uk/ctan/biblio/bibtex/contrib/achemso/achemso.pdf}
-{documentation},
-however, it would be worthwhile to note, that for minimal results, you should
-try to include it into you preamble and then define the bibliography style as
-\verb|achemso| as follows:
+    \uurl{http://www.tex.ac.uk/ctan/biblio/bibtex/contrib/achemso/achemso.pdf}
+    {documentation}, however, it would be worthwhile to note, that for minimal
+    results, you should try to include it into you preamble and then define the
+    bibliography style as \verb|achemso| as follows:
 \lstinputlisting[caption={The achemso package
 usage},label=lst:achemso1]{./doc-bib1.tex}
 
-
-
+%
 If you want to customize the style of the citations, please refer to the package
-documentation.
+    documentation.
 
 % ---------------------------------------------------------------------
 \section{The Bib\LaTeX{} package usage}
 % ---------------------------------------------------------------------
 
 Bib\LaTeX{} is thought to be a replacement for natbib and Bib\TeX{} in a long
-run and if you whant very quick answer to what exactly is Bib\LaTeX{}, you
-should probably check
-\href{http://tex.stackexchange.com/questions/8411/what-is-the-difference-between-bibtex-and-biblatex/8416#8416}{this
-link} on \verb|stackexchan.com| as it answers the question very well.
+    run and if you whant very quick answer to what exactly is Bib\LaTeX{}, you
+    should probably check
+    \href{http://tex.stackexchange.com/questions/8411/what-is-the-difference-between-bibtex-and-biblatex/8416#8416}{this
+    link} on \verb|stackexchange.com| as it answers the question very well.
 
+%
 Other reasons why you would want to try this package is that it can do the
-footnote references, whereas natbib can not. This turns out to be very useful
-when you are \textbf{not} allowed to have an extra page for the references. As
-for how to do this, follow
-\uurl{http://www.charlietanksley.net/philtex/proper-footnote-citations-with-latex/}{this
-link}.
+    footnote references, whereas natbib can not. 
+%
+This turns out to be very useful when you are \textbf{not} allowed to have an
+    extra page for the references.
+%
+As for how to do this, follow
+    \uurl{http://www.charlietanksley.net/philtex/proper-footnote-citations-with-latex/}{this
+    link}.
 
+%
 Just a note, that most of the packages easing bibliography management, like
-natbib, mcite, and others do rely on Bib\TeX{} system and they \textbf{won't}
-work with Bib\LaTeX{}, however, it provides all the functionality you would
-need and configuration syntax is cleaner. What is more, if you want to create
-your own style for displaying references, you do not need to create custom
-\verb|.bst| files as all the formatting is done via \LaTeX{} macros. So if you
-know \LaTeX{} well, you will be able to come up with good bibliography style
-quite easily.
+    natbib, mcite, and others do rely on Bib\TeX{} system and they
+    \textbf{won't} work with Bib\LaTeX{}, however, it provides all the
+    functionality you would need and configuration syntax is cleaner.
+%
+What is more, if you want to create your own style for displaying references,
+    you do not need to create custom \verb|.bst| files as all the formatting is
+    done via \LaTeX{} macros.
+%
+So if you know \LaTeX{} well, you will be able to come up with good bibliography
+    style quite easily.
 
+% ----------------------------------------------------------------------
 \appendix
 \section{Acronyms used in the text}
+% ----------------------------------------------------------------------
+
 \begin{acronym}
     \acro{gui}[GUI]{Graphical User Interface}
     \acro{cli}[CLI]{Command Line Interface}

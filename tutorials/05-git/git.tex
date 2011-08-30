@@ -1,7 +1,7 @@
 % Clever thing to minimize the files I need to edit to change how the files are
 % looking. The following one line comment is to trick VIM-LaTeX
 \documentclass[
-    draft
+%    draft
 ]{scrartcl}
 \input{./../template_preamble.tex}
 
@@ -9,25 +9,25 @@
 
 \newcommand{\TODO}[1]{\todo[inline]{#1}}
 
-\title{How to use GIT version control system to backup and work collaboratively
-on the same documents}
+\title{Using GIT Version Control System for Collaborative Work and Having
+History of a Document}
 \author{Ignas Anikevicius}
 
 \begin{document}
 
 \maketitle
+\tableofcontents
+\listoftodos{\vskip 1em}
 
+%
 \LaTeX{} is a very good tool for this purpose as the files are created in ASCII
     format and everybody can read it the same way.
-%
-\tableofcontents
-\listoftodos
-\clearpage
 
 % ----------------------------------------------------------------------
 \section{What is version control system (VCS)?}
 % ----------------------------------------------------------------------
 
+%
 There are many models of VCS, but the main idea in all of them remains the same.
 %
 This is the ability of registering the changes to the files. 
@@ -43,6 +43,7 @@ A typical workflow can be described as follows:
     \item Go back to point 2.
 \end{enumerate}
 
+%
 As you see from this description it is clear that the whole history of how the
     files were changing is saved and, thus, they can be restored to any previous
     state.
@@ -65,8 +66,10 @@ The last feature is the most useful for \LaTeX{} users once they need to work
 \section{Using GIT and \LaTeX{} together}
 % ----------------------------------------------------------------------
 
+%
 \subsection{Introduction on Git}
 
+%
 Git is a fully open source Distributed Version Control System (DVCS) used for
     many major Open Source Software (OSS) projects.
 %
@@ -94,22 +97,37 @@ What is more, git has introduced 'branching' mechanism into VCS.
 Branching means, that you can create a branch of a repository and then make some
     changes on it and then merge it back whenever you want.
 %
-Or in the same way you can just abandon it, if you think that the changes you
+Or in the same way you can just abandon it, should you think that the changes you
     made where simply a mistake and you want the previous state of the
     repository back.
 %
 Or you can even 'cherry-pick' some changes from the branch and merge it back to
     the 'master' branch and discard the others.
 
+%
+This branching mechanism is very useful when a lot of people a working on the
+    same set of files as every person may have one or several branches
+    containing some changes and they can ask the manager of the project to merge
+    those changes into the master branch.
+%
+The nature of git would also let everybody to monitor the changes in various
+    branches, which makes everybody more aware of what is being changed and what
+    is not.
+%
+What is more, one can discard individual commits, or group them, which makes the
+    system even more flexible.
 
-\todo{Tell more about Git Pull Push requests.}
-
+%
 This way one can have a very powerful tool to manage all the changes to the
     files on the system.
 
 %
-\subsection{Using Git}
+\subsection{Installing and Using Git}
 
+%
+You can download the latest version of git by following
+    \uurl{http://git-scm.com/download}{this link}.
+%
 Git system is very easy to use if you are used to working in shell (such as Bash
     or Zsh).
 %
@@ -120,7 +138,33 @@ However, it might require more adjustment for those who have always been using
 Luckily there are GUI software, which might help you interface with a Git
     repository very easily:
 %
-\todo{Add a list containing useful GUI soft for Linux, Mac and Windows OSes.}
+\begin{description}
+    \item[Linux]
+        Linux GUIs are discussed on
+            \uurl{http://stackoverflow.com/questions/1516720/git-gui-client-for-linux}{this}
+            and
+            \uurl{http://stackoverflow.com/questions/2141611/a-pretty-and-feature-rich-git-gui-for-linux}{this}
+            page.
+    \item[Mac] 
+        There is a short discussion on Mac Git GUIs
+            \uurl{http://stackoverflow.com/questions/83789/what-is-the-best-git-gui-on-osx}{here},
+            but the answer would be probably that you should use either the
+            default gitk or git gui, or download the gitx, which seems to be a
+            separate gui for Mac.
+    \item[Windows] 
+        The best GUIs for windows are discussed on
+            \uurl{http://kylecordes.com/2010/git-gui-client-windows}{this
+            webpage}.
+    \item[Github] 
+        There is a github app for mac, which makes it very easy (no command line
+            involved) to manage your github repositories. 
+        %
+        However, you need at least OS X 10.6 to use it and you need to register
+            on \href{https://github.com}{github.com}.
+        %
+        Also, it will not manage any git repositories, which are not on the
+            github.
+\end{description}
 
 %
 \subsection{Essential git commands}
@@ -133,14 +177,15 @@ This section is probably more suited towards people who are using command line
 There is a very good list of commands when you create a new 
 \uurl{http://www.github.com}{GitHub} repository:
 %
-\todo{Describe each of the commands}
-%
 \begin{description}
     \item[Set up git] Commands for changing system wide settings:
 \begin{lstlisting}
 git config --global user.name "Your Name which will appear in log messages"
 git config --global user.email yourname@email.com
 \end{lstlisting}
+        %
+        The first command sets a username, which will be used for your all git
+            operations, whereas the second command sets the email.
 
     \item[Initialize repository] Command for initializing repository:
 \begin{lstlisting}
@@ -148,6 +193,14 @@ mkdir Project-name
 cd Project-name
 git init        # This is for initializing the git repository
 \end{lstlisting}
+        %
+        The first command is a UNIX command for creating a directory, so if it
+            is created already, you do not need to execute it.
+        %
+        The second command is for changing the directory, which also happens to
+            be a UNIX way of doing it.
+        %
+        The third command tells git to initialize an empty repository.
 
     \item[Adding files] Commands for adding various files to already initialized
         repositories:
@@ -156,6 +209,18 @@ touch README                    # Create an empty text file
 git add README                  # Add file to the git repo file-list
 git commit -m 'first commit'    # Commit the changes
 \end{lstlisting}
+        %
+        The first command in this list creates an empty text file called README.
+        %
+        Like other file operations not involving git, it will work only on Mac
+            OS X and Linux OS.
+        %
+        The second command adds the file into the list of tracked files, which
+            essentially means, that the file is added to the staging area of the
+            repository.
+        %
+        The changes will not be made until the third command is executed which
+            contains a message summarizing the changes.
 
     \item[Synchronizing] Adding a remote server and synchronizing the
         repositories
@@ -163,10 +228,21 @@ git commit -m 'first commit'    # Commit the changes
 git remote add origin git@gitserver.com:owner/Project-name.git
 git push -u origin master
 \end{lstlisting}
+        %
+        The first command adds a remote server with which the local repository
+            will be synchronized.
+        %
+        There can be several remote repositories, which would have different
+            assigned names (e.g. origin, origin-back, origin-devel, etc.).
+        %
+        The last command is for uploading the changes to the remote server under
+            a branch named master.
+        %
+        If you have several branches on your local machine, then you would
+            basically need to specify a different branch instead of master (e.g.
+            ia277-test, ia277-master, etc.).
 
 \end{description}
-
-\todo{example of git repo init and tex dir structure and something else.}
 
 %
 \subsection{Combining \LaTeX{} and Git}
@@ -208,10 +284,154 @@ As you see, if you are using \LaTeX{} typesetting system and you do not have to
     deal with raster images, then you can have a very efficient set of tools.
 
 %
-\subsection{Some thoughts on more sophisticated approaches}
+\subsection{Example 1: Starting a \LaTeX{} document and a git repository}
 
-\todo{remember what I wanted to tell here.}
+%
+An example how to get all the files of some LaTeX project might be the best
+    way to learn how to make a git repository.
+%
+At first we can create a directory with structure as bellow:
+%
+\begin{lstlisting}
+-- 2011-01-Some-Paper-Name/
+|---------------------------------------------------------------------
+|   Selecting a meaningful name might ease work for yourself and
+|   others. In this example we have yyyy - mm - name format of the
+|   name, which might be useful when arranging or zipping the folder
+|   as it is clear what is inside the folder.
+|---------------------------------------------------------------------
+    |-- figs_ai/        % efficient format
+    |-- figs_eps/       % efficient format
+    |-- figs_pdf/       % efficient format
+    |-- figs_jpeg/      % not-so-efficient format
+    |-- figs_png/       % not-so-efficient format
+    |-- figs_svg/       % efficient format
+    |-- figs_tex/       % efficient format
+    |-- figs_tiff/      % not-so-efficient format
+|---------------------------------------------------------------------
+|   It is very important to keep separate types of figures in
+|   different folders as it might ease addition/exclusion of the files
+|   when it comes to managing the repository.
+|
+|   Only vector graphics can be backed-up with plain git, however,
+|   there are modules to do that for binary files or other non-ASCII
+|   formated files (such as png,jpeg,tiff...)
+|
+|   If you convert a png into a pdf, or you import some raster
+|   graphics files into Adobe Illustrator and then export it as a
+|   vector format, it will not count as a vector graphics, as the
+|   nature of the graphics does not change at all.
+|
+|   However, one might probably want to have raster graphics together
+|   with other bits required to compile an article. Therefore one should
+|   either limit himself with the number of raster graphics used in the
+|   document to minimum or use only vector graphics.
+|---------------------------------------------------------------------
+    |-- refs/
+        |-- references.bib  % This is the only needed file.
+        |-- references.blg  % Not needed
+        |-- references.bbl  % Needed only if BibTeX/BibLaTeX isn't used
+|---------------------------------------------------------------------
+|   The bibliography database, if kept in a .bib format, can be stored
+|   in git as well, which means that one can have incremental file
+|   change history of the whole database, which is a very nice side
+|   effect.
+|
+|   However, you should not keep the log files (.blg) or the bbl file if
+|   BibTeX/BibLaTeX is used as the .bbl file is created automatically.
+|   However, if you do not use these things, then .bbl file would keep
+|   all your bibliography and you *need* to keep it in the repository.
+|---------------------------------------------------------------------
+    |-- paper1.aux      % File created on the fly, not needed
+    |-- paper1.log      % File created on the fly, not needed
+    |-- paper1.out      % File created on the fly, not needed
+    |-- paper1.pdf      % File created on the fly, not needed
+    |-- paper1.tex      % Main source file!
+|---------------------------------------------------------------------
+|   Only the storage of the .tex file is useful in a git repository as 
+|   other files are generated on the fly and are not needed.
+|---------------------------------------------------------------------
+\end{lstlisting}
 
+%
+The best way to exclude files from the repository is to use the
+    \fname{}{gitignore} file (its name might be different on Windows OS).
+%
+To exclude unnecessary filetypes, just put these lines in to your
+    \fname{}{gitignore} file:
+
+%
+\begin{lstlisting}[language=Bash]
+# Exlude additional files created by tex.
+# Please add more if you know the names of them.
+*.aux
+*.log
+*.out
+*.run.xml
+*.toc
+\end{lstlisting}
+%
+However, rather than excluding a lot of files, one can exclude \emph{all} files
+    and then change the permissions so that some of the files are included after
+    all. It can be done as follows:
+%
+\begin{lstlisting}[language=Bash]
+# Exclude everything
+*
+
+# Revoke the above for the following:
+!figs_*/ # although it might contain raster graphics, we want to have
+         # them all in the repo
+!*.tex   # Include .tex files
+!*.pdf   # include .pdf files
+\end{lstlisting}
+
+%
+Since we have all the file rules set up the only left thing is to add files to
+    the repository it self.
+%
+This can be done via the following commands:
+%
+\begin{lstlisting}[language=Bash]
+# Start tracking all files in the repository:
+git add ./*
+# Commit the addition, so the files would actually appear in the repo:
+git commit -m "Initial Commit"
+# Add a remote server
+git add remote ia277@some.server.com
+# Upload the files.
+git push origin
+\end{lstlisting}
+%
+Then you can make a branch, switch to it and then upload your branch as well.
+%
+If you want to know more information on how to do this, please refer to the
+    all-might \href{http://www.google.co.uk}{google} or the
+    \uurl{http://book.git-scm.com/}{git book}.
+
+%
+\subsection{Example 2: Downloading a git repository}
+
+%
+Downloading of the whole repository is more than simple.
+%
+Just open a terminal and then execute the following in the directory of your
+    choice:
+%
+\begin{lstlisting}[language=Bash]
+git clone git://some.host.ac.uk/the/address/of/the/repo.git
+\end{lstlisting}
+
+%
+And in the existing directory a new directory with the repository name will be
+    created with all the history of the repository.
+%
+If you need some assistance, please refer to the
+    \uurl{http://book.git-scm.com/}{git book}.
+
+%
+\todo{When I have time talk about rsync with git and git bup or something
+similar to get bin and ASCII files together}
 
 % ----------------------------------------------------------------------
 \section{Using other VCS solutions}

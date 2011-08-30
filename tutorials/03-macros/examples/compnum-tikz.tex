@@ -1,0 +1,31 @@
+\documentclass{standalone}
+\usepackage{ifthen}
+\newboolean{ClassStandalone}
+\setboolean{ClassStandalone}{true}
+\input{../template_preamble.tex}
+
+\begin{document}
+\begin{tikzpicture}
+    [scale=1,
+     structure/.style={rectangle,draw=white,fill=white,
+               outer xsep=.2cm,outer ysep=.2cm,minimum size=2mm,node distance=1.5cm},
+     help lines/.style={draw=black!50, thin},
+     label/.style={rectangle,fill=white,font=\bfseries,
+               outer ysep=.2cm,minimum size=4mm}]
+    %
+    \definesubmol{no2}{\chemabove{N}{+}(=[::+60]O)(-[::-60]{{\chemabove[-0.5pt]{O}{\quad\scriptstyle-}}})}
+    \node[structure] (TNT)
+        {\chemfig{*6((-!{no2})-=(-!{no2})-(-(-[::+60]H)(<[::-70]H)(<:[::-20]H))=(-!{no2})-=)}};
+    \node[structure] (naphtol) [base right=of TNT]
+        {\chemfig{*6(-=*6(-=-=(-OH)-=)-=-=)}};
+    \node[structure] (mCPBA) [below=of TNT]
+        {\chemfig{*6(=(-Cl)-=(-(=[::60]O)(-[::-60]O-[::60]O-[::60]H))-=-)}};
+    \node[structure] (TsCl) [base right=of mCPBA]
+        {\chemfig{*6((-)-=-(-S(=[::40]O)(=[::80]O)-[::-60]Cl)=-=)}};
+    %
+    \draw (naphtol.base)   node[label,yshift=-1cm]{\cmp{cmp:naphtol}};
+    \draw (TNT.base)       node[label,yshift=-1cm]{\cmp{cmp:TNT}};
+    \draw (mCPBA.base)     node[label,yshift=-1cm]{\cmp{cmp:mCPBA}};
+    \draw (TsCl.base)      node[label,yshift=-1cm]{\cmp{cmp:TsCl}};
+\end{tikzpicture}
+\end{document}

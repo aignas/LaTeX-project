@@ -1,12 +1,12 @@
 % Clever thing to minimize the files I need to edit to change how the files are
 % looking. The following one line comment is to trick VIM-LaTeX
 \documentclass[
-    draft
+%    draft
 ]{scrartcl}
 \input{./../template_preamble.tex}
 
 % Custom packages
-\newcommand\cyrtext[1]{{\fontencoding{T2A}\selectfont #1}}
+%\newcommand\cyrtext[1]{{\fontencoding{T2A}\selectfont #1}}
 
 % Version of the XeTeX logo that doesn't depend on Ǝ being available in the font
 % NB: not suitable for use in italic!
@@ -24,121 +24,144 @@
 
 \maketitle
 \tableofcontents
-\listoftodos
+\listoftodos{\vskip 1em}
 
-Being able to customize fonts in your \verb|.tex| document can be tricky at
-times, or as easy as loading a package or two. In this tutorial I will talk
-through various ways on how to accomplish it.
+%
+Being able to customize fonts in your \ftype{tex} document can be tricky at
+    times, or as easy as loading a package or two.
+%
+In this tutorial I will talk through various ways on how to accomplish it.
 
+% ----------------------------------------------------------------------
 \section{UTF8 usage}
+% ----------------------------------------------------------------------
 
-This can be accomplished by several ways. Older \LaTeX{} compilers do not
-assume, that the input will be given in Unicode character, and thus, if you try
-to type something like 
-ąžuolas or 
-\cyrtext{добридень} or 
-clichè, then it will give you
-errors unless the file itself is encoded in utf8 and the compiler `knows' that
-the input encoding is utf8 and that can be easily achieved by using package
-called \verb|inputenc| and it should be executed as follows:
+%
+This can be accomplished by several ways.
+%
+Older \LaTeX{} compilers do not assume, that the input will be given in Unicode
+    character, and thus, if you try to type something like šąla or clichè, then
+    it will give you errors unless the filet itself is encoded in utf8 and the
+    compiler `knows' that the input encoding is utf8 and that can be easily
+    achieved by using package called \pkg{inputenc} and it should be executed as
+    follows:
+%
 \begin{lstlisting}
 \usepackage[utf8]{intputenc} % for utf8
 \end{lstlisting}
 
+%
 If you need to produce \LaTeX{} documents with short Cyrillic snippets, then it
-would be best to check out this
-\uurl{http://win.ua.ac.be/~nschloe/content/latex-and-cyrillic-text-snippets}{website}
-as it explains most of the nuances about different font handling in different
-char-sets.
+    would be best to check out this
+    \uurl{http://win.ua.ac.be/~nschloe/content/latex-and-cyrillic-text-snippets}{website}
+    as it explains most of the nuances about different font handling in
+    different char-sets.
 
+%
 For a complete guide how to set up your \LaTeX{} document for various languages
-there is a wonderful list on the
-\uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Internationalization}{the
-\LaTeX{} wikibook}.
+    there is a wonderful list on the
+    \uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Internationalization}{the
+    \LaTeX{} wikibook}.
 
+% ----------------------------------------------------------------------
 \section{The Font Catalogue}
+% ----------------------------------------------------------------------
 
+%
 There is a very good resource for fonts, which outlines how to make different
-fonts working and it includes notes whether the mathematics mode is supported
-with those fonts. 
+    fonts working and it includes notes whether the mathematics mode is
+    supported with those fonts. 
 %
 The resource is located at \href{http://www.tug.dk/FontCatalogue/}{\LaTeX\ font
-catalogue} website and you will find the information you search.
+    catalogue} website and you will find the information you search.
 
+%
 As for fonts without the support for mathematical symbols, I would advice you
-\textbf{against} using them unless you do not use any mathematical  typesetting
-in your documents (e.g. this is good for letters and other text-only documents).
+    \textbf{against} using them unless you do not use any mathematical
+    typesetting in your documents (e.g. this is good for letters and other
+    text-only documents).
 %
 However, if you need to do that, please consult professionals, some geek-written
-blogs or just people who are more experienced in that field.
+    blogs or just people who are more experienced in that field.
 
+%
 Now let's talk about commands involved setting different fonts. 
 %
 Usually you should declare in your preamble, that you will use Type1 fonts,
-which look better and most of the scientific journals require them. 
+    which look better and most of the scientific journals require them. 
 %
-Here is how you do it:
+Here is how to do it:
+%
 \begin{lstlisting}
 \usepackage[T1]{fontenc}
 \end{lstlisting}
 
+%
 And then you put a package responsible for defining the font:
 \begin{description}
-    \item[Computer Modern fonts] They are default, so you do not have anything
-        to specify, however, there exist some packages which provide some
-        variations of those fonts.
+    \item[Computer Modern fonts]
+        They are default, so you do not have anything
+            to specify, however, there exist some packages which provide some
+            variations of those fonts.
         
+        %
         For example, if you want slightly enhanced version
-        \footnote{See this
-        \href{http://www.tug.dk/FontCatalogue/lmodern/}{web page}
-        (\url{http://www.tug.dk/FontCatalogue/lmodern/})}
-        just put \verb|\usepackage{lmodern}| after loading \verb|fontenc|
-        package.
-    \item[Times fonts] Just put \verb|\usepackage{mathptmx}| after the previous
-        command;
-    \item[Palatino] Alternatively for palatino fonts, just write
-        \verb|\usepackage{mathpazo}| command;
+            \footnote{See this
+            \href{http://www.tug.dk/FontCatalogue/lmodern/}{web page}
+            (\url{http://www.tug.dk/FontCatalogue/lmodern/})}
+            just load the package \pkg{lmodern} after you load \pkg{fontenc}.
+    \item[Times fonts]
+        Just put \verb|\usepackage{mathptmx}| after the previous
+            command;
+        %
+    \item[Palatino]
+        Alternatively for palatino fonts, just write
+            \verb|\usepackage{mathpazo}| command;
 \end{description}
 
+%
 If you want other types of fonts \emph{with} `math' support, then visit the
-\TeX{} font catalogue.
+    \TeX{} font catalogue.
 
+% ----------------------------------------------------------------------
 \section{\XeTeX{} or Lua\TeX{} usage}
+% ----------------------------------------------------------------------
 
-There are also different compilers than the standard \verb|latex|,
-\verb|pslatex| or \verb|pdflatex| (NB the first two are deprecated and only the
-third compiler is still developed on). 
+%
+There are also different compilers than the standard \pkg{latex},
+    \pkg{pslatex} or \pkg{pdflatex} (NB the first two are deprecated and only the
+    third compiler is still developed on). 
 %
 The alternatives offer different feature set and might be more suitable for
-nowadays requirements, such as easier font set up or proper Unicode support
-built into the programs themselves. 
+    nowadays requirements, such as easier font set up or proper Unicode support
+    built into the programs themselves. 
 %
-\XeTeX{} \TeX flavour provide its own 2 compilers named \verb|xetex| and \verb|xelatex|,
-whereas \LaTeX{} people have chosen \verb|lualatex| as the successor of the
-\verb|pdflatex| compiler and it provides an easy way to include Lua programming
-scripts \emph{inside} your \LaTeX{} document to do various tasks.
+\XeTeX{} \TeX flavour provide its own 2 compilers named \pkg{xetex} and
+    \pkg{xelatex}, whereas \LaTeX{} people have chosen \pkg{lualatex} as the
+    successor of the \pkg{pdflatex} compiler and it provides an easy way to
+    include Lua programming scripts \emph{inside} your \LaTeX{} document to do
+    various tasks.
  
- 
- 
+%
 The Unicode problem in these alternative compilers is solved as they \emph{do}
-assume that the input is encoded in Unicode formats and there are no errors when
-you enter Unicode text.
+    assume that the input is encoded in Unicode formats and there are no errors
+    when you enter Unicode text.
 %
-What is more, they have much better support for changing fonts and \verb|xetex|
-and \verb|xelatex| compilers can even utilise TrueType or other modern font
-technologies.
+What is more, they have much better support for changing fonts and \pkg{xetex}
+    and \pkg{xelatex} compilers can even utilise TrueType or other modern font
+    technologies.
 %
 On the other hand this `flexibility' might cause more additional issues, as
-the 'math' mode support for common fonts is usually very poor.
+    the 'math' mode support for common fonts is usually very poor.
 %
-That is why you should only use \verb|xelatex| or \verb|xetex| if you do not
-need mathematical expressions in your document and you \emph{require} a
-different font.
+That is why you should only use \pkg{xelatex} or \pkg{xetex} if you do not
+    need mathematical expressions in your document and you \emph{require} a
+    different font.
 %
 There is another issue though --- the alternatives are not as time-proven and
-are still under heavy development and they do not integrate as well with older
-packages (e.g.  \verb|epstopdf|), which might be unacceptable in some
-situations.
+    are still under heavy development and they do not integrate as well with
+    older packages (e.g.  \pkg{epstopdf}), which might be unacceptable in some
+    situations.
 
 \end{document}
 

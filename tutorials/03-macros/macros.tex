@@ -1,209 +1,339 @@
 % Clever thing to minimize the files I need to edit to change how the files are
 % looking. The following one line comment is to trick VIM-LaTeX
 \documentclass[
-    draft
+%    draft
 ]{scrartcl}
+\usepackage{ifthen}
+\newboolean{ClassStandalone}
+\setboolean{ClassStandalone}{false}
 \input{./../template_preamble.tex}
 
 % Custom packages
 \newcommand{\hho}{\ensuremath{\mathrm{H_2O}}}
 \newcommand{\un}[1]{\unit{#1}}
 
-\newcounter{chemcmp}
-\newcounter{chemcmpp}
-\renewcommand{\thechemcmp}{\arabic{chemcmp}}
-\renewcommand{\thechemcmpp}{\alph{chemcmpp}}
-\newcommand{\cmpinc}{
-    \refstepcounter{chemcmp}
-    \setcounter{chemcmpp}{0}
-}
-\newcommand{\cmp}[1]{
-    \cmpinc
-    \textbf{\thechemcmp }
-    \label{#1}
-}
-\newcommand{\cmppe}[1]{
-    \refstepcounter{chemcmpp}
-    \textbf{\thechemcmp\thechemcmpp }
-    \label{#1}
-}
-\newcommand{\cmppn}[1]{
-    \cmpinc
-    \refstepcounter{chemcmpp}
-    \textbf{\thechemcmp\thechemcmpp }
-    \label{#1}
-}
-
-\usepackage{graphicx}
 \graphicspath{{./figs/}}
-\usepackage[update,verbose=false]{epstopdf}
-\usepackage{tikz}
-\newlength{\tikzunit}
 
-\title{Defining your own macros, commands and environments}
-\author{Ignas Anikevicius}
+\title{Defining Your Own Macros, Commands and Environments}
+\author{Ignas Anikevičius}
 
 \begin{document}
 
 \maketitle
 \tableofcontents
-\listoftodos
+\listoftodos{\vskip 1em}
 
-This is one of the most useful \TeX\ features. Actually all \LaTeX\ system
-is just a set of macros and environments to extend \TeX\ features.
+%
+This is one of the most useful \TeX{} features.
+%
+Actually all \LaTeX{} system is just a set of macros and environments to extend
+    \TeX{} features.
+%
 Definition of your own commands might look a very difficult thing to do, but
-actually it is not! I will examine some examples in the following sections
-\todo{Update the source code, so that it would be nicely indented.}
+    actually it is not!
+%
+And some useful examples will be examined so that you could try to define your
+    own commands \emph{reusing} the code listed in this tutorial and later,
+    writing your own code to get even more elaborate macros.
 
-\section{Defining new \LaTeX\ commands}
+% ----------------------------------------------------------------------
+\section{Defining new \LaTeX{} commands}
+% ----------------------------------------------------------------------
 
+%
 Let's now consider a situation where a person is writing a dissertation on the
-physical properties of water and he uses its chemical formula $\left( \hho
-\right)$ a lot. It takes time to typeset such a formula, and the code actually
-looks like this: \verb|$\mathrm{H_2O}$|. However, if we have
-something similar to the following code in the preamble, we could just write
+    physical properties of water and he uses its chemical formula $\left( \hho
+    \right)$ a lot. 
+%
+It takes time to typeset such a formula, and the code actually looks like this:
+    \verb|$\mathrm{H_2O}$|.
+%
+However, if we have something similar to the following code in the preamble, we
+    could just write
 \verb|\hho|.
 \begin{lstlisting}
 \newcommand{\hho}{\ensuremath{\mathrm{H_2O}}}
 \end{lstlisting}
 
+%
 The best place to get all the necessary knowledge for being able to do the same
-as was done above would be 
-\href{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Customizing_LaTeX#New_commands}{this
-page}. There you will be able to find simpler examples and much more examples.
+    as was done above would be
+    \href{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Customizing_LaTeX#New_commands}{this
+    page}.
+%
+There you will be able to find simpler examples and much more examples.
 
+%
 Here I will just give you some useful code snippets, which might give you some
-ideas or turn out to be useful.
+    ideas or turn out to be useful.
 
+%
 \subsection{Typesetting units correctly}
 
-Well typeset document will usually have very elegant code. Which means, that for
-example to enter an equation one will not switch back and forth from the
-\verb|math| mode, but rather enter everything there. However, if units are
-typeset right away, they might appear in italics (ie. the same way as the
-equation variables appear), which is not what we want.
+%
+Well typeset document will usually have very elegant code. 
+%
+Which means, that for example to enter an equation one will not switch back and
+    forth from the \verb|math| mode, but rather enter everything there.
+%
+However, if units are typeset right away, they might appear in italics (i.e. the
+    same way as the equation variables appear), which is not what we want.
 
+%
 There are several packages which might be worth looking, but I find it just
-unnecessary as one can solve this issue with only one short command.
+    unnecessary as one can solve this issue with only one short command.
 
+%
 Let's consider a following expression:
-\input{units-without.tex}
-and the code for it can be found bellow:
-\lstinputlisting{units-without.tex}
+%
+\input{./examples/units-without.tex}
+    and the code for it can be found bellow:
+%
+\lstinputlisting{./examples/units-without.tex}
 
+%
 Now look at the equation generated by another version of the code where we do
-not enter all those tedious commands:
-\input{units.tex}
-\lstinputlisting{units.tex}
+    not enter all those tedious commands:
+%
+\input{./examples/units.tex}
+\lstinputlisting{./examples/units.tex}
 
+%
 This can be achieved with the following command in the preamble of the file.
+%
 \begin{lstlisting}
 \newcommand{\un}[1]{\ensuremath{\, \mathrm{#1}}}
 \end{lstlisting}
 
+%
 You might wonder, why to use a newly defined command, if the amount of code
-does not decrease very much. However, you \textbf{should} think about the case
-where you would like to change the formatting of the units just ever so slightly
-and if you used the \verb|\un| command, which you had defined previously, you
-would need to change only one line, but otherwise you would need to change the
-entire document, which I believe is not the fastest way to do it.
+    does not decrease very much. 
+%
+However, you \textbf{should} think about the case where you would like to change
+    the formatting of the units just ever so slightly and if you used the
+    \verb|\un| command, which you had defined previously, you would need to
+    change only one line, but otherwise you would need to change the entire
+    document, which I believe is not the fastest way to do it.
 
+%
 \subsection{Typesetting lengthy and tedious expressions quickly}
 
+%
 This probably might apply more to people who are dealing with uncertainties more
-and need to write expressions which are quite repetitive in a sense. Here is an
-example with relative fractions.
+    and need to write expressions which are quite repetitive in a sense.
+%
+Here is an example with relative fractions.
 
+%
 Suppose we have the following the equations:
-\input{relfrac-head.tex}
+\input{./examples/relfrac-head.tex}
 
+%
 Please notice, that the relative errors do have very repetitive expressions,
-as we always have a fraction and the symbol is repeated twice in the numerator
-and denumerator, just on the numerator there is an extra $\Delta$ symbol in
-front.
+    as we always have a fraction and the symbol is repeated twice in the
+    numerator and denumerator, just on the numerator there is an extra $\Delta$
+    symbol in front.
 
+%
 Now let's compare two possible ways to achieve the above line for the fractional
-errors:
-\lstinputlisting{relfrac-without.tex}
-\lstinputlisting{relfrac.tex}
+    errors:
+%
+\lstinputlisting{./examples/relfrac-without.tex}
+and
+\lstinputlisting{./examples/relfrac.tex}
 
-I guess you can see how much more readable the second variant is. And it is
-achieved by defining the \verb|\rel| command in the preamble:
+%
+After comparing the two code listings it is evident, that the source code of the
+    second variant is much easier to comprehend and read than the first one.
+%
+And it is achieved by defining the \cmd{rel} command in the preamble:
+%
 \begin{lstlisting}
 \newcommand{\rel}[1]{\ensuremath{\cfrac{\Delta #1}{#1}}}
 \end{lstlisting}
 
-
+% ----------------------------------------------------------------------
 \section{Counters and more elaborate commands}
+% ----------------------------------------------------------------------
 
-
+%
 Since we now how to define new commands in \LaTeX{} and ease our life in this
-way, we can now go one step further. Suppose we have a large document with a lot
-of figures and in those figures we have a lot of structures, which we would like
-to number and refer easily in the text. 
-\todo{update the examples so that ChemFig would be used instead of msketch
-    figures}
+    way, we can now go one step further. 
+%
+Suppose we have a large document with a lot of figures and in those figures we
+    have a lot of structures, which we would like to number and refer easily in
+    the text. 
 
+%
 \subsection{Example 1: Single Level Counters (1,2,3\ldots) for Chemical
     Structures}
 
 %
-\input{compnum.tex}
-\lstinputlisting{compnum.tex}
-
-The \verb|\cmp| command definition is as follows:
+\input{./examples/compnum.tex}
+%
+The code required to get the compound numbering is shown bellow.
+%
+Note that the structures were made using the \pkg{ChemFig} package, whereas the
+    image was composed with the \pkg{TikZ} package.
+%
+The code required to draw the structures is available in the
+    \texttt{compnum-tikz.tex} file supplied together in the source archive.
+%
 \begin{lstlisting}
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        ...
+        \draw (naphtol.base)   node[label,yshift=-1cm]{\cmp{cmp:naphtol}};
+        \draw (TNT.base)       node[label,yshift=-1cm]{\cmp{cmp:TNT}};
+        \draw (mCPBA.base)     node[label,yshift=-1cm]{\cmp{cmp:mCPBA}};
+        \draw (TsCl.base)      node[label,yshift=-1cm]{\cmp{cmp:TsCl}};
+    \end{tikzpicture}
+    ...
+\end{figure}
+\end{lstlisting}
+%
+Note that the number are assigned in the order of the command execution.
+    Hence, it really does not matter where the number is located in the figure
+    as long as the labels are assigned in the correct order.
+
+%
+The \cmd{cmp} command definition is as follows (Note the comment characters
+    after the commands, which are used in order to avoid unwanted spaces in the
+    final result):
+\begin{lstlisting}
+% Initial and format the counter.
 \newcounter{chemcmp}
-\renewcommand{\thechemcmp}{\arabic{chemcmp} }
-\newcommand{\cmp}[1]{\refstepcounter{chemcmp}
-    \textbf{\thechemcmp}
-    \label{#1}}
+\renewcommand{\thechemcmp}{\arabic{chemcmp}}
+%
+% Command for numbering compounds like 1,2,3,...
+\newcommand{\cmp}[1]{%
+\refstepcounter{chemcmp}%
+\textbf{\thechemcmp}%
+\label{#1}}
 \end{lstlisting}
 
+%
 \subsection{Example 2: Two Level Counters (1a,1b,2,3\ldots) for Chemical
     Structures}
 
 %
 Now we can extend the idea of numbering the compounds and including numbers like
-1a, 1b. I will use the same for structures, just I will change the numbers.
+    1a, 1b. I will use the same for structures, just I will change the numbers.
 
-\input{fig.tex}
-\lstinputlisting{fig.tex}
-
-The \verb|\cmp| name stands for the 'compound'
-whereas \verb|\cmppn| is for 'subcompound new' and \verb|\cmppe| is for
-'subcompound existing'. The reason why I have made 2 commands for 'subcompounds'
-is that one is for the entry of the first 'subcompound' (e.g. 1a) and the other
-compound is for adding 'subcompounds' (e.g. 1b, 1c, 1d\ldots).
-The code in the preamble defining the commands \verb|\cmp|, \verb|\cmppn|,
-\verb|\cmppe| is as follows:
+%
+\input{./examples/compnum2.tex}
+%
+The code bellow is for the second example.
+%
+Note that the syntax of the commands has changed.
+%
+That is because we need one command to increment the parent counter (i.e. going
+    1,2,3,\ldots) and we need another command to change child counter (i.e.
+    1a,1b,1c,\ldots), however, we need one more command to change both counters
+    (i.e. 1e \ce{->} 2a\ldots).
+%
+The same structures where used and nothing was change in terms of drawing.
+%
 \begin{lstlisting}
-\newcounter{chemcmp}
-\newcounter{chemcmpp}
-\renewcommand{\thechemcmp}{\arabic{chemcmp}}
-\renewcommand{\thechemcmpp}{\alph{chemcmpp}}
-\newcommand{\cmpinc}{
-    \refstepcounter{chemcmp}
-    \setcounter{chemcmpp}{0}
-}
-\newcommand{\cmp}[1]{
-    \cmpinc
-    \textbf{\thechemcmp }
-    \label{#1}
-}
-\newcommand{\cmppe}[1]{
-    \refstepcounter{chemcmpp}
-    \textbf{\thechemcmp\thechemcmpp }
-    \label{#1}
-}
-\newcommand{\cmppn}[1]{
-    \cmpinc
-    \refstepcounter{chemcmpp}
-    \textbf{\thechemcmp\thechemcmpp }
-    \label{#1}
-}
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        ...
+        \draw (TNT.base)       node[label,yshift=-1cm]{\cmp{cmp:TNT2}};
+        \draw (naphtol.base)   node[label,yshift=-1cm]{\cmppn{cmp:naphtol2}};
+        \draw (mCPBA.base)     node[label,yshift=-1cm]{\cmppe{cmp:mCPBA2}};
+        \draw (TsCl.base)      node[label,yshift=-1cm]{\cmp{cmp:TsCl2}};
+    \end{tikzpicture}
+    ...
+\end{figure}
 \end{lstlisting}
 
+%
+The \cmd{cmp} name stands for the 'compound' whereas \cmd{cmppn} is for
+    'sub-compound new' and \cmd{cmppe} is for 'sub-compound existing'. 
+%
+The reason why I have made 2 commands for 'sub-compounds' is that one is for the
+    entry of the first 'sub-compound' (e.g. 1a) and the other compound is for
+    adding 'sub-compounds' (e.g. 1b, 1c, 1d\ldots).
+%
+The code in the preamble defining the commands \cmd{cmp}, \cmd{cmppn},
+    \cmd{cmppe} is as follows:
+\begin{lstlisting}
+% Initialize 2 additional counters.
+\newcounter{chemcmp}
+\newcounter{chemcmpp}
+%
+% Set the formatting of the counters.
+\renewcommand{\thechemcmp}{\arabic{chemcmp}} % The parent counter will
+\renewcommand{\thechemcmpp}{\alph{chemcmpp}} % use arabic numerals
+                                             % whereas the child
+                                             % counter will use latin
+                                             % letters.
+% Command to increment the parent counter
+\newcommand{\cmpinc}{%
+\refstepcounter{chemcmp}%
+\setcounter{chemcmpp}{0}}
+%
+% Command for 1 -> 2 transition
+\newcommand{\cmp}[1]{\cmpinc%
+\textbf{\thechemcmp}%
+\label{#1}}
+%
+% Command for 1b -> 1c transition
+\newcommand{\cmppe}[1]{%
+\refstepcounter{chemcmpp}%
+\textbf{\thechemcmp\thechemcmpp}%
+\label{#1}}
+%
+% Command for 1x -> 2a transition.
+\newcommand{\cmppn}[1]{\cmpinc%
+\refstepcounter{chemcmpp}%
+\textbf{\thechemcmp\thechemcmpp}%
+\label{#1}}
+\end{lstlisting}
+
+%
+\subsection{Example 3: How easy it is to change the format of numbering}
+
+%
+Since we have defined quite powerful macros for numbering compounds, it would
+    be nice to show you how easy it is to change the formatting of the
+    numbering.
+%
+By executing the following commands I will reset both counters back to zero, so
+    that the compounds would get numbered from 1 all over again.
+%
+However, the second command will change the child counter to appear not as
+    Latin symbols, but rather as lower-case Roman numerals.
+\begin{lstlisting}
+\setcounter{chemcmp}{0}         % Reset both counters
+\setcounter{chemcmpp}{0}
+\renewcommand{\thechemcmpp}{(\roman{chemcmpp})} % use 1(i),1(ii),1(iii),...
+\end{lstlisting}
+\setcounter{chemcmp}{0}
+\setcounter{chemcmpp}{0}
+\renewcommand{\thechemcmpp}{(\roman{chemcmpp})} % use 1i,1ii,1iii,...
+
+%
+\begin{figure}[h]
+    \centering
+    \input{./examples/compnum3-tikz.tex}
+    \caption{
+        The same example as previously, but with reset counters and different
+            child counter formatting.
+        %
+        }
+    \label{fig:compeggg}
+\end{figure}
+
+%
+Now it becomes evident, that with \LaTeX{} macros the formatting of the content
+    becomes a matter of alteration of the macros themselves and not changing the
+    text, which might take longer and one might make more mistakes in changing
+    it.
+
+%
 \end{document}
 
 % Editor configuration:

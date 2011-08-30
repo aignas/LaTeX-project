@@ -1,7 +1,7 @@
 % Clever thing to minimize the files I need to edit to change how the files are
 % looking. The following one line comment is to trick VIM-LaTeX
 \documentclass[
-    draft
+%    draft
 ]{scrartcl}
 \input{./../template_preamble.tex}
 
@@ -16,7 +16,7 @@
 \begin{document}
 \maketitle
 \tableofcontents
-\listoftodos
+\listoftodos{\vskip 1em}
 
 %
 In this document I will try to show you how to create and use a list of acronyms
@@ -48,7 +48,7 @@ I guess that if you write your thesis which is 200 pages long, checking whether
 %
 As you see, I have defined more acronyms than I have actually used.
 %
-But, since I have initiated the package with \verb|printonlyused| option as
+But, since I have initiated the package with \pkg{printonlyused} option as
     follows:
     %
 \begin{lstlisting}
@@ -59,7 +59,7 @@ But, since I have initiated the package with \verb|printonlyused| option as
 
 %
 If by any chance you want some acronyms to be printed out without them using in
-    the text, you can achieve it by issuing \verb|\acused{}| command, where in
+    the text, you can achieve it by issuing \cmd{acused\{\}} command, where in
     the brackets you put the respective label of the acronym.
 %
 Then the acronym will be printed regardless whether it is mentioned or

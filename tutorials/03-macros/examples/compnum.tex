@@ -1,0 +1,24 @@
+%
+So defining compound \cmp{cmp:benzene} and \cmp{cmp:naphtalene} is
+    very easy.
+%
+Referencing them (Compound \ref{cmp:naphtalene} and \ref{cmp:benzene}) is also
+    easy.
+%
+Look at the figure \ref{fig:compeg} to see how you can incorporate it
+    into figures.
+
+\begin{figure}[h]
+    \centering
+    \input{./examples/compnum-tikz.tex}
+    \caption{
+        Using the the newly-created \cmd{cmp} command in figures.
+        %
+        Although this thing was done using the \pkg{TikZ} package, the same
+            would work with other methods, such as overpic package or others, it
+            is just that the alignments of the labels might be somewhat more
+            difficult.
+        %
+        }
+    \label{fig:compeg}
+\end{figure}

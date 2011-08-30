@@ -1,7 +1,7 @@
 % Clever thing to minimize the files I need to edit to change how the files are
 % looking. The following one line comment is to trick VIM-LaTeX
 \documentclass[
-    draft
+%    draft
 ]{scrartcl}
 \input{./../template_preamble.tex}
 
@@ -14,104 +14,175 @@
 
 \maketitle
 \tableofcontents
-\listoftodos
-\vskip 1em
+\listoftodos{\vskip 1em}
 
-In this short tutorial I will explain how to make simple equations. This will
-include chemical equations as well. In order to get the required packages in
-order to do these things, please look in to the source (.tex) file of this
-document. If you feel, that you need more information on typesetting various
-mathematical formulas, please refer to this online 
-\uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Mathematics}{book}.
+%
+In this short tutorial I will explain how to make simple equations.
+%
+This will include chemical equations as well. 
+%
+In order to get the required packages in order to do these things, please look
+    in to the source (\ftype{tex}) file of this document.
+%
+If you feel, that you need more information on typesetting various mathematical
+    formulas, please refer to this online
+    \uurl{https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Mathematics}{book}.
+%
+There is also a very good tutorial on \href{http://www.ctan.org}{CTAN}, which
+    can be found
+    \uurl{http://www.ctan.org/tex-archive/info/math/voss/mathmode/}{here}.
 
+% ----------------------------------------------------------------------
 \section{Single-line mathematical equations}
+% ----------------------------------------------------------------------
 
-Many might want to have numbered equations in the text. For example you are
-writing a lot of text and then you want to make \textbf{one} numbered equation,
-which would start at a new line. As follows:
+%
+Many might want to have numbered equations in the text.
+%
+For example you are writing a lot of text and then you want to make \textbf{one}
+    numbered equation, which would start at a new line.
+%
+As follows:
+%
 \input{eg-smath1.tex}
 
+%
 Then you can refer to the equation \ref{eq:differential} by using a simple
-\verb|\ref{eq:differential}| command.
+    \verb|\ref{eq:differential}| command.
 
+%
 The code required to get equation \ref{eq:differential} is as follows (NB I used
-custom commands to simplify the code. On making such commands, please read
-another document):
+    custom commands to simplify the code.
+%
+On making such commands, please read another document):
+%
 \lstinputlisting{eg-smath1.tex}
 
+%
 Just for completeness, this code would need to be written down without my simple
-custom additions:
+    custom additions:
+%
 \lstinputlisting{eg-smath11.tex}
 
-No we now how to produce a numbered equation. What about unnumbered? It is very
-easy, we can just \verb|*| symbols as follows:
+%
+What if one needs to produce an unnumbered equation?
+%
+It is very easy, we can just \verb|*| symbols as follows:
+%
 \lstinputlisting{eg-smath2.tex}
+%
 And the result is (NB we do not need label any more, since this is an unnumbered
-equations and we \textbf{do not} intend to refer it later on in the text):
-\input{eg-smath2.tex}
+    equations and we \emph{do not} intend to refer it later on in the text):
+    \input{eg-smath2.tex}
 
+%
 There is another way to get this effect by using the following code (\verb|\[|
-and \verb|\]| can be replaced with \verb|$$|, however the first variant shows
-more clarity as to where the environment starts and finishes):
-\lstinputlisting{eg-smath3.tex}
+    and \verb|\]| can be replaced with \verb|$$|, however the first variant
+    shows more clarity as to where the environment starts and finishes):
+    \lstinputlisting{eg-smath3.tex}
 
+%
 And the result is as follows:
 \input{eg-smath3.tex}
 
+% ----------------------------------------------------------------------
 \section{Multiple-line mathematical equations}
+% ----------------------------------------------------------------------
 
-Many line equations are slightly different to produce. Many probably know the
-environments called \verb|eqnarray| and \verb|eqnarray*|, which can be used to
-produce the following set of equations (the starred version will produce
-unnumbered version as before):
+%
+Many line equations are slightly different to produce.
+%
+Many probably know the environments called \verb|eqnarray| and \verb|eqnarray*|,
+    which can be used to produce the following set of equations (the starred
+    version will produce unnumbered version as before):
+%
 \input{eg-mmath1.tex}
+%
 with code:
+%
 \lstinputlisting{eg-mmath1.tex}
 
+%
 However, one can notice, that the spacing around \verb|=| sign is not perfect
-(although some might like it). A much better approach is to use \verb|align|
-environment, which has even more capabilities.
+    (although some might like it).
+%
+A much better approach is to use a much more powerful \env{align} environment,
+    which is provided by the \pkg{amsmath} package.
+%
 \input{eg-mmath2.tex}
+%
 The code to generate the equations above is (NB different syntax!)
+%
 \lstinputlisting{eg-mmath2.tex}
 
+% ----------------------------------------------------------------------
 \section{Chemical equations}
+% ----------------------------------------------------------------------
 
-Now we come to a more interesting topic. How to typeset chemical equations
-quickly? Suppose we have an equation as follows:
+%
+Now we come to a more interesting topic.
+%
+How to typeset chemical equations quickly?
+%
+Suppose we have an equation as follows:
+%
 \input{eg-chem1.tex}
 
+%
 One way to typeset it would be to use existing commands and the code required
-would be as follows:
+    would be as follows:
+%
 \lstinputlisting{eg-chem1.tex}
 
+%
 It is not bad, but if we have a following equation:
+%
 \input{eg-chem2.tex}
+%
 would require you to type the following:
+%
 \lstinputlisting{eg-chem2.tex}
 
+%
 And this might complicate the things even more:
+%
 \input{eg-chem3.tex}
+%
 \lstinputlisting{eg-chem3.tex}
 
+%
 As you see, the more complicated the equation gets, the harder it is to fulfil
-all the requirements. For example you can see, that the last equation does not
-have a properly spaced arrow, which would be very nice to have.
+    all the requirements.
+%
+For example you can see, that the last equation does not have a properly spaced
+    arrow, which would be very nice to have.
 
-However, it is very nice, that \LaTeX\ is very extensible and open source and
-a lot of people have contributed their time and knowledge to get it work as
-\textbf{we} want and need. For chemical reactions and other symbols typesetting
-I suggest you using the \verb|mhchem| package which should already be bundled with your
-\TeX\ distribution. To start using it just include
-\verb|\usepackage[version=3]{mhchem}| into your preamble.
+%
+However, it is very nice, that \LaTeX{} is very extensible and open source and a
+    lot of people have contributed their time and knowledge to get it work as
+    \emph{we} want and need.
+%
+For chemical reactions and other symbols typesetting I suggest you using the
+    \pkg{mhchem} package which should already be bundled with your \TeX{}
+    distribution.
+%
+To start using it just include \verb|\usepackage[version=3]{mhchem}| into your
+    preamble.
 
-The following code using this package produce better formatted equations.
+%
+The following code using this package produce better formatted equations:
+%
 \lstinputlisting{eg-mhchem.tex}
+%
 and we get:
+%
 \input{eg-mhchem.tex}
 
+%
 For more capabilities of the package it would be possibly best to flick through
-through the documentation of the package which can be found following this link.
+    through the documentation of the package which can be found following
+    \uurl{http://mirrors.ctan.org/macros/latex/contrib/mhchem/mhchem.pdf}{this
+    link}.
 
 \end{document}
 

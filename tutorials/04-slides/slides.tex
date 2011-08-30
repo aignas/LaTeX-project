@@ -1,13 +1,12 @@
 % Clever thing to minimize the files I need to edit to change how the files are
 % looking. The following one line comment is to trick VIM-LaTeX
 \documentclass[
-    draft
+%    draft
 ]{scrartcl}
 \input{./../template_preamble.tex}
 
 % Custom packages
 \usepackage[]{cite}
-\usepackage{framed}
 
 \title{How to make presentations with \LaTeX{}}
 \author{Ignas Anikevicius}
@@ -16,8 +15,7 @@
 
 \maketitle
 \tableofcontents
-\listoftodos
-\vskip 1em
+\listoftodos{\vskip 1em}
 
 %
 This tutorial is for the production of scientific presentations using the
@@ -54,12 +52,10 @@ It is very straight forward to use it --- it defines several new environments
     \cmd{pause} etc.).
 
 %
-The best way to learn anything is by example.
+\subsection{Learning by example}
 %
-Since this is not an exception, there are very good tutorials on the website
-    which describe the use of \pkg{beamer} document class.
-%
-The list is as follows:
+Since the best way to learn anything is by example, you can follow some very
+    good tutorials on the Internet from the following list:
 %
 \begin{description}
     \item
@@ -124,6 +120,68 @@ Examining those files might prove to be a very valuable experience and it is
     highly recommended to check out the examples if they are supplied in the
     archive file.
 
+%
+\subsection{Different beamer modes}
+%
+There are also different beamer modes, which might turn out very useful in
+    preparing different sorts of information from the same material.
+%
+The list bellow describes advantages of each:
+\begin{description}
+    \item[draft]
+        This option will basically ``speed-up'' all the process by not drawing
+            graphics and by not including any figures, however the size of the
+            elements will be still computed and the formatting will be
+            preserved.
+        %
+        The main point of this mode is that it shows errors in hyphenation as
+            well as it speeds up the compilation substantially, which makes the
+            previews slightly faster.
+        %
+    \item[presentation]
+        This options will basically make the default presentation with all the
+            slides and effects.
+        %
+        Use this option to produce a presentation suitable for a projector.
+        %
+    \item[trans]
+        This option is for printing the transparencies.
+        %
+        Although almost all the time one can access a projector, sometimes
+            hardware/software might fail and it might be very good to have your
+            presentation in a different format.
+        %
+        Usually it condenses most of the animations into one slide as it takes
+            more time to change transparencies than to flip through slides.
+        %
+        Also the user can define which animation will stay in the \pkg{trans}
+            mode, which makes it useful.
+        %
+    \item[handout]
+        %
+        In this mode all the animations and effects are removed.
+        %
+        This option is mostly suited for printing the presentation and giving
+            the slides to the listeners of the presentation.
+    \item[article]
+        %
+        This option in my opinion is the most interesting one as it lets you to
+            get a nicely formatted text out of a presentation.
+        %
+        What is more, one can add additional notes/diagrams/references which
+            would be present only in this version and it might be very suited
+            for preparing lecture handouts.
+\end{description}
+
+%
+The above list shows, that beamer is suited almost for every aspect of
+    presentations and, therefore, is an ideal tool for presenters.
+%
+However, in order to achieve even better results, one should think of a clever
+    work-flow, which is described partially in the section
+    \ref{sec:clever-workflow} on \pageref{sec:clever-workflow}.
+
+
 % ----------------------------------------------------------------------
 \section{Using a Standard Document Class}
 % ----------------------------------------------------------------------
@@ -160,6 +218,7 @@ You can check the presentation \ftype{tex} file and change various parameters in
 
 % ----------------------------------------------------------------------
 \section{Thoughts on a Clever Work-flow}
+\label{sec:clever-workflow}
 % ----------------------------------------------------------------------
 
 %
@@ -176,9 +235,6 @@ There is also another issue, that one might spend quite a lot of time while
 These are the reasons why a clever working system is very important and it might
     decrease the time consumption substantially without sacrificing the quality
     of the slides.
-
-%
-\todo{Add a note about GROUP YOUR SLIDES}
 
 %
 Do not make all your slides in one file as it has several drawbacks:
@@ -285,7 +341,6 @@ What is more, it will give those very useful features like linking and table of
     contents inside the document.
 %
 
-    \todo{finish about this kind of work-flow}
 
 % ----------------------------------------------------------------------
 % \section{Bibliography}

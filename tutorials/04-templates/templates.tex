@@ -1,6 +1,8 @@
 % Clever thing to minimize the files I need to edit to change how the files are
-% looking. The following one line comment is to trick VIM-LaTeX
-% \documentclass{article}
+% looking.
+\documentclass[
+%    draft
+]{scrartcl}
 \input{./../template_preamble.tex}
 
 % Custom packages
@@ -11,12 +13,14 @@
 \begin{document}
 
 \maketitle
+\tableofcontents
+\listoftodos{\vskip 1em}
 
 This document contains some instructions on how to use the templates hosted on
-this website. 
+    this website. 
 %
 On the other hand, most of the templates should be documented well enough so
-that you could use them without any additional directions.
+    that you could use them without any additional directions.
 %
 Therefore, this document will be more like a description of the templates.
 
@@ -25,108 +29,123 @@ The contents of the repository can be seen from the Table of Contents.
 Just please refer to the appropriate section.
 
 
-\tableofcontents
-\clearpage
-
+% ----------------------------------------------------------------------
 \section{Notes on the Usage of Journal Templates}
+% ----------------------------------------------------------------------
 
+%
 \subsection{The American Chemistry Society journals}
 
+%
 All the ACS journals are covered with the \verb|achemso| package. 
 %
 However, you should note, that it is not created by the ACS themselves, so all
-queries should be sent to the author of the package directly and not to the
-support email address found on the ACS homepage.
+    queries should be sent to the author of the package directly and not to the
+    support email address found on the ACS homepage.
 %
 The files with the template can be found on the Chemistry Department
-\LaTeX{} website and they are very well documented.
+    \LaTeX{} website and they are very well documented.
 %
 There is also achemso package
-\uurl{http://mirrors.ctan.org/macros/latex/contrib/achemso/achemso.pdf}{documentation},
-which can be found on the
-\uurl{http://www.ctan.org/tex-archive/macros/latex/contrib/achemso}{CTAN package
-directory}.
+    \uurl{http://mirrors.ctan.org/macros/latex/contrib/achemso/achemso.pdf}{documentation},
+    which can be found on the
+    \uurl{http://www.ctan.org/tex-archive/macros/latex/contrib/achemso}{CTAN
+    package directory}.
 %
 Should you have any questions about the usage of the package, this is probably
-the best place to find your answers.
+    the best place to find your answers.
 
-\subsection{The elsevier \LaTeX\ class}
+%
+\subsection{The APS and AIP templates}
+\todo{Write about AIP and APS journals}
+\todo{Include a simple template into a repository.}
+
+%
+\subsection{The elsevier \LaTeX{} class}
 
 This publishing company is also very kind to provide authors with their own
-\LaTeX{} templates, which should do the job very well.
+    \LaTeX{} templates, which should do the job very well.
 
+%
 \subsection{Nature Publishing Group journals}
 
 Nature previously was known to not support \LaTeX{} at all, but recently they
-started accepting \verb|.tex| files.
+    started accepting \verb|.tex| files.
 %
 Although they do not provide you with any templates, they accept \emph{any}
-document, which can be compiled using one \emph{standard} document classes (such
-as RevTeX, article, scrartcl, achemso).
+    document, which can be compiled using one \emph{standard} document classes
+    (such as RevTeX, article, scrartcl, achemso).
 %
 As far as I looked into it, they are using \LaTeX{} themselves and they will
-force their in-house style on your document, by making some adjustments.
+    force their in-house style on your document, by making some adjustments.
 
-
-
+%
 There is a \LaTeX{} template on this website for NPG journals, which was created
-by me and I tried to get the style as close as possible to the original.
+    by me and I tried to get the style as close as possible to the original.
 %
 What is more, I tried to make it compliant with standard document classes as
-well, so that it would not be too hard to submit your paper.
+    well, so that it would not be too hard to submit your paper.
 %
 However, I do not know whether they will like my template, so it should be usage
-more for the review and preparation of the manuscript.
+    more for the review and preparation of the manuscript.
 
+%
 \subsection{PNAS Template}
 
+%
 The PNAS \LaTeX{} template is also good, but somehow, there were some issues
-with the font handling (at least for me), so if you have any problems, you
-\emph{should} turn off their font support at first, before searching any other
-possible causes.
+    with the font handling (at least for me), so if you have any problems, you
+    \emph{should} turn off their font support at first, before searching any
+    other possible causes.
 %
 I have already commented out this command in the supplied templates on this
-website.
+    website.
 
-\subsection{RSC \LaTeX\ Template}
+%
+\subsection{RSC \LaTeX{} Template}
 
+%
 RSC publisher \emph{can} accept \LaTeX{} files and they also provide all types
-of templates you might need.
+    of templates you might need.
 %
 The templates are very well documented, and shouldn't cause any problems.
 
-\subsection{Science \LaTeX\ Template}
+%
+\subsection{Science \LaTeX{} Template}
 
 Science publishers are not very \LaTeX{} friendly, but they still can accept
-your \LaTeX{} typeset manuscripts.
+    your \LaTeX{} typeset manuscripts.
 %
 However, there are several limitations, as to what packages you can use and how
-you should typeset several things.
+    you should typeset several things.
 %
 These limitations are thoroughly described
-\uurl{http://www.sciencemag.org/site/feature/contribinfo/prep/TeX_help/index.xhtml}{on
-their website}.
+    \uurl{http://www.sciencemag.org/site/feature/contribinfo/prep/TeX_help/index.xhtml}{on
+    their website}.
 %
 The template for their articles can also be found on the very same web page or
-on the repository on the Chemistry Department \LaTeX{} website.
+    on the repository on the Chemistry Department \LaTeX{} website.
 
+%
 \subsection{Wiley-VCH Templates}
 
 This publisher does not accept \LaTeX{} typeset journal articles, nor it is easy
-to produce a \verb|.pdf| while using \LaTeX{}.
+    to produce a \verb|.pdf| while using \LaTeX{}.
 %
 Nevertheless, it was a challenge for me to make templates for some journals
-which would comply with general guidelines of \LaTeX{} typesetting system.
+    which would comply with general guidelines of \LaTeX{} typesetting system.
 %
 You can evaluate my attempt by trying the templates by yourselves, they are
-hosted on this website and you'll have to put the \verb|.cls| file in your
-working directory in order to use it properly.
+    hosted on this website and you'll have to put the \verb|.cls| file in your
+    working directory in order to use it properly.
 %
 However, probably a better choice would be to put it together with all other
-\LaTeX{} class files so that you do not need to copy it to a new directory
-every time you start writing a new article.
+    \LaTeX{} class files so that you do not need to copy it to a new directory
+    every time you start writing a new article.
 
+%
 This package at the moment provides templates for these journals:
+%
 \begin{itemize}
     \item Angew. Chem.
     \item Angew. Chem. Int. Ed.
@@ -136,8 +155,9 @@ This package at the moment provides templates for these journals:
     \item Adv. Mat.
     \item Adv. Func. Mat.
 \end{itemize}
-
+%
 Here are the journals for which I plan to add support in the nearest future:
+%
 \begin{itemize}
     \item ChemBioChem
     \item ChemPhysChem
@@ -148,60 +168,75 @@ Here are the journals for which I plan to add support in the nearest future:
     \item Macromol. Rapid. Com.
     \item Macromol. Symp.
 \end{itemize}
-
+%
 The template file is well documented enough to understand all the additional
-commands, which are provided by the class file.
+    commands, which are provided by the class file.
 
-
+% ----------------------------------------------------------------------
 \section{Notes on the Usage of Other Templates}
+% ----------------------------------------------------------------------
 
+%
 \subsection{Thesis/Report template usage}
 
+%
 This template was created during the summer project and should comply all the
-regulations which where got from
-\uurl{http://www.admin.cam.ac.uk/offices/gradstud/exams/submission/}{this
-website}.
+    regulations which where got from
+    \uurl{http://www.admin.cam.ac.uk/offices/gradstud/exams/submission/}{this
+    website}.
 %
 If you spot any inconsistency in the formatting done using the template and the
-formatting required by the examiners, then please contact me and I will fix it
-ASAP.
+    formatting required by the examiners, then please contact me and I will fix
+    it ASAP.
 
+%
 The templates themselves consist of exemplary directory structure, so that your
-working directory would be as tidy as possible which will definitely pay-off in
-a long run.
+    working directory would be as tidy as possible which will definitely pay-off
+    in a long run.
 %
 You \emph{should} create more folders for any additional chapter and read
-through the notes in the master \verb|.tex| file called \verb|head.tex|.
+    through the notes in the master \ftype{tex} file called \fname{head}{tex}.
 
-There is also an additional \verb|stats.tex| file for getting the statistics
-from your thesis or report.
 %
-It scans the \verb|head.tex| file and composes a simple document automatically
-and you can easily find word-count and other useful statistics.
+There is also an additional \fname{stats}{tex} file for getting the statistics
+    from your thesis or report.
+%
+It scans the \fname{head}{tex} file and composes a simple document automatically
+    and you can easily find word-count and other useful statistics.
 
+%
 \paragraph{Note!} This is known to work on \emph{Linux} OS and should work on
-\emph{Mac} as they share the same \LaTeX{} distribution.
+    \emph{Mac} as they share the same \LaTeX{} distribution.
 %
 It was not tested on \emph{Windows} yet and I would be very grateful if somebody
-with sufficient \LaTeX{} knowledge could test it under this OS.
+    with sufficient \LaTeX{} knowledge could test it under this OS.
 %
 This said, I can not be held responsible for any discrepancies from the actual
-statistics of the file as this code was not written by me.
+    statistics of the file as this code was not written by me.
 %
 Also, you should check the documentation of the script if you have any concerns
-or would like to know how to ensure the best results.
+    or would like to know how to ensure the best results.
 %
 The documentation can be found on
-\uurl{http://app.uio.no/ifi/texcount/documentation.html}{this website}.
+    \uurl{http://app.uio.no/ifi/texcount/documentation.html}{this website}.
 
+%
 \subsection{Curriculum Vitae}
 
+%
+Curriculum Vit\ae{} is also explained in the sources quite well.
+%
+There are two variants of the template, so choose whichever you prefer more.
+
+%
 \subsection{Letters}
 
-\subsection{Posters}
-
-\subsection{Presentations}
-
+%
+This template is written by Prof. David J. Wales.
+%
+Since the template is not very complex, please look at the source code itself in
+    order to find information on how to use it.
+%
 
 \end{document}
 
