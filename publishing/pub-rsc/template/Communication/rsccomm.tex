@@ -1,0 +1,178 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%This is the communication LaTeX template for RSC journals
+%Copyright The Royal Society of Chemistry 2010
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[8.5pt,twoside,twocolumn]{article}
+\oddsidemargin -1.2cm
+\evensidemargin -1.2cm
+\textwidth 18cm
+\headheight 1.0in
+\topmargin -3.5cm
+\textheight 22cm
+\usepackage[super,sort&compress,comma]{natbib} 
+\usepackage[version=3]{mhchem}
+\usepackage{balance}
+\usepackage{times,mathptm}
+\usepackage{sectsty}
+\usepackage{graphicx} 
+\usepackage{lastpage}
+\usepackage[format=plain,justification=raggedright,singlelinecheck=false,font=small,labelfont=bf,labelsep=space]{caption} 
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+
+
+\begin{document}
+
+\thispagestyle{plain}
+\fancypagestyle{plain}{
+\fancyhead[L]{\includegraphics[height=8pt]{headers/LH}}
+\fancyhead[C]{\hspace{-1cm}\includegraphics[height=20pt]{headers/CH}}
+\fancyhead[R]{\hspace{10cm}\vspace{-0.25cm}\includegraphics[height=10pt]{headers/RH}}
+\renewcommand{\headrulewidth}{1pt}}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\renewcommand\footnoterule{\vspace*{1pt}% 
+\hrule width 3.4in height 0.4pt \vspace*{5pt}} 
+\setcounter{secnumdepth}{5}
+
+\makeatletter 
+\renewcommand\@biblabel[1]{#1}            
+\renewcommand\@makefntext[1]% 
+{\noindent\makebox[0pt][r]{\@thefnmark\,}#1}
+\makeatother 
+\renewcommand{\figurename}{\small{Fig.}~}
+\sectionfont{\large}
+\subsectionfont{\normalsize} 
+
+\fancyfoot{}
+\fancyfoot[LO,RE]{\vspace{-7pt}\includegraphics[height=9pt]{headers/LF}}
+\fancyfoot[CO]{\vspace{-7.2pt}\hspace{12.2cm}\includegraphics{headers/RF}}
+\fancyfoot[CE]{\vspace{-7.5pt}\hspace{-13.5cm}\includegraphics{headers/RF}}
+\fancyfoot[RO]{\footnotesize{\sffamily{1--\pageref{LastPage} ~\textbar  \hspace{2pt}\thepage}}}
+\fancyfoot[LE]{\footnotesize{\sffamily{\thepage~\textbar\hspace{3.45cm} 1--\pageref{LastPage}}}}
+\fancyhead{}
+\renewcommand{\headrulewidth}{1pt} 
+\renewcommand{\footrulewidth}{1pt}
+\setlength{\arrayrulewidth}{1pt}
+\setlength{\columnsep}{6.5mm}
+\setlength\bibsep{1pt}
+
+\twocolumn[
+  \begin{@twocolumnfalse}
+\noindent\LARGE{\textbf{This is the title$^\dag$}}
+\vspace{0.6cm}
+
+\noindent\large{\textbf{Full Name,$^{\ast}$\textit{$^{a}$} Full Name,\textit{$^{b\ddag}$} and
+Full Name\textit{$^{a}$}}}\vspace{0.5cm}
+%Please note that \ast indicates the corresponding author(s) but no footnote text is required. 
+
+
+\noindent\textit{\small{\textbf{Received Xth XXXXXXXXXX 20XX, Accepted Xth XXXXXXXXX 20XX\newline
+First published on the web Xth XXXXXXXXXX 200X}}}
+
+\noindent \textbf{\small{DOI: 10.1039/b000000x}}
+ \end{@twocolumnfalse} \vspace{0.6cm}
+
+  ]
+
+\noindent\textbf{The abstract should be a single paragraph which summarises the content of the article. Any references in the abstract should be written out in full \textit{e.g.} [Surname \textit{et al., Journal Title}, 2000, \textbf{35}, 3523].}
+\section*{}
+\vspace{-1cm}
+%Footnotes
+\footnotetext{\dag~Electronic Supplementary Information (ESI) available: [details of any supplementary information available should be included here]. See DOI: 10.1039/b000000x/}
+
+%Please use \dag to cite the ESI in the main text of the article.
+%If you article does not have ESI please remove the the \dag symbol from the title and the above footnotetext.
+
+\footnotetext{\textit{$^{a}$~Address, Address, Town, Country. Fax: XX XXXX XXXX; Tel: XX XXXX XXXX; E-mail: xxxx@aaa.bbb.ccc}}
+\footnotetext{\textit{$^{b}$~Address, Address, Town, Country. }}
+
+%additional addresses can be cited as above using the lower-case letters, c, d, e... If all authors are from the same address, no letter is required
+
+\footnotetext{\ddag~Additional footnotes to the title and authors can be included \emph{e.g.}\ `Present address:' or `These authors contributed equally to this work' as above using the symbols: \ddag, \textsection, and \P. Please place the appropriate symbol next to the author's name and include a \texttt{\textbackslash footnotetext} entry in the the correct place in the list.}
+
+The main text of the article should appear here.\cite{Mena2000} Communications do not normally have section headings.
+
+
+Equations can be typeset inline \textit{e.g.} $ y = mx + c$ or displayed with and without numbers:
+
+ \[ A = \pi r^2 \]
+
+\begin{equation}
+  \frac{\mathrm{\gamma}}{\mathrm{\epsilon}x} r^2 = 2r
+\end{equation}
+
+Graphics should be inserted on the page where they are first mentioned (unless they are equations, which appear in the flow of the text).\cite{Cotton1999}
+
+\begin{figure}[h]
+\centering
+  \includegraphics[height=3cm]{example}
+  \caption{An example figure caption \label{fgr:example}}
+\end{figure}
+
+% an example of a two-column figure
+%\begin{figure*}
+  %\centering
+  %\includegraphics[height=3cm]{example.jpg}
+  %\caption{An example figure caption, an image from the \textit{Physical Chemistry Chemical Physics} cover gallery.}
+  %\label{fgr:example}
+%\end{figure*}
+
+Tables typeset in RSC house style do not include vertical lines. Table footnote symbols are lower-case italic letters and are typeset at the bottom of the table. Table captions do not end in a full point.\cite{Arduengo1992,Eisenstein2005}
+
+
+\begin{table}[h]
+\small
+  \caption{\ An example of a caption to accompany a table}
+  \label{tbl:example}
+  \begin{tabular*}{0.5\textwidth}{@{\extracolsep{\fill}}lll}
+    \hline
+    Header one & Header two & Header three \\
+    \hline
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    7 & 8 & 9 \\
+    10 & 11 & 12 \\
+    \hline
+  \end{tabular*}
+\end{table}
+
+Adding notes to tables can be complicated.  Perhaps the easiest
+method is to generate these manually.
+
+% an example of a two-column table
+%\begin{table*}
+%\small
+  %\caption{\ An example of a caption to accompany a table, table captions do not end in a full point}
+  %\label{tbl:example}
+  %\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lllllll}
+    %\hline
+    %Header one & Header two & Header three & Header four & Header five & Header six  & Header seven\\
+    %\hline
+    %1 & 2 & 3 & 4 & 5 & 6  & 7\\
+    %8 & 9 & 10 & 11 & 12 & 13 & 14 \\
+    %15 & 16 & 17 & 18 & 19 & 20 & 21\\
+    %\hline
+  %\end{tabular*}
+%\end{table*}
+
+You can also put lists into the text. You can have bulleted or numbered lists of almost any kind. 
+The \texttt{mhchem} package can also be used so
+that formulae are easy to input: \texttt{\textbackslash ce\{H2SO4\}} gives \ce{H2SO4}. 
+
+
+The conclusions section should come at the end of article. For the reference section, the style file rsc.bst can be used to generate the correct reference style.%\footnote[4]{Footnotes should appear here. These might include comments relevant to but not central to the matter under discussion, limited experimental and spectral data, and crystallographic data.}
+
+ %For footnotes in the main text of the article please number the footnotes to avoid duplicate symbols. e.g.  \footnote[num]{your text} the corresponding author \ast counts as footnote 1, ESI as footnote 2, e.g. if there is no ESI, please start at [num]=[2], if ESI is cited in the title please start at [num]=[3] etc. Please also cite the ESI within the main body of the text using \dag.
+
+
+%The \balance command can be used to balance the columns on the final page if desired. It should be placed anywhere within the first column of the last page.
+
+%\balance
+
+\footnotesize{
+\bibliography{rsc} %your .bib file
+\bibliographystyle{rsc} }
+
+\end{document}
