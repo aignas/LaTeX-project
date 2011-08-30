@@ -252,11 +252,11 @@ under \@JWWW\space{} or from the author.}
         labelfont = {bf,sf} % Change the caption setup
     }
 
-    \setJtopsep{0mm}
-    \setJtitletext{\sffamily\bfseries\LARGE}
-    \setJauthortext{\Large\it}
-    \setJauthtitlesep{0.7em}
-    \setJauthtextsep{1.15em}
+    \setlength{\Jtopsep}{0mm}
+    \setlength{\Jauthtitlesep}{0.7em}
+    \setlength{\Jauthtextsep}{1.15em}
+    \Jtitletext{\sffamily\bfseries\LARGE}
+    \Jauthortext{\Large\it}
 \fi
 
 \ifJMaterials
@@ -275,11 +275,11 @@ under \@JWWW\space{} or from the author.}
         labelfont = {bf,sf},    % Change the caption setup
     }
 
-    \setJtopsep{-10mm}
-    \setJtitletext{\sffamily\bfseries\LARGE}
-    \setJauthortext{\Large\it}
-    \setJauthtitlesep{1.0em}
-    \setJauthtextsep{1.5em}
+    \setlength{\Jtopsep}{-10mm}
+    \setlength{\Jauthtitlesep}{1.0em}
+    \setlength{\Jauthtextsep}{1.5em}
+    \Jtitletext{\sffamily\bfseries\LARGE}
+    \Jauthortext{\Large\it}
 \fi
 
 \ifJChemEUAS
