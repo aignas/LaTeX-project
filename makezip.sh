@@ -1,8 +1,77 @@
 #!/bin/bash
 
+# ===============================================================================
+# Environmental variables
+#
 TMP_FNAME="template_preamble.tex"
-ZIP_FOLNAME="zip_archive"
+UP_FOLNAME="upload-dir"
+# ===============================================================================
 
+# ===============================================================================
+# Preparing publishing templates for zipping.
+#
+function prep_pub {
+    cd $1 || return 1
+    if [ `echo $1 | grep -q pub` ]; then
+        echo "Deleting unnecessary files and folders"
+        rm -r `ls -1 | egrep -v 'template'`
+        cp -a template/* ./
+        rm -r template
+    fi
+    echo "Deleting unnecessary files"
+    rm `ls -1 | egrep 'log|aux|out|toc|tdo|bbl|blg|nav|snm'`
+    cd ..
+}
+# ===============================================================================
+
+# ===============================================================================
+# Preparing tutorials for ziping
+#
+function prep_tutorials {
+    cp template_preamble.tex ${1}
+    texname=${1:3}
+    sed -i "s/input{.\/\.\.\/${TMP_FNAME}}/input{\.\/${TMP_FNAME}}/" ${1}/${texname}.tex
+    cd $1 || return 1
+    echo "Deleting unnecessary files"
+    rm `ls -1 | egrep 'log|aux|out|toc|tdo|bbl|blg|nav|snm'`
+    cd ..
+}
+# ===============================================================================
+
+# ===============================================================================
+# Preparing the common templates for zipping.
+#
+function prep_templates {
+    cd $1 || return 1
+    echo "Deleting unnecessary files"
+    rm `ls -1 | egrep 'log|aux|out|toc|tdo|bbl|blg|nav|snm'`
+    cd ..
+}
+# ===============================================================================
+
+# ===============================================================================
+# Function for moving the newly created zip files to a common directory
+#
+function zip_move {
+    if [ ! -d ${UP_FOLNAME} ]; then
+        mkdir ${UP_FOLNAME} || return 1
+    fi
+    if [ ! -d ${UP_FOLNAME}/${1} ]; then
+        mkdir ${UP_FOLNAME}/${1} || return 1
+    fi
+    cd $1 || return 1
+    for file in *.zip; do
+        echo "Moving ${file} to the archive"
+        mv ${file} ../${UP_FOLNAME}/${1}/${file}
+    done;
+    cd ..
+    return 0
+}
+# ===============================================================================
+
+# ===============================================================================
+# Function for creating zip files
+# 
 function zip_folders {
     WORKING_DIR=$1
     cd ${WORKING_DIR} || return 1
@@ -15,16 +84,13 @@ function zip_folders {
         echo "Making a backup dir for ${dir}"
         cp -a ${dir} ${dir}-backup || return 1
 
-        if [[ ! -z $2 && "$2"=="--include-macros" ]]; then
-            cp template_preamble.tex ${dir}
-            texname=${dir:3}
-            sed -i "s/input{.\/\.\.\/${TMP_FNAME}}/input{\.\/${TMP_FNAME}}/" ${dir}/${texname}.tex
+        if [[ "$1"=="tutorials" ]]; then
+            prep_tutorials ${dir}
+        elif [[ "$1"=="publishing" ]]; then
+            prep_pub ${dir}
+        elif [[ "$1"=="templates" ]]; then
+            prep_templates ${dir}
         fi
-
-        cd ${dir}
-        echo "Deleting unnecessary files"
-        rm `ls -1 | egrep 'log|aux|out|toc|tdo|bbl|blg|nav|snm'`
-        cd ..
 
         echo "Generating ${dir}.zip"
         zip -q -r ${dir} ${dir}
@@ -36,45 +102,33 @@ function zip_folders {
     zip_move ${WORKING_DIR}
     return 0
 }
+# ===============================================================================
 
-function zip_move {
-    if [ ! -d ${ZIP_FOLNAME} ]; then
-        mkdir ${ZIP_FOLNAME} || return 1
-    fi
-    cd $1 || return 1
-    for file in *.zip; do
-        echo "Moving ${file} to the archive"
-        mv ${file} ../${ZIP_FOLNAME}/${file}
-    done;
-    cd ..
-    return 0
-}
-
-function clean_zips {
-    cd ${ZIP_FOLNAME} || return 1
-    for file in ./*.zip; do
-        echo "Deleting ${file}"
-        rm ${file}
-    done
-    return 0
-}
-
+# ===============================================================================
+# Function for uploading all scripts and then removing them
+# 
 function upload_zips {
     touch sftp_batch
-    for file in ${ZIP_FOLNAME}/*.zip; do
-        echo "put $file" >> sftp_batch
+    for object in ${UP_FOLNAME}/*; do
+        echo "put -r ${object}" >> sftp_batch
     done
     echo "quit" >> sftp_batch
-    echo "Uploading files by sftp to my pwf webspace"
-    sftp -o "batchmode no" -b sftp_batch ia277@linux.pwf.cam.ac.uk:public_html/
+    echo "Uploading everything by sftp to my pwf webspace"
+    sftp -o "batchmode no" -b sftp_batch ia277@linux.pwf.cam.ac.uk:public_html/ChemDptLaTeX/
     rm sftp_batch
+    rm -r ${UP_FOLNAME}/*
     return 0
 }
+# ===============================================================================
 
+# ===============================================================================
+# Execution of the script and various options
+#
 case $1 in
     --zip|-z)
-        zip_folders tutorials --include-macros
+        zip_folders tutorials
         zip_folders templates
+        zip_folders publishing
         ;;
     --clean|-c)
         clean_zips
@@ -92,4 +146,5 @@ case $1 in
         echo "Please select the options"
         ;;
 esac
+# ===============================================================================
 
