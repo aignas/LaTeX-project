@@ -2,7 +2,7 @@
 \usepackage{tikz,amsmath,graphicx}
 \usepackage[update,verbose=false]{epstopdf}
 \usepackage[version=3]{mhchem}
-\graphicspath{{./figs/}}
+\graphicspath{{./../figs/}}
 \newlength{\tikzunit}
 \newcommand{\scale}{.7}
 \usetikzlibrary{
@@ -46,7 +46,7 @@
     \draw [arrow] (init) -- (1) 
         node [above,reagent]
             {\includegraphics[scale=\scale]{scheme2.pdf} \ce{K2CO3}}
-        node [below,reagent]{Acetone refulx, $24\,\mathrm{h}$};
+        node [below,reagent]{Acetone reflux, $24\,\mathrm{h}$};
     \draw [arrow] (1)    -- (2)
         node [above,reagent]{\ce{NaN3}}
         node [below,reagent]{DMF, $50\,\mathrm{^\circ C}, 24\,\mathrm{h}$};
