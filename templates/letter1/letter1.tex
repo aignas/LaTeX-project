@@ -1,0 +1,34 @@
+\documentclass[a4paper,12pt]{myletter}
+\usepackage{setspace}
+
+\name{Name of the Author}
+\address{University Chemical Laboratories \\
+Lensfield Road \\
+Cambridge CB2 1EW \\
+United Kingdom}
+\signature{Signature of the Author}
+ 
+\begin{document}
+
+\begin{letter}{Dr someone \\
+somewhere
+somewhere \\
+some country}
+
+% \font\euro=eurorm scaled \magstephalf       % 11-point roman euro symbol
+% \def\EUR{{\euro E}}
+\onehalfspacing
+%\renewcommand\floatpagefraction{0.85}
+%\renewcommand\textfraction{0.12}
+%\renewcommand\topfraction{0.85}
+%\pagestyle{empty}
+
+\opening{Dear Person,}
+
+content
+
+\closing{Yours faithfully,
+% \centerline{\includegraphics[width=4cm]{signature.eps} \hphantom{this is just filler so is this}}
+}
+\end{letter}
+\end{document}
