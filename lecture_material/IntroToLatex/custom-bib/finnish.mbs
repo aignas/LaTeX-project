@@ -1,0 +1,301 @@
+%\iffalse         THIS IS A META COMMENT
+% File: finnish.mbs
+% Copyright 1995-1999 Patrick W Daly
+% Max-Planck-Institut f\"ur Aeronomie
+% Max-Planck-Str. 2
+% D-37191 Katlenburg-Lindau
+% Germany
+% E-mail: daly@linmpi.mpg.de
+%
+% This program can be redistributed and/or modified under the terms
+% of the LaTeX Project Public License Distributed from CTAN
+% archives in directory macros/latex/base/lppl.txt; either
+% version 1 of the License, or any later version.
+%
+% It is part of the custom-bib collection,
+%   a contribution to the LaTeX2e system.
+%====================================================================
+%       A Language Definition File:  FINNISH
+%     to be included with other master bibliography style files
+%--------------------------------------------------------------------
+%   (See version and date in the \ProvidesFile command below)
+%--------------------------------------------------------------------
+%    This file is self-documenting: simply LaTeX it!
+%====================================================================
+%
+ %-------------------------------------------------------------------
+ % Begin module:
+%\fi
+ % \ProvidesFile{finnish.mbs}[2003/11/06 4.2 (PWD)]
+%\iffalse
+%<*a&!a>
+% The following ensures that the driver part is not seen by makebst
+% The driver part must not contain any \end other than \end{document} !
+\ifx\endoptions\undefined\let\tempx=\relax\else
+  \long\def\tempx#1\end#2{}\fi\tempx
+%</a&!a>
+%<*driver>
+   \NeedsTeXFormat{LaTeX2e}%
+   \documentclass[a4paper,10pt,twoside]{article}%
+   \usepackage{doc}%
+   \raggedbottom
+   \CodelineNumbered
+   \RecordChanges
+ %  Comment out next line to print coding
+   \OnlyDescription
+   \setlength{\oddsidemargin}{0.5\paperwidth}
+   \addtolength{\oddsidemargin}{-0.5\textwidth}
+   \addtolength{\oddsidemargin}{-1in}
+   \setlength{\evensidemargin}{\oddsidemargin}
+
+\begin{document}
+   \DocInput{finnish.mbs}
+\end{document}
+%</driver>
+%                   END OF META COMMENT   \fi
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \setcounter{StandardModuleDepth}{1}
+% \setcounter{IndexColumns}{2}
+% \setlength{\IndexMin}{10cm}
+%
+% \changes{1.0}{1995 Mar 15}{Initial version}
+% \changes{1.1}{1995 May 4}{Do no abbreviate `edited by'}
+% \changes{1.1a}{1995 May 11}{Correct \texttt{bbl.phdthesis}}
+% \changes{1.2}{1995 Oct 25}{Remove \texttt{umlaut} option and \cs{qq},
+%      replace with Raichle's trick}
+% \changes{1.3}{1998 Aug 17}{Add \texttt{bbl.etal}}
+% \changes{1.4}{1999 Feb 1}{Add option \texttt{xedn}}
+% \changes{1.4}{1999 Feb 24}{Update copyright notice}
+% \changes{1.4a}{1999 Sep 14}{Fix typo in edition query}
+% \changes{4.0}{1999 Oct 11}{For merlin 4.0}
+% \changes{4.0a}{2002 Oct 18}{Fix bug in page number suppression}
+% \changes{4.2}{2003 Nov 6}{Fix comma separator, consistent with \texttt{makebst} 4.1}
+%
+% \pagestyle{myheadings}
+% \markboth{P. W. Daly}{Finnish Bibliographies}
+%
+% \title{{\bfseries Finnish Language Definition File}\\
+%      for master bibliographic style files}
+%
+% \author{Patrick W. Daly}
+%
+% \GetFileInfo{finnish.mbs}
+% \date{This paper describes file \texttt{\filename},\\
+%  version \fileversion{} from \filedate}
+%
+% \maketitle
+%
+% \MakeShortVerb{\|}
+%
+% \parskip=1ex \parindent=0pt
+%
+% \newcommand{\btx}{{\sc Bib}\TeX}
+% \newcommand{\dtx}{\textsf{docstrip}}
+%
+% \section{Introduction}
+% This file is to be used as a language definition file with master
+% bibliographic files. The language it defines is
+% \begin{quote}\bfseries Finnish\end{quote}
+%
+% The translations for Finnish were supplied by
+% \begin{quote}\ttfamily "Niilo.Siljamo@Helsinki.FI"\end{quote}
+
+% This is not a self-sufficient \texttt{.mbs} file, but rather may
+% be used together with one that contains language support via
+% external definition files.
+%
+% Bernd Raichle points out that |\^^b| can be used in place of |\"|
+% within \btx{} code. One can thus replace |Nelj\^^b{a}s| with |Nelj\^^b{a}s|
+% and do away with the \texttt{umlaut} option.
+%
+% See the documentation for \texttt{makebst} for formatting details.
+%
+% \section{The Menu Information}
+%
+% All the menu information is nested between \dtx{} guard options
+% |%<*options>| \dots\ |%</options>|, and the last command is
+% |\endoptions|. The rest of the file is nested between |%<*!options&!driver>|
+% \dots\ |%</!options&!driver>| in order to exclude it if \dtx{} is used to
+% extract only the menu information or the documentation driver.
+%
+%    \begin{macrocode}
+%<*options>
+\mes{^^JOptions for FINNISH}
+\wr{\spsp\spsp finnish,\pc: Finnish language}
+
+\beginoptiongroup{ABBREVIATE WORD `SIVUT':}{} % `Pages'
+\optdef{*}{}{`Sivu(t)'}{(no abbreviation)}
+\optdef{a}{pp}{`Sivu' abbreviated}{as s. or ss.}
+\optdef{x}{ppx}{`Sivu' omitted}{}
+\getans
+\endoptiongroup
+\beginoptiongroup{ABBREVIATE WORD `TOIMITTAJAT':}{} % `Editors'
+\optdef{*}{}{`Toimittaja(t)'}{(no abbreviation)}
+\optdef{a}{ed}{`Toimittaja' abbreviated}{as toim.}
+\getans
+\endoptiongroup
+\beginoptiongroup{OTHER ABBREVIATIONS:}{}
+\optdef{*}{}{No abbreviations}{of other words}
+\optdef{a}{abr}{Abbreviations}{of such words}
+\getans
+\endoptiongroup
+\beginoptiongroup{EDITION NUMBERS:}{}
+\optdef{*}{xedn}{Editions as in database}{saving much processing memory}
+\optdef{w}{}{Write out editions}{as emsimm\string\"ainen, toinen, etc}
+\optdef{n}{ord}{Numerical editions}{as 1., 2., etc}
+\getans
+\endoptiongroup
+\endoptions
+%</options>
+%    \end{macrocode}
+%
+% \StopEventually{\PrintChanges}
+%
+% \section{The Coding}
+%    \begin{macrocode}
+%<*!options&!driver>
+
+ % The language selected here is FINNISH
+FUNCTION {bbl.and}
+{ "ja"}
+
+FUNCTION {bbl.etal}
+{ "et~al." }
+
+FUNCTION {bbl.editors}
+%<!ed>{ "toimittajat" }
+%<ed>{ "toim." }
+
+FUNCTION {bbl.editor}
+%<!ed>{ "toimittaja" }
+%<ed>{ "toim." }
+
+FUNCTION {bbl.edby}
+{ "toimittanut" }
+
+FUNCTION {bbl.edition}
+%<!abr>{ "painos" }
+%<abr>{ "painos" }
+
+FUNCTION {bbl.volume}
+{ "osa" }
+
+FUNCTION {bbl.of}
+{ "sarjasta" }
+
+FUNCTION {bbl.number}
+%<!abr>{ "numero" }
+%<abr>{ "no." }
+
+FUNCTION {bbl.nr}
+{ "no." }
+
+FUNCTION {bbl.in}
+{ "teoksessa" }
+
+FUNCTION {bbl.pages}
+%<!pp&!ppx>{ "sivut" }
+%<pp>{ "ss." }
+%<!pp&ppx>{ "" }
+
+
+FUNCTION {bbl.page}
+%<!pp&!ppx>{ "sivu" }
+%<pp>{ "s." }
+%<!pp&ppx>{ "" }
+
+%<*revdata>
+FUNCTION {bbl.eidpp}
+{ "sivut" }
+
+%</revdata>
+FUNCTION {bbl.chapter}
+{ "luku" }
+
+FUNCTION {bbl.techrep}
+%<!abr>{ "Tekninen Raportti" }
+%<abr>{ "Tekn. Rap." }
+
+FUNCTION {bbl.mthesis}
+{ "pro gradu" }
+
+FUNCTION {bbl.phdthesis}
+{ "v\^^b{a}it\^^b{o}skirja" }
+
+%<*!xedn>
+FUNCTION {bbl.first}
+%<!ord>{ "Ensimm\^^b{a}inen" }
+%<ord>{ "1." }
+
+FUNCTION {bbl.second}
+%<!ord>{ "Toinen" }
+%<ord>{ "2." }
+
+FUNCTION {bbl.third}
+%<!ord>{ "Kolmas" }
+%<ord>{ "3." }
+
+FUNCTION {bbl.fourth}
+%<!ord>{ "Nelj\^^b{a}s" }
+%<ord>{ "4." }
+
+FUNCTION {bbl.fifth}
+%<!ord>{ "Viides" }
+%<ord>{ "5." }
+
+FUNCTION {bbl.st}
+{ "." }
+
+FUNCTION {bbl.nd}
+{ "." }
+
+FUNCTION {bbl.rd}
+{ "." }
+
+FUNCTION {bbl.th}
+{ "." }
+
+%</!xedn>
+MACRO {jan} {"tammikuu"}
+
+MACRO {feb} {"helmikuu"}
+
+MACRO {mar} {"maaliskuu"}
+
+MACRO {apr} {"huhtikuu"}
+
+MACRO {may} {"toukokuu"}
+
+MACRO {jun} {"kes\^^b{a}kuu"}
+
+MACRO {jul} {"hein\^^b{a}kuu"}
+
+MACRO {aug} {"elokuu"}
+
+MACRO {sep} {"syyskuu"}
+
+MACRO {oct} {"lokakuu"}
+
+MACRO {nov} {"marraskuu"}
+
+MACRO {dec} {"joulukuu"}
+
+%</!options&!driver>
+ % End module: finnish.mbs
+%    \end{macrocode}
+% \Finale

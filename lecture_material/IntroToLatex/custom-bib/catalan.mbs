@@ -1,0 +1,324 @@
+%\iffalse         THIS IS A META COMMENT
+% File: catalan.mbs
+% Copyright 1997-1999 Patrick W Daly
+% Max-Planck-Institut f\"ur Aeronomie
+% Max-Planck-Str. 2
+% D-37191 Katlenburg-Lindau
+% Germany
+% E-mail: daly@linmpi.mpg.de
+%
+% Copyright 1997, 1998 Robert Fuster
+% Departament de Matem\`atica Aplicada
+% Universitat Polit\`ecnica de Val\`encia
+% E-46071 Val\`encia
+% Spain
+% E-mail: rfuster@mat.upv.es
+%
+% This program can be redistributed and/or modified under the terms
+% of the LaTeX Project Public License Distributed from CTAN
+% archives in directory macros/latex/base/lppl.txt; either
+% version 1 of the License, or any later version.
+%
+% It is part of the custom-bib collection,
+%   a contribution to the LaTeX2e system.
+%====================================================================
+%       A Language Definition File:  CATALAN
+%     to be included with other master bibliography style files
+%--------------------------------------------------------------------
+%   (See version and date in the \ProvidesFile command below)
+%--------------------------------------------------------------------
+%    This file is self-documenting: simply LaTeX it!
+%====================================================================
+%
+%\fi
+ %-------------------------------------------------------------------
+ % Begin module: catalan.mbs
+ % \ProvidesFile{catalan.mbs}[2003/11/06 4.2 (PWD)]
+%\iffalse
+%<*a&!a>
+% The following ensures that the driver part is not seen by makebst
+% The driver part must not contain any \end other than \end{document} !
+\ifx\endoptions\undefined\let\tempx=\relax\else
+  \long\def\tempx#1\end#2{}\fi\tempx
+%</a&!a>
+%<*driver>
+   \NeedsTeXFormat{LaTeX2e}%
+   \documentclass[a4paper,10pt,twoside]{article}%
+   \usepackage{doc}%
+   \raggedbottom
+   \CodelineNumbered
+   \RecordChanges
+ %  Comment out next line to print coding
+   \OnlyDescription
+   \setlength{\oddsidemargin}{0.5\paperwidth}
+   \addtolength{\oddsidemargin}{-0.5\textwidth}
+   \addtolength{\oddsidemargin}{-1in}
+   \setlength{\evensidemargin}{\oddsidemargin}
+
+\begin{document}
+   \DocInput{catalan.mbs}
+\end{document}
+%</driver>
+%                   END OF META COMMENT   \fi
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \setcounter{StandardModuleDepth}{1}
+% \setcounter{IndexColumns}{2}
+% \setlength{\IndexMin}{10cm}
+%
+% \changes{2.0}{1998 May 17}{Initial version}
+% \changes{2.1}{1998 Aug 17}{Add \texttt{bbl.etal}}
+% \changes{2.2}{1999 Feb 1}{Add option \texttt{xedn}}
+% \changes{2.2}{1999 Feb 24}{Update copyright notice}
+% \changes{4.0}{1999 Oct 11}{For merlin 4.0}
+% \changes{4.0a}{2002 Oct 18}{Fix bug in page number suppression}
+% \changes{4.2}{2003 Nov 6}{Fix comma separator, consistent with \texttt{makebst} 4.1}
+%
+% \pagestyle{myheadings}
+% \markboth{R. Fuster}{Catalan Bibliographies}
+%
+% \title{{\bfseries Catalan Language Definition File}\\
+%      for master bibliographic style files}
+%
+% \author{Patrick W. Daly and Robert Fuster}
+%
+% \GetFileInfo{catalan.mbs}
+% \date{This paper describes file \texttt{\filename},\\
+%  version \fileversion{} from \filedate}
+%
+% \maketitle
+%
+% \MakeShortVerb{\|}
+%
+% \parskip=1ex \parindent=0pt
+%
+% \newcommand{\btx}{{\sc Bib}\TeX}
+% \newcommand{\dtx}{\textsf{docstrip}}
+%
+% \section{Introduction}
+% This file is to be used as a language definition file with master
+% bibliographic files. The language it defines is
+% \begin{quote}\bfseries Catalan\end{quote}
+%
+% This is not a self-sufficient \texttt{.mbs} file, but rather may
+% be used together with one that contains language support via
+% external definition files.
+%
+% See the documentation for \texttt{makebst} for formatting details.
+%
+% \section{The Menu Information}
+%
+% All the menu information is nested between \dtx{} guard options
+% |%<*options>| \dots\ |%</options>|, and the last command is
+% |\endoptions|. The rest of the file is nested between |%<*!options&!driver>|
+% \dots\ |%</!options&!driver>| in order to exclude it if \dtx{} is used to
+% extract only the menu information or the documentation driver.
+%
+%    \begin{macrocode}
+%<*options>
+\mes{^^JOptions for CATALAN}
+\wr{\spsp\spsp catalan,\pc: Catalan language}
+
+\beginoptiongroup{ABBREVIATE WORD `PAGINES':}{}
+\optdef{*}{}{`P\string`agina(es)'}{(no abbreviation)}
+\optdef{a}{ps}{`P\string`agina' abbreviated}{as p.}
+\optdef{b}{pag}{`P\string`agina' abbreviated}{as p\string`ag.}
+\optdef{x}{ppx}{`P\string`agina' omitted}{}
+\getans
+\endoptiongroup
+\beginoptiongroup{ABBREVIATE WORD `EDITOR':}{}
+\optdef{*}{}{`editor(s)'}{(no abbreviation)}
+\optdef{a}{ed}{`editor' abbreviated}{as ed.}
+\getans
+\endoptiongroup
+\beginoptiongroup{ABBREVIATE `MONTHS'::}{}
+\optdef{*}{}{No abbreviations}{of gener, febrer, etcetera}
+\optdef{a}{mab}{Abbreviations}{of months, as in abbrev.bst}
+\getans
+\endoptiongroup
+\beginoptiongroup{OTHER ABBREVIATIONS:}{}
+\optdef{*}{}{No abbreviations}{of Volum, Edici'o, Cap'itol}
+\optdef{a}{abr}{Abbreviations}{of such words}
+\getans
+\endoptiongroup
+\beginoptiongroup{EDITION NUMBERS:}{}
+\optdef{*}{xedn}{Editions as in database}{saving much processing memory}
+\optdef{w}{nom}{Write out editions}{as primera, segona, tercera, etc}
+\optdef{a}{}{Numerical editions}{as 1a, 2a, 3a, etc}
+\getans
+\endoptiongroup
+\endoptions
+%</options>
+%    \end{macrocode}
+%
+% \StopEventually{\PrintChanges}
+%
+% \section{The Coding}
+%    \begin{macrocode}
+%<*!options&!driver>
+
+ % The language selected here is CATALAN
+FUNCTION {bbl.and}
+{ "i"}
+
+FUNCTION {bbl.etal}
+{ "et~al." }
+
+FUNCTION {bbl.editors}
+%<!ed>{ "editors" }
+%<ed>{ "eds." }
+
+FUNCTION {bbl.editor}
+%<!ed>{ "editor" }
+%<ed>{ "ed." }
+
+FUNCTION {bbl.edby}
+{ "editat per" }
+
+FUNCTION {bbl.edition}
+%<!abr>{ "edici\'o" }
+%<abr>{ "ed." }
+
+FUNCTION {bbl.volume}
+%<!abr>{ "volum" }
+%<abr>{ "vol." }
+
+FUNCTION {bbl.of}
+{ "de" }
+
+FUNCTION {bbl.number}
+%<!abr>{ "n\'umero" }
+%<abr>{ "n\'um." }
+
+FUNCTION {bbl.nr}
+{ "n." }
+
+FUNCTION {bbl.in}
+{ "dins" }
+
+FUNCTION {bbl.pages}
+%<!ps&!pag>{ "p\`agines" }
+%<pag>{ "p\`ags." }
+%<ps>{ "ps." }
+%<!ps&!pp&ppx>{ "" }
+
+FUNCTION {bbl.page}
+%<!ps&!pag>{ "p\`agina" }
+%<pag>{ "p\`ag." }
+%<ps>{ "p." }
+%<!ps&!pp&ppx>{ "" }
+
+%<*revdata>
+FUNCTION {bbl.eidpp}
+{ "p\`agines" }
+
+%</revdata>
+FUNCTION {bbl.chapter}
+%<!abr>{ "cap\'{\i}tol" }
+%<abr>{ "cap." }
+
+FUNCTION {bbl.techrep}
+%<!abr>{ "Report t{\`e}cnic" }
+%<abr>{ "Rep. T{\`e}c." }
+
+FUNCTION {bbl.mthesis}
+{ "Projecte F. de Carrera o Tesina de L." }
+
+FUNCTION {bbl.phdthesis}
+{ "Tesi Doctoral" }
+
+%<*!xedn>
+FUNCTION {bbl.first}
+%<!nom>{ "1a" }
+%<nom>{ "primera" }
+
+FUNCTION {bbl.second}
+%<!nom>{ "2a" }
+%<nom>{ "segona" }
+
+FUNCTION {bbl.third}
+%<!nom>{ "3a" }
+%<nom>{ "tercera" }
+
+FUNCTION {bbl.fourth}
+%<!nom>{ "4a" }
+%<nom>{ "quarta" }
+
+FUNCTION {bbl.fifth}
+%<!nom>{ "5a" }
+%<nom>{ "cinquena" }
+
+FUNCTION {bbl.th}
+{ "a" }
+
+%</!xedn>
+%<*!mab>
+MACRO {jan} {"gener"}
+
+MACRO {feb} {"febrer"}
+
+MACRO {mar} {"mar\c{c}"}
+
+MACRO {apr} {"abril"}
+
+MACRO {may} {"maig"}
+
+MACRO {jun} {"juny"}
+
+MACRO {jul} {"juliol"}
+
+MACRO {aug} {"agost"}
+
+MACRO {sep} {"setembre"}
+
+MACRO {oct} {"octubre"}
+
+MACRO {nov} {"novembre"}
+
+MACRO {dec} {"desembre"}
+
+%</!mab>
+%<*mab>
+MACRO {jan} {"gen."}
+
+MACRO {feb} {"feb."}
+
+MACRO {mar} {"mar\c{c}"}
+
+MACRO {apr} {"abr."}
+
+MACRO {may} {"maig"}
+
+MACRO {jun} {"juny"}
+
+MACRO {jul} {"jul."}
+
+MACRO {aug} {"ag."}
+
+MACRO {sep} {"set."}
+
+MACRO {oct} {"oct."}
+
+MACRO {nov} {"nov."}
+
+MACRO {dec} {"des."}
+
+%</mab>
+%</!options&!driver>
+ % End module: catalan.mbs
+ %    \end{macrocode}
+% \Finale

@@ -1,0 +1,227 @@
+%\iffalse         THIS IS A META COMMENT
+% File: photjour.mbs
+% Copyright 1997-1999 Patrick W Daly
+% Max-Planck-Institut f\"ur Aeronomie
+% Max-Planck-Str. 2
+% D-37191 Katlenburg-Lindau
+% Germany
+% E-mail: daly@linmpi.mpg.de
+% 
+% This program can be redistributed and/or modified under the terms
+% of the LaTeX Project Public License Distributed from CTAN
+% archives in directory macros/latex/base/lppl.txt; either
+% version 1 of the License, or any later version.
+%
+% It is part of the custom-bib collection, 
+%   a contribution to the LaTeX2e system.
+%==================================================================== 
+%       A Journal Definition File for Photonics journals
+%     to be included with other master bibliography style files
+%--------------------------------------------------------------------
+%   (See version and date in the \ProvidesFile command below)
+%--------------------------------------------------------------------
+%    This file is self-documenting: simply LaTeX it!
+%==================================================================== 
+%
+ %-------------------------------------------------------------------
+ % Begin module:
+%\fi
+ % \ProvidesFile{photjour.mbs}[1999/02/24 2.0b (PWD)]
+%\iffalse
+%<*a&!a>
+% The following ensures that the driver part is not seen by makebst
+% The driver part must not contain any \end other than \end{document} !
+\ifx\endoptions\undefined\let\tempx=\relax\else
+  \long\def\tempx#1\end#2{}\fi\tempx
+%</a&!a>
+%<*driver>
+   \NeedsTeXFormat{LaTeX2e}%
+   \documentclass[a4paper,10pt,twoside]{article}%
+   \usepackage{doc}%
+   \raggedbottom
+   \CodelineNumbered
+   \RecordChanges
+ %  Comment out next line to print coding
+   \OnlyDescription
+   \setlength{\oddsidemargin}{0.5\paperwidth}
+   \addtolength{\oddsidemargin}{-0.5\textwidth}
+   \addtolength{\oddsidemargin}{-1in}
+   \setlength{\evensidemargin}{\oddsidemargin}
+
+\begin{document}
+   \DocInput{photjour.mbs}
+\end{document}
+%</driver>
+%                   END OF META COMMENT   \fi
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \setcounter{StandardModuleDepth}{1}
+% \setcounter{IndexColumns}{2}
+% \setlength{\IndexMin}{10cm}
+%
+% \changes{1.0}{1995 Oct 11}{Initial contributed version}
+% \changes{2.0}{1996 Jun 26}{Reorganize with \texttt{geojour} and
+%         \texttt{physjour}}
+% \changes{2.0a}{1997 Sep 15}{Replace umlaut with Raichle trick}
+% \changes{2.0b}{1999 Feb 24}{Update copyright notice}
+%
+% \pagestyle{myheadings}
+% \markboth{P. W. Daly}{Optics Journal Names}
+%
+% \title{{\bfseries Optics Journal Definition File}\\
+%      for master bibliographic style files}
+%    
+% \author{Patrick W. Daly and Zhenya Sorokin}
+%         
+% \GetFileInfo{photjour.mbs}
+% \date{This paper describes file \texttt{\filename},\\
+%  version \fileversion{} from \filedate}
+% 
+% \maketitle
+%
+% \MakeShortVerb{\|}
+% 
+% \parskip=1ex \parindent=0pt
+%
+% \newcommand{\btx}{{\sc Bib}\TeX}
+% \newcommand{\dtx}{\textsf{docstrip}}
+% 
+% \section{Introduction}
+% 
+% This file adds a list of preprogrammed optics journal names to
+% bibliographic style files, in both full and abbreviated versions.
+% These defined journal names will be added to those in the main master
+% bibliography style file.
+% 
+% This is not a self-sufficient \texttt{.mbs} file, but rather may
+% be used together with one that contains support for
+% external definition files.
+% 
+% This file was contributed by 
+% \begin{quote}
+% Zhenya Sorokin, email \texttt{sorokin@ps1.iaee.tuwien.ac.at}.
+% \end{quote}
+%
+% Version 2.0: I go through all journal names, checking for conflicts and
+% duplications with \texttt{physjour.mbs} and \texttt{geojour.mbs}.
+% Optical and physical journals removed; geophysical journals included
+% from the others. Where one journal exists with multiple shorthands, 
+% all versions are kept.
+%
+% Version 2.0a: Fixes a problem with umlauts acting as string terminator.
+%
+% Version 2.0b: revise copyright notice to LPPL standard.
+%
+% See the documentation for \texttt{makebst} for formatting details.
+% 
+% \section{The Menu Information}
+% 
+% All the menu information is nested between \dtx{} guard options
+% |%<*options>| \dots\ |%</options>|, and the last command is
+% |\endoptions|. The rest of the file is nested between |%<*!options>|
+% \dots\ |%</!options>| in order to exclude it if \dtx{} is used to
+% extract only the menu information.
+% 
+% A journal-names files should contain at most only one option, \texttt{jabr}.
+% This is because \texttt{merlin} version~3.5 can now handle several
+% journal-name files, but does not look into them for the options, but
+% rather asks for \texttt{jabr} from the main file. For compatibility with
+% older versions, the option menu must be kept here.
+% 
+%    \begin{macrocode}
+%<*options>
+\mes{^^JOPTICS JOURNAL NAMES:}
+\optdef{*}{}{Full optics journal names}{}
+\optdef{a}{jabr}{Abbreviate optics names}{for journals}
+\getans
+\endoptions
+%</options>
+%    \end{macrocode}
+% 
+% \StopEventually{\PrintChanges}
+%
+% \section{The Coding}
+%    \begin{macrocode}
+%<*!options>
+%<*jabr>
+
+MACRO {appopt} {"Appl. Opt."}
+MACRO {bell} {"Bell Syst. Tech. J."}
+MACRO {ell} {"Electron. Lett."}
+MACRO {jasp} {"J. Appl. Spectr."}
+MACRO {jqe} {"IEEE J. Quantum Electron."}
+MACRO {jlwt} {"J. Lightwave Technol."}
+MACRO {jmo} {"J. Mod. Opt."}
+MACRO {josa} {"J. Opt. Soc. America"}
+MACRO {josaa} {"J. Opt. Soc. Amer.~A"}
+MACRO {josab} {"J. Opt. Soc. Amer.~B"}
+MACRO {jdp} {"J. Phys. (Paris)"}
+MACRO {oc} {"Opt. Commun."}
+MACRO {ol} {"Opt. Lett."}
+MACRO {phtl} {"IEEE Photon. Technol. Lett."}
+MACRO {pspie} {"Proc. Soc. Photo-Opt. Instrum. Eng."}
+MACRO {sse} {"Solid-State Electron."}
+MACRO {sjot} {"Sov. J. Opt. Technol."}
+MACRO {sjqe} {"Sov. J. Quantum Electron."}
+MACRO {sleb} {"Sov. Phys.--Leb. Inst. Rep."}
+MACRO {stph} {"Sov. Phys.--Techn. Phys."}
+MACRO {stphl} {"Sov. Techn. Phys. Lett."}
+MACRO {vr} {"Vision Res."}
+MACRO {zph} {"Z. f. Physik"}
+MACRO {zphb} {"Z. f. Physik~B"}
+MACRO {zphd} {"Z. f. Physik~D"}
+
+MACRO {CLEO} {"CLEO"}
+MACRO {ASSL} {"Adv. Sol.-State Lasers"}
+MACRO {OSA}  {"OSA"}
+%</jabr>
+%<*!jabr>
+
+MACRO {appopt} {"Applied Optics"}
+MACRO {bell} {"Bell Systems Technical Journal"}
+MACRO {ell} {"Electronics Letters"}
+MACRO {jasp} {"Journal of Applied Spectroscopy"}
+MACRO {jqe} {"IEEE Journal of Quantum Electronics"}
+MACRO {jlwt} {"Journal of Lightwave Technology"}
+MACRO {jmo} {"Journal of Modern Optics"}
+MACRO {josa} {"Journal of the Optical Society of America"}
+MACRO {josaa} {"Journal of the Optical Society of America~A"}
+MACRO {josab} {"Journal of the Optical Society of America~B"}
+MACRO {jdp} {"Journal de Physique"}
+MACRO {oc} {"Optics Communications"}
+MACRO {ol} {"Optics Letters"}
+MACRO {phtl} {"IEEE Photonics Technology Letters"}
+MACRO {pspie} {"Proceedings of the Society for Photo-Optical Instruments Engineers"}
+MACRO {sse} {"Solid-State Electronics"}
+MACRO {sjot} {"Soviet Journal of Optical Technology"}
+MACRO {sjqe} {"Soviet Journal of Quantum Electronics"}
+MACRO {sleb} {"Soviet Physics--Lebedev Institute Reports"}
+MACRO {stph} {"Soviet Physics--Technical Physics"}
+MACRO {stphl} {"Soviet Technical Physics Letters"}
+MACRO {vr} {"Vision Research"}
+MACRO {zph} {"Zeitschrift f\^^b{u}r Physik"}
+MACRO {zphb} {"Zeitschrift f\^^b{u}r Physik~B"}
+MACRO {zphd} {"Zeitschrift f\^^b{u}r Physik~D"}
+
+MACRO {CLEO} {"Conf. on Lasers and Electro-Optics"}
+MACRO {ASSL} {"Advanced Solid State Lasers"}
+MACRO {OSA}  {"Optical Society of America"}
+%</!jabr>
+%</!options>
+ % End module: photjour.mbs 
+%    \end{macrocode}
+% \Finale

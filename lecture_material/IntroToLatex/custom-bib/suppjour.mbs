@@ -1,0 +1,231 @@
+%\iffalse         THIS IS A META COMMENT
+% File: suppjour.mbs
+% Copyright 1998, 1999 Patrick W Daly
+% Max-Planck-Institut f\"ur Aeronomie
+% Max-Planck-Str. 2
+% D-37191 Katlenburg-Lindau
+% Germany
+% E-mail: daly@linmpi.mpg.de
+% 
+% This program can be redistributed and/or modified under the terms
+% of the LaTeX Project Public License Distributed from CTAN
+% archives in directory macros/latex/base/lppl.txt; either
+% version 1 of the License, or any later version.
+%
+% It is part of the custom-bib collection, 
+%   a contribution to the LaTeX2e system.
+%==================================================================== 
+%       A Journal Definition File for supplementary journals
+%     to be included with other master bibliography style files
+%--------------------------------------------------------------------
+%   (See version and date in the \ProvidesFile command below)
+%--------------------------------------------------------------------
+%    This file is self-documenting: simply LaTeX it!
+%==================================================================== 
+%
+ %-------------------------------------------------------------------
+ % Begin module:
+%\fi
+ % \ProvidesFile{suppjour.mbs}[1999/02/24 1.1]
+%\iffalse
+%<*a&!a>
+% The following ensures that the driver part is not seen by makebst
+% The driver part must not contain any \end other than \end{document} !
+\ifx\endoptions\undefined\let\tempx=\relax\else
+  \long\def\tempx#1\end#2{}\fi\tempx
+%</a&!a>
+%<*driver>
+   \NeedsTeXFormat{LaTeX2e}%
+   \documentclass[a4paper,10pt,twoside]{article}%
+   \usepackage{doc}%
+   \raggedbottom
+   \CodelineNumbered
+   \RecordChanges
+ %  Comment out next line to print coding
+   \OnlyDescription
+   \setlength{\oddsidemargin}{0.5\paperwidth}
+   \addtolength{\oddsidemargin}{-0.5\textwidth}
+   \addtolength{\oddsidemargin}{-1in}
+   \setlength{\evensidemargin}{\oddsidemargin}
+
+\begin{document}
+   \DocInput{suppjour.mbs}
+\end{document}
+%</driver>
+%                   END OF META COMMENT   \fi
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \setcounter{StandardModuleDepth}{1}
+% \setcounter{IndexColumns}{2}
+% \setlength{\IndexMin}{10cm}
+%
+% \changes{1.0}{1998 Mar 12}{Initial contributed version}
+% \changes{1.1}{1999 Feb 24}{Update copyright notice}
+%
+% \pagestyle{myheadings}
+% \markboth{M. Bl\"ocker}{Supplementary Journal Names}
+%
+% \title{{\bfseries Supplementary Journal Definition File}\\
+%      for master bibliographic style files}
+%    
+% \author{Martin Bl\"ocker}
+%         
+% \GetFileInfo{suppjour.mbs}
+% \date{This paper describes file \texttt{\filename},\\
+%  version \fileversion{} from \filedate}
+% 
+% \maketitle
+%
+% \MakeShortVerb{\|}
+% 
+% \parskip=1ex \parindent=0pt
+%
+% \newcommand{\btx}{{\sc Bib}\TeX}
+% \newcommand{\dtx}{\textsf{docstrip}}
+% 
+% \section{Introduction}
+% 
+% This file adds a list of preprogrammed supplementary journal names to
+% bibliographic style files, in both full and abbreviated versions.
+% These defined journal names will be added to those in the main master
+% bibliography style file.
+% 
+% This is not a self-sufficient \texttt{.mbs} file, but rather may
+% be used together with one that contains support for
+% external definition files.
+% %
+% See the documentation for \texttt{makebst} for formatting details.
+% 
+% \section{The Menu Information}
+% 
+% All the menu information is nested between \dtx{} guard options
+% |%<*options>| \dots\ |%</options>|, and the last command is
+% |\endoptions|. The rest of the file is nested between |%<*!options>|
+% \dots\ |%</!options>| in order to exclude it if \dtx{} is used to
+% extract only the menu information.
+% 
+% A journal-names files should contain at most only one option, \texttt{jabr}.
+% This is because \texttt{merlin} version~3.5 can now handle several
+% journal-name files, but does not look into them for the options, but
+% rather asks for \texttt{jabr} from the main file. For compatibility with
+% older versions, the option menu must be kept here.
+% 
+%    \begin{macrocode}
+%<*options>
+\mes{^^JSUPPLEMENTARY JOURNAL NAMES:}
+\optdef{*}{}{Full supplementary journal names}{}
+\optdef{a}{jabr}{Abbreviate supplementary names}{for journals}
+\getans
+\endoptions
+%</options>
+%    \end{macrocode}
+% 
+% \StopEventually{\PrintChanges}
+%
+% \section{The Coding}
+%    \begin{macrocode}
+%<*!options>
+%<*jabr>
+MACRO {cjp} {"Czech. J. Phys."}
+MACRO {el} {"Europhys. Lett."}
+MACRO {en} {"Europhys. News"}
+MACRO {fujitsustj} {"FUJITSU Sci. Tech. J."}
+MACRO {ieeeed} {"IEEE Trans. Electron Devices"}
+MACRO {ieeeim} {"IEEE Trans. Instrum. Meas."}
+MACRO {ieeejqe} {"IEEE J. Quantum Electron."}
+MACRO {ieeem} {"IEEE Trans. Magn."}
+MACRO {ieeeptl} {"IEEE Photonic Technol. Lett."}
+MACRO {ieeeuffc} {"IEEE Trans. Ultrason., Ferroelect., Freq. Cont."}
+MACRO {jem} {"J. Electron. Mater."}
+MACRO {jes} {"J. Electrochem. Soc."}
+MACRO {jetplett} {"JETP Lett."}
+MACRO {jjap} {"Japan. J. Appl. Phys."}
+MACRO {jpha} {"J. Phys. A: Math. Gen."}
+MACRO {jphb} {"J. Phys. B: At. Mol. Opt. Phys."}
+MACRO {jphbold} {"J. Phys. B: At. Mol. Phys."}
+MACRO {jphc} {"J. Phys.: Condens. Matter"}
+MACRO {jphcold} {"J. Phys. C: Solid State Phys."}
+MACRO {jphd} {"J. Phys. D: Appl. Phys."}
+MACRO {jvsta} {"J. Vac. Sci. Technol. A"}
+MACRO {jvstb} {"J. Vac. Sci. Technol. B"}
+MACRO {me} {"Microelectron. Eng."}
+MACRO {necrd} {"NEC Res.{\&} Develop."}
+MACRO {pa} {"Physica A"}
+MACRO {pb} {"Physica B"}
+MACRO {pc} {"Physica C"}
+MACRO {pd} {"Physica D"}
+MACRO {procieee} {"Proc. IEEE"}
+MACRO {procspie} {"Proc. SPIE"}
+MACRO {pssa} {"Phys. Stat. Sol. A"}
+MACRO {pssb} {"Phys. Stat. Sol. B"}
+MACRO {rpp} {"Rep. Progr. Phys."}
+MACRO {sm} {"Synthet. Metal"}
+MACRO {sost} {"Solid State Technol."}
+MACRO {ss} {"Surf. Sci."}
+MACRO {ssc} {"Solid State Commun."}
+MACRO {sst} {"Semicond. Sci. Technol."}
+MACRO {suplatt} {"Superlatt. Microstr."}
+MACRO {sust} {"Supercond. Sci. Technol."}
+MACRO {znat} {"Z. Naturforsch."}
+%</jabr>
+%<*!jabr>
+MACRO {cjp} {"Czechoslovak Journal of Physics"}
+MACRO {el} {"Europhysics Letters"}
+MACRO {en} {"Europhysics News"}
+MACRO {fujitsustj} {"FUJITSU Scientific {\&} Technical Journal"}
+MACRO {ieeeed} {"IEEE Transactions on Electron Devices"}
+MACRO {ieeeim} {"IEEE Transactions on Instrumentation and Measurement"}
+MACRO {ieeejqe} {"IEEE Journal of Quantum Electronics"}
+MACRO {ieeem} {"IEEE Transactions on Magnetics"}
+MACRO {ieeeptl} {"IEEE Photonics Technology Letters"}
+MACRO {ieeeuffc} {"IEEE Transactions on Ultrasonics, Ferroelectrics and Frequency Control"}
+MACRO {jem} {"Journal of Electronic Materials"}
+MACRO {jes} {"Journal of the Electrochemical Society"}
+MACRO {jetplett} {"JETP Letters"}
+MACRO {jjap} {"Japanese Journal of Applied Physics"}
+MACRO {jpha} {"Journal of Physics A: Mathematical and General"}
+MACRO {jphb} {"Journal of Physics B: Atomic, Molecular and Optical Physics"}
+MACRO {jphbold} {"Journal of Physics B: Atomic and Molecular Physics"}
+MACRO {jphc} {"Journal of Physics: Condensed Matter"}
+MACRO {jphcold} {"Journal of Physics C: Solid State Physics"}
+MACRO {jphd} {"Journal of Physics D: Applied Physics"}
+MACRO {jvsta} {"Journal of Vacuum Science and Technology A"}
+MACRO {jvstb} {"Journal of Vacuum Science and Technology B"}
+MACRO {me} {"Microelectronic Engineering"}
+MACRO {necrd} {"NEC Research {\&} Development"}
+MACRO {pa} {"Physica A"}
+MACRO {pb} {"Physica B"}
+MACRO {pc} {"Physica C"}
+MACRO {pd} {"Physica D"}
+MACRO {procieee} {"Proceedings of the IEEE"}
+MACRO {procspie} {"Proceedings of the SPIE"}
+MACRO {pssa} {"Physica Status Solidi A"}
+MACRO {pssb} {"Physica Status Solidi B"}
+MACRO {rpp} {"Reports on Progress in Physics"}
+MACRO {sm} {"Synthetic Metals"}
+MACRO {sost} {"Solid State Technology"}
+MACRO {ss} {"Surface Science"}
+MACRO {ssc} {"Solid State Communications"}
+MACRO {sst} {"Semiconductor Science and Technology"}
+MACRO {suplatt} {"Superlattices and Microstructures"}
+MACRO {sust} {"Superconductor Science and Technology"}
+MACRO {znat} {"Zeitschrift f\^^b{u}r Naturforschung"}
+%</!jabr>
+%</!options>
+ % End module: suppjour.mbs 
+%    \end{macrocode}
+% \Finale

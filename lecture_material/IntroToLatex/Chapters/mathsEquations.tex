@@ -1,0 +1,102 @@
+\chapter{Maths Equations}
+
+\section{Producing Beautiful Looking Mathematics}
+
+One of the best features about LaTeX is `maths mode'.  For example the schrodinger equation can be produced as follows:
+
+\vspace*{2ex}
+
+\begin{center}
+\begin{math}
+\imath\hbar\frac{\partial}{\partial t}\Phi (x, t) = \hat{H}\Phi (x, t)
+\end{math}
+\end{center}
+
+\vspace*{2ex}
+
+\begin{verbatim}
+\begin{math}
+\imath\hbar\frac{\partial}{\partial t}\Phi(x,t)=\hat{H}\Phi(x,t)
+\end{math}
+\end{verbatim}
+
+There are a number of ways to switch on maths mode.  The first, as above, is with the {\textbackslash}begin\{math\} environment. You can also enter mathmode inline using the \$ symbol. For example typing in \$y=ax\textasciicircum{}2+bx+c\$ yields $y=ax^2+bx+c$.  Another way is to enter the equation environment which enables you to number equations so you can then refer to them later in the text.
+
+\begin{equation}
+y(t)= \sin \left(\frac{{\alpha}t}{2\pi} + \phi_0\right)
+\label{eqn:MadeUpNonsense}
+\end{equation}
+
+\vspace*{2ex}
+\begin{verbatim}
+\begin{equation}
+y(t)= \sin \left(\frac{{\alpha}t}{2\pi} + \phi_0\right)
+\end{equation}
+\end{verbatim}.
+
+\section{Basic Maths Mode}
+Once in maths mode there is a kind of text based code for writing down your equations.  Here are the most basic symbols to get you going.
+\begin{center}
+\begin{tabular}{cc}
+\toprule
+Final Result & LaTeX Code \\
+\cmidrule(){1-2}
+$a+b$ & a+b \\
+$a-b$ & a-b \\
+$ab$ & ab \\
+$a*b$ & a*b \\
+$a \times b$ & a {\textbackslash}times b \\
+$a \cdot b$ & a {\textbackslash}cdot b \\
+$\frac{a}{b}$ & {\textbackslash}frac\{a\}\{b\} \\ 
+$a^b$ & a\textasciicircum{}b \\
+$a_b$ & a\_b \\
+$\sin a$ & {\textbackslash}sin a  (same for cos, tan)\\
+$ sin a$ & sin a \\
+$\sqrt{a}$ & {\textbackslash}sqrt\{a\} \\
+$\left( a \right) $ & {\textbackslash}left( a {\textbackslash}right)\\ 
+$\left[ a \right]$ & {\textbackslash}left[ a {\textbackslash}right]\\ 
+$\alpha$ & {\textbackslash}alpha \\
+$\pi$ & {\textbackslash}pi \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+A full treatise on maths mode is not practical here. There are lots of online tutorials and summaries of symbols. It just takes a bit of practice and you can build up equations really easily. It's straight forward to learn new stuff once you've done it a few times.
+
+\pagebreak
+\section{Equation Arrays}
+Sometimes you need to arrange several equations vertically, referencing individual lines separately and aligning the equations on the $=$ sign. This can be achieved with equation arrays as follows:
+
+\begin{eqnarray}
+A\left( x\right) & = & \frac{x^2+2x+1}{x+1} \\
+& = & \frac{\left(x+1\right)\left(x+1\right)}{x+1} \nonumber\\
+& = & x+1 \nonumber\\
+B(x,t) & = & \frac{e^{\left(\imath\omega_0 t + kx\right)}}{4\pi\epsilon_0}
+\end{eqnarray}
+
+\begin{verbatim}
+\begin{eqnarray}
+A\left( x\right) & = & \frac{x^2+2x+1}{1+x} \\
+& = & \frac{\left(x+1\right)\left(x+1\right)}{1+x} \nonumber\\
+& = & x+1 \nonumber\\
+B(x,t) & = & \frac{e^{\left(\imath\omega_0 t + kx\right)}}{4\pi\epsilon_0}
+\end{eqnarray}
+\end{verbatim}
+
+\begin{itemize}
+\item Note the \& symbols. This tells LaTeX where to align the equations. There must be the same number of \& symbols in each line.
+\item Note the \textbackslash\textbackslash ~at the end of each line except the last one. This symbol tells LaTeX to add another row in the array.  If you put it on the last line you get an empty row at the bottom of the array.
+\item Note the {\textbackslash}nonumber command which suppresses line numbering for that line.
+\item Note that equation number carries on from equation \ref{eqn:MadeUpNonsense} in the previous section.
+\end{itemize}
+
+\section{Maths Packages}
+
+Maths mode comes as standard in LaTeX, however you can download packages that buff up your maths symbol set. For example neat vector notation comes in the package `vector'. e.g. {\textbackslash}uuvec\{T\} yields $\uuvec{T}$.
+
+\begin{verbatim}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{vector}
+\end{verbatim}
+

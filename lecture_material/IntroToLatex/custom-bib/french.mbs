@@ -1,0 +1,312 @@
+%\iffalse         THIS IS A META COMMENT
+% File: french.mbs
+% Copyright 1995-2002 Patrick W Daly
+% Max-Planck-Institut f\"ur Aeronomie
+% Max-Planck-Str. 2
+% D-37191 Katlenburg-Lindau
+% Germany
+% E-mail: daly@linmpi.mpg.de
+%
+% This program can be redistributed and/or modified under the terms
+% of the LaTeX Project Public License Distributed from CTAN
+% archives in directory macros/latex/base/lppl.txt; either
+% version 1 of the License, or any later version.
+%
+% It is part of the custom-bib collection,
+%   a contribution to the LaTeX2e system.
+%====================================================================
+%       A Language Definition File:  FRENCH
+%     to be included with other master bibliography style files
+%--------------------------------------------------------------------
+%   (See version and date in the \ProvidesFile command below)
+%--------------------------------------------------------------------
+%    This file is self-documenting: simply LaTeX it!
+%====================================================================
+%
+ %-------------------------------------------------------------------
+ % Begin module:
+%\fi
+ % \ProvidesFile{french.mbs}[2003/11/06 4.2 (PWD)]
+%\iffalse
+%<*a&!a>
+% The following ensures that the driver part is not seen by makebst
+% The driver part must not contain any \end other than \end{document} !
+\ifx\endoptions\undefined\let\tempx=\relax\else
+  \long\def\tempx#1\end#2{}\fi\tempx
+%</a&!a>
+%<*driver>
+   \NeedsTeXFormat{LaTeX2e}%
+   \documentclass[a4paper,10pt,twoside]{article}%
+   \usepackage{doc}%
+   \raggedbottom
+   \CodelineNumbered
+   \RecordChanges
+ %  Comment out next line to print coding
+   \OnlyDescription
+   \setlength{\oddsidemargin}{0.5\paperwidth}
+   \addtolength{\oddsidemargin}{-0.5\textwidth}
+   \addtolength{\oddsidemargin}{-1in}
+   \setlength{\evensidemargin}{\oddsidemargin}
+
+\begin{document}
+   \DocInput{french.mbs}
+\end{document}
+%</driver>
+%                   END OF META COMMENT   \fi
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \setcounter{StandardModuleDepth}{1}
+% \setcounter{IndexColumns}{2}
+% \setlength{\IndexMin}{10cm}
+%
+% \changes{1.0}{1995 Mar 15}{Initial version}
+% \changes{1.1}{1995 May 4}{Do no abbreviate `edited by'}
+% \changes{1.2}{1998 Aug 17}{Add \texttt{bbl.etal}}
+% \changes{1.3}{1999 Feb 1}{Add option \texttt{xedn}}
+% \changes{1.3}{1999 Feb 24}{Update copyright notice}
+% \changes{4.0}{1999 Oct 11}{For merlin 4.0}
+% \changes{4.0a}{2001 Aug 28}{Correct r\'edacteur}
+% \changes{4.1}{2001 Jan 14}{Number of corrections by Olivier Dupuis}
+% \changes{4.1a}{2002 Oct 18}{Fix bug in page number suppression}
+% \changes{4.2}{2003 Nov 6}{Fix comma separator, consistent with \texttt{makebst} 4.1}
+%
+% \pagestyle{myheadings}
+% \markboth{P. W. Daly}{French Bibliographies}
+%
+% \title{{\bfseries French Language Definition File}\\
+%      for master bibliographic style files}
+%
+% \author{Patrick W. Daly}
+%
+% \GetFileInfo{french.mbs}
+% \date{This paper describes file \texttt{\filename},\\
+%  version \fileversion{} from \filedate}
+%
+% \maketitle
+%
+% \MakeShortVerb{\|}
+%
+% \parskip=1ex \parindent=0pt
+%
+% \newcommand{\btx}{{\sc Bib}\TeX}
+% \newcommand{\dtx}{\textsf{docstrip}}
+%
+% \section{Introduction}
+% This file is to be used as a language definition file with master
+% bibliographic files. The language it defines is
+% \begin{quote}\bfseries French\end{quote}
+%
+% This is not a self-sufficient \texttt{.mbs} file, but rather may
+% be used together with one that contains language support via
+% external definition files.
+%
+% See the documentation for \texttt{makebst} for formatting details.
+%
+% \section{The Menu Information}
+%
+% All the menu information is nested between \dtx{} guard options
+% |%<*options>| \dots\ |%</options>|, and the last command is
+% |\endoptions|. The rest of the file is nested between |%<*!options&!driver>|
+% \dots\ |%</!options&!driver>| in order to exclude it if \dtx{} is used to
+% extract only the menu information or the documentation driver.
+%
+%    \begin{macrocode}
+%<*options>
+\mes{^^JOptions for FRENCH}
+\wr{\spsp\spsp french,\pc: French language}
+
+\beginoptiongroup{ABBREVIATE WORD `PAGES':}{}
+\optdef{*}{}{`Page(s)'}{(no abbreviation)}
+\optdef{a}{pp}{`Page' abbreviated}{as p. or pp.}
+\optdef{x}{ppx}{`Page' omitted}{}
+\getans
+\endoptiongroup
+\beginoptiongroup{ABBREVIATE WORD `REDACTEUR':}{}
+\optdef{*}{}{`R\string\'edacteur(s)'}{(no abbreviation)}
+\optdef{a}{ed}{`R\string\'edacteur' abbreviated}{as R\string\'ed.}
+\getans
+\endoptiongroup
+\beginoptiongroup{OTHER ABBREVIATIONS:}{}
+\optdef{*}{}{No abbreviations}{of Tome, \string\'edition, chapitre}
+\optdef{a}{abr}{Abbreviations}{of such words}
+\getans
+\endoptiongroup
+\beginoptiongroup{EDITION NUMBERS:}{}
+\optdef{*}{xedn}{Editions as in database}{saving much processing memory}
+\optdef{w}{}{Write out editions}{as premi\string\`ere, deuxi\string\`eme,...}
+\optdef{n}{ord}{Numerical editions}{as 1re, 2e, 3e, etc}
+\getans
+\endoptiongroup
+\endoptions
+%</options>
+%    \end{macrocode}
+%
+% \StopEventually{\PrintChanges}
+%
+% \section{The Coding}
+%    \begin{macrocode}
+%<*!options&!driver>
+
+ % The language selected here is FRENCH
+FUNCTION {bbl.and}
+{ "et"}
+
+FUNCTION {bbl.etal}
+{ "et~al." }
+
+FUNCTION {bbl.editors}
+%<!ed>{ "r\'edacteurs" }
+%<ed>{ "r\'eds." }
+
+FUNCTION {bbl.editor}
+%<!ed>{ "r\'edacteur" }
+%<ed>{ "r\'ed." }
+
+FUNCTION {bbl.edby}
+{ "edit\'e par" }
+
+FUNCTION {bbl.edition}
+%<!abr>{ "\'edition" }
+%<abr>{ "\'ed." }
+
+FUNCTION {bbl.volume}
+%<!abr>{ "tome" }
+%<abr>{ "t." }
+
+FUNCTION {bbl.of}
+{ "de" }
+
+FUNCTION {bbl.number}
+%<!abr>{ "num\'ero" }
+%<abr>{ "n\textsuperscript{o}\kern.2em\relax" }
+
+FUNCTION {bbl.nr}
+{ "n\textsuperscript{o}\kern.2em\relax" }
+
+FUNCTION {bbl.in}
+{ "dans" }
+
+FUNCTION {bbl.pages}
+%<!pp&!ppx>{ "pages" }
+%<pp>{ "p." }
+%<!pp&ppx>{ "" }
+
+FUNCTION {bbl.page}
+%<!pp&!ppx>{ "page" }
+%<pp>{ "p." }
+%<!pp&ppx>{ "" }
+
+%<*revdata>
+FUNCTION {bbl.eidpp}
+{ "pages" }
+
+%</revdata>
+FUNCTION {bbl.chapter}
+%<!abr>{ "chapitre" }
+%<abr>{ "chap." }
+
+FUNCTION {bbl.techrep}
+%<!abr>{ "Rapport technique" }
+%<abr>{ "Rap. tech." }
+
+FUNCTION {bbl.mthesis}
+{ "Th\`ese de ma\^itre" }
+
+FUNCTION {bbl.phdthesis}
+{ "Th\`ese de doctorat" }
+
+%<*!xedn>
+FUNCTION {bbl.first}
+%<!ord>{ "Premi\`ere" }
+%<ord>{ "1$^{\mbox{\scriptsize re}}$" }
+
+FUNCTION {bbl.second}
+%<!ord>{ "Deuxi\`eme" }
+%<ord>{ "2$^{\mbox{\scriptsize e}}$" }
+
+FUNCTION {bbl.third}
+%<!ord>{ "Troisi\`eme" }
+%<ord>{ "3$^{\mbox{\scriptsize e}}$" }
+
+FUNCTION {bbl.fourth}
+%<!ord>{ "Quatri\`eme" }
+%<ord>{ "4$^{\mbox{\scriptsize e}}$" }
+
+FUNCTION {bbl.fifth}
+%<!ord>{ "Cinqui\`eme" }
+%<ord>{ "5$^{\mbox{\scriptsize e}}$" }
+
+FUNCTION {bbl.th}
+{ "$^{\mbox{\scriptsize e}}$" }
+
+%</!xedn>
+%<*!abr>
+MACRO {jan} {"janvier"}
+
+MACRO {feb} {"f\'evrier"}
+
+MACRO {mar} {"mars"}
+
+MACRO {apr} {"avril"}
+
+MACRO {may} {"mai"}
+
+MACRO {jun} {"juin"}
+
+MACRO {jul} {"juillet"}
+
+MACRO {aug} {"ao\^ut"}
+
+MACRO {sep} {"septembre"}
+
+MACRO {oct} {"octobre"}
+
+MACRO {nov} {"novembre"}
+
+MACRO {dec} {"d\'ecembre"}
+
+%</!abr>
+%<*abr>
+MACRO {jan} {"jan."}
+
+MACRO {feb} {"f\'ev."}
+
+MACRO {mar} {"mars"}
+
+MACRO {apr} {"avr."}
+
+MACRO {may} {"mai"}
+
+MACRO {jun} {"juin"}
+
+MACRO {jul} {"juil."}
+
+MACRO {aug} {"ao\^ut"}
+
+MACRO {sep} {"sept."}
+
+MACRO {oct} {"oct."}
+
+MACRO {nov} {"nov."}
+
+MACRO {dec} {"d\'ec."}
+
+%</abr>
+%</!options&!driver>
+ % End module: french.mbs
+%    \end{macrocode}
+% \Finale

@@ -1,0 +1,308 @@
+%\iffalse         THIS IS A META COMMENT
+% File: italian.mbs
+% Copyright 1995-1999 Patrick W Daly
+% Max-Planck-Institut f\"ur Aeronomie
+% Max-Planck-Str. 2
+% D-37191 Katlenburg-Lindau
+% Germany
+% E-mail: daly@linmpi.mpg.de
+%
+% This program can be redistributed and/or modified under the terms
+% of the LaTeX Project Public License Distributed from CTAN
+% archives in directory macros/latex/base/lppl.txt; either
+% version 1 of the License, or any later version.
+%
+% It is part of the custom-bib collection,
+%   a contribution to the LaTeX2e system.
+%====================================================================
+%       A Language Definition File:  ITALIAN
+%     to be included with other master bibliography style files
+%--------------------------------------------------------------------
+%   (See version and date in the \ProvidesFile command below)
+%--------------------------------------------------------------------
+%    This file is self-documenting: simply LaTeX it!
+%====================================================================
+%
+ %-------------------------------------------------------------------
+ % Begin module:
+%\fi
+ % \ProvidesFile{italian.mbs}[2003/11/06 4.2 (PWD/GP)] 
+%\iffalse
+%<*a&!a>
+% The following ensures that the driver part is not seen by makebst
+% The driver part must not contain any \end other than \end{document} !
+\ifx\endoptions\undefined\let\tempx=\relax\else
+  \long\def\tempx#1\end#2{}\fi\tempx
+%</a&!a>
+%<*driver>
+   \NeedsTeXFormat{LaTeX2e}%
+   \documentclass[a4paper,10pt,twoside]{article}%
+   \usepackage{doc}%
+   \raggedbottom
+   \CodelineNumbered
+   \RecordChanges
+ %  Comment out next line to print coding
+   \OnlyDescription
+   \setlength{\oddsidemargin}{0.5\paperwidth}
+   \addtolength{\oddsidemargin}{-0.5\textwidth}
+   \addtolength{\oddsidemargin}{-1in}
+   \setlength{\evensidemargin}{\oddsidemargin}
+
+\begin{document}
+   \DocInput{italian.mbs}
+\end{document}
+%</driver>
+%                   END OF META COMMENT   \fi
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \setcounter{StandardModuleDepth}{1}
+% \setcounter{IndexColumns}{2}
+% \setlength{\IndexMin}{10cm}
+%
+% \changes{1.1}{1998 Aug 17}{Add \texttt{bbl.etal}}
+% \changes{1.2}{1999 Feb 1}{Add option \texttt{xedn}}
+% \changes{1.2}{1999 Feb 24}{Update copyright notice}
+% \changes{4.0}{1999 Oct 11}{For merlin 4.0}
+% \changes{4.0a}{2002 Oct 18}{Fix bug in page number suppression}
+% \changes{4.2}{2003 Nov 6}{Fix comma separator, consistent with \texttt{makebst} 4.1}
+%
+% \pagestyle{myheadings}
+% \markboth{Giovanni Pensa}{Italian Bibliographies}
+%
+% \title{{\bfseries Italian Language Definition File}\\
+%      for master bibliographic style files}
+%
+% \author{Patrick W. Daly \and Giovanni Pensa}
+%
+% \GetFileInfo{italian.mbs}
+% \date{This paper describes file \texttt{\filename},\\
+%  version \fileversion{} from \filedate}
+%
+% \maketitle
+%
+% \MakeShortVerb{\|}
+%
+% \parskip=1ex \parindent=0pt
+%
+% \newcommand{\btx}{{\sc Bib}\TeX}
+% \newcommand{\dtx}{\textsf{docstrip}}
+%
+% \section{Introduction}
+% This file is to be used as a language definition file with master
+% bibliographic files. The language it defines is
+% \begin{quote}\bfseries Italian\end{quote}
+%
+% This is not a self-sufficient \texttt{.mbs} file, but rather may
+% be used together with one that contains language support via
+% external definition files.
+%
+% See the documentation for \texttt{makebst} for formatting details.
+%
+% \section{The Menu Information}
+%
+% All the menu information is nested between \dtx{} guard options
+% |%<*options>| \dots\ |%</options>|, and the last command is
+% |\endoptions|. The rest of the file is nested between |%<*!options&!driver>|
+% \dots\ |%</!options&!driver>| in order to exclude it if \dtx{} is used to
+% extract only the menu information or the documentation driver.
+%
+%    \begin{macrocode}
+%<*options>
+\mes{^^JOptions for ITALIAN}
+\wr{\spsp\spsp italian,\pc: Italian language}
+
+\beginoptiongroup{ABBREVIATE WORD `PAGINE':}{}
+\optdef{*}{}{`Pagina/e'}{(no abbreviation)}
+\optdef{a}{pp}{`Pagina' abbreviated}{as pag.}
+\optdef{x}{ppx}{`Pagina' omitted}{}
+\getans
+\endoptiongroup
+\beginoptiongroup{ABBREVIATE WORD `CURATORI':}{}
+\optdef{*}{}{`Curatore/i'}{(no abbreviation)}
+\optdef{a}{ed}{`Curatore' abbreviated}{as cur.}
+\getans
+\endoptiongroup
+\beginoptiongroup{OTHER ABBREVIATIONS:}{}
+\optdef{*}{}{No abbreviations}{of volume, edizione, capitolo, etc}
+\optdef{a}{abr}{Abbreviations}{of such words}
+\getans
+\endoptiongroup
+\beginoptiongroup{EDITION NUMBERS:}{}
+\optdef{*}{xedn}{Editions as in database}{saving much processing memory}
+\optdef{w}{}{Write out editions}{as prima, seconda, terza, etc}
+\optdef{n}{ord}{Numerical editions}{as 1a, 2a, 3a, etc}
+\getans
+\endoptiongroup
+\endoptions
+%</options>
+%    \end{macrocode}
+%
+% \StopEventually{\PrintChanges}
+%
+% \section{The Coding}
+%    \begin{macrocode}
+%<*!options&!driver>
+
+ % The language selected here is ITALIAN
+FUNCTION {bbl.and}
+{ "e" }
+
+FUNCTION {bbl.etal}
+{ "et~al." }
+
+FUNCTION {bbl.editors}
+%<!ed>{ "curatori" }
+%<ed>{ "cur." }
+
+FUNCTION {bbl.editor}
+%<!ed>{ "curatore" }
+%<ed>{ "cur." }
+
+FUNCTION {bbl.edby}
+{ "curato da" }
+
+FUNCTION {bbl.edition}
+%<!abr>{ "edizione" }
+%<abr>{ "ed." }
+
+FUNCTION {bbl.volume}
+%<!abr>{ "volume" }
+%<abr>{ "vol." }
+
+FUNCTION {bbl.of}
+{ "di" }
+
+FUNCTION {bbl.number}
+%<!abr>{ "numero" }
+%<abr>{ "no." }
+
+FUNCTION {bbl.nr}
+{ "no." }
+
+FUNCTION {bbl.in}
+{ "in" }
+
+FUNCTION {bbl.pages}
+%<!pp&!ppx>{ "pagine" }
+%<pp>{ "pp." }
+%<!pp&ppx>{ "" }
+
+FUNCTION {bbl.page}
+%<!pp&!ppx>{ "pagina" }
+%<pp>{ "p." }
+%<!pp&ppx>{ "" }
+
+%<*revdata>
+FUNCTION {bbl.eidpp}
+{ "pagine" }
+
+%</revdata>
+FUNCTION {bbl.chapter}
+%<!abr>{ "capitolo" }
+%<abr>{ "cap." }
+
+FUNCTION {bbl.techrep}
+%<!abr>{ "Rapporto Tecnico" }
+%<abr>{ "Rap. Tecn." }
+
+FUNCTION {bbl.mthesis}
+{ "Tesi di laurea" }
+
+FUNCTION {bbl.phdthesis}
+{ "Tesi di dottorato" }
+
+%<*!xedn>
+FUNCTION {bbl.first}
+%<!ord>{ "Prima" }
+%<ord>{ "1a" }
+
+FUNCTION {bbl.second}
+%<!ord>{ "Seconda" }
+%<ord>{ "2a" }
+
+FUNCTION {bbl.third}
+%<!ord>{ "Terza" }
+%<ord>{ "3a" }
+
+FUNCTION {bbl.fourth}
+%<!ord>{ "Quarta" }
+%<ord>{ "4a" }
+
+FUNCTION {bbl.fifth}
+%<!ord>{ "Quinta" }
+%<ord>{ "5a" }
+
+FUNCTION {bbl.th}
+{ "a" }
+
+%</!xedn>
+%<*!abr>
+MACRO {jan} {"gennaio"}
+
+MACRO {feb} {"febbraio"}
+
+MACRO {mar} {"marzo"}
+
+MACRO {apr} {"aprile"}
+
+MACRO {may} {"maggio"}
+
+MACRO {jun} {"giugno"}
+
+MACRO {jul} {"luglio"}
+
+MACRO {aug} {"agosto"}
+
+MACRO {sep} {"settembre"}
+
+MACRO {oct} {"ottobre"}
+
+MACRO {nov} {"novembre"}
+
+MACRO {dec} {"dicembre"}
+
+%</!abr>
+%<*abr>
+MACRO {jan} {"gen."}
+
+MACRO {feb} {"feb."}
+
+MACRO {mar} {"mar."}
+
+MACRO {apr} {"apr."}
+
+MACRO {may} {"mag"}
+
+MACRO {jun} {"giu."}
+
+MACRO {jul} {"lug."}
+
+MACRO {aug} {"ago."}
+
+MACRO {sep} {"set."}
+
+MACRO {oct} {"ott."}
+
+MACRO {nov} {"nov."}
+
+MACRO {dec} {"dic."}
+
+%</abr>
+%</!options&!driver>
+ % End module: italian.mbs
+%    \end{macrocode}
+% \Finale

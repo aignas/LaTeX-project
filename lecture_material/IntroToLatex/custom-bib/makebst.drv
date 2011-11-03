@@ -1,0 +1,45 @@
+%%
+%% This is file `makebst.drv',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% makebst.dtx  (with options: `driver')
+%% ============================================
+%% This is the driver file to produce the LaTeX documentation
+%% from the original source file makebst.dtx.
+%% 
+%% Make changes to it as needed. (Never change the file makebst.dtx!)
+%% ============================================
+%% Copyright 1993-2003 Patrick W Daly
+%% Max-Planck-Institut f\"ur Aeronomie
+%% Max-Planck-Str. 2
+%% D-37191 Katlenburg-Lindau
+%% Germany
+%% E-mail: daly@linmpi.mpg.de
+%%
+%% With additions by Arthur Ogawa
+%% E-mai: ogawa@teleport.com
+%%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN
+%% archives in directory macros/latex/base/lppl.txt; either
+%% version 1 of the License, or any later version.
+%%
+%% This is a contributed file to the LaTeX2e system.
+%% -------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\documentclass{ltxdoc}
+%\EnableCrossrefs %Comment out when .ind file ready
+  \DisableCrossrefs %May stay; zapped by \EnableCrossrefs
+%\RecordChanges %Comment out when .gls file ready
+%\CodelineIndex %Comment out when .ind file ready
+  \CodelineNumbered %May stay
+%\OnlyDescription
+\begin{document}
+   \DocInput{makebst.dtx}
+\end{document}
+%% 
+%% End of documentation driver file.
+%%
+%% End of file `makebst.drv'.

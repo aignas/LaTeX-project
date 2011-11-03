@@ -1,0 +1,310 @@
+%\iffalse         THIS IS A META COMMENT
+% File: esperant.mbs
+% Copyright 1995-1999 Patrick W Daly
+% Max-Planck-Institut f\"ur Aeronomie
+% Max-Planck-Str. 2
+% D-37191 Katlenburg-Lindau
+% Germany
+% E-mail: daly@linmpi.mpg.de
+%
+% This program can be redistributed and/or modified under the terms
+% of the LaTeX Project Public License Distributed from CTAN
+% archives in directory macros/latex/base/lppl.txt; either
+% version 1 of the License, or any later version.
+%
+% It is part of the custom-bib collection,
+%   a contribution to the LaTeX2e system.
+%====================================================================
+%       A Language Definition File:  ESPERANTO
+%     to be included with other master bibliography style files
+%--------------------------------------------------------------------
+%   (See version and date in the \ProvidesFile command below)
+%--------------------------------------------------------------------
+%    This file is self-documenting: simply LaTeX it!
+%====================================================================
+%
+ %-------------------------------------------------------------------
+ % Begin module:
+%\fi
+ % \ProvidesFile{esperant.mbs}[2003/11/06 4.2 (PWD)]
+%\iffalse
+%<*a&!a>
+% The following ensures that the driver part is not seen by makebst
+% The driver part must not contain any \end other than \end{document} !
+\ifx\endoptions\undefined\let\tempx=\relax\else
+  \long\def\tempx#1\end#2{}\fi\tempx
+%</a&!a>
+%<*driver>
+   \NeedsTeXFormat{LaTeX2e}%
+   \documentclass[a4paper,10pt,twoside]{article}%
+   \usepackage{doc}%
+   \raggedbottom
+   \CodelineNumbered
+   \RecordChanges
+ %  Comment out next line to print coding
+   \OnlyDescription
+   \setlength{\oddsidemargin}{0.5\paperwidth}
+   \addtolength{\oddsidemargin}{-0.5\textwidth}
+   \addtolength{\oddsidemargin}{-1in}
+   \setlength{\evensidemargin}{\oddsidemargin}
+
+\begin{document}
+   \DocInput{esperant.mbs}
+\end{document}
+%</driver>
+%                   END OF META COMMENT   \fi
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \setcounter{StandardModuleDepth}{1}
+% \setcounter{IndexColumns}{2}
+% \setlength{\IndexMin}{10cm}
+%
+% \changes{1.0}{1995 Mar 15}{Initial version}
+% \changes{1.1}{1995 May 4}{Do no abbreviate `edited by'}
+% \changes{1.2}{1998 Aug 17}{Add \texttt{bbl.etal}}
+% \changes{1.3}{1999 Feb 1}{Add option \texttt{xedn}}
+% \changes{1.3}{1999 Feb 24}{Update copyright notice}
+% \changes{4.0}{1999 Oct 11}{For merlin 4.0}
+% \changes{4.0a}{2002 Oct 18}{Fix bug in page number suppression}
+% \changes{4.2}{2003 Nov 6}{Fix comma separator, consistent with \texttt{makebst} 4.1}
+%
+% \pagestyle{myheadings}
+% \markboth{P. W. Daly}{Esperanto Bibliographies}
+%
+% \title{{\bfseries Esperanto Language Definition File}\\
+%      for master bibliographic style files}
+%
+% \author{Patrick W. Daly}
+%
+% \GetFileInfo{esperant.mbs}
+% \date{This paper describes file \texttt{\filename},\\
+%  version \fileversion{} from \filedate}
+%
+% \maketitle
+%
+% \MakeShortVerb{\|}
+%
+% \parskip=1ex \parindent=0pt
+%
+% \newcommand{\btx}{{\sc Bib}\TeX}
+% \newcommand{\dtx}{\textsf{docstrip}}
+%
+% \section{Introduction}
+% This file is to be used as a language definition file with master
+% bibliographic files. The language it defines is
+% \begin{quote}\bfseries Esperanto\end{quote}
+%
+% This is not a self-sufficient \texttt{.mbs} file, but rather may
+% be used together with one that contains language support via
+% external definition files.
+%
+% See the documentation for \texttt{makebst} for formatting details.
+%
+% \section{The Menu Information}
+%
+% All the menu information is nested between \dtx{} guard options
+% |%<*options>| \dots\ |%</options>|, and the last command is
+% |\endoptions|. The rest of the file is nested between |%<*!options&!driver>|
+% \dots\ |%</!options&!driver>| in order to exclude it if \dtx{} is used to
+% extract only the menu information or the documentation driver.
+%
+%    \begin{macrocode}
+%<*options>
+\mes{^^JOptions for ESPERANTO}
+\wr{\spsp\spsp esperanto,\pc: Esperanto language}
+
+\beginoptiongroup{ABBREVIATE WORD `PAGES':}{}
+\optdef{*}{}{`Pa^go(j)'}{(no abbreviation)}
+\optdef{a}{pp}{`Pa^go' abbreviated}{as p. or pp.}
+\optdef{x}{ppx}{`Pa^goj' omitted}{}
+\getans
+\endoptiongroup
+\beginoptiongroup{ABBREVIATE WORD `EDITORS':}{}
+\optdef{*}{}{`Redaktoro{j}'}{(no abbreviation)}
+\optdef{a}{ed}{`Redaktoro' abbreviated}{as red-o or red-oj}
+\getans
+\endoptiongroup
+\beginoptiongroup{OTHER ABBREVIATIONS:}{}
+\optdef{*}{}{No abbreviations}{of volumo, eldono, ^capitro, etc}
+\optdef{a}{abr}{Abbreviations}{of such words}
+\getans
+\endoptiongroup
+\beginoptiongroup{EDITION NUMBERS:}{}
+\optdef{*}{xedn}{Editions as in database}{saving much processing memory}
+\optdef{w}{}{Write out editions}{as unua, dua, tria, etc}
+\optdef{n}{ord}{Numerical editions}{as 1-a, 2-a, 3-a, etc}
+\getans
+\endoptiongroup
+\endoptions
+%</options>
+%    \end{macrocode}
+%
+% \StopEventually{\PrintChanges}
+%
+% \section{The Coding}
+%    \begin{macrocode}
+%<*!options&!driver>
+
+ % The language selected here is ESPERANTO
+FUNCTION {bbl.and}
+{ "kaj"}
+
+FUNCTION {bbl.etal}
+{ "et~al." }
+
+FUNCTION {bbl.editors}
+%<!ed>{ "redaktoroj" }
+%<ed>{ "red-oj" }
+
+FUNCTION {bbl.editor}
+%<!ed>{ "redaktoro" }
+%<ed>{ "red-o" }
+
+FUNCTION {bbl.edby}
+{ "redaktita de" }
+
+FUNCTION {bbl.edition}
+%<!abr>{ "eldono" }
+%<abr>{ "eld-o" }
+
+FUNCTION {bbl.volume}
+%<!abr>{ "volumo" }
+%<abr>{ "vol-o" }
+
+FUNCTION {bbl.of}
+{ "el" }
+
+FUNCTION {bbl.number}
+%<!abr>{ "numero" }
+%<abr>{ "n-ro" }
+
+FUNCTION {bbl.nr}
+{ "n-ro" }
+
+FUNCTION {bbl.in}
+{ "en" }
+
+FUNCTION {bbl.pages}
+%<!pp&!ppx>{ "pa\^goj" }
+%<pp>{ "pp." }
+%<!pp&ppx>{ "" }
+
+FUNCTION {bbl.page}
+%<!pp&!ppx>{ "pa\^go" }
+%<pp>{ "p\^g" }
+%<!pp&ppx>{ "" }
+
+%<*revdata>
+FUNCTION {bbl.eidpp}
+{ "pa\^goj" }
+
+%</revdata>
+FUNCTION {bbl.chapter}
+%<!abr>{ "\^capitro" }
+%<abr>{ "\^cap-o" }
+
+FUNCTION {bbl.techrep}
+%<!abr>{ "Teknica Raporto" }
+%<abr>{ "Tek-a Rap-o" }
+
+FUNCTION {bbl.mthesis}
+{ "Magistra tezo" }
+
+FUNCTION {bbl.phdthesis}
+{ "Doktora tezo" }
+
+%<*!xedn>
+FUNCTION {bbl.first}
+%<!ord>{ "Unua" }
+%<ord>{ "1-a" }
+
+FUNCTION {bbl.second}
+%<!ord>{ "Dua" }
+%<ord>{ "2-a" }
+
+FUNCTION {bbl.third}
+%<!ord>{ "Tria" }
+%<ord>{ "3-a" }
+
+FUNCTION {bbl.fourth}
+%<!ord>{ "Kvara" }
+%<ord>{ "4-a" }
+
+FUNCTION {bbl.fifth}
+%<!ord>{ "Kvina" }
+%<ord>{ "5-a" }
+
+FUNCTION {bbl.th}
+{ "-a" }
+
+%</!xedn>
+%<*!abr>
+MACRO {jan} {"januaro"}
+
+MACRO {feb} {"februaro"}
+
+MACRO {mar} {"marto"}
+
+MACRO {apr} {"aprilo"}
+
+MACRO {may} {"majo"}
+
+MACRO {jun} {"junio"}
+
+MACRO {jul} {"julio"}
+
+MACRO {aug} {"a\u{u}gusto"}
+
+MACRO {sep} {"septembro"}
+
+MACRO {oct} {"oktobro"}
+
+MACRO {nov} {"novembro"}
+
+MACRO {dec} {"decembro"}
+
+%</!abr>
+%<*abr>
+MACRO {jan} {"jan."}
+
+MACRO {feb} {"feb."}
+
+MACRO {mar} {"mar."}
+
+MACRO {apr} {"apr."}
+
+MACRO {may} {"maj."}
+
+MACRO {jun} {"jun."}
+
+MACRO {jul} {"jul."}
+
+MACRO {aug} {"a\u{u}g."}
+
+MACRO {sep} {"sep."}
+
+MACRO {oct} {"okt."}
+
+MACRO {nov} {"nov."}
+
+MACRO {dec} {"dec."}
+
+%</abr>
+%</!options&!driver>
+ % End module: esperant.mbs
+%    \end{macrocode}
+% \Finale

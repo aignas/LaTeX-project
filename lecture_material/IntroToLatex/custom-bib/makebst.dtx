@@ -1,0 +1,1247 @@
+%\iffalse
+%<*dtx>
+\ProvidesFile
+%========================================================================
+                        {MAKEBST.DTX}
+%========================================================================
+%</dtx>
+%% Copyright 1993-2003 Patrick W Daly
+%% Max-Planck-Institut f\"ur Aeronomie
+%% Max-Planck-Str. 2
+%% D-37191 Katlenburg-Lindau
+%% Germany
+%% E-mail: daly@linmpi.mpg.de
+%%
+%% With additions by Arthur Ogawa
+%% E-mai: ogawa@teleport.com
+%%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN
+%% archives in directory macros/latex/base/lppl.txt; either
+%% version 1 of the License, or any later version.
+%%
+%% This is a contributed file to the LaTeX2e system.
+%% -------------------------------------------------
+%  This is a (La)TeX program that generates docstrip batch jobs
+%    that may be used to produce customized bibliographic style files.
+%     Docstrip options available:
+%        program - to generate the program file, makebst.tex
+%        optlist - (with program) to list unused options in .dbj file
+%        optverbose - (with program and optlist) to add verbose comments to .dbj file
+%        driver  - to produce a LaTeX2e driver file to print the documentation
+%  Installation:
+%    LaTeX this file: ==> docstrip installation file makebst.ins
+%                         AND the (LaTeX2e) documentation
+%    (La)TeX makebst.ins: ==> `program' file makebst.tex
+%    (makebst.ins may be edited as needed)
+%-------------------------------------------------------------------
+%<program>\def\ProvidesFile#1 [#2 #3 #4]{\def\filename{#1}%
+%<program>  \def\fileversion{#3}\def\filedate{#2}}
+%<*program>
+%\fi
+ \ProvidesFile{makebst}
+    [2003/09/08 4.1 (PWD, AO)]
+%\iffalse
+%  Here follows abbreviated usage description for the stripped version
+ % This file is to be run under TeX (or even LaTeX)
+ % It interactively asks questions about the bibliographic style file
+ % that you want to produce. When it is finished, it writes a docstrip
+ % driver file that produces that .bst file from the generic .mbs that
+ % you specified; optionally, it will call the docstrip run immediately.
+ % For details, read the documentation in the source file makebst.dtx.
+ %--------------------------------------------------------------------
+%</program>
+%\fi
+% \changes{1.0}{1993 Aug 17}{Initial version}
+% \changes{1.1}{1994 May 25}{Change extensions to avoid \LaTeXe\ conflicts}
+% \changes{2.0}{1994 Jul 01}{Update documentation to \LaTeXe}
+% \changes{2.1}{1994 Dec 29}{Add the \texttt{optlist} option}
+% \changes{2.1}{1995 Jan 2}{Read \texttt{.opt} file only exceptionally}
+% \changes{3.0}{1995 Mar 15}{Allow \texttt{.mbs} files more freedom, to
+%        include other files, for example}
+% \changes{3.1}{1997 Apr 29}{Conform (optionally) to \texttt{docstrip} 2.4g}
+% \changes{3.2}{1999 Feb 24}{Update copyright notice}
+% \changes{4.0}{1999 Jul 20}{AO: show all choices in output file}
+% \changes{4.1}{2003 Sep 8}{PWD: Conform to \texttt{docstrip} 2.4}
+%
+% \CheckSum{698}
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+%\iffalse
+%<*install>
+%^^A =============================================
+%^^A    Here is the docstrip installation file
+%^^A    It is written on first LaTeX run
+%^^A =============================================
+\begin{filecontents}{makebst.ins}
+% Simply TeX or LaTeX this file to extract various files from
+%  the source file `makebst.dtx'
+
+% This installation file works with docstrip 2.4 or later.
+
+\input docstrip
+
+\preamble
+=============================================
+IMPORTANT NOTICE:
+This is a generated file.
+
+It is subject to the same copyright conditions (see below)
+as in the original file: \inFileName.
+It may not be distributed without \inFileName.
+
+Full documentation can be obtained by LaTeXing that original file.
+Only a few abbreviated comments remain here to describe the usage.
+=============================================
+\endpreamble
+\postamble
+<<<<< End of generated file <<<<<<
+\endpostamble
+\keepsilent
+\askforoverwritefalse
+
+\generate{\file{makebst.tex}{\from{makebst.dtx}{program,%
+% Three variants on makebst.tex; select following options.
+% 1. the .dbj file contains by default only the list of selected options
+%    (Select none of the following)
+% 2. the .dbj file contains by default a list of all offered options,
+%    with the non-selected ones commented out, add next option.
+  optlist,%
+% 3. as above but with full comments added for each option, add next option.
+%  optverbose%
+}}}
+
+\preamble
+============================================
+This is the driver file to produce the LaTeX documentation
+from the original source file \inFileName.
+
+Make changes to it as needed. (Never change the file \inFileName!)
+============================================
+\endpreamble
+\postamble
+
+End of documentation driver file.
+\endpostamble
+
+\generate{\file{makebst.drv}{\from{makebst.dtx}{driver}}}
+\endbatchfile
+
+\obeyspaces
+\Msg{******************************************}%
+\Msg{* For documentation, process makebst.dtx *}%
+\Msg{*    or the driver file      makebst.drv *}%
+\Msg{******************************************}
+\end{filecontents}
+%</install>
+%<*driver>
+\NeedsTeXFormat{LaTeX2e}
+\documentclass{ltxdoc}
+%<driver>%\EnableCrossrefs %Comment out when .ind file ready
+  \DisableCrossrefs %May stay; zapped by \EnableCrossrefs
+%<driver>%\RecordChanges %Comment out when .gls file ready
+%<driver>%\CodelineIndex %Comment out when .ind file ready
+  \CodelineNumbered %May stay
+%<driver>%\OnlyDescription
+\begin{document}
+   \DocInput{makebst.dtx}
+\end{document}
+%</driver>
+%\fi
+%
+% \DoNotIndex{\begin,\CodelineIndex,\CodelineNumbered,\def,\DisableCrossrefs}
+% \DoNotIndex{\DocInput,\documentclass,\EnableCrossrefs,\end,\GetFileInfo}
+% \DoNotIndex{\NeedsTeXFormat,\OnlyDescription,\RecordChanges,\usepackage}
+% \DoNotIndex{\ProvidesClass,\ProvidesPackage,\ProvidesFile,\RequirePackage}
+% \DoNotIndex{\LoadClass,\PassOptionsToClass,\PassOptionsToPackage}
+% \DoNotIndex{\DeclareOption,\CurrentOption,\ProcessOptions,\ExecuteOptions}
+% \DoNotIndex{\AtEndOfClass,\AtEndOfPackage,\AtBeginDocument,\AtEndDocument}
+% \DoNotIndex{\InputIfFileExists,\IfFileExists,\ClassError,\PackageError}
+% \DoNotIndex{\ClassWarning,\PackageWarning,\ClassWarningNoLine}
+% \DoNotIndex{\PackageWarningNoLine,\ClassInfo,\PackageInfo,\MessageBreak}
+% \DoNotIndex{\space,\protect,\DeclareRobustCommand,\CheckCommand}
+% \DoNotIndex{\newcommand,\renewcommand,\providecommand,\newenvironment}
+% \DoNotIndex{\renewenvironment,\newif,\newlength,\newcounter,\setlength}
+% \DoNotIndex{\setcounter,\if,\ifx,\ifcase,\ifnum,\ifdim,\else,\fi}
+% \DoNotIndex{\texttt,\textbf,\textrm,\textsl,\textsc}
+% \DoNotIndex{\textup,\textit,\textmd,\textsf,\emph}
+% \DoNotIndex{\ttfamily,\rmfamily,\sffamily,\mdseries,\bfseries,\upshape}
+% \DoNotIndex{\slshape,\scshape,\itshape,\em,\LaTeX,\LaTeXe}
+% \DoNotIndex{\filename,\fileversion,\filedate,\let,\empty}
+% \DoNotIndex{\%,\(,\),\{,\},\@,\@@end,\^,\batchfile,\begingroup,\catcode}
+% \DoNotIndex{\closein,\closeout,\csname,\day,\divide,\edef,\endcsname}
+% \DoNotIndex{\endgroup,\endinput,\endpostamble,\endpreamble,\expandafter}
+% \DoNotIndex{\from,\gdef,\generateFile,\generate,\global,\hours,\ifeof,\immediate}
+% \DoNotIndex{\input,\keepsilent,\loop,\month,\multiply,\newcount}
+% \DoNotIndex{\newlinechar,\newread,\newwrite,\number,\openin,\openout}
+% \DoNotIndex{\or,\par,\postamble,\preamble,\read,\relax,\repeat,\string}
+% \DoNotIndex{\temp,\time,\undefined,\write,\year}
+% \DoNotIndex{\advance,\today,\minutes,\aftergroup,\askforoverwrite}
+% \DoNotIndex{\endbatchfile}
+%
+% \setcounter{IndexColumns}{2}
+% \setlength{\IndexMin}{10cm}
+% \setcounter{StandardModuleDepth}{1}
+%
+% \GetFileInfo{makebst}
+% \newcommand\theprog{\texttt{\filename}}
+%
+% \title{\bfseries Customizing Bibliographic Style Files}
+%
+% \author{Patrick W. Daly}
+%
+% \date{This paper describes program \theprog\\
+%       version \fileversion{} from \filedate
+%   \thanks{Work on \texttt{custom-bib}~4.00 was supported by the
+%          American Physical Society}\\[1ex]
+%       (including additions by Arthur Ogawa, \texttt{ogawa@teleport.com})
+%  }
+%
+% \maketitle
+%
+%^^A In order to keep all marginal notes on the one (left) side:
+%^^A (otherwise they switch sides disastrously with twoside option)
+% \makeatletter \@mparswitchfalse \makeatother
+%
+% \pagestyle{myheadings}
+% \markboth{P. W. DALY}{CUSTOMIZING BIBLIOGRAPHIES}
+%
+% \newcommand{\btx}{\textsc{Bib}\TeX}
+% \newcommand{\dtx}{\textsf{docstrip}}
+%
+% \parskip=1ex \parindent=0pt
+%
+% \section{Introduction}
+% This \TeX{} program is meant to be used together with generic
+% bibliographic style files to produce customized \texttt{.bst} files for
+% running with \btx. The generic, or master file, can be processed by
+% \dtx{} with selected options to achieve the desired bibliographic
+% style. To this end, a \dtx{} batch job should be made up.
+% However, because of the large number of options available, an
+% interactive, dialogue system would be more convenient.
+%
+% This program, \theprog, accomplishes this goal.
+% It defines macros to establish such a \dtx{} batch job file, and
+% to organize a menu of options. The menu information is contained,
+% however, in the master file itself, since the two are intimately related.
+% Thus different master files with totally different option structures may
+% be accommodated.
+%
+% The batch job could in fact be made up with an editor without calling
+% \theprog, but this program does simplify the task.
+%
+% Incidentally, the \dtx{} run can only be carried out by means of
+% a batch job. Running \dtx{} interactively inserts default pre- and
+% postambles in the text, the latter including an |\endinput| command that
+% \btx{} will not understand.
+%
+% \section{The Master File}
+% The master file is a \btx{} bibliographic style file containing
+% alternative coding depending on \dtx{} options. The options are
+% selected when \dtx{} is run, either interactively or through a
+% batch job.
+%
+% Suppose that one of the options is called \texttt{xyz}. Then the following
+% alternatives are possible:
+% \begin{quote}
+% |%<xyz> | \em one line of coding
+% \end{quote}
+% \emph{includes} the single line of coding;
+% \begin{quote}
+% |%<!xyz> | \em one line of coding
+% \end{quote}
+% \emph{excludes} the single line;
+% \begin{quote}
+% |%<*xyz> | \\
+% \emph{several lines of coding}\\
+% |%</xyz> |
+% \end{quote}
+% \emph{includes} all the bracketed lines;
+% \begin{quote}
+% |%<*!xyz> | \\
+% \emph{several lines of coding}\\
+% |%</!xyz> |
+% \end{quote}
+% \emph{excludes} all the bracketed lines.
+%
+% Options may be logically combined: the symbol \verb!|! is a logical
+% \textsf{or}, |&| a logical \textsf{and}, |!| a logical \textsf{not};
+% parentheses \texttt{(} and \texttt{)} may be used to group options.
+%
+% \subsection{Using with \dtx}
+% (The \dtx\ command syntax shown here is that for version~2.4 and later,
+% released December, 1996.)
+%
+% In order to generate a true \btx{} style file with selected options from
+% the master file, it is necessary to run a \dtx{} batch job.
+% Suppose that the master file is named \texttt{master.mbs}, the
+% resulting \btx{} style file is to be \texttt{silly.bst}, and the batch job
+% file itself is called \texttt{silly.dbj}. To produce this with options, say,
+% \texttt{xyz} and \texttt{abc}, the batch job would look something like:
+% \begin{quote}\begin{verbatim}
+% \input docstrip
+%
+% \preamble
+% This is for Journal of Silly Results
+% \endpreamble
+%
+% \postamble
+% End of customized bst file
+% \endpostamble
+%
+% \keepsilent
+%
+% \askforoverwritefalse
+%
+% \generate{\file{silly.bst}{\from{master.mbs}{xyz,abc}}}
+% \endbatchfile
+% \end{verbatim}
+% \end{quote}
+% A preamble is not necessary, although it is advisable to include some
+% statement about the application of the bibliographic style. A postamble
+% \emph{is} vital, otherwise the default will add |\endinput| at the end
+% of the file, something that \btx{} will not understand. The |\keepsilent|
+% is optional and just suppresses \dtx{} output during processing.
+% Similarly the |\askforoverwritefalse| suppresses the warning that a file of
+% the same name is to be overwritten.
+%
+% \subsection{The Menu File}
+% This program, \theprog, simplifies the creation of the batch job file. To
+% do that, it needs information on the available options. This information
+% must be stored in a special format, in the master file itself.
+% Alternatively, that information may be extracted and stored in a file
+% with the same root name but extension \texttt{.opt}. \textsl{This feature
+% is not recommended since it can lead to inconsistencies!}
+% The format of the menu information is illustrated below in
+% Section~\ref{sec:menu}.
+%
+% In the master file, this information must be enclosed within \dtx{}
+% options |%<*options>| \dots\ |%</options>| and \emph{must} be ended by an
+% |\endoptions| command. It may also include any number of comments.
+% The rest of the file must be enclosed within |%<*!options>| \dots\
+% |%</!options>| to exclude it when the menu information is extracted
+% with \dtx.
+%
+% A sample menu in the master file to select one or none of options
+% \texttt{xyz} \emph{or} \texttt{zyx} would look thus:
+% \begin{quote}\begin{verbatim}
+% %<*options>
+% \mes{Select one of these}
+% \optdef{f}{xyz}{Option forword}{to do forward stuff}
+% \optdef{r}{zyx}{Option reverse}{to do reverse stuff}
+% \optdef{*}{}{None of the above}{}
+% \getans
+% \endoptions
+% %</options>
+% %<*!options>
+% . . . . . .
+% %</!options>
+% \end{verbatim}
+% \end{quote}
+% An explanation of these commands is to be found in Section~\ref{sec:menu}.
+%
+% The menu information may be extracted from the master file by means of
+% \dtx{} and stored in a file with extension \texttt{.opt}. If this
+% file is present, \theprog{} offers to read it instead of the master file,
+% although this is \emph{not} recommended, as explained above.
+%
+%
+% \section{The Program \protect\theprog}
+%
+% \subsection{Installing \protect\theprog}
+%
+% The \theprog\ program comes as a documented source file named
+% \theprog\texttt{.dtx}, which needs to be processed by \dtx\ to extract the
+% actual `program' file \theprog\texttt{.tex}. The easiest way to do this is
+% simply to process the installation batch file \theprog\texttt{.ins} with
+% \TeX\ or \LaTeX, as
+% \begin{quote}
+% \texttt{tex} \theprog\texttt{.ins}\\
+% \hspace*{2em} or\\
+% \texttt{latex} \theprog\texttt{.ins}
+% \end{quote}
+%
+% There are in fact three variants of \theprog\ that may be extracted: the
+% basic one lists by default only those options that have been selected; the
+% more refined one (and the default) lists all options offered with the
+% rejected ones commented out; the third version also adds more detailed
+% comments. Even in the first two versions, the user will be asked
+% interactively if s/he wants the additional features of the others.
+%
+% One can select the variant by editing \theprog\texttt{.ins}.
+%
+% Another choice that can be made is whether the \texttt{.dbj} files are to
+% conform to \dtx\ version~2.4 syntax or not. By default,
+% \theprog\texttt{.ins} tests the current version and automatically
+% configures \theprog\texttt{.tex} to write the correct syntax. This too may
+% be overridden by editing \theprog\texttt{.ins}. (Note that the older syntax
+% is still understood by the newer version of \dtx.)
+%
+% Reminder: the older syntax requires |\def\batchfile|\marg{filename} as
+% the first line in a \dtx\ batch job, where \emph{filename} is the name of
+% the batch file itself. The newer syntax does not need this line, but
+% requires |\endbatchfile| at the very end instead. The advantage of the new
+% syntax is that one can edit and rename such a file without having to change
+% its name in the first line. The old syntax leads to great frustration if
+% one forgets to change \emph{filename}.
+%
+% Another difference in the syntaxes (actually introduced in version~2.3 in
+% June, 1996) is the use of the command |\generate| instead of
+% |\generateFile|. Its advantage is that it permits multiple files to be
+% extracted in one pass, something that is not exploited at all by \theprog.
+%
+% \subsection{Running \protect\theprog}
+% This is actually a \TeX{} program, although it will also run under \LaTeX.
+% In that sense, it is like \dtx{} itself.
+% Thus run the program with (something like)
+% \begin{quote}
+% \texttt{tex} \theprog\\
+% \hspace*{2em} or\\
+% \texttt{latex} \theprog
+% \end{quote}
+%
+% The program first asks for the name of the master file. This is
+% the file containing all possible bibliographic style commands, with
+% \dtx{} options for selective output. A default name is offered, as well
+% as a default extension (\texttt{.mbs}).
+%
+% Next, the program asks for the name of the output file, the \texttt{.bst}
+% file. The extension here is optional, defaulting to \texttt{.bst}. This name
+% also determines the name of the batch job file, which will have the same
+% root name with the extension \texttt{.dbj}, for the \emph{\dtx{} batch job}.
+%
+% The actual interrogation then begins. All the information for the menus
+% is contained in the master bibliographic style file.  The reason for this
+% is that the menu information must conform to the available options in the
+% master file, so it makes sense that one file should contain both. The
+% master file is only read up to the |\endoptions| command.
+%
+% Finally, the batch job file is closed, and the user is asked if it should
+% be run.  If he does not take up this
+% offer, or if he later edits the batch job, then it may be run manually
+% with (something like)
+% \begin{quote}\texttt{tex} \emph{bstname}\texttt{.dbj}\end{quote}
+%
+%
+% \section{The Menu Information\label{sec:menu}}
+% The set of questions in the interrogation must fit the available
+% options in the master file. For this reason, the menu information is
+% contained in the master file itself. The program \theprog{} supplies the
+% macros that are used in the menu file to simplify writing and processing
+% menu information.
+%
+% \DescribeMacro{\mes}
+% To print a message to the terminal, use |\mes|\marg{text}. A new line
+% may be forced within \emph{text} by means of |^^J|.
+%
+% \DescribeMacro{\ask}
+% To interrogate the user for a response, use |\ask{\|\emph{com}|}|\marg{text},
+% which writes \emph{text} to the terminal, and puts the
+% response in the command |\|\emph{com}.
+%
+% \DescribeMacro{\optdef}
+% Almost all interrogations will consist of a list of mutually exclusive
+% options, one of which is the default. For each item in the list, one must
+% specify the keyboard response that is to select it, the actual name of
+% the \dtx{} option that realizes it, and two pieces of explanatory
+% text. For example,
+% \begin{quote}
+% |\optdef{a}{abr}{Abbreviations}{of such words}|
+% \end{quote}
+% means that \texttt{abr} is the true \dtx{} option name that is
+% selected by typing \texttt{a}. The two explanatory texts are written to the
+% terminal immediately as part of the menu, but only the first text is
+% echoed when the selection is made (for confirmation) and is also written
+% to the batch job file (as comment).
+%
+% The default option must have the response |*|.
+%
+% A menu is written to the terminal, first with a |\mes| command to state
+% the subject matter, and then with a sequence of |\optdef| statements,
+% each of which also writes the texts to the terminal.
+% \DescribeMacro{\getans}
+% The response is then read in and processed with |\getans|, which writes
+% the reply to the command |\ans| and writes the appropriate \dtx{}
+% option to the batch job file. If the response does not correspond to any
+% of those in the menu list, it is set to {\tt*}; if there is no {\tt*}
+% in the list, then |\ans| is set to the last entry. The command |\ans|
+% is still available afterwards for any extra testing that might be needed.
+%
+% An example menu appears as follows:
+% \begin{quote}\begin{verbatim}
+% \mes{^^JJOURNAL VOLUME NUMBER:}
+% \optdef{*}{}{Volume plain}{as vol(num)}
+% \optdef{i}{vol-it}{Volume italic}%
+%        {as {\string\em\space vol}(num)}
+% \optdef{b}{vol-bf}{Volume bold}%
+%       {as {\string\bf\space vol}(num)}
+% \optdef{d}{vol-2bf}{Volume and number bold}%
+%       {as {\string\bf\space vol(num)}}
+% \getans
+% \end{verbatim}
+% \end{quote}
+%
+% \DescribeMacro{\beginoptiongroup}
+% Further structure for the interrogation is provided by the
+% |\beginoptiongroup| \dots |\endoptiongroup| sequence,
+% which should act as a container for the |\mes| \dots
+% |\optdef| \dots |\getans| commands described above.
+% For example:
+% \begin{quote}
+% \begin{verbatim}
+% \beginoptiongroup{JOURNAL VOLUME NUMBER:}{}
+% \optdef{*}{}{Volume plain}{as vol(num)}
+% \optdef{i}{vol-it}{Volume italic}%
+%        {as {\string\em\space vol}(num)}
+% \optdef{b}{vol-bf}{Volume bold}%
+%       {as {\string\bf\space vol}(num)}
+% \optdef{d}{vol-2bf}{Volume and number bold}%
+%       {as {\string\bf\space vol(num)}}
+% \getans
+% \endoptiongroup
+% \end{verbatim}
+% \end{quote}
+% presents the same effect as the previous example.
+% The virtue of the option group is in providing a single markup for all
+% interrogations and having a consistent appearance in the generated file.
+%
+% This feature has been added with version~4.0 of \theprog.
+%
+%
+% \section{More Complex Batch Jobs}
+% Version 3.0 of \theprog{} allows the master file to define more
+% sophisticated batch jobs, such as additional master files with their own
+% options. This is made possible because the options are not written
+% directly in the |\generate| command, as in earlier versions, but to a
+% command |\MBopts|. The batch file then contains something like:
+% \begin{quote}
+% |\def\MBopts{\from|\marg{source.ext}|{%|\\
+% \hspace*{1em}\emph{lines from menu session}\\
+% | }}|\\
+% |\generate{\file|\marg{output.ext}|{\MBopts}}|
+% \end{quote}
+%
+% Normally the \emph{lines from menu session} contain just the \dtx{}
+% options. However, the master file could add other things to the
+% definition of |\MBopts|, even closing it and starting a new definition.
+% It just has to make sure that the braces are balanced.
+%
+% \DescribeMacro{\MBaskfile}
+% A number a macros are provided, which are used by \theprog{} itself, to
+% simplify making complex menus. To ask for the name of a file
+% interactively,
+% \begin{quote}
+% |\MBaskfile|\marg{Prompting text}\parg{root.ext}\marg{io}|\|\emph{fname}
+% \end{quote}
+% may be given, where \emph{root.ext} is the default name of the file,
+% \emph{io} is \texttt{i} (for input) if the file must already exist, and
+% |\|\emph{fname} is the command that receives the file name. The root name
+% will be in |\froot|, the extension in |\fext|.
+%
+% \DescribeMacro{\wr}
+% Text is written to the batch job file with
+% \begin{quote}
+% |\wr|\marg{text}
+% \end{quote}
+% Any commands in \emph{text} that are to be written literally must be
+% preceded by |\string|.
+%
+% \DescribeMacro{\MBswitch}
+% Since any braces in \emph{text} must be balanced, something special must
+% be done to permit them to be printed as normal characters. The command
+% |\MBswitch| accomplishes this; the parentheses \texttt{( )} replace |{ }|
+% as the delimiters. This should always be given within |\begingroup| \dots
+% |\endgroup|.
+%
+% As an example, suppose the master file contains only half the coding for
+% the \texttt{.bst} file, the other half being in one of several other
+% master files. We must prompt for this second file, include it for its
+% options, and make sure that |\MBopts| knows about it. The following code
+% in the master file will do this.
+% \begin{quote}
+% |\MBaskfile{Name of second master file}(aa.mbs)i\xfile|\\
+% |\begingroup\MBswitch|\\
+% |\wr(\string\MBopta})|\\
+% |\wr(\string\from{\xfile}{\string\MBoptb}})|\\
+% |\wr(\string\def\string\MBopta{\pc)|\\
+% |\endgroup|\\
+% \emph{regular menu information for first file}\\
+% |\begingroup\MBswitch|\\
+% |\wr(}\string\def\string\MBoptb{\pc)|\\
+% |\endgroup|\\
+% |\input\xfile\relax|\\
+% |\begingroup\MBswitch|\\
+% |\wr({\pc)|\\
+% |\endgroup|\\
+% |\endoptions|
+% \end{quote}
+%
+% The resulting \texttt{.dbj} file contains
+% \begin{quote}
+% |\def\MBopts{\from{first.mbs}{%|\\
+% |\MBopta}|\\
+% |\from{second.mbs}{\MBoptb}}|\\
+% |\def\MBopta{%|\\
+% \emph{first set of options}\\
+% |}\def\MBoptb{%|\\
+% \emph{second set of options}\\
+% |{%|\\
+% |  }}|\\
+% |\generate{\file{sample.bst}{\MBopts}}|
+% \end{quote}
+%
+% \StopEventually{\PrintIndex\PrintChanges}
+%
+% \section{Coding}
+% This section presents and explains the actual coding of the macros.
+% It is nested between |%<*program>| and |%</program>|, which
+% are indicators to \dtx{} that this coding belongs to the program
+% file.
+%
+% \subsection{Preliminaries}
+% The first thing is to open up i/o devices for communicating with the
+% terminal and files. (Some of this has been borrowed from \dtx{}.)
+% The terminal input and output are |\ttyin| and |\ttyout|
+% respectively, while the output file if |\outfile|.
+%    \begin{macrocode}
+%<*program>
+\newwrite\outfile
+\newread\ttyin
+\newread\infile
+\newwrite\ttyout
+%    \end{macrocode}
+% \begin{macro}{\mes}\begin{macro}{\wr}\begin{macro}{\umes}
+% \changes{4.0}{1999 July 20}{AO: define \cs{umes}}
+% The commands for outputting text are defined: |\mes| writes to the
+% terminal, |\wr| writes it argument directly to the output file,
+% while |\umes| writes to the terminal and adds its argument as a comment
+% to the output file.
+%    \begin{macrocode}
+\def\mes{\immediate\write\ttyout}
+\def\wr#1{\immediate\write\outfile{#1}}
+\def\umes#1{\mes{^^J#1}\wr{\pc#1}}%
+%    \end{macrocode}
+% \end{macro}\end{macro}\end{macro}
+%
+% To assist inserting new lines in the middle of text, define a newline
+% symbol.
+%    \begin{macrocode}
+\newlinechar=`\^^J
+%    \end{macrocode}
+%
+% \begin{macro}{\MBswitch}
+% \changes{3.0}{1995 Feb 5}{Add macro}
+% There are times when we need to write a line of code to the output file
+% with unbalanced braces in that line. (They are balanced in another line.)
+% Such lines are written with |\wr{...}|. If the braces in the argument are
+% not balanced, then there will be trouble. To get around this, change the
+% category codes of the braces to `other' and let parentheses take their
+% place.
+%    \begin{macrocode}
+\def\MBswitch{\catcode`\{=12 \catcode`\}=12
+              \catcode`\(=1 \catcode`\)=2\relax}
+%    \end{macrocode}
+% The way to employ this is as
+% \begin{quote}\begin{verbatim}
+% \begingroup\MBswitch
+% \wr(..{..)
+% \endgroup
+% \end{verbatim}
+% \end{quote}
+% \end{macro}
+%
+% \begin{macro}{\ask}
+% To get a response from the terminal, use |\ask|. However, there are some
+% complications here. If only carriage-return is pressed, then the response
+% command is equal to |\par|; for anything else, a typed-in text includes a
+% trailing blank. We must test for |\par| and remove the blank if it is
+% there.
+%    \begin{macrocode}
+\def\defpar{\par}
+\def\remblk#1 @@{#1}
+\def\ask#1#2{\mes{#2}\read\ttyin to #1\ifx#1\defpar\def#1{}\else
+   \edef#1{\expandafter\remblk#1@@}\fi}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\getroot}
+% \begin{macro}{\getext}
+% To parse the name of a file into root and extension, use commands
+% |\getroot| and |\getext|.
+%    \begin{macrocode}
+\def\groot#1.#2@@{#1}
+\def\getroot#1{\expandafter\groot#1.@@}
+\def\gext#1.#2.#3@@{#2}
+\def\getext#1{\expandafter\gext#1..@@}
+%    \end{macrocode}
+% \end{macro}\end{macro}
+%
+% \begin{macro}{\MBaskfile}
+% \changes{3.0}{1995 Feb 5}{Add macro to get a file name}
+% Several times it is necessary to ask for a file name interactively, and
+% maybe test if it exists. This might even be done in the \texttt{.mbs}
+% file, so provide a macro to simplify this task. The syntax is
+% \begin{quote}
+% |\MBaskfile|\marg{Prompting text}\parg{root.ext}\marg{io}|\|\emph{fname}
+% \end{quote}
+% where \emph{root.ext} is the default name for the file sought, and
+% |\|\emph{fname} is the command that contains the final file name. The
+% commands |\froot| and |\fext| will contain the root and extensions of the
+% file name, if they are needed for further parsing. If
+% \emph{io}=\texttt{i} (for input), then the resulting file must already
+% exist, else the macro loops again. If \emph{root} is blank, then only the
+% extension is given as default, but a file root name must be entered.
+%    \begin{macrocode}
+\def\MBaskfile#1(#2.#3)#4#5{%
+\loop
+  \def\ans{#2.#3}
+\if!#2!
+ \if!#3!\ask{#5}{#1}\fi
+  \ask{#5}{#1 (default extension=#3)}\else
+  \ask{#5}{#1 (default=\ans)}
+\fi
+  \ifx#5\empty \edef#5{\ans}\fi
+  \edef\froot{\getroot#5}
+  \edef\fext{\getext#5}
+  \ifx\fext\empty \def\fext{#3}\fi
+  \edef#5{\froot.\fext}
+\if#4i
+  \def\temp{Cannot find file `#5'}
+  \openin\infile#5\relax
+  \ifeof\infile \def\ans{}\fi \closein\infile
+\else
+ \def\temp{There is no default}
+ \ifx\froot\empty \def\ans{}\fi
+\fi
+  \ifx\ans\empty \mes{*** \temp}
+\repeat}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\pc}\begin{macro}{\pcpc}\begin{macro}{\spsp}
+% Now for some special commands to simplify outputting \% signs and double
+% spaces to the output file.
+%    \begin{macrocode}
+{\catcode`\%=12
+ \gdef\pc{%}
+ \gdef\pcpc{%% }
+}
+\def\spsp{\space\space}
+%    \end{macrocode}
+% \end{macro}\end{macro}\end{macro}
+%
+% \begin{macro}{\Now}
+% \changes{2.0}{1994 Jul 1}{Make \cmd{\today} output YYYY/MM/DD}
+% In order to date-and-time-stamp the resulting batch job file, we need
+% macros to produce the current date and time. (In \TeX{} there is no
+% |\today| command.)
+%    \begin{macrocode}
+\newcount\hours
+\newcount\minutes
+\def\SetTime{\hours=\time
+        \global\divide\hours by 60
+        \minutes=\hours
+        \multiply\minutes by 60
+        \advance\minutes by-\time
+        \global\multiply\minutes by-1 }
+\SetTime
+\def\now{\number\hours:\ifnum\minutes<10 0\fi\number\minutes}
+\def\today{\number\year/\ifnum\month<10 0\fi\number\month
+   /\ifnum\day<10 0\fi\number\day}
+\def\Now{\today\space at \now}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \subsection{Menu Macros}
+% \begin{macro}{\optdef}
+% \changes{4.0}{1999 July 20}{AO: save all of \cs{optdef}'s arguments}
+% For each menu, a general text is written with |\mes|, followed by a list
+% of available options. The information that will be needed is
+% \begin{enumerate}
+% \item the response letter to select the option,
+% \item the actual \dtx{} option name, as defined in the master
+%   bibliographic style file,
+% \item a piece of text that is printed in the menu list, to be echoed
+%   in confirmation of the choice, and also to be written to batch job file
+%   as a comment,
+% \item a second piece of text that is only written to the menu, to enhance
+%   the explanation.
+% \end{enumerate}
+% The true option name and the two pieces of text are stored as commands
+% prefixed by |\opt@|, |\txt@|, and |\cmt@| respectively, followed by the response
+% letter. Each option response letter is also stored in a list |\optlist|
+% which is initialized to empty. The commands
+% |\nxtopt| and |\rstopt| are used to extract the next and remaining
+% options from the list.
+%    \begin{macrocode}
+\def\optdef#1#2#3#4{%
+  \expandafter\def\csname opt@#1\endcsname{#2}%
+  \expandafter\def\csname txt@#1\endcsname{#3}%
+  \expandafter\def\csname cmt@#1\endcsname{#4}%
+  \edef\optlist{\optlist#1,}%
+  \def\OptAns{#1}%
+  \mes{(#1) #3\space #4}%
+}
+\def\optlist{}
+\def\nxtopt#1,#2@@{#1} \def\rstopt#1,#2@@{#2}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\getans}
+% \changes{2.1}{1994 Dec 29}{Allow for \texttt{optlist} option}
+% \changes{4.0}{1999 July 20}{AO: review \cs{optlist} forwards (FIFO)}
+% The user selection is read in with |\getans|, into the command |\ans|.
+% It then processes the response by first checking if there is an option
+% corresponding to it; if not, the response |\ans| is set to the default |*|.
+% If no star response exists, then it takes the last one entered as the default
+% response. It then calls |\wropt| to write the necessary \dtx{} option
+% and explanatory comment to the batch job file. Finally, it uses the
+% option list |\optlist| to clear all the |\opt@| commands. This last step
+% is necessary to avoid conflicts with previous menus: without it, a
+% response that is not in the current list might however exist from an
+% earlier menu.
+%
+% Note that prior to version~4.0 of this code, the |\optlist| was built
+% via head accretion and traversed from the head back, that is, in LIFO order.
+% As of version~4.0 it is processed in FIFO order.
+% This way, the comments in the |.dbj| file are in the same order as
+% the |\optdef| statements in the master file.
+% The flag character (to terminate parsing the |\optlist|) is now
+% a |%|$_{12}$, which cannot be entered as a response by the user, and is
+% appended to the list at the beginning of |\getans| processing.
+%    \begin{macrocode}
+\newif\ifsw
+\def\getans{%
+ \edef\optlist{\optlist\pc,}%
+ \ask{\ans}{\spsp Select:}%
+  \expandafter\ifx\csname opt@\ans\endcsname\relax
+  \def\ans{*}%
+ \fi
+ \expandafter\ifx\csname opt@\ans\endcsname\relax
+  \let\ans\OptAns
+ \fi
+  \edef\ansx{\csname opt@\ans\endcsname}
+  \swtrue \loop
+    \edef\temp{\expandafter\nxtopt\optlist@@}%
+    \edef\optlist{\expandafter\rstopt\optlist@@}%
+  \if\temp\pc\swfalse\else
+   \if\temp\ans
+    \wropt\ans
+   \else
+    \ifoptlist\wrxopt\temp\fi
+      \fi
+      \expandafter\let\csname opt@\temp\endcsname\relax
+    \fi
+  \ifsw \repeat
+ \def\optlist{}%
+ \ifoptverbose
+  \wr{\pc------\string\ans=\ans (==\ansx)-------}%
+ \else
+   \ifoptlist
+     \wr{\pc--------------------}%
+   \fi
+ \fi
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% A special request from Frank Mittelbach asks if a list of unused options
+% cannot be added to the batch job file, to assist editing it by hand. In
+% this way, one knows what the \dtx{} options are immediately without having to
+% search for them in the \texttt{.mbs} documentation.
+%
+% This feature was added in version~2.1, but by means of a \dtx\ option, so it
+% could be turned off if necessary. Thus the extracted \theprog\texttt{.tex}
+% file produced either the full list or only the selected options. Here `full
+% list' means only those options that were offered. Any options that were
+% conditionally offered, depending on previous selections, could be missing.
+%
+% For version~4.0, Arthur Ogawa changed this so that the full option list is
+% switched on with the |\ifoptlist| flag, and not by an option at \dtx\
+% extraction time. He also added an |\ifoptverbose| flag to include even more
+% comments in the \texttt{.dtx} file. The user is asked at run time if s/he
+% wants to activate these features.
+%
+% Furthermore, one can use the |\beginoptiongroup| \dots |\endoptiongroup|
+% idiom to handle cases where options should be offered only contingent upon
+% some condition. By doing so, the unused options are still presented
+% as comments in the batch job file, along with a comment showing the
+% dependency and a matching comment showing the scope.
+%
+% Finally, there are still \dtx\ options \texttt{optlist} and
+% \texttt{optverbose} which produce \theprog\texttt{.tex} with the
+% corresponding flags already set, in which case the features are always
+% activated and the user interrogation is suppressed.
+%
+% \begin{macro}{\wropt}
+% \changes{2.1}{1994 Dec 29}{Change \cs{temp} to \cs{tempx}}
+% \changes{4.0}{1999 July 20}{AO: output the \cs{cmt@} part also;
+%                 build \cs{optlist} forwards (FIFO).}
+% The actual outputting of the option command to the batch job file is done
+% by |\wropt|. It tests if the option name is blank (a default in the
+% master bibliographic style, which need not be the menu default), writes
+% out the option name, if present, and adds the explanatory comment.
+%    \begin{macrocode}
+\def\wropt#1{%
+ \edef\tempx{\csname opt@#1\endcsname}%
+ \if!\tempx!
+  \wr{\spsp\spsp\pc: (def)
+   \csname txt@#1\endcsname
+   \ifoptverbose\space\csname cmt@#1\endcsname\fi
+  }%
+ \else
+  \wr{\spsp\tempx,\pc:
+   \csname txt@#1\endcsname
+   \ifoptverbose\space\csname cmt@#1\endcsname\fi
+  }%
+ \fi
+ \mes{\spsp You have selected: \csname txt@#1\endcsname}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\wrxopt}
+% \changes{2.1}{1994 Dec 29}{Add macro}
+% \changes{4.0}{1999 July 20}{AO: output the \cs{cmt@} part also}
+% \changes{4.0}{1999 July 20}{AO: build \cs{optlist} forwards (FIFO)}
+% Writing the unused options to the batch job file is done with the |\wrxopt|
+% command, which is heavily controlled by the flags |\ifoptlist| and
+% |\ifoptverbose|.
+%
+%    \begin{macrocode}
+\def\wrxopt#1{%
+ \edef\tempx{\csname opt@#1\endcsname}%
+ \if!\tempx!
+  \wr{\pc\space\spsp\pc: (def)
+   \csname txt@#1\endcsname
+   \ifoptverbose\space\csname cmt@#1\endcsname\fi
+  }%
+ \else
+  \wr{\pc\space\tempx,\pc:
+   \csname txt@#1\endcsname
+   \ifoptverbose\space\csname cmt@#1\endcsname\fi
+  }%
+ \fi
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\beginoptiongroup}
+% \begin{macro}{\endoptiongroup}
+% One can structure the master file using the commands
+% |\beginoptiongroup| \dots |\endoptiongroup|.
+% The |\beginoptiongroup| command takes two arguments,
+% the prompt text and a control expression.
+% \begin{quote}
+% |\beginoptiongroup|\\
+% |  {CITATION NUMBERS (if numerical references)}|\\
+% |  {\ifnumerical*\fi}|\\
+% |\optdef{*}{}{arabic numbers}|\\
+% |  {references are numbered 1, 2, 3, etc.}|\\
+% |\optdef{d}{d'nai}{d'nai numerals}|\\
+% |  {references are numbered base-25}|\\
+% |\getans|\\
+% \emph{more commands and option groups}\\
+% |\endoptiongroup|\\
+% \end{quote}
+% In the above example, the master file has defined a |\newif| switch called
+% |\ifnumerical|, and now uses this flag to enable the processing encapsulated
+% within the option group: the control expression executes the active |*| command
+% if |\ifnumerical| is true. More complex expressions are possible; use plain
+% \TeX\ constructions to expand the star.
+%
+% The prompt text is output to the console and is also
+% recorded as a comment in the generated |.dbj| file.
+%
+% If the control expression executes the active |*|, then
+% the statements within the option group are executed as usual.
+% If false, then the |.dbj| file will simply contain a record of the options
+% that the user would have been able to chose from.
+% In effect, the interrogation never comes: all the options are unused and
+% are recorded (via |\wrxopt|) as comments.
+%
+% By this means, one can structure the |.dbj| file so that all options
+% are made visible, even if some of them would not be accessible because of
+% internal dependencies. The |.dbj| file will show as much detail about the menus
+% of the master file as is possible.
+%
+% To enable a common idiom, we have caused the value of |\ans| to persist
+% past the end of the option group. This means that one may safely test
+% the value of |\ans| after the |\endoptiongroup|.
+% If processing was turned off within
+% the option group, then the value of |\ans| is the untypeable |$|$_{12}$.
+%
+% If the second argument is either nil or is a star, then the option group
+% will be executed normally. Therefore you can employ this structure
+% for all the processing involving the commonly used idiom.
+% If the master file has statements like:
+% \begin{quote}
+% \begin{verbatim}
+%\mes{PROMPT:}
+%\optdef{*}{}{default}{extended comment}%
+%\optdef{a}{opt-a}{option a}{another extended comment}%
+%\optdef{b}{opt-b}{option b}{more extended comments}%
+%\getans
+%\if\ans a\whatever\fi
+% \end{verbatim}
+% \end{quote}
+% they should be converted to:
+% \begin{quote}
+% \begin{verbatim}
+%\beginoptiongroup{PROMPT:}{}
+%\optdef{*}{}{default}{extended comment}%
+%\optdef{a}{opt-a}{option a}{another extended comment}%
+%\optdef{b}{opt-b}{option b}{more extended comments}%
+%\getans
+%\endoptiongroup
+%\if\ans a\whatever\fi
+% \end{verbatim}
+% \end{quote}
+% The benefit of this syntax is a single markup for all interrogations
+% and a consistent appearance in the generated file.
+%    \begin{macrocode}
+\def\beginoptiongroup#1{\begingroup\activatestar\OGcontinue{#1}}%
+\def\OGcontinue#1#2{%
+ \endgroup
+ \begingroup
+  \let\OGswitch\secondoftwo\def\tempa{#2}%
+  \ifx\tempa\empty\expandafter\firstoftwo\else\expandafter\secondoftwo\fi
+  {%
+   \activestar
+  }{%
+   \tempa
+  }%
+  \OGswitch{}{%
+    \let\wropt\wrxopt
+    \let\ask\nilans
+    \def\mes##1{}%
+  }%
+  \def\OGmessage{#1}%
+  \umes{\ifoptverbose<<\fi\OGmessage}%
+}
+\def\endoptiongroup{%
+  \ifoptverbose\umes{>>\OGmessage}\fi
+  \aftergroup\let\aftergroup\ans\expandafter
+ \endgroup
+ \ans
+}
+\def\activestar{\let\OGswitch\firstoftwo}
+\def\activatestar{\catcode`\*13\relax}
+{\activatestar\gdef*{\activestar}}
+\def\firstoftwo#1#2{#1}
+\def\secondoftwo#1#2{#2}
+{\catcode`\$=12\gdef\nilans#1#2{\def\ans{$}}}
+%    \end{macrocode}
+%
+% For more examples of using option groups, see the file \texttt{merlin.mbs}.
+% \end{macro}\end{macro}
+%
+%
+% \subsection{Initial Messages}
+% The program can now start working. It first introduces itself and asks if
+% the user wants an explanation of how the menus work.
+%    \begin{macrocode}
+\mes{***********************************^^J%
+     * This is Make Bibliography Style *^^J%
+     ***********************************^^J%
+     It makes up a docstrip batch job to produce^^J%
+     a customized .bst file for running with BibTeX}
+
+\ask{\yn}{Do you want a description of the usage? (NO)}
+
+\if!\yn!\else\if\yn n\else\if\yn N\else
+\mes{In the interactive dialogue that follows,^^J%
+     you will be presented with a series of menus.^^J%
+     In each case, one answer is the default, marked as (*),^^J%
+     and a mere carriage-return is sufficient to select it.^^J%
+     (If there is no * choice, then the default is the last choice.)^^J%
+     For the other choices, a letter is indicated^^J%
+     in brackets for selecting that option. If you select^^J%
+     a letter not in the list, default is taken.^^J^^J%
+     The final output is a file containing a batch job^^J%
+     which may be (La)TeXed to produce the desired BibTeX^^J%
+     bibliography style file. The batch job may be edited^^J%
+     to make minor changes, rather than running this program^^J%
+     once again.}
+\fi\fi\fi
+%    \end{macrocode}
+%
+% Ask for the name of the master bibliographic style file,
+% suggesting a default name. Test if the file exist (argument \texttt{i}).
+% The name of the master file is split up into root and extension.
+% \changes{3.0}{1995 Mar 15}{Default master file now \texttt{merlin.mbs}}
+%    \begin{macrocode}
+\MBaskfile{^^JEnter the name of the MASTER file}(merlin.mbs)i\mfile
+\let\mroot=\froot
+\let\mext=\fext
+%    \end{macrocode}
+%
+% Originally, I intended the menu information to be in an \texttt{.opt}
+% file, but this is dangerous: that file may not be consistent with the
+% master. So now, issue a warning if an \texttt{.opt} file exists,
+% substituting it only if explicitly requested. (This is useful for me
+% when testing changes to \theprog{} and I only want a short menu.)
+%    \begin{macrocode}
+\edef\temp{\mroot.opt}
+\openin\infile\temp\relax
+\let\mnext=\mext
+\ifeof\infile\else
+  \ask{\yn}{** Warning: a file `\temp' also exists^^J
+       \spsp Shall I read it for the menu information? (NO)^^J
+       \spsp (Answer `yes' only if you really know what you are doing)}
+\if\yn y\def\mnext{opt}\else\if\yn Y\def\mnext{opt}\fi\fi
+\mes{Menu information read from `\mroot.\mnext'}
+\fi
+\closein\infile
+%    \end{macrocode}
+%
+% Next, the name of the output \texttt{.bst} file is asked for. Here there is
+% to be no default for the root part, although the extension defaults to
+% \texttt{.bst}.
+%    \begin{macrocode}
+\MBaskfile{^^JName of the final OUTPUT .bst file?}(.bst)o\ofile
+\let\oroot=\froot
+\let\oext=\fext
+%    \end{macrocode}
+%
+% A comment line of text is asked for. This will go into the preamble of
+% the final \texttt{.bst} file and should describe the nature of the
+% bibliographic style, i.e., for which journal(s) it is meant to apply.
+%    \begin{macrocode}
+\ask{\ans}{^^JGive a comment line to include in the style file.^^J%
+           Something like for which journals it is applicable.}
+%    \end{macrocode}
+%
+% \changes{1.1}{1994 May 25}{The \dtx{} driver has extension \texttt{.dbj}
+%    instead of \texttt{.drv}}
+% The output batch job file is to have the same root name as the output
+% file, but with the extension \texttt{.dbj}, for \emph{\dtx{} batch job}.
+% This file is opened and the initial contents are written.
+%    \begin{macrocode}
+\immediate\openout\outfile\oroot.dbj
+\wr{\pcpc Driver file to produce \oroot.\oext\space from \mroot.\mext}
+\wr{\pcpc Generated with \filename, version \fileversion\space (\filedate)}
+\wr{\pcpc Produced on \Now}
+\wr{\pcpc}
+\wr{\string\input\space docstrip}
+\wr{}
+\wr{\string\preamble}
+\wr{----------------------------------------}
+\wr{*** \ans\space ***}
+\wr{}
+\wr{\string\endpreamble}
+\wr{}
+\wr{\string\postamble}
+\wr{End of customized bst file}
+\wr{\string\endpostamble}
+\wr{}
+\wr{\string\keepsilent}
+\wr{}
+\wr{\string\askforoverwritefalse}
+%    \end{macrocode}
+% \changes{3.0}{1995 Feb 5}{Options from master file written to control
+%    sequence \cs{MBopts} instead of directly into \cs{generateFile}}
+% The options will be written to the output file during the interrogation
+% when the master file is input. These options are stored in |\MBopts|.
+%
+% Note: it is necessary to change the catagory codes of |{| and |}|
+% temporarily, and to find substitutes, so that mismatched curly braces
+% could be included in the output text. The same thing is done again at the
+% end to close the braces finally. This is done with |\MBswitch|.
+%    \begin{macrocode}
+\begingroup\MBswitch
+\wr(\string\def\string\MBopts{\string\from{\mroot.\mext}{\pc)
+\endgroup
+%    \end{macrocode}
+%
+% Now each selected option is written on a single line.
+%
+% \subsection{The Interrogation}
+% \changes{2.1}{1995 Jan 2}{Get menu info from master file, not \texttt{.opt}
+%   file.}
+% The menu information is read in from the master file, or from a file
+% with extension \texttt{.opt}, but only if one has explicitly requested
+% this. (This is expert stuff; the \texttt{.opt} files should be avoided
+% since they might not be up-to-date. Previously they were the default,
+% but this has been changed in version~2.1 to avoid confusion.)
+%    \begin{macrocode}
+\newif\ifoptlist
+%<optlist|optverbose>\optlisttrue
+\ifoptlist\else
+ \ask\yn{Do you want the unused option lines^^J%
+         \spsp to appear as comments in the output? (NO)}
+ \if!\yn!\else\if\yn n\else\if\yn N\else\optlisttrue\fi\fi\fi
+\fi
+\newif\ifoptverbose
+%<optverbose>\optverbosetrue
+\ifoptlist
+ \ifoptverbose\else
+  \ask\yn{Do you want verbose comments? (NO)}
+  \if!\yn!\else\if\yn n\else\if\yn N\else\optverbosetrue\fi\fi\fi
+ \fi
+\fi
+\edef\temp{\mroot.\mnext}
+\let\endoptions=\endinput
+\input\temp
+%    \end{macrocode}
+% Note that it is necessary to equate |\endoptions| to |\endinput| in
+% case the master file is read in. An |\endinput| command in the master
+% file would interfere with the \dtx{} operation, but this indirect
+% method gets around that problem.
+%
+%
+% \section{Closing the Output File}
+% The output file is closed by writing the final line that closes the
+% braces that were opened at the beginning. To this end, the catagory codes
+% of |{| and |}| must be temporarily altered, as before.
+%    \begin{macrocode}
+\begingroup\MBswitch
+\wr(\spsp}})
+\endgroup
+%    \end{macrocode}
+%
+% Now write the line that processes the options stored in |\MBopts|.
+% The batch job file is finished and may be closed.
+%    \begin{macrocode}
+\wr{\string\generate{\string\file{\oroot.\oext}{\string\MBopts}}}
+\wr{\string\endbatchfile}
+
+\immediate\closeout\outfile
+\mes{^^JFinished!!^^J%
+     Batch job written to file `\oroot.dbj'}
+%    \end{macrocode}
+%
+% The batch job may now be run. It is only necessary to input the file.
+% However, the inputting should not occur with a group or within an |\if|
+% \dots\ |\fi| clause. Furthermore, under \LaTeX{}, the |\end| command causes
+% problems, because it has been redefined; the command |\@@end| contains the
+% original |\end|.
+%    \begin{macrocode}
+\def\ofile{\oroot.dbj}
+\ask{\yn}{Shall I now run this batch job? (NO)}
+\def\temp{\relax}
+\if!\yn!\else\if\yn n\else\if\yn N\else
+\def\temp{\input\ofile}\fi\fi\fi
+{\catcode`\@=11 \ifx\@@end\undefined\else
+  \global\let\end=\@@end\fi}
+\temp
+\end
+%</program>
+%    \end{macrocode}
+%
+% \Finale

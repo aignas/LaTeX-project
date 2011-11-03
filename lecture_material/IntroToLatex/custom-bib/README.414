@@ -1,0 +1,521 @@
+                              CUSTOM-BIB Package
+
+**** INFO ******
+(Work on version 4.x has been supported by the American Physical Society)
+
+Current version is 4.14
+*****************
+Changes: Fix a bug in inbook and incollection that suppressed chapter under
+           certain conditions
+         Add option to put a colon after article and/or book titles
+         Add option to format names as   Jones, AB   (the comma was
+           previously not possible)
+*****************
+
+This is the custom-bib package for generating customized BibTeX bibliography
+styles from a generic file by means of the docstrip program that is part of
+the LaTeX2e installation.
+
+****************************************************************************
+
+To use/install the package:
+
+0. (optional, for hackers) LaTeX makebst.dtx to get the documentation;
+     This also extracts makebst.ins from makebst.dtx, if it does not already
+     exist.
+1. Run TeX (or LaTeX) on makebst.ins (--> makebst.tex)
+2. Run TeX (or LaTeX) on makebst.tex to start customizing
+     your own .bst file. Select merlin as the master file (default) when
+     asked. (I have other master files for my own purposes.)
+3. Answer the questions that then arise; for merlin, you will also be asked
+     which language support file you want (default is merlin itself, meaning
+     English or the pseudo-language Babel). You will also be asked if you want
+     to add a file defining short-hand designations for various journals; such
+     files are included (physjour.mbs, geojour.mbs, photjour.mbs) for physics
+     geophysics, and optics journals, but you could create your own.
+4. The menus that appear may not be informative enough for you. More
+     information can be obtained by reading the documentation (on the options)
+     contained in the .mbs files themselves. This documentation can be printed
+     out by running LaTeX on the .mbs files.
+5. The makebst program only produces a docstrip batch job to generate the .bst
+     file. The last question it asks is whether that job should be run right
+     away. You can always run it again yourself by running TeX or LaTeX on
+     this .dbj file. (The .dbj file can also be manually edited if you want to
+     play around with the various options it includes.)
+
+****************************************************************************
+
+The package contains the following files:
+  merlin.mbs   --  A master BibTeX style file for producing customized
+                   styles (numerical or author-year) with docstrip. It is
+                   self-documenting: simply latex it to produce its
+                   description.
+
+  english.mbs  --  A sample language support file for English, to act as a
+                   model for hacking others.
+
+  catalan.mbs  --  A language support file for Catalan
+  dansk.mbs    --  A language support file for Danish
+  dutch.mbs    --  A language support file for Dutch
+  esperant.mbs --  A language support file for Esperanto
+  finnish.mbs  --  A language support file for Finnish
+  french.mbs   --  A language support file for French
+  german.mbs   --  A language support file for German
+  italian.mbs  --  A language support file for Italian
+  norsk.mbs    --  A language support file for Norwegian
+  polski.mbs   --  A language support file for Polish
+  portuges.mbs --  A language support file for Portuguese
+  slovene.mbs  --  A language support file for Slovene
+  spanish.mbs  --  A language support file for Spanish
+(Further contributions and corrections are welcome)
+
+  physjour.mbs --  A support file to add the names of common Physics journals
+                   in shorthand form, for example `pr' for Physical Review, or
+                   Phys. Rev., depending on whether abbreviations are chosen.
+
+  photjour.mbs --  A contributed file containing names of optics journals
+
+  geojour.mbs  --  A contributed file containing names of geophysics journals
+  suppjour.mbs --  A contributed file containing further journal names
+
+(Contributions for other fields are welcome)
+
+  shorthnd.ins --  (La)TeX this file to obtain shorthnd.tex, which when
+                   LaTeX'ed lists all the shorthands and journal names
+
+The .mbs files can only be used effectively with the makebst `program', which
+is included in documented source form.
+
+  makebst.dtx  --  the documented source file; LaTeXing this file produces
+                   the manual and optionally a documentation of the coding.
+                   Requires ltxdoc class from the LaTeX2e distribution.
+
+                   This is version 4.0; necessary with merlin 4.00, but
+                   works with older versions of merlin.
+
+  makebst.ins  --  a docstrip batch job to extract from makebst.dtx the
+                   program file makebst.tex. (This file is actually included
+                   within makebst.dtx; it is extracted when the .dtx file is
+                   processed under LaTeX2e.)
+
+****************************************************************************
+
+HISTORY AND DEVELOPMENT:-
+Many authors are frustrated at the wide range of bibliographic styles demanded
+by journals and publishers, and at the limited number available with standard
+LaTeX and BibTeX. This is not the fault of the latter, but rather of the lack
+of any bibliographic standards in the English language. Often the differences
+are so trivial (comma or colon, date in brackets or parentheses). The normal
+user does not want to tackle the task of making up his own .bst file (no
+normal human would!)
+
+For this reason, I set out to produce a generic .bst file that could have
+features and options selected by means of the docstrip program.
+I found over 50 different *.bst files and compared their outputs just for
+article: they were all different. They served as part of my input as to which
+features were needed. I knew of a few extra that were not covered by these 50.
+
+I also discovered XBTXBST.DOC, a minor modification of Patashnik's BTXBST.DOC,
+as well as a file PHYSICS.BST, all of which are meant to do precisely what I
+had set up to accomplish. However, they make use of the C Preprocessor
+language. It is really a simple matter to convert the preprocessor commands
+into docstrip equivalents.
+
+Nevertheless, none of these really met all of my needs, so I continued to
+develop GENBST.mbs (GENeric-BibST.MasterBibSt). It soon became obvious that the
+sheer number of options necessary made any kind of customizing a difficult
+chore. Hence, the next step: the program MAKEBST takes menu information from
+the selected .mbs file and presents the user with descriptive choices as
+menus. From the answers, it writes a docstrip batch job (extension .dbj) which
+when TeX'ed, creates the desired .bst file out of the .mbs one. The .dbj file
+may even be hand edited if one wants to alter only one or two options.
+
+Since I first released this system in November 1993, I have received many
+suggestions and requests for additions. I have tried to incorporate as many as
+possible, but often the task is too complicated and I have to leave them out.
+
+The second version of GENBST.mbs allowed other languages to be used. However,
+since the method had considerable overhead per language, I was unsatified with
+it. A parallel version called BABEL.mbs (which was really GENBST.mbs version
+2) has been available for some time, supporting English, French, German, and
+Esperanto, as well as a generic language called Babel.
+
+I then modified MAKEBST to allow more than one .mbs file to be used as
+input for any given .bst output. This means that the language support can be
+contained in separate files, one per language, and does not need to burden the
+main file. The next issue of this main file, version 3, was renamed
+MERLIN.mbs, to emphasize its magical powers.
+
+Version 3 continued to grow as more suggestions and requests were
+contributed. Further language files were offered to me, as well as lists of
+prerecorded journal names. The number of options had grown to roughly 200,
+including the defaults.
+
+The American Physical Society then decided it would like a number of new
+features for its REVTeX package, mainly to support electronic publishing.
+David Carlisle, Mark Doyle, and Arthur Ogawa made up a variant on merlin.mbs
+for this purpose, which I then integrated into the "official" one. Thus was
+born version 4.00 of MERLIN.mbs.
+
+NOTE ON AUTHOR-YEAR CITATIONS:-
+Author-year style citations are not supported by standard LaTeX and BibTeX.
+However, there exist a large number of bib styles for this, all of which need
+some interface package to run properly. There are (at least) 7 different such
+interfaces, including the one I invented for the NATBIB package. If one
+selects author-year style, then one is asked which interface is to be
+used. (Incidentally NATBIB is capable of interpreting all of them.)
+
+LIST OF ALL OPTIONS IN THE DBJ FILE
+The makebst program writes to the .dbj file all the docstrip options that were
+offered in the interactive session with the unselected ones commented out.
+This makes editing afterwards much easier. Often one wants to experiment with
+some of these options, but only wants to run the makebst program once.
+
+This feature (suggested by Frank Mittelbach) is available when the
+makebst.tex file is extracted from makebst.dtx with the `optlist' option;
+without it, only the selected options are listed in the .dbj file.
+Edit the makebst.ins file accordingly; by default, this feature is included.
+
+With version 4, one may select a verbose listing during run time, writing
+more details into the .dbj file, including all possible options, even those
+not offered.
+
+ALLOW MULTIPLE INPUT .MBS FILES
+The .dbj file is so constructed that more than one input .mbs file may be
+read for a single output .bst file. The main .mbs file must have its menu
+coding arranged to take advantage of this, something that merlin.mbs does.
+(The older genbst.mbs and babel.mbs did not have this feature.)
+
+NEW FEATURES OF MERLIN.MBS since genbst.mbs 1.7 and babel 2.5
+Names formatting:  can also have reversed full names, as Smith, John George
+                   (previously reversed names could only be initials)
+   John George Smith
+   Smith, John George  (v3.1)
+   J. G. Smith
+   Smith, J. G.
+   (AGU style: first name reversed, rest normal, all with initials)
+   (AGU style but with full names, not initials)  (v3.82)
+   Smith, J G
+   Smith, JG   (v3.1)
+   Smith J G   (v3.2)
+
+Editors' names (in collections) for surname-first styles, may now be formatted
+   exactly as the authors'. (Previously these would never be reversed.)
+
+   Also possible to have
+                In: B. G. Jones, editor, Booktitle  [default]
+                In: B. G. Jones, (editor), Booktitle
+                In: B. G. Jones, (editor) Booktitle
+                In: B. G. Jones (editor) Booktitle
+                In: Booktitle, edited by B. G. Jones
+                In: Booktitle (edited by B. G. Jones)
+                In: Booktitle, (edited by B. G. Jones)
+                In: Booktitle, editor B. G. Jones
+                In: Booktitle, (editor) B. G. Jones
+                In: Booktitle (editor B. G. Jones)
+                In: Booktitle, (editor B. G. Jones)
+                In: Booktitle, B. G. Jones, editor
+                In: Booktitle (B. G. Jones, editor)
+
+ISBN and ISSN numbers can optionally be included, if present in database
+
+Volume, number has more possibilities: for volume=34, number=2:
+  34(2)   34 (2)   34, 2   34, no. 2    34, #2    34   34(1997)
+(Last example: the year in parentheses in place of the number)
+
+The following page number can be separated by colon, colon space,
+   semi-colon and space, comma and space, or space only
+
+Or even   vol. 34 (1994) 2, pp. 234-254  (v3.81)
+
+Date: year coming just after authors may have colon and space following
+      date may appear as `1994 Jul', with or without a dot (v3.2)
+      date may be part of journal specification, something that is common
+        in medical journals (v3.2)
+
+Journal names: the periods in abbreviations may be removed, so Phys. Rev.
+   becomes Phys Rev  (no change to database necessary)
+
+Author names in citations and list of references may be independently set
+  in italic, small caps, or bold. Optionally, first names can be in a
+  different font from the surnames.
+
+The mininum number of authors' names before et al. has been raised from
+  6 to 99 (v3.87)
+
+The page numbers in edited works can have `pages' or `pp' suppressed (v3.2)
+
+It is possible to have the names sorted by ignoring the `von' part, so that
+  della Robbia comes after Rabin (v3.2)
+
+Publisher's address may come before name, as New York: New Press
+  (required by some psychology journals) (v3.3)
+
+Publisher's address may come before the chapter/page information (v3.81)
+
+Number/series can come just before publisher/organization (v3.88)
+
+URL support for online documents (v3.97)
+
+HTML output added, experimental (v3.88)
+
+Refinements added to version 3.3:
+  - the extra labels added to years (as 1995a) are grouped in braces
+    to avoid some problems with natbib when this extra label is more than
+    one letter
+
+  - when full author lists may be optional (for harvard and natbib formats)
+    they are no longer included if they are identical to the short
+    author list
+
+Refinements added to version 3.4:
+  - journals can have date between volume and pages, as
+       J. Geophys. Res. {\bf 34} (1994) 333-338
+  - author block can be terminated with colon
+  - if cited authors are in bold, italic, or small caps, then the word
+      `and' can be in the regular text font, not in the author font.
+
+Refinements added to version 3.5:
+  - Technical Reports can have titles treated like books (default=article)
+  - can sort by year then authors
+  - can include more than one file with prestored journal names
+  - bug fixed for limited number of authors: sort only on those present
+  - the `named' format for \bibitem now included.
+
+Refinements added to version 3.6:
+  - blocks can be separated by colons as well as commas or periods
+  - name of journal can be in normal font, not only italic
+  - pages in books may be in parentheses
+  - can have `number' as part of page specification:  34, (2)234-(2)254
+  - date may be bold
+  - if authors in list have special font, then `and' and/or `et al.'
+    may be normal font
+
+Refinements added to version 3.7:
+  - an option to allow authors to be separated by semi-colons instead of
+    by commas
+  - fix bug in the option that removes periods from journal names when
+    italicized
+
+Refinements added to version 3.8:
+  - fix a bug with titles in quotes
+  - an option allows ALPHA style citations, of the form  ABD90. This
+    is essentially a numerical system with some text replacing the number.
+  - publishers and address can appear in parentheses
+  - punctuation between `blocks' can be suppressed, space only
+  - ordering reference list by year is possible for author-year as well as
+     numerical modes
+  - can put date between volume and number
+  - can add `pages' or `pp' to articles
+  - cited names in a special font can have the `and' in regular font:
+    previously this meant \rm, but now, with NFSS, only the one attribute is
+    reset; thus  \textbf{\cite{james93}} yields
+       \textbf{\textsc{James {\upshape and} Johns}, [1993]}
+    so that `and' will be bold non-sc. (Actually, bold small caps does not
+    exist in the CM fonts, so a substitution will be made.)
+
+Refinements added to version 3.81:
+  - when used with natbib 6.3, the extra letters added to the dates in
+    author-year citations (Jones et al, 1994a) are suppressed in the reference
+    list when numerical citations are used instead. These letters are
+    superfluous in this case and so should not be present.
+  - For incollections, the word `in' can be left off.
+  - Publisher can be placed before chapter/page information
+  - dates can be followed by periods even when block punctuation is comma
+
+  - The .mbs files with prestored journal names have been rationalized, to
+    remove duplications (or shorthands) and to organize the journal types
+    better. Some journals were present several times under different
+    shorthands (Phys. Rev. is both pr and physrev); these multiple shorthands
+    have been retained for consistency. Duplications of journal AND shorthand
+    have been removed. One shorthand clash: jas was both Journal of Applied
+    Spectroscopy and Journal of the Atmospheric Sciences; the former has been
+    altered to jasp.
+  - A file shorthnd.ins is included to assist listing the journal shorthands
+
+  - Option yr-com to allow comma before the date.
+  - Option pub-date to put publisher and date in parentheses (Nature style)
+  - Some internal improvements
+
+Refinements added to version 3.82:
+  - Page numbers can come at end before notes
+  - Fix up bug with quoted titles when title missing
+  - Fix up bug that left off extra date labels for plain dates with no brackets
+       or special punctuation
+  - Fix up bug that put punctuation before publishers in paretheses
+  - Add option to allow full names, with only first author reversed
+
+Refinements added to version 3.83:
+  - Edited works can be either     Names (eds.), Booktitle
+                          or       Names, (eds.) Booktitle
+    Previously only the first version was possible. (There are several other
+      possibilities too.)
+  - If commas selected as punctuation between blocks, one can still have a
+      period coming before any file note.
+  - With repeated authors/editors for adjacent references, the repeated names
+      can be replaced by a long dash.
+  - \BIBand made robust, otherwise it does not really work.
+
+Refinements added to version 3.84:
+  - large page numbers can be separated by comma, space, period,
+     as  10,345. No provision for 7 digit numbers
+  - emphasis can also be underlining; bad policy, since underlining belongs
+     to the days of the typewriter, and in LaTeX, \underline command cannot
+     be broken across lines. Loading the ulem package by Donald Arseneau
+     solves this problem.
+  - titles can be in <<guillemots>> (best with T1 encoding, but poor man's
+     OT1 also provided; must have LaTeX2e)
+  - titles of proceedings and collections can be in quotes if article
+     titles in quotes
+  - can add year to journal volume in parentheses as vol(year) and still
+     format year for books differently.
+  - full natbib form of \bibitem resistent against square brackets in names
+     or date.
+
+Refinements added to version 3.85:
+  - add option to allow junior part of name of appear in citations
+  - options for specifying fonts for names: may apply only to the surnames
+      if wished, and not to the entire name. User-defined font commands
+      \bibnamefont,  \bibfnamefont, and \citenamefont  may be used too,
+      where the names are used as a single argument.
+
+Refinements added to version 3.86:
+  - suppress ISBN number for certain crossrefs
+  - fix bug with limited number of authors when mininum is 6
+  - add option for comma between year and pages
+  - restrict \natexlab to natbib styles
+
+Refinements added to version 3.87:
+  - Limited number of authors can be as many as 99 (previously 6)
+  - Add language field, to switch hyphenation patterns for titles
+  - Add url field for all entries
+  - Add annote field
+  - Months may be suppressed for numerical mode
+  - et~al. is no longer hardwired; dutch.mbs allows variations on et~al.
+
+Refinements added to version 3.88:
+  - Copyright notices conform to LaTeX Project Public Licence
+  - HTML coding can replace the LaTeX pre- and postamble and font commands;
+    intended for Web listings of complete databases; LaTeX special symbol
+    remain; works only if one selects numerical, not author-year citations.
+  - complex coding to convert edition numbers to (multilingual) text and vice
+    versa can be removed, saving considerable memory requirements and
+    possibly preventing memory overflow
+  - by default, number and series for inproceedings and incollection can only
+    be used as "Complete Works" (series only) or "Number 3 in Complete Works"
+    (number and series). With number only, a warning is issued. New option
+    allows number to be a document code number, like REP-01/1998-ab; without
+    series, this number is printed bare, without the word "Number", but if
+    both number and series are present, the default text "Number .. in .." is
+    reinstated.
+  - another option allows the number/series to be prepended to the publisher
+    and/or organization name.
+  - more options to format editors in inproceedings and incollection
+  - option to allow the total number of pages in books to be listed; for
+    this, the pages field must be given for the entry, a field that is
+    normally ignored for books.
+  - book titles may be set in upright typeface (default is italic)
+  - a slash may be used in place of comma or semi-colon between authors
+  - journal names may be preceded by `in' as for incollections
+
+Refinements added to version 3.89:
+  -  for use with natbib 7.0:
+       when author/editor empty, the key field is used in place of author,
+         but what is new is the option that the year is then left blank
+         in the \bibitem entry. This allows natbib (7.0) to print only the
+         key without any year punctuation.
+       also optional, if the year itself is missing, it is left blank instead
+         of being set to ????.
+  -  fix a bug that caused the citation font to be missing at times
+
+Refinements added to version 4.00:
+  -  Entire code reorganized and rationalized (by Arthur Ogawa).
+  -  For REVTeX, new fields collaboration, eid, eprint, archive, numpages
+  -  Option for tagging all entries in the bibliography with \bibinfo marker.
+       Thus the pages might appear as \bibinfo{pages}{345--350} which prints
+       only the page numbers, but allows other programs to parse the entries.
+      (Contribution by David Carlisle.)
+  -  For reversed author names, the junior part can appear either as
+         Smith, Jr., John  (previously the only possibility) or
+         Smith, John, Jr.
+      (For some reason, the AGU options that reverse only the leading name in
+       an author list always used this latter form.)
+  -  When surnames and first names are in different fonts, the junior part is
+       now in the same font as the first name. Previously, it varied.
+  -  When abbreviated months or journal names are to be dotless, only the
+       dots are removed. Previously all non-alphanumeric characters were
+       removed, causing problems with accents in other languages.
+  -  When author initials are to be dotless, the dot is also removed from
+       the junior part.
+  -  Journal abbreviations in physjour.mbs may be those used in astronomy
+       journals, e.g. ApJ for Astrophysical Journal, (aka Astrophys. J.)
+
+Refinements added to version 4.01
+  - a bug with the bibinfo tag caused titles not be be case-changed; fixed
+  - technical report numbers were not tagged with bibinfo; fixed
+  - option added to let the word `in' be in italics.
+
+Refinements added to version 4.02
+  - some bugs fixed:
+    In:  with articles no longer has comma added
+    bold dates work when date and publisher together
+    typo  alfph removed
+
+Refinements added to version 4.03
+  - bug fixes
+  - add definition of \natexlab to aux file for harvard styles
+  - add option thtit-x to suppress thesis titles
+  - add option seq-yrr to order by descending years (latest first)
+  - Updates to french.mbs, dansk.mbs
+  - Fix misprint in physjour.mbs
+
+
+Refinements added to version 4.04:
+  - addition of slovene.mbs for Slovenian language.
+  - additional journal in geojour.mbs
+
+Refinement added to version 4.05:
+  - fix all language files for a bug in suppression of page numbers
+  - fix bug in merlin.mbs in inproceedings with pp-last plus dt-beg|dt-end
+
+Refinement added to version 4.06:
+  - options for doubled or trebled dashes for repeated authors
+
+Refinements added to version 4.10
+  - add doi and eid fields
+         Both of these are for electronic journals. The DOI number is a
+         universal reference to the electronic location, more robust than
+         URLs. Electronic journals do not have page numbers, and use a
+         sequence number (called here EID for electronic identifier) to find
+         the printed version. The doi field is optional, the eid will always
+         be included in the bst file. However, it is still optional within
+         any bib file. If present, it appears in place of the page number.
+
+Refinements added to version 4.11
+  - fix up doi output to be official style, no blank between doi: and number
+  - add options ser-vol and ser-ed
+
+Refinements added to version 4.12
+  - add plntx so bbl output will work with Plain TeX (and LaTeX 2.09)
+    (the option nfss must also NOT be given, else font commands are LaTeX2e)
+
+Bug fix version 4.12a
+  - merlin.mbs and all language files needed fixing because the comma between
+    options was inserted in the wrong place for external language files
+
+Refinements added to version 4.13
+  - fix a bug in inbook and incollection that suppressed chapter under
+      certain conditions
+  - add option to put a colon after article and/or book titles
+  - add option to format names as   Jones, AB   (the comma was
+           previously not possible)
+
+Refinements added to version 4.14
+  - add option to format names as  Jones, A.B. (comma, no spaces in initials)
+  - add option to suppress comma before et al in reference list.
+
+October 17, 2005
+Patrick W. Daly
+Max-Planck-Institut f\"ur Sonnensystemforschung
+D-37191 Katlenburg-Lindau, Germany
+E-mail: daly@mps.mpg.de

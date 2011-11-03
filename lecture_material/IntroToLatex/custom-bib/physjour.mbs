@@ -1,0 +1,398 @@
+%\iffalse         THIS IS A META COMMENT
+% File: physjour.mbs
+% Copyright 1994-2002 Patrick W Daly
+% Max-Planck-Institut f\"ur Aeronomie
+% Max-Planck-Str. 2
+% D-37191 Katlenburg-Lindau
+% Germany
+% E-mail: daly@linmpi.mpg.de
+%
+% This program can be redistributed and/or modified under the terms
+% of the LaTeX Project Public License Distributed from CTAN
+% archives in directory macros/latex/base/lppl.txt; either
+% version 1 of the License, or any later version.
+%
+% It is part of the custom-bib collection,
+%   a contribution to the LaTeX2e system.
+%====================================================================
+%       A Journal Definition File for Physics journals
+%     to be included with other master bibliography style files
+%--------------------------------------------------------------------
+%   (See version and date in the \ProvidesFile command below)
+%--------------------------------------------------------------------
+%    This file is self-documenting: simply LaTeX it!
+%====================================================================
+%
+ %-------------------------------------------------------------------
+ % Begin module:
+%\fi
+ % \ProvidesFile{physjour.mbs}[2002/01/14 2.2 (PWD)]
+%\iffalse
+%<*a&!a>
+% The following ensures that the driver part is not seen by makebst
+% The driver part must not contain any \end other than \end{document} !
+\ifx\endoptions\undefined\let\tempx=\relax\else
+  \long\def\tempx#1\end#2{}\fi\tempx
+%</a&!a>
+%<*driver>
+   \NeedsTeXFormat{LaTeX2e}%
+   \documentclass[a4paper,10pt,twoside]{article}%
+   \usepackage{doc}%
+   \raggedbottom
+   \CodelineNumbered
+   \RecordChanges
+ %  Comment out next line to print coding
+   \OnlyDescription
+   \setlength{\oddsidemargin}{0.5\paperwidth}
+   \addtolength{\oddsidemargin}{-0.5\textwidth}
+   \addtolength{\oddsidemargin}{-1in}
+   \setlength{\evensidemargin}{\oddsidemargin}
+
+\begin{document}
+   \DocInput{physjour.mbs}
+\end{document}
+%</driver>
+%                   END OF META COMMENT   \fi
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \setcounter{StandardModuleDepth}{1}
+% \setcounter{IndexColumns}{2}
+% \setlength{\IndexMin}{10cm}
+%
+% \changes{1.0}{1995 Mar 15}{Initial version}
+% \changes{1.1}{1995 Sep 4}{Additional journals contributed}
+% \changes{1.2}{1995 Sep 29}{Abbreviation for `applied' to `appl.'}
+% \changes{1.21}{1996 Jun 25}{Add JOSA}
+% \changes{2.0}{1996 Jun 26}{Reorganize with \texttt{geojour} and
+%         \texttt{photjour}}
+% \changes{2.0a}{1996 Dec 3}{\emph{Nuovo Cimento} correctly spelled}
+% \changes{2.0b}{1997 Jul 8}{Add Astronomy and Astrophysics}
+% \changes{2.0c}{1998 Jul 23}{Add Nucl. Phys. B (Proc. Suppl.)}
+% \changes{2.0d}{1999 Feb 10}{Add Astronomy and Astrophysics, Suppl. Ser.}
+% \changes{2.0d}{1999 Feb 17}{Add Astrophys. J., Suppl. Ser.}
+% \changes{2.0d}{1999 Feb 17}{Correct pp to be Physics of Plasmas, not Plasma Physics}
+% \changes{2.0d}{1999 Feb 24}{Update copyright notice}
+% \changes{2.1}{1999 Oct 5}{Add more astronomy journals, and shorthand option}
+% \changes{2.2}{2002 Jan 14}{Correct a typo}
+%
+% \pagestyle{myheadings}
+% \markboth{P. W. Daly}{Physics Journal Names}
+%
+% \title{{\bfseries Physics Journal Definition File}\\
+%      for master bibliographic style files}
+%
+% \author{Patrick W. Daly}
+%
+% \GetFileInfo{physjour.mbs}
+% \date{This paper describes file \texttt{\filename},\\
+%  version \fileversion{} from \filedate}
+%
+% \maketitle
+%
+% \MakeShortVerb{\|}
+%
+% \parskip=1ex \parindent=0pt
+%
+% \newcommand{\btx}{{\sc Bib}\TeX}
+% \newcommand{\dtx}{\textsf{docstrip}}
+%
+% \section{Introduction}
+%
+% This file adds a list of preprogrammed physics journal names to
+% bibliographic style files, in both full and abbreviated versions.
+% These defined journal names will be added to those in the main master
+% bibliography style file.
+%
+% This is not a self-sufficient \texttt{.mbs} file, but rather may
+% be used together with one that contains support for
+% external definition files.
+%
+% I have taken this list from a number of physics \texttt{.bst} files.
+%
+% Version 1.1: a number of additions have been contributed by `Harald', email
+% \texttt{soleng@surya11.cern.ch}:
+% \begin{quote}\begin{tabular}{lllll}
+% \texttt{ajm} & \texttt{ap} & \texttt{adp} & \texttt{app} & \texttt{cqg}\\
+% \texttt{cra} & \texttt{cmp} & \texttt{cpc} & \texttt{grg} & \texttt{inc}\\
+% \texttt{np} & \texttt{npb} & \texttt{plb} & \texttt{prep} & \texttt{pra}\\
+% \texttt{prb} & \texttt{prc} & \texttt{prd} & \texttt{pre}
+%\end{tabular}\end{quote}
+% whereby \texttt{pra} (\textsl{Phys.\ Rev.\ A}) was not added, rather the
+% text was changed slightly.
+%
+% I have also added \texttt{ag} (\textsl{Annales Geophysic\ae}) and
+% \texttt{npg} (\textsl{Nonlinear Processes in Geophysics}).
+%
+% Version 1.2: Zhenya Sorokin, email \texttt{sorokin@ps1.iaee.tuwien.ac.at},
+% makes abbreviation for `applied' to `appl.'
+%
+% Version 1.21: Ralf Fassel, email \texttt{ralf@natlab.research.philips.com},
+% adds \textsl{Journal of the Acoustical Society of America}.
+%
+% Version 2.0: I go through all journal names, checking for conflicts and
+% duplications with \texttt{geojour.mbs} and \texttt{photjour.mbs}.
+% Optical and geophysical journals removed; physical journals included
+% from the others. Where one journal exists with multiple shorthands,
+% all versions are kept.
+%
+% Versions 2.0a,b,c: add more journals.
+%
+% Version 2.0d: revise copyright notice to LPPL standard.
+%
+% Version 2.1: add more astronomy journals and also an option
+% \texttt{jaa} to produce the shorthands used in astronomy journals, such
+% as A\&A for Astronomy and Astrophyics.
+%
+% See the documentation for \texttt{makebst} for formatting details.
+%
+% \section{The Menu Information}
+%
+% All the menu information is nested between \dtx{} guard options
+% |%<*options>| \dots\ |%</options>|, and the last command is
+% |\endoptions|. The rest of the file is nested between |%<*!options>|
+% \dots\ |%</!options>| in order to exclude it if \dtx{} is used to
+% extract only the menu information.
+%
+% A journal-names files should contain at most only two options, \texttt{jabr}
+% and \texttt{jaa}.
+% This is because \texttt{merlin} version~3.5 can now handle several
+% journal-name files, but does not look into them for the options, but
+% rather asks for \texttt{jabr} from the main file. For compatibility with
+% older versions, the option menu must be kept here.
+%
+%    \begin{macrocode}
+%<*options>
+\mes{^^JPHYSICS JOURNAL NAMES:}
+\optdef{*}{}{Full physics journal names}{}
+\optdef{a}{jabr}{Abbreviate physics names}{for journals}
+\optdef{s}{jabr,jaa}{With astronomy shorthands}{like ApJ and AJ}
+\getans
+\endoptions
+%</options>
+%    \end{macrocode}
+%
+% \StopEventually{\PrintChanges}
+%
+% \section{The Coding}
+%    \begin{macrocode}
+%<*!options>
+%<*jabr>
+%<!jaa>MACRO {aa}{"Astron. \& Astrophys."}
+%<jaa>MACRO {aa}{"A\&A"}
+%<!jaa>MACRO {aasup}{"Astron. \& Astrophys. Suppl. Ser."}
+%<jaa>MACRO {aasup}{"A\&AS"}
+%<!jaa>MACRO {aj} {"Astron. J."}
+%<jaa>MACRO {aj} {"AJ"}
+MACRO {aph} {"Acta Phys."}
+MACRO {advp} {"Adv. Phys."}
+MACRO {ajp} {"Amer. J. Phys."}
+MACRO {ajm} {"Amer. J. Math."}
+MACRO {amsci} {"Amer. Sci."}
+MACRO {anofd} {"Ann. Fluid Dyn."}
+MACRO {am} {"Ann. Math."}
+MACRO {ap} {"Ann. Phys. (NY)"}
+MACRO {adp} {"Ann. Phys. (Leipzig)"}
+MACRO {ao} {"Appl. Opt."}
+MACRO {apl} {"Appl. Phys. Lett."}
+MACRO {app} {"Astroparticle Phys."}
+%<!jaa>MACRO {apj} {"Astrophys. J."}
+%<jaa>MACRO {apj} {"ApJ"}
+%<!jaa>MACRO {apjsup} {"Astrophys. J. Suppl."}
+%<jaa>MACRO {apjsup} {"ApJS"}
+%<!jaa>MACRO {apss} {"Astrophys. Space Sci."}
+%<jaa>MACRO {apss} {"Ap\&SS"}
+%<!jaa>MACRO {araa} {"Ann. Rev. Astron. Astrophys."}
+%<jaa>MACRO {araa} {"ARA\&A"}
+%<!jaa>MACRO {baas} {"Bull. Amer. Astron. Soc."}
+%<jaa>MACRO {baas} {"BAAS"}
+MACRO {baps} {"Bull. Amer. Phys. Soc."}
+MACRO {cmp} {"Comm. Math. Phys."}
+MACRO {cpam} {"Commun. Pure Appl. Math."}
+MACRO {cppcf} {"Comm. Plasma Phys. \& Controlled Fusion"}
+MACRO {cpc} {"Comp. Phys. Comm."}
+MACRO {cqg} {"Class. Quant. Grav."}
+MACRO {cra} {"C. R. Acad. Sci. A"}
+MACRO {fed} {"Fusion Eng. \& Design"}
+MACRO {ft} {"Fusion Tech."}
+MACRO {grg} {"Gen. Relativ. Gravit."}
+MACRO {ieeens} {"IEEE Trans. Nucl. Sci."}
+MACRO {ieeeps} {"IEEE Trans. Plasma Sci."}
+MACRO {ijimw} {"Interntl. J. Infrared \& Millimeter Waves"}
+MACRO {ip} {"Infrared Phys."}
+MACRO {irp} {"Infrared Phys."}
+MACRO {jap} {"J. Appl. Phys."}
+MACRO {jasa} {"J. Acoust. Soc. America"}
+MACRO {jcp} {"J. Comp. Phys."}
+MACRO {jetp} {"Sov. Phys.--JETP"}
+MACRO {jfe} {"J. Fusion Energy"}
+MACRO {jfm} {"J. Fluid Mech."}
+MACRO {jmp} {"J. Math. Phys."}
+MACRO {jne} {"J. Nucl. Energy"}
+MACRO {jnec} {"J. Nucl. Energy, C: Plasma Phys., Accelerators, Thermonucl. Res."}
+MACRO {jnm} {"J. Nucl. Mat."}
+MACRO {jpc} {"J. Phys. Chem."}
+MACRO {jpp} {"J. Plasma Phys."}
+MACRO {jpsj} {"J. Phys. Soc. Japan"}
+MACRO {jsi} {"J. Sci. Instrum."}
+MACRO {jvst} {"J. Vac. Sci. \& Tech."}
+%<!jaa>MACRO {nat} {"Nature"}
+%<!jaa>MACRO {nature} {"Nature"}
+%<jaa>MACRO {nat} {"Nat"}
+%<jaa>MACRO {nature} {"Nat"}
+MACRO {nedf} {"Nucl. Eng. \& Design/Fusion"}
+MACRO {nf} {"Nucl. Fusion"}
+MACRO {nim} {"Nucl. Inst. \& Meth."}
+MACRO {nimpr} {"Nucl. Inst. \& Meth. in Phys. Res."}
+MACRO {np} {"Nucl. Phys."}
+MACRO {npb} {"Nucl. Phys. B"}
+MACRO {nt/f} {"Nucl. Tech./Fusion"}
+MACRO {npbpc} {"Nucl. Phys. B (Proc. Suppl.)"}
+MACRO {inc} {"Nuovo Cimento"}
+MACRO {nc} {"Nuovo Cimento"}
+MACRO {pf} {"Phys. Fluids"}
+MACRO {pfa} {"Phys. Fluids A: Fluid Dyn."}
+MACRO {pfb} {"Phys. Fluids B: Plasma Phys."}
+MACRO {pl} {"Phys. Lett."}
+MACRO {pla} {"Phys. Lett. A"}
+MACRO {plb} {"Phys. Lett. B"}
+MACRO {prep} {"Phys. Rep."}
+MACRO {pnas} {"Proc. Nat. Acad. Sci. USA"}
+MACRO {pp} {"Phys. Plasmas"}
+MACRO {ppcf} {"Plasma Phys. \& Controlled Fusion"}
+MACRO {phitrsl} {"Philos. Trans. Roy. Soc. London"}
+MACRO {prl} {"Phys. Rev. Lett."}
+MACRO {pr} {"Phys. Rev."}
+MACRO {physrev} {"Phys. Rev."}
+MACRO {pra} {"Phys. Rev. A"}
+MACRO {prb} {"Phys. Rev. B"}
+MACRO {prc} {"Phys. Rev. C"}
+MACRO {prd} {"Phys. Rev. D"}
+MACRO {pre} {"Phys. Rev. E"}
+MACRO {ps} {"Phys. Scripta"}
+MACRO {procrsl} {"Proc. Roy. Soc. London"}
+MACRO {rmp} {"Rev. Mod. Phys."}
+MACRO {rsi} {"Rev. Sci. Inst."}
+%<!jaa>MACRO {science} {"Science"}
+%<jaa>MACRO {science} {"Sci"}
+MACRO {sciam} {"Sci. Am."}
+MACRO {sam} {"Stud. Appl. Math."}
+MACRO {sjpp} {"Sov. J. Plasma Phys."}
+MACRO {spd} {"Sov. Phys.--Doklady"}
+MACRO {sptp} {"Sov. Phys.--Tech. Phys."}
+MACRO {spu} {"Sov. Phys.--Uspeki"}
+%<!jaa>MACRO {st} {"Sky and Telesc."}
+%<jaa>MACRO {st} {"S\&T"}
+%</jabr>
+%<*!jabr>
+MACRO {aa}{"Astronomy and Astrophysics"}
+MACRO {aasup}{"Astronomy and Astrophysics, Supplement Series"}
+MACRO {aj}{"Astronomical Journal"}
+MACRO {aph} {"Acta Physica"}
+MACRO {advp} {"Advances in Physics"}
+MACRO {ajp} {"American Journal of Physics"}
+MACRO {ajm} {"American Journal of Mathematics"}
+MACRO {amsci} {"American Scientist"}
+MACRO {anofd} {"Annals of Fluid Dynamics"}
+MACRO {am} {"Annals of Mathematics"}
+MACRO {ap} {"Annals of Physics"}
+MACRO {adp} {"Annalen der Physik"}
+MACRO {ao} {"Applied Optics"}
+MACRO {apl} {"Applied Physics Letters"}
+MACRO {app} {"Astroparticle Physics"}
+MACRO {apj} {"Astrophysical Journal"}
+MACRO {apjsup} {"Astrophysical Journal Supplement"}
+MACRO {apss} {"Astrophysics and Space Science"}
+MACRO {araa} {"Annual Review of Astronomy and Astrophysics"}
+MACRO {baas} {"Bulletin of the American Astronomical Society"}
+MACRO {baps} {"Bulletin of the American Physical Society"}
+MACRO {cmp} {"Communications in Mathematical Physics"}
+MACRO {cpam} {"Communications on Pure and Applied Mathematics"}
+MACRO {cppcf} {"Comments on Plasma Physics and Controlled Fusion"}
+MACRO {cpc} {"Computer Physics Communications"}
+MACRO {cqg} {"Classical and Quantum Gravity"}
+MACRO {cra} {"Comptes Rendus des S{\'e}ances de l'Acad{\'e}mie des Sciences A"}
+MACRO {fed} {"Fusion Engineering and Design"}
+MACRO {ft} {"Fusion Technology"}
+MACRO {grg} {"General Relativity and Gravitation"}
+MACRO {ieeens} {"IEEE Transactions on Nuclear Science"}
+MACRO {ieeeps} {"IEEE Transactions on Plasma Science"}
+MACRO {ijimw} {"International Journal of Infrared and Millimeter Waves"}
+MACRO {ip} {"Infrared Physics"}
+MACRO {irp} {"Infrared Physics"}
+MACRO {jap} {"Journal of Applied Physics"}
+MACRO {jasa} {"Journal of the Acoustical Society of America"}
+MACRO {jcp} {"Journal of Computational Physics"}
+MACRO {jetp} {"Soviet Physics--JETP"}
+MACRO {jfe} {"Journal of Fusion Energy"}
+MACRO {jfm} {"Journal of Fluid Mechanics"}
+MACRO {jmp} {"Journal of Mathematical Physics"}
+MACRO {jne} {"Journal of Nuclear Energy"}
+MACRO {jnec} {"Journal of Nuclear Energy, Part C: Plasma Physics, Accelerators, Thermonuclear Research"}
+MACRO {jnm} {"Journal of Nuclear Materials"}
+MACRO {jpc} {"Journal of Physical Chemistry"}
+MACRO {jpp} {"Journal of Plasma Physics"}
+MACRO {jpsj} {"Journal of the Physical Society of Japan"}
+MACRO {jsi} {"Journal of Scientific Instruments"}
+MACRO {jvst} {"Journal of Vacuum Science and Technology"}
+MACRO {nat} {"Nature"}
+MACRO {nature} {"Nature"}
+MACRO {nedf} {"Nuclear Engineering and Design/Fusion"}
+MACRO {nf} {"Nuclear Fusion"}
+MACRO {nim} {"Nuclear Instruments and Methods"}
+MACRO {nimpr} {"Nuclear Instruments and Methods in Physics Research"}
+MACRO {np} {"Nuclear Physics"}
+MACRO {npb} {"Nuclear Physics B"}
+MACRO {nt/f} {"Nuclear Technology/Fusion"}
+MACRO {npbpc} {"Nuclear Physics B (Proceedings Supplements)"}
+MACRO {inc} {"Il Nuovo Cimento"}
+MACRO {nc} {"Nuovo Cimento"}
+MACRO {pf} {"Physics of Fluids"}
+MACRO {pfa} {"Physics of Fluids A: Fluid Dynamics"}
+MACRO {pfb} {"Physics of Fluids B: Plasma Physics"}
+MACRO {pl} {"Physics Letters"}
+MACRO {pla} {"Physics Letters A"}
+MACRO {plb} {"Physics Letters B"}
+MACRO {prep} {"Physics Reports"}
+MACRO {pnas} {"Proceedings of the National Academy of Sciences of the USA"}
+MACRO {pp} {"Physics of Plasmas"}
+MACRO {ppcf} {"Plasma Physics and Controlled Fusion"}
+MACRO {phitrsl} {"Philosophical Transactions of the Royal Society of London"}
+MACRO {prl} {"Physical Review Letters"}
+MACRO {pr} {"Physical Review"}
+MACRO {physrev} {"Physical Review"}
+MACRO {pra} {"Physical Review A"}
+MACRO {prb} {"Physical Review B"}
+MACRO {prc} {"Physical Review C"}
+MACRO {prd} {"Physical Review D"}
+MACRO {pre} {"Physical Review E"}
+MACRO {ps} {"Physica Scripta"}
+MACRO {procrsl} {"Proceedings of the Royal Society of London"}
+MACRO {rmp} {"Reviews of Modern Physics"}
+MACRO {rsi} {"Review of Scientific Instruments"}
+MACRO {science} {"Science"}
+MACRO {sciam} {"Scientific American"}
+MACRO {sam} {"Studies in Applied Mathematics"}
+MACRO {sjpp} {"Soviet Journal of Plasma Physics"}
+MACRO {spd} {"Soviet Physics--Doklady"}
+MACRO {sptp} {"Soviet Physics--Technical Physics"}
+MACRO {spu} {"Soviet Physics--Uspeki"}
+MACRO {st} {"Sky and Telescope"}
+%</!jabr>
+%</!options>
+ % End module: physjour.mbs
+%    \end{macrocode}
+% \Finale

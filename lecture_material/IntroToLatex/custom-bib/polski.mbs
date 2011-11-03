@@ -1,0 +1,348 @@
+%\iffalse         THIS IS A META COMMENT
+% File: polski.mbs
+% Copyright 1995-2000 Patrick W Daly
+% Max-Planck-Institut f\"ur Aeronomie
+% Max-Planck-Str. 2
+% D-37191 Katlenburg-Lindau
+% Germany
+% E-mail: daly@linmpi.mpg.de
+%
+% Copyright (C) 2000, Andrzej M. Borzyszkowski
+% Instytut Podstaw Informatyki Polskiej Akademii Nauk
+% adres: ul. Abrahama 18, 81-825 Sopot, Poland
+% e-mail: a.borzyszkowski@ipipan.gda.pl
+%
+% This program can be redistributed and/or modified under the terms
+% of the LaTeX Project Public License Distributed from CTAN
+% archives in directory macros/latex/base/lppl.txt; either
+% version 1 of the License, or any later version.
+%
+% It is part of the custom-bib collection,
+%   a contribution to the LaTeX2e system.
+%====================================================================
+%       A Language Definition File:  POLSKI
+%     to be included with other master bibliography style files
+%--------------------------------------------------------------------
+%   (See version and date in the \ProvidesFile command below)
+%--------------------------------------------------------------------
+%    This file is self-documenting: simply LaTeX it!
+%====================================================================
+%
+ %-------------------------------------------------------------------
+ % Begin module:
+%\fi
+ % \ProvidesFile{polski.mbs}[2003/11/06 4.2 (AMB/PWD)]
+%\iffalse
+%<*a&!a>
+% The following ensures that the driver part is not seen by makebst
+% The driver part must not contain any \end other than \end{document} !
+\ifx\endoptions\undefined\let\tempx=\relax\else
+  \long\def\tempx#1\end#2{}\fi\tempx
+%</a&!a>
+%<*driver>
+   \NeedsTeXFormat{LaTeX2e}%
+   \documentclass[a4paper,10pt,twoside]{article}%
+   \usepackage{doc}%
+   \raggedbottom
+   \CodelineNumbered
+   \RecordChanges
+ %  Comment out next line to print coding
+   \OnlyDescription
+   \setlength{\oddsidemargin}{0.5\paperwidth}
+   \addtolength{\oddsidemargin}{-0.5\textwidth}
+   \addtolength{\oddsidemargin}{-1in}
+   \setlength{\evensidemargin}{\oddsidemargin}
+
+\begin{document}
+   \DocInput{polski.mbs}
+\end{document}
+%</driver>
+%                   END OF META COMMENT   \fi
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \setcounter{StandardModuleDepth}{1}
+% \setcounter{IndexColumns}{2}
+% \setlength{\IndexMin}{10cm}
+%
+% \changes{4.0}{2000. February 21}{Submitted to PWD by AMB}
+% \changes{4.0a}{2002 Oct 18}{Fix bug in page number suppression}
+% \changes{4.2}{2003 Nov 6}{Fix comma separator, consistent with \texttt{makebst} 4.1}
+%
+% \pagestyle{myheadings}
+% \markboth{A.\ M.\ Borzyszkowski}{Polish Bibliographies}
+%
+% \title{{\bfseries Polish Language Definition File}\\
+%      for master bibliographic style files}
+%
+% \author{Andrzej M.\ Borzyszkowski}
+%
+% \GetFileInfo{polski.mbs}
+% \date{This paper describes file \texttt{\filename},\\
+%  version \fileversion{} from \filedate}
+%
+% \maketitle
+%
+% \MakeShortVerb{\|}
+%
+% \parskip=1ex \parindent=0pt
+%
+% \newcommand{\btx}{{\sc Bib}\TeX}
+% \newcommand{\dtx}{\textsf{docstrip}}
+%
+% \section{Introduction}
+% This file is to be used as a language definition file with master
+% bibliographic files. The language it defines is
+% \begin{quote}\bfseries Polish\end{quote}
+%
+% This is not a self-sufficient \texttt{.mbs} file, but rather may
+% be used together with one that contains language support via
+% external definition files.
+%
+% See the documentation for \texttt{makebst} for formatting details.
+%
+% \section{The Menu Information}
+%
+% All the menu information is nested between \dtx{} guard options
+% |%<*options>| \dots\ |%</options>|, and the last command is
+% |\endoptions|. The rest of the file is nested between |%<*!options&!driver>|
+% \dots\ |%</!options&!driver>| in order to exclude it if \dtx{} is used to
+% extract only the menu information or the documentation driver.
+%
+%    \begin{macrocode}
+%<*options>
+\mes{^^JOptions for POLISH}
+\wr{\spsp\spsp polski,\pc: Polish language}
+
+\beginoptiongroup{ABBREVIATE WORD `STRONY':}{}
+\optdef{*}{}{`Strony'}{(no abbreviation)}
+\optdef{a}{pp}{`Strony' abbreviated}{as str.}
+\optdef{x}{ppx}{`Strony' omitted}{}
+\getans
+\endoptiongroup
+\beginoptiongroup{ABBREVIATE WORD `REDAKTOR':}{}
+\optdef{*}{}{`Redaktor'}{(no abbreviation)}
+\optdef{a}{ed}{`Redaktor' abbreviated}{as Red.}
+\getans
+\endoptiongroup
+\beginoptiongroup{OTHER ABBREVIATIONS:}{}
+\optdef{*}{}{No abbreviations}{of wydanie, rozdzia\string\l, itd.}
+\optdef{a}{abr}{Abbreviations}{of such words}
+\getans
+\endoptiongroup
+\beginoptiongroup{EDITION NUMBERS:}{}
+\optdef{*}{xedn}{Editions as in database}{saving much processing memory}
+\optdef{w}{}{Write out editions}{as pierwsze, drugie, trzecie, itd.}
+\optdef{n}{ord}{Numerical editions}{as 1. 2. 3. itd.}
+\getans
+\endoptiongroup
+\beginoptiongroup{MONTHS IN ROMAN:}{}
+\optdef{*}{roman}{Months written in roman numerals}{as I, II, III, itd.}
+\optdef{x}{}{Months written in words}{as stycze\string\'n, luty, itd.}
+\getans
+\endoptiongroup
+\endoptions
+%</options>
+%    \end{macrocode}
+%
+% \StopEventually{\PrintChanges}
+%
+% \section{The Coding}
+%    \begin{macrocode}
+%<*!options&!driver>
+
+ % The language selected here is POLSKI
+FUNCTION {bbl.and}
+{ "i" }
+
+FUNCTION {bbl.etal}
+{ "et~al." }
+
+FUNCTION {bbl.editors}
+%<!ed>{ "redaktorzy" }
+%<ed>{ "red." }
+
+FUNCTION {bbl.editor}
+%<!ed>{ "redaktor" }
+%<ed>{ "red." }
+
+FUNCTION {bbl.edby}
+{ "pod redakcj{\k a}" }
+
+FUNCTION {bbl.edition}
+%<!abr>{ "wydanie" }
+%<abr>{ "wyd." }
+
+FUNCTION {bbl.volume}
+%<!abr>{ "tom" }
+%<abr>{ "tom" }
+
+FUNCTION {bbl.of}
+{ "z serii" }
+
+FUNCTION {bbl.number}
+%<!abr>{ "numer" }
+%<abr>{ "nr" }
+
+FUNCTION {bbl.nr}
+{ "nr" }
+
+FUNCTION {bbl.in}
+{ "w" }
+
+FUNCTION {bbl.pages}
+%<!pp&!ppx>{ "strony" }
+%<pp>{ "str." }
+%<!pp&ppx>{ "" }
+
+FUNCTION {bbl.page}
+%<!pp&!ppx>{ "strona" }
+%<pp>{ "str." }
+%<!pp&ppx>{ "" }
+
+%<*revdata>
+FUNCTION {bbl.eidpp}
+{ "strony" }
+
+%</revdata>
+FUNCTION {bbl.chapter}
+%<!abr>{ "rozdzia{\l}" }
+%<abr>{ "rozdz." }
+
+FUNCTION {bbl.techrep}
+%<!abr>{ "Raport techniczny" }
+%<abr>{ "Rap. tech." }
+
+FUNCTION {bbl.mthesis}
+{ "Praca magisterska" }
+
+FUNCTION {bbl.phdthesis}
+{ "Rozprawa doktorska" }
+
+%<*!xedn>
+FUNCTION {bbl.first}
+%<!ord>{ "pierwsze" }
+%<ord>{ "1." }
+
+FUNCTION {bbl.second}
+%<!ord>{ "drugie" }
+%<ord>{ "2." }
+
+FUNCTION {bbl.third}
+%<!ord>{ "trzecie" }
+%<ord>{ "3." }
+
+FUNCTION {bbl.fourth}
+%<!ord>{ "czwarte" }
+%<ord>{ "4." }
+
+FUNCTION {bbl.fifth}
+%<!ord>{ "pi{\k a}te" }
+%<ord>{ "5." }
+
+FUNCTION {bbl.st}
+{ "." }
+
+FUNCTION {bbl.nd}
+{ "." }
+
+FUNCTION {bbl.rd}
+{ "." }
+
+FUNCTION {bbl.th}
+{ "." }
+%</!xedn>
+%<*!roman>
+%<*!abr>
+MACRO {jan} {"stycze\'n"}
+
+MACRO {feb} {"luty"}
+
+MACRO {mar} {"marzec"}
+
+MACRO {apr} {"kwiecie\'n"}
+
+MACRO {may} {"maj"}
+
+MACRO {jun} {"czerwiec"}
+
+MACRO {jul} {"lipiec"}
+
+MACRO {aug} {"sierpie\'n"}
+
+MACRO {sep} {"wrzesie\'n"}
+
+MACRO {oct} {"pa\'zdziernik"}
+
+MACRO {nov} {"listopad"}
+
+MACRO {dec} {"grudzie\'n"}
+%</!abr>
+%<*abr>
+MACRO {jan} {"stycz."}
+
+MACRO {feb} {"luty"}
+
+MACRO {mar} {"marz."}
+
+MACRO {apr} {"kwiec."}
+
+MACRO {may} {"maj"}
+
+MACRO {jun} {"czer."}
+
+MACRO {jul} {"lip."}
+
+MACRO {aug} {"sier."}
+
+MACRO {sep} {"wrz."}
+
+MACRO {oct} {"pa\'zdz."}
+
+MACRO {nov} {"list."}
+
+MACRO {dec} {"grudz."}
+%</abr>
+%</!roman>
+%<*roman>
+MACRO {jan} {"I"}
+
+MACRO {feb} {"II"}
+
+MACRO {mar} {"III"}
+
+MACRO {apr} {"IV"}
+
+MACRO {may} {"V"}
+
+MACRO {jun} {"VI"}
+
+MACRO {jul} {"VII"}
+
+MACRO {aug} {"VIII"}
+
+MACRO {sep} {"IX"}
+
+MACRO {oct} {"X"}
+
+MACRO {nov} {"XI"}
+
+MACRO {dec} {"XII"}
+%</roman>
+%</!options&!driver>
+ % End module: polski.mbs
+%    \end{macrocode}
+% \Finale

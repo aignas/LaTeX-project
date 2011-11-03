@@ -1,0 +1,173 @@
+% File: shorthnd.ins
+%% Copyright 1998, 1999 Patrick W. Daly
+% Max-Planck-Institut f\"ur Aeronomie
+% Max-Planck-Str. 2
+% D-37191 Katlenburg-Lindau
+% Germany
+% E-mail: daly@linmpi.mpg.de
+%% 
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN
+%% archives in directory macros/latex/base/lppl.txt; either
+%% version 1 of the License, or any later version.
+%
+% It is part of the custom-bib collection, 
+%   a contribution to the LaTeX2e system.
+%
+% \ProvidesFile{shorthnd.ins}[1998/08/17 1.2 (PWD)]
+%
+% PURPOSE: lists the shorthand names for the journals that are prestored
+%          in various .mbs files, for combining into customized .bst
+%          files (BibTeX bibliography style files)
+%
+% USE:     Process this file with TeX or LaTeX; this creates a file named
+%              shorthnd.tex
+%          which when LaTeXed lists the shorthands and full journal names
+%          in the various .mbs files.
+%          Requires the longtable package in the tools bundle.
+%          Also produces 
+%              geophys.tex
+%          containing only names in geojour.mbs and physjour.mbs
+%          which are those supplied with the geophysics journals
+%
+% NOTE:    Add your own list of journal shorthnds by adding its name
+%          to the list below.
+%
+%<*a&!a>
+\input docstrip
+
+\preamble
+===============================================
+IMPORTANT NOTICE
+See below for the copyright and distribution conditions.
+
+This is a generated file.
+It may be distributed without the source files listed above.
+===============================================
+\endpreamble
+
+% \postamble
+% \endpostamble
+
+\def\MBSopt{} %     for full names
+%\def\MBSopt{jabr} % for abbreviated names
+
+\keepsilent
+
+\askforoverwritefalse
+
+\generate{\file{shorthnd.tex}{\from{shorthnd.ins}{head}
+                               \from{physjour.mbs}{\MBSopt}
+                               \from{geojour.mbs}{\MBSopt}
+                               \from{photjour.mbs}{\MBSopt}
+                               \from{suppjour.mbs}{\MBSopt}
+                               \from{shorthnd.ins}{tail}}
+          \file{geophys.tex}{\from{shorthnd.ins}{head}
+                               \from{physjour.mbs}{\MBSopt}
+                               \from{geojour.mbs}{\MBSopt}
+                               \from{shorthnd.ins}{tail}}
+}
+
+\Msg{************************************}
+\Msg{* Now LaTeX the file shorthnd.tex}
+\Msg{* to obtain a listing of journal}
+\Msg{* shorthand names in the .mbs files.}
+\Msg{* (You must have the longtable package.)}
+\Msg{************************************}
+
+\endbatchfile
+%</a&!a>
+%<*head>
+\documentclass{article}
+\usepackage{longtable}
+
+\def\ACRO{\begingroup\catcode`\M=11\relax\catcode`\"=9\relax\acro}
+\def\acro#1#2{\endgroup\ttfamily#1 & \raggedright #2 \tabularnewline}
+\def\PF#1[#2]{\\\hline\multicolumn{2}{c}{File: \texttt{#1}, version: #2
+              \rule[-.75em]{0pt}{2em}}\\\hline\\[-1ex]}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex}
+
+\pagestyle{myheadings}
+\markright{List of Journal Shorthands}
+\begin{document}
+
+\title
+  {List of the Shorthands for Journal Names in Various \texttt{.mbs} Files}
+
+\author{Patrick W. Daly}
+
+\date{This is part of the \texttt{makebst} or \texttt{custom-bib} bundle}
+
+\maketitle
+
+\newcommand{\btx}{\textsc{Bib}\TeX}
+
+The shorthands here may be used in \btx\ database (\texttt{.bib}) files in
+place of the full journal name. For example, instead of 
+\begin{verbatim}
+journal = "Phys. Rev.",
+\end{verbatim}
+it is sufficient to give
+\begin{verbatim}
+journal = pr,
+\end{verbatim}
+The advantage of this is not only the convenience of typing a shorter form,
+but also the automatic switching between the abbreviated (here ``Phys.\
+Rev.'')\ and full forms (``Physical Review'') depending on the bibliographic
+style file. Thus the one database entry is reformatted automatically.
+
+There is a set of standard shorthands for computing science included in the
+original \texttt{plain.bst}, \texttt{abbrv.bst}, \texttt{unsrt.bst}, and 
+\texttt{alpha.bst} files. These are built into \texttt{merlin.mbs} and are
+always present in every \texttt{.bst} file generated from it.
+
+Whether or not the shorthand is present in your \texttt{.bst} file depends on
+the inclusion of the proper \texttt{.mbs} source file during its creation with
+the \texttt{makebst} program. Check the heading to the \texttt{.bst} file 
+to find out what source files went into its generation.
+
+You may make up your own list of journal names, abbreviated and full, by using
+one of the existing \texttt{.mbs} files as a model. Include its name in
+\texttt{shorthnd.ins} to obtain a listing of its shorthands too.
+
+\newpage
+
+\begingroup
+\centering
+\def\PC#1{\ifx#1\ProvidesFile \let\next=#1\else\let\next=\skipline\fi\next}
+\def\skipline{\begingroup\catcode`\^^M=12 \SKPLNE}
+{\catcode`\^^M=12 \endlinechar=-1 \gdef\SKPLNE#1^^M{\endgroup}}
+\let\ProvidesFile=\PF
+\catcode`\%=\active
+\let%=\PC
+\catcode`\M=0
+\begin{longtable}{lp{6cm}}
+ \PF{merlin.mbs}[(all)]
+MACRO {acmcs} {"ACM Computing Surveys"}
+MACRO {acta} {"Acta Informatica"}
+MACRO {cacm} {"Communications of the ACM"}
+MACRO {ibmjrd} {"IBM Journal of Research and Development"}
+MACRO {ibmsj} {"IBM Systems Journal"}
+MACRO {ieeese} {"IEEE Transactions on Software Engineering"}
+MACRO {ieeetc} {"IEEE Transactions on Computers"}
+MACRO {ieeetcad}
+  {"IEEE Transactions on Computer-Aided Design of Integrated Circuits"}
+MACRO {ipl} {"Information Processing Letters"}
+MACRO {jacm} {"Journal of the ACM"}
+MACRO {jcss} {"Journal of Computer and System Sciences"}
+MACRO {scp} {"Science of Computer Programming"}
+MACRO {sicomp} {"SIAM Journal on Computing"}
+MACRO {tocs} {"ACM Transactions on Computer Systems"}
+MACRO {tods} {"ACM Transactions on Database Systems"}
+MACRO {tog} {"ACM Transactions on Graphics"}
+MACRO {toms} {"ACM Transactions on Mathematical Software"}
+MACRO {toois} {"ACM Transactions on Office Information Systems"}
+MACRO {toplas} {"ACM Transactions on Programming Languages and Systems"}
+MACRO {tcs} {"Theoretical Computer Science"}
+%</head>
+%<*tail>
+\end{longtable}
+\endgroup
+\end{document}
+%</tail>

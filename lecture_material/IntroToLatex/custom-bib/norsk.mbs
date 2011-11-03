@@ -1,0 +1,316 @@
+%\iffalse         THIS IS A META COMMENT
+% File: norsk.mbs
+% Copyright 1995-1999 Patrick W Daly
+% Max-Planck-Institut f\"ur Aeronomie
+% Max-Planck-Str. 2
+% D-37191 Katlenburg-Lindau
+% Germany
+% E-mail: daly@linmpi.mpg.de
+%
+% Copyright 1995, Rolf Lindgren, OPERATOR
+% Universitetes Senter for Informasjonsteknologi
+% Pb 1059 Blindern
+% 0316 OSLO
+% E-mail: rolf.lindgren@usit.uio.no
+%
+% This program can be redistributed and/or modified under the terms
+% of the LaTeX Project Public License Distributed from CTAN
+% archives in directory macros/latex/base/lppl.txt; either
+% version 1 of the License, or any later version.
+%
+% It is part of the custom-bib collection,
+%   a contribution to the LaTeX2e system.
+%====================================================================
+%       A Language Definition File:  NORWEGIAN
+%     to be included with other master bibliography style files
+%--------------------------------------------------------------------
+%   (See version and date in the \ProvidesFile command below)
+%--------------------------------------------------------------------
+%    This file is self-documenting: simply LaTeX it!
+%====================================================================
+%
+ %-------------------------------------------------------------------
+ % Begin module:
+%\fi
+ % \ProvidesFile{norsk.mbs}[2005/06/03 4.2b (RL/PWD)]
+%\iffalse
+%<*a&!a>
+% The following ensures that the driver part is not seen by makebst
+% The driver part must not contain any \end other than \end{document} !
+\ifx\endoptions\undefined\let\tempx=\relax\else
+  \long\def\tempx#1\end#2{}\fi\tempx
+%</a&!a>
+%<*driver>
+   \NeedsTeXFormat{LaTeX2e}%
+   \documentclass[a4paper,10pt,twoside]{article}%
+   \usepackage{doc}%
+   \raggedbottom
+   \CodelineNumbered
+   \RecordChanges
+ %  Comment out next line to print coding
+   \OnlyDescription
+   \setlength{\oddsidemargin}{0.5\paperwidth}
+   \addtolength{\oddsidemargin}{-0.5\textwidth}
+   \addtolength{\oddsidemargin}{-1in}
+   \setlength{\evensidemargin}{\oddsidemargin}
+
+\begin{document}
+   \DocInput{norsk.mbs}
+\end{document}
+%</driver>
+%                   END OF META COMMENT   \fi
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \setcounter{StandardModuleDepth}{1}
+% \setcounter{IndexColumns}{2}
+% \setlength{\IndexMin}{10cm}
+%
+% \changes{1.1}{1998 Aug 17}{Add \texttt{bbl.etal}}
+% \changes{1.2}{1999 Feb 1}{Add option \texttt{xedn}}
+% \changes{1.2}{1999 Feb 24}{Update copyright notice}
+% \changes{4.0}{1999 Oct 11}{For merlin 4.0}
+% \changes{4.0a}{2002 Oct 18}{Fix bug in page number suppression}
+% \changes{4.2}{2003 Nov 6}{Fix comma separator, consistent with \texttt{makebst} 4.1}
+% \changes{4.2a}{2004 May 6}{Add missing backslash in a menu text}
+% \changes{4.2b}{2005 Jun 3}{Change spelling errors, contrib by Svend Tollak Munkejord}
+%
+% \markboth{Rolf Lindgren}{Norwegian bibliographies}
+%
+% \title{{\bfseries Norwegian Language Definition File}\\
+%      for master bibliographic style files}
+%
+% \author{Patrick W. Daly and Rolf Lindgren}
+%
+% \GetFileInfo{norsk.mbs}
+% \date{This paper describes file \texttt{\filename},\\
+%  version \fileversion{} from \filedate}
+%
+% \maketitle
+%
+% \MakeShortVerb{\|}
+%
+% \parskip=1ex \parindent=0pt
+%
+% \newcommand{\btx}{{\sc Bib}\TeX}
+% \newcommand{\dtx}{\textsf{docstrip}}
+%
+% \section{Introduction}
+% This file is to be used as a language definition file with master
+% bibliographic files. The language it defines is
+% \begin{quote}\bfseries Norsk\end{quote}
+%
+% This is not a self-sufficient \texttt{.mbs} file, but rather may
+% be used together with one that contains language support via
+% external definition files.
+%
+% See the documentation for \texttt{makebst} for formatting details.
+%
+% \section{The Menu Information}
+%
+% All the menu information is nested between \dtx{} guard options
+% |%<*options>| \dots\ |%</options>|, and the last command is
+% |\endoptions|. The rest of the file is nested between |%<*!options&!driver>|
+% \dots\ |%</!options&!driver>| in order to exclude it if \dtx{} is used to
+% extract only the menu information or the documentation driver.
+%
+%    \begin{macrocode}
+%<*options>
+\mes{^^JOptions for NORSK}
+\wr{\spsp\spsp norsk,\pc: Norwegian language}
+
+\beginoptiongroup{ABBREVIATE WORD `PAGES':}{}
+\optdef{*}{}{`Sider(ne)'}{(no abbreviation)}
+\optdef{a}{pp}{`Side' abbreviated}{as s. or ss.}
+\optdef{x}{ppx}{`Side' omitted}{}
+\getans
+\endoptiongroup
+\beginoptiongroup{ABBREVIATE WORD `EDITORS':}{}
+\optdef{*}{}{`Redakt{\string\o}r(er)'}{(no abbreviation)}
+\optdef{a}{ed}{`Redakt{\string\o}r' abbreviated}{as red.}
+\getans
+\endoptiongroup
+\beginoptiongroup{OTHER ABBREVIATIONS:}{}
+\optdef{*}{}{No abbreviations}{of bind, utgave, kapittel, osv.}
+\optdef{a}{abr}{Abbreviations}{of such words}
+\getans
+\endoptiongroup
+\beginoptiongroup{EDITION NUMBERS:}{}
+\optdef{*}{xedn}{Editions as in database}{saving much processing memory}
+\optdef{w}{}{Write out editions}{as f{\string\o}rste, annen, tredje, osv}
+\optdef{n}{ord}{Numerical editions}{as 1., 2., 3., osv}
+\getans
+\endoptiongroup
+\endoptions
+%</options>
+%    \end{macrocode}
+%
+% \StopEventually{\PrintChanges}
+%
+% \section{The Coding}
+%    \begin{macrocode}
+%<*!options&!driver>
+
+ % The language selected here is NORSK
+
+FUNCTION {bbl.and}
+{ "og"}
+
+FUNCTION {bbl.etal}
+{ "et~al." }
+
+FUNCTION {bbl.editors}
+%<!ed>{ "redakt{\o}rer" }
+%<ed>{ "red." }
+
+FUNCTION {bbl.editor}
+%<!ed>{ "redakt{\o}r" }
+%<ed>{ "red." }
+
+FUNCTION {bbl.edby}
+{ "redigert av" }
+
+FUNCTION {bbl.edition}
+%<!abr>{ "utgave" }
+%<abr>{ "utg." }
+
+FUNCTION {bbl.volume}
+%<!abr>{ "bind" }
+%<abr>{ "bd." }
+
+FUNCTION {bbl.of}
+{ "av" }
+
+FUNCTION {bbl.number}
+%<!abr>{ "nummer" }
+%<abr>{ "nr." }
+
+FUNCTION {bbl.nr}
+{ "nr." }
+
+FUNCTION {bbl.in}
+{ "i" }
+
+FUNCTION {bbl.pages}
+%<!pp&!ppx>{ "sider" }
+%<pp>{ "ss." }
+%<!pp&ppx>{ "" }
+
+FUNCTION {bbl.page}
+%<!pp&!ppx>{ "side" }
+%<pp>{ "s." }
+%<!pp&ppx>{ "" }
+
+%<*revdata>
+FUNCTION {bbl.eidpp}
+{ "sider" }
+
+%</revdata>
+FUNCTION {bbl.chapter}
+%<!abr>{ "kapittel" }
+%<abr>{ "kap." }
+
+FUNCTION {bbl.techrep}
+%<!abr>{ "Teknisk rapport" }
+%<abr>{ "Tekn. rap." }
+
+FUNCTION {bbl.mthesis}
+{ "Hovedoppgave" }
+
+FUNCTION {bbl.phdthesis}
+{ "Doktorgradsavhandling" }
+
+%<*!xedn>
+FUNCTION {bbl.first}
+%<!ord>{ "F{\o}rste" }
+%<ord>{ "1." }
+
+FUNCTION {bbl.second}
+%<!ord>{ "Annen" }
+%<ord>{ "2." }
+
+FUNCTION {bbl.third}
+%<!ord>{ "Tredje" }
+%<ord>{ "3." }
+
+FUNCTION {bbl.fourth}
+%<!ord>{ "Fjerde" }
+%<ord>{ "4." }
+
+FUNCTION {bbl.fifth}
+%<!ord>{ "Femte" }
+%<ord>{ "5." }
+
+FUNCTION {bbl.th}
+{ "." }
+
+%</!xedn>
+%<*!abr>
+MACRO {jan} {"Januar"}
+
+MACRO {feb} {"Februar"}
+
+MACRO {mar} {"Mars"}
+
+MACRO {apr} {"April"}
+
+MACRO {may} {"Mai"}
+
+MACRO {jun} {"Juni"}
+
+MACRO {jul} {"Juli"}
+
+MACRO {aug} {"August"}
+
+MACRO {sep} {"September"}
+
+MACRO {oct} {"Oktober"}
+
+MACRO {nov} {"November"}
+
+MACRO {dec} {"Desember"}
+
+%</!abr>
+%<*abr>
+MACRO {jan} {"Jan."}
+
+MACRO {feb} {"Feb."}
+
+MACRO {mar} {"Mar."}
+
+MACRO {apr} {"Apr."}
+
+MACRO {may} {"Mai"}
+
+MACRO {jun} {"Jun."}
+
+MACRO {jul} {"Jul."}
+
+MACRO {aug} {"Aug."}
+
+MACRO {sep} {"Sep."}
+
+MACRO {oct} {"Okt."}
+
+MACRO {nov} {"Nov."}
+
+MACRO {dec} {"Des."}
+
+%</abr>
+%</!options&!driver>
+ % End module: norsk.mbs
+%    \end{macrocode}
+% \Finale

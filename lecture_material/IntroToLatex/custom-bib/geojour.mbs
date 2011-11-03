@@ -1,0 +1,404 @@
+%\iffalse         THIS IS A META COMMENT
+% File: physjour.mbs
+% Copyright 1994-1999 Patrick W Daly
+% Max-Planck-Institut f\"ur Aeronomie
+% Max-Planck-Str. 2
+% D-37191 Katlenburg-Lindau
+% Germany
+% E-mail: daly@linmpi.mpg.de
+%
+% This program can be redistributed and/or modified under the terms
+% of the LaTeX Project Public License Distributed from CTAN
+% archives in directory macros/latex/base/lppl.txt; either
+% version 1 of the License, or any later version.
+%
+% It is part of the custom-bib collection,
+%   a contribution to the LaTeX2e system.
+%====================================================================
+%       A Journal Definition File for Geophysics journals
+%     to be included with other master bibliography style files
+%--------------------------------------------------------------------
+%   (See version and date in the \ProvidesFile command below)
+%--------------------------------------------------------------------
+%    This file is self-documenting: simply LaTeX it!
+%====================================================================
+%
+ %-------------------------------------------------------------------
+ % Begin module:
+%\fi
+ % \ProvidesFile{geojour.mbs}[2002/07/10 2.0h (PWD)]
+%\iffalse
+%<*a&!a>
+% The following ensures that the driver part is not seen by makebst
+% The driver part must not contain any \end other than \end{document} !
+\ifx\endoptions\undefined\let\tempx=\relax\else
+  \long\def\tempx#1\end#2{}\fi\tempx
+%</a&!a>
+%<*driver>
+   \NeedsTeXFormat{LaTeX2e}%
+   \documentclass[a4paper,10pt,twoside]{article}%
+   \usepackage{doc}%
+   \raggedbottom
+   \CodelineNumbered
+   \RecordChanges
+ %  Comment out next line to print coding
+   \OnlyDescription
+   \setlength{\oddsidemargin}{0.5\paperwidth}
+   \addtolength{\oddsidemargin}{-0.5\textwidth}
+   \addtolength{\oddsidemargin}{-1in}
+   \setlength{\evensidemargin}{\oddsidemargin}
+
+\begin{document}
+   \DocInput{geojour.mbs}
+\end{document}
+%</driver>
+%                   END OF META COMMENT   \fi
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \setcounter{StandardModuleDepth}{1}
+% \setcounter{IndexColumns}{2}
+% \setlength{\IndexMin}{10cm}
+%
+% \changes{1.0}{1996 Feb 2}{Initial version, contributed by N.S.}
+% \changes{1.1}{1996 Jun 20}{Additions/correction by Martin Dix}
+% \changes{2.0}{1996 Jun 26}{Reorganize with \texttt{physjour} and
+%         \texttt{photjour}}
+% \changes{2.0a}{1997 May 26}{Correct grl abbreviation; add \texttt{pss}}
+% \changes{2.0b}{1997 Sep 15}{Replace umlaut with Raichle trick}
+% \changes{2.0c}{1998 Nov 25}{Add \texttt{pce} and \texttt{sp}}
+% \changes{2.0d}{1998 Dec 22}{Add \texttt{empl}, \texttt{ass}, \texttt{expa},
+%    and \texttt{sgp}}
+% \changes{2.0e}{1999 Feb 24}{Update copyright notice}
+% \changes{2.0f}{1999 Oct 8}{Revise some journal abbreviations}
+% \changes{2.0g}{1999 Nov 16}{Get \texttt{pce} right}
+% \changes{2.0h}{2002 Jul 10}{Add \texttt{jastp}}
+%
+% \pagestyle{myheadings}
+% \markboth{P. W. Daly}{Geophysics Journal Names}
+%
+% \title{{\bfseries Geophysics Journal Definition File}\\
+%      for master bibliographic style files}
+%
+% \author{Patrick W. Daly}
+%
+% \GetFileInfo{geojour.mbs}
+% \date{This paper describes file \texttt{\filename},\\
+%  version \fileversion{} from \filedate}
+%
+% \maketitle
+%
+% \MakeShortVerb{\|}
+%
+% \parskip=1ex \parindent=0pt
+%
+% \newcommand{\btx}{{\sc Bib}\TeX}
+% \newcommand{\dtx}{\textsf{docstrip}}
+%
+% \section{Introduction}
+%
+% This file adds a list of preprogrammed geophysics journal names to
+% bibliographic style files, in both full and abbreviated versions.
+% These defined journal names will be added to those in the main master
+% bibliography style file.
+%
+% This is not a self-sufficient \texttt{.mbs} file, but rather may
+% be used together with one that contains support for
+% external definition files.
+%
+% This file was contributed by
+% \begin{quote}
+% Niilo Siljamo, email \texttt{siljamo@rock.helsinki.fi}.
+% \end{quote}
+% with additions and corrections by
+% \begin{quote}
+% Martin Dix, email \texttt{mrd@dar.csiro.au}
+% \end{quote}
+%
+% Version 2.0: I go through all journal names, checking for conflicts and
+% duplications with \texttt{physjour.mbs} and \texttt{photjour.mbs}.
+% Optical and physical journals removed; geophysical journals included
+% from the others. Where one journal exists with multiple shorthands,
+% all versions are kept.
+%
+% Version 2.0a: correct abbreviation for GRL; introduce \texttt{pss} for
+% Planetary and Space Science, which for some wierd reason is keyed as
+% \texttt{pps}, which I leave for compatibility.
+%
+% Version 2.0b: Fixes a problem with umlauts acting as string terminator.
+%
+% Versions 2.0c,d: Add more journals.
+%
+% Version 2.0e: revise copyright notice to LPPL standard.
+%
+% Version 2.0f: revise journal abbreviations as suggested by Conrado
+% Badenas \texttt{Conrado.Badenas@uv.es}
+%
+% See the documentation for \texttt{makebst} for formatting details.
+%
+% \section{The Menu Information}
+%
+% All the menu information is nested between \dtx{} guard options
+% |%<*options>| \dots\ |%</options>|, and the last command is
+% |\endoptions|. The rest of the file is nested between |%<*!options>|
+% \dots\ |%</!options>| in order to exclude it if \dtx{} is used to
+% extract only the menu information.
+%
+%    \begin{macrocode}
+%<*options>
+\mes{^^JGEOPHYSICS JOURNAL NAMES:}
+\optdef{*}{}{Full geophysics journal names}{}
+\optdef{a}{jabr}{Abbreviate geophysics names}{for journals}
+\getans
+\endoptions
+%</options>
+%    \end{macrocode}
+%
+% \StopEventually{\PrintChanges}
+%
+% \section{The Coding}
+%    \begin{macrocode}
+%<*!options>
+%<*jabr>
+MACRO {aisr} {"Adv. Space Res."}
+MACRO {ag} {"Ann. Geophys."}
+MACRO {anigeo} {"Ann. Geofis."}
+MACRO {angl} {"Ann. Glaciol."}
+MACRO {andmet} {"Ann. d. Meteor."}
+MACRO {andgeo} {"Ann. d. Geophys."}
+MACRO {andphy} {"Ann. Phys.-Paris"}
+MACRO {afmgb} {"Arch. Meteor. Geophys. Bioklimatol."}
+MACRO {atph} {"Atm\'osphera"}
+MACRO {aao} {"Atmos. Ocean"}
+MACRO {ass}{"Astrophys. Space Sci."}
+MACRO {atenv} {"Atmos. Environ."}
+MACRO {aujag} {"Aust. J. Agr. Res."}
+MACRO {aumet} {"Aust. Meteorol. Mag."}
+MACRO {blmet} {"Bound.-Lay. Meteorol."}
+MACRO {bams} {"Bull. Amer. Meteorol. Soc."}
+MACRO {cch} {"Clim. Change"}
+MACRO {cdyn} {"Clim. Dynam."}
+MACRO {cbul} {"Climatol. Bull."}
+MACRO {cap} {"Contrib. Atmos. Phys."}
+MACRO {dsr} {"Deep-Sea Res."}
+MACRO {dhz} {"Dtsch. Hydrogr. Z."}
+MACRO {dao} {"Dynam. Atmos. Oceans"}
+MACRO {eco} {"Ecology"}
+MACRO {empl}{"Earth, Moon and Planets"}
+MACRO {envres} {"Environ. Res."}
+MACRO {envst} {"Environ. Sci. Technol."}
+MACRO {ecms} {"Estuarine Coastal Mar. Sci."}
+MACRO {expa}{"Exper. Astron."}
+MACRO {geoint} {"Geofis. Int."}
+MACRO {geopub} {"Geofys. Publ."}
+MACRO {geogeo} {"Geol. Geofiz."}
+MACRO {gafd} {"Geophys. Astrophys. Fluid Dyn."}
+MACRO {gfd} {"Geophys. Fluid Dyn."}
+MACRO {geomag} {"Geophys. Mag."}
+MACRO {georl} {"Geophys. Res. Lett."}
+MACRO {grl} {"Geophys. Res. Lett."}
+MACRO {ga} {"Geophysica"}
+MACRO {gs} {"Geophysics"}
+MACRO {ieeetap} {"IEEE Trans. Antenn. Propag."}
+MACRO {ijawp} {"Int. J. Air Water Pollut."}
+MACRO {ijc} {"Int. J. Climatol."}
+MACRO {ijrs} {"Int. J. Remote Sens."}
+MACRO {jam} {"J. Appl. Meteorol."}
+MACRO {jaot} {"J. Atmos. Ocean. Technol."}
+MACRO {jatp} {"J. Atmos. Terr. Phys."}
+MACRO {jastp} {"J. Atmos. Solar-Terr. Phys."}
+MACRO {jce} {"J. Climate"}
+MACRO {jcam} {"J. Climate Appl. Meteor."}
+MACRO {jcm} {"J. Climate Meteor."}
+MACRO {jcy} {"J. Climatol."}
+MACRO {jgr} {"J. Geophys. Res."}
+MACRO {jga} {"J. Glaciol."}
+MACRO {jh} {"J. Hydrol."}
+MACRO {jmr} {"J. Mar. Res."}
+MACRO {jmrj} {"J. Meteor. Res. Japan"}
+MACRO {jm} {"J. Meteor."}
+MACRO {jpo} {"J. Phys. Oceanogr."}
+MACRO {jra} {"J. Rech. Atmos."}
+MACRO {jaes} {"J. Aeronaut. Sci."}
+MACRO {japca} {"J. Air Pollut. Control Assoc."}
+MACRO {jas} {"J. Atmos. Sci."}
+MACRO {jmts} {"J. Mar. Technol. Soc."}
+MACRO {jmsj} {"J. Meteorol. Soc. Japan"}
+MACRO {josj} {"J. Oceanogr. Soc. Japan"}
+MACRO {jwm} {"J. Wea. Mod."}
+MACRO {lao} {"Limnol. Oceanogr."}
+MACRO {mwl} {"Mar. Wea. Log"}
+MACRO {mau} {"Mausam"}
+MACRO {meteor} {"``Meteor'' Forschungsergeb."}
+MACRO {map} {"Meteorol. Atmos. Phys."}
+MACRO {metmag} {"Meteor. Mag."}
+MACRO {metmon} {"Meteor. Monogr."}
+MACRO {metrun} {"Meteor. Rundsch."}
+MACRO {metzeit} {"Meteor. Z."}
+MACRO {metgid} {"Meteor. Gidrol."}
+MACRO {mwr} {"Mon. Weather Rev."}
+MACRO {nwd} {"Natl. Weather Dig."}
+MACRO {nzjmfr} {"New Zeal. J. Mar. Freshwater Res."}
+MACRO {npg} {"Nonlin. Proc. Geophys."}
+MACRO {om} {"Oceanogr. Meteorol."}
+MACRO {ocac} {"Oceanol. Acta"}
+MACRO {oceanus} {"Oceanus"}
+MACRO {paleoc} {"Paleoceanography"}
+MACRO {pce} {"Phys. Chem. Earth"}
+MACRO {pmg} {"Pap. Meteor. Geophys."}
+MACRO {ppom} {"Pap. Phys. Oceanogr. Meteor."}
+MACRO {physzeit} {"Phys. Z."}
+MACRO {pps} {"Planet. Space Sci."}
+MACRO {pss} {"Planet. Space Sci."}
+MACRO {pag} {"Pure Appl. Geophys."}
+MACRO {qjrms} {"Quart. J. Roy. Meteorol. Soc."}
+MACRO {quatres} {"Quat. Res."}
+MACRO {rsci} {"Radio Sci."}
+MACRO {rse} {"Remote Sens. Environ."}
+MACRO {rgeo} {"Rev. Geophys."}
+MACRO {rgsp} {"Rev. Geophys. Space Phys."}
+MACRO {rdgeo} {"Rev. Geofis."}
+MACRO {revmeta} {"Rev. Meteorol."}
+MACRO {sgp}{"Surveys in Geophys."}
+MACRO {sp} {"Solar Phys."}
+MACRO {ssr} {"Space Sci. Rev."}
+MACRO {tellus} {"Tellus"}
+MACRO {tac} {"Theor. Appl. Climatol."}
+MACRO {tagu} {"Trans. Am. Geophys. Union (EOS)"}
+MACRO {wrr} {"Water Resour. Res."}
+MACRO {weather} {"Weather"}
+MACRO {wafc} {"Weather Forecast."}
+MACRO {ww} {"Weatherwise"}
+MACRO {wmob} {"WMO Bull."}
+MACRO {zeitmet} {"Z. Meteorol."}
+%</jabr>
+%<*!jabr>
+MACRO {aisr} {"Advances in Space Research"}
+MACRO {ag} {"Annales Geophysic\ae"}
+MACRO {anigeo} {"Annali di Geofisica"}
+MACRO {angl} {"Annals of Glaciology"}
+MACRO {andmet} {"Annalen der Meteorologie"}
+MACRO {andgeo} {"Annales de Geophysique"}
+MACRO {andphy} {"Annales de Physique"}
+MACRO {afmgb} {"Archiv f\^^b{u}r Meteorologie, Geophysik und Bioklimatologie"}
+MACRO {ass}{"Astrophysics and Space Science"}
+MACRO {atph} {"Atm\'osphera"}
+MACRO {aao} {"Atmosphere-Ocean"}
+MACRO {atenv} {"Atmospheric Environment"}
+MACRO {aujag} {"Australian Journal of Agricultural Research"}
+MACRO {aumet} {"Australian Meteorological Magazine"}
+MACRO {blmet} {"Boundary-Layer Meteorology"}
+MACRO {bams} {"Bulletin of the American Meteorological Society"}
+MACRO {cch} {"Climatic Change"}
+MACRO {cdyn} {"Climate Dynamics"}
+MACRO {cbul} {"Climatological Bulletin"}
+MACRO {cap} {"Contributions to Atmospheric Physics"}
+MACRO {dsr} {"Deep-Sea Research"}
+MACRO {dhz} {"Deutsche Hydrographische Zeitschrift"}
+MACRO {dao} {"Dynamics of Atmospheres and Oceans"}
+MACRO {eco} {"Ecology"}
+MACRO {empl}{"Earth, Moon and Planets"}
+MACRO {envres} {"Environmental Research"}
+MACRO {envst} {"Environmental Science and Technology"}
+MACRO {ecms} {"Estuarine and Coastal Marine Science"}
+MACRO {expa}{"Experimental Astronomy"}
+MACRO {geoint} {"Geofisica Internationale"}
+MACRO {geopub} {"Geofysiske Publikasjoner"}
+MACRO {geogeo} {"Geologiya i Geofizika"}
+MACRO {gafd} {"Geophysical and Astrophysical Fluid Dynamics"}
+MACRO {gfd} {"Geophysical Fluid Dynamics"}
+MACRO {geomag} {"Geophysical Magazine"}
+MACRO {georl} {"Geophysical Research Letters"}
+MACRO {grl} {"Geophysical Research Letters"}
+MACRO {ga} {"Geophysica"}
+MACRO {gs} {"Geophysics"}
+MACRO {ieeetap} {"IEEE Transactions on Antennas and Propagation"}
+MACRO {ijawp} {"International Journal of Air and Water Pollution"}
+MACRO {ijc} {"International Journal of Climatology"}
+MACRO {ijrs} {"International Journal of Remote Sensing"}
+MACRO {jam} {"Journal of Applied Meteorology"}
+MACRO {jaot} {"Journal of Atmospheric and Oceanic Technology"}
+MACRO {jatp} {"Journal of Atmospheric and Terrestrial Physics"}
+MACRO {jastp} {"Journal of Atmospheric and Solar-Terrestrial Physics"}
+MACRO {jce} {"Journal of Climate"}
+MACRO {jcam} {"Journal of Climate and Applied Meteorology"}
+MACRO {jcm} {"Journal of Climate Meteorology"}
+MACRO {jcy} {"journal of Climatology"}
+MACRO {jgr} {"Journal of Geophysical Research"}
+MACRO {jga} {"Journal of Glaciology"}
+MACRO {jh} {"Journal of Hydrology"}
+MACRO {jmr} {"Journal of Marine Research"}
+MACRO {jmrj} {"Journal of Meteorological Research, Japan"}
+MACRO {jm} {"Journal of Meteorology"}
+MACRO {jpo} {"Journal of Physical Oceanography"}
+MACRO {jra} {"Journal de Recherches Atmospheriques"}
+MACRO {jaes} {"Journal of the Aeronautical Sciences"}
+MACRO {japca} {"Journal of the Air Pollution Control Association"}
+MACRO {jas} {"Journal of the Atmospheric Sciences"}
+MACRO {jmts} {"Journal of the Marine Technology Society"}
+MACRO {jmsj} {"Journal of Meteorological Society of Japan"}
+MACRO {josj} {"Journal of the Oceanographical Society of Japan"}
+MACRO {jwm} {"Journal of Weather Modification"}
+MACRO {lao} {"Limnology and Oceanography"}
+MACRO {mwl} {"Mariners Weather Log"}
+MACRO {mau} {"Mausam"}
+MACRO {meteor} {"``Meteor'' Forschungsergebnisse"}
+MACRO {map} {"Meteorology and Atmospheric Physics"}
+MACRO {metmag} {"Meteorological Magazine"}
+MACRO {metmon} {"Meteorological Monographs"}
+MACRO {metrun} {"Meteorologische Rundschau"}
+MACRO {metzeit} {"Meteorologische Zeitschrift"}
+MACRO {metgid} {"Meteorologiya i Gidrologiya"}
+MACRO {mwr} {"Monthly Weather Review"}
+MACRO {nwd} {"National Weather Digest"}
+MACRO {nzjmfr} {"New Zealand Journal of Marine and Freshwater Research"}
+MACRO {npg} {"Nonlinear Processes in Geophysics"}
+MACRO {om} {"Oceanography and Meteorology"}
+MACRO {ocac} {"Oceanologica Acta"}
+MACRO {oceanus} {"Oceanus"}
+MACRO {paleoc} {"Paleoceanography"}
+MACRO {pce} {"Physics and Chemistry of the Earth"}
+MACRO {pmg} {"Papers in Meteorology and Geophysics"}
+MACRO {ppom} {"Papers in Physical Oceanography and Meteorology"}
+MACRO {physzeit} {"Physikalische Zeitschrift"}
+MACRO {pps} {"Planetary and Space Science"}
+MACRO {pss} {"Planetary and Space Science"}
+MACRO {pag} {"Pure and Applied Geophysics"}
+MACRO {qjrms} {"Quarterly Journal of the Royal Meteorological Society"}
+MACRO {quatres} {"Quaternary Research"}
+MACRO {rsci} {"Radio Science"}
+MACRO {rse} {"Remote Sensing of the Environment"}
+MACRO {rgeo} {"Reviews of Geophysics"}
+MACRO {rgsp} {"Reviews of Geophysics and Space Physics"}
+MACRO {rdgeo} {"Revista de Geofisica"}
+MACRO {revmeta} {"Revista Meteorologica"}
+MACRO {sgp}{"Surveys in Geophysics"}
+MACRO {sp} {"Solar Phys."}
+MACRO {ssr} {"Space Science Review"}
+MACRO {tellus} {"Tellus"}
+MACRO {tac} {"Theoretical and Applied Climatology"}
+MACRO {tagu} {"Transactions, American Geophysical Union (EOS)"}
+MACRO {wrr} {"Water Resources Research"}
+MACRO {weather} {"Weather"}
+MACRO {wafc} {"Weather and Forecasting"}
+MACRO {ww} {"Weatherwise"}
+MACRO {wmob} {"World Meteorological Organization Bulletin"}
+MACRO {zeitmet} {"Zeitschrift f\^^b{u}r Meteorologie"}
+%</!jabr>
+%</!options>
+ % End module: geojour.mbs
+%    \end{macrocode}
+% \Finale
