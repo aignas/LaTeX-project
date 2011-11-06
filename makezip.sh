@@ -50,6 +50,17 @@ function prep_templates {
 # ===============================================================================
 
 # ===============================================================================
+# Preparing the lecture material for zipping
+#
+function prep_templates {
+    cd $1 || return 1
+    echo "Deleting unnecessary files"
+    rm `find* | egrep 'log|aux|out|toc|tdo|bbl|blg|nav|snm'`
+    cd ..
+}
+# ===============================================================================
+
+# ===============================================================================
 # Function for moving the newly created zip files to a common directory
 #
 function zip_move {
@@ -90,6 +101,8 @@ function zip_folders {
             prep_pub ${dir}
         elif [[ "$1"=="templates" ]]; then
             prep_templates ${dir}
+        elif [[ "$1"=="lecture_material" ]]; then
+            prep_templates ${dir}
         fi
 
         echo "Generating ${dir}.zip"
@@ -129,6 +142,7 @@ case $1 in
         zip_folders tutorials
         zip_folders templates
         zip_folders publishing
+        zip_folders lecture_material
         ;;
     --clean|-c)
         clean_zips
