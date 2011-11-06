@@ -1,0 +1,240 @@
+\chapter{Organising Your Files}
+One of the drawbacks of word is that the figures and tables are included within the document which becomes very very clunky quite quickly and once it reaches around 100Mb it becomes unwieldy and hard to export. One of that advantages of LaTeX is that the files are all text files and so are very light on resources and are easy to email around the place.
+
+However, sometimes it can be difficult to navigate through a single text file, so if you had a huge document then it becomes difficult to find your way around.  One way of circumnavigating this problem is to break the file up into smaller files. As long as LaTeX knows where to look you can have a file for each logical sub-division of your document.
+
+Therefore it is worth spending a bit of time at the beginning of a large project deciding how you wish to break up your LaTex Files and organise them neatly and tidily.  You can then tell LaTex where to look for the files using the following command:
+
+\vspace*{2ex}
+{\textbackslash}include\{fileName\}
+\vspace*{2ex}
+
+\pagebreak
+\section{Linking a File}
+We are now going to copy part of the tutorial file into a separate files and link it the main file.  Because this could go wrong it is sensible to back up tutorial.tex as something else. So save a copy called `tutorialOriginal.tex' for safe keeping. Then follow the following instructions.
+
+\begin{enumerate}
+\item Create a new file called MyFirstPage.tex
+\item Select and Cut out the first chapter of Tutorial.Tex
+\item Paste the first chapter into MyFirstPage.tex
+\item Save both tutorial.tex and MyFirstPage.tex
+\item Then add {\textbackslash}include\{MyFirstPage\} in tutorial.tex where the text used to be before you cut it out. We don't need to add the `.tex' because LaTeX can only include `.tex' files.
+\item compile tutorial.tex and view the PDF
+\end{enumerate}
+
+The final PDF should look exactly the same as it was! except we now have a separate file for one of the chapters.
+
+\pagebreak
+\section{Creating A Class File}
+We can also save our preamble in a separate file called a class file. This makes your main document much easier to understand.  To make it work we need to use the {\textbackslash}LoadClass\{\} command as follows: 
+
+\begin{enumerate}
+\item Create another new file and save it as TutorialStyle.cls
+\item Copy the preamble of tutorial.tex into the new file. Starting with the {\textbackslash}documentclass{} command and copy right up to, but not including, the {\textbackslash}begin{document} command. Delete the preamble in the original document.
+\item Save TutorialStyle.cls and tutorial.tex
+\item Modify the first line of TutorialStyle.cls by replacing the word `document' with the word `Load'.
+\item Add a new first line of tutorial.tex to use your new style class {\textbackslash}documentclass\{TutorialStyle\}
+\item Save both files.
+\end{enumerate}
+
+\subsection{Sanity Check}
+
+The first line of TutorialStyle.cls should now be:
+
+\begin{verbatim}
+\LoadClass[12pt, oneside, a4paper]{book}
+\end{verbatim}
+\vspace{2ex}
+
+The first line of tutorial.tex should be:
+
+\begin{verbatim}
+\documentClass{TutorialStyle}
+\end{verbatim}
+\vspace{2ex}
+
+We have just created what is called a style file. You can use this style file as a generic preamble for other documents as well. Compile tutorial.tex.  Nothing should have changed in the final PDF.
+
+
+\pagebreak
+\section{The Structure of this Document}
+
+Lets now look at how I've organised this document. It is identical to my thesis because it started out life as my thesis. I usurped the structure and simply replaced the headings and content to make a kind of reference manual for this introductory course. This document therefore is three things:
+
+\begin{enumerate}
+\item An example thesis structure to work from.
+\item The LaTeX files which were used to create it can be used as a template for a thesis.
+\item It is also a convenient introductory latex manual!
+\end{enumerate}
+
+\vspace*{2ex}
+Groovy huh?
+
+\section{The Master File}
+
+There is a master file where LaTeX begins the compilation procedure. This contains the {\textbackslash}documentclass command needed to set the ball rolling. Within the file there are a series of {\textbackslash}include\{\} commands, one for each Chapter, which tell LaTeX where to find the files containing each chapter.
+
+The subfiles cannot be compiled on their own because they do not contain the {\textbackslash}documentclass, {\textbackslash}begin\{document\} or {\textbackslash}end\{document\} commands. Lets us look in more detail at the master file and we will learn some new LaTeX commands.
+
+\singlespacing
+\pagebreak
+\begin{verbatim}
+\documentclass{Style/LatexCourseStyle}
+
+\begin{document}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{1}
+
+\frontmatter
+\onehalfspacing
+\include{Frontmatter/Titlepage}
+\include{Frontmatter/Declaration}
+\include{Frontmatter/Acknowledgements}
+\include{Frontmatter/Summary}
+\include{Frontmatter/Abbreviations}
+\tableofcontents
+\listoftables
+\listoffigures
+
+\mainmatter
+\renewcommand{\sectionmark}[1]{\markright{\thesection \ #1}{}}
+\include{Chapters/Overview}
+\include{Chapters/MyFirstPage}
+\include{Chapters/Lists}
+\include{Chapters/mathsEquations}
+\include{Chapters/ChemicalEquations}
+\include{Chapters/Tables}
+\include{Chapters/Figures}
+\include{Chapters/Sectioning}
+\include{Chapters/externalReferencing}
+\include{Chapters/ThesisTemplateMainFile}
+%\include{Chapters/ChapterThatIsNotCompiled}
+
+\appendix
+%\include{Appendices/UsefulWebsites}
+
+\singlespacing
+
+\backmatter
+\addcontentsline{toc}{chapter}{References}
+\bibliographystyle{Bibliography/cjfthesisv1}
+\renewcommand{\bibname}{References}
+\bibliography{Bibliography/LatexCourseBib}
+
+\end{document}
+\end{verbatim}
+\onehalfspacing
+\pagebreak
+
+\section{Analysing the Master File}
+Let us go through this file and observe the new commands. Most of it is self-explanatory.
+
+\begin{verbatim}
+\documentclass{Style/LaTeXCourseStyle}
+\end{verbatim}
+
+This command tells latex that the document class is the one defined in the the style file ''LaTeXCourseStyle'', which is in the sub directory ''style''.  Easy.
+
+\begin{verbatim}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{1}
+\end{verbatim}
+
+The first of these commands tells latex that the section depth number is 2. I.E. throughout the document only bother numbering sections, subsections and subsubsections down to the second level (such as section 1.2.3). The second command tells latex to only build the table of contents from section numbers down to the first level i.e. 1.1.  Easy enough.
+
+The command {\textbackslash}frontmatter is exclusive to the book class, on which this style is based, and tells latex that within this section to number the pages using roman numerals, and not to include these numbers in the table of contents, just like in a book. The {\textbackslash}mainmatter and {\textbackslash}backmatter commands similarly delineate the other sections of the document.  
+
+Childs play.  How long would it take you to figure out how to do that in word???? No idea. I've never tried.
+
+Note that these rather cool commands are not available in every single class. So for a paper you would use the article class where such compartmentalisation of your document is not appropriate. In fact you can often download latex templates from the journal to wish to submit your paper, which is why I concentrate on the thesis template in this course.
+
+\begin{verbatim}
+\onehalfspacing
+\end{verbatim}
+
+Is obvious. ''From this point forward use line spacing of one and a half lines please. Thank you.'' How many hours have you spent clicking on paragraph indentations for each separate paragraphs in word? Nightmare. Want to change the standard in the whole document? Not a chance in word. In latex, you can do it with a single word, carefully placed in the master file.
+
+\begin{verbatim}
+\include{Frontmatter/Titlepage}
+\include{Frontmatter/Declaration}
+\include{Frontmatter/Acknowledgements}
+\include{Frontmatter/Summary}
+\include{Frontmatter/Abbreviations}
+\end{verbatim}
+
+The {\textbackslash}include\{\} command tells latex to include the specified .tex file at this point.  Thus it is a simple matter to break up a large document into sub components.  I have written each part of the front matter in a separate file and then grouped all the front matter into one directory called: Frontmatter.
+
+See how the directory structure of my files reflects the structure of my book?
+
+\begin{verbatim}
+\tableofcontents
+\listoftables
+\listoffigures
+\end{verbatim}
+
+Again. This is easy. These commands mean: ''Please scan through the whole document and build for me a table of contents, a list of tables, a list of figures and then write down the entries along side their section numbers (as I have them ordered in this version of the document), as well as the page numbers on which they appear and create a nice little summary table and add them to the front matter of my document. Thanks.''.
+
+How does latex do this?  remember the idea of environments?  Well each table, figure, equation etc is a defined environment.  LaTeX just counts them up and assigns numbers starting wherever you want and builds a table.  You can tell latex to ignore individual sections if you want to.
+
+You can also control the look and feel of your table of contents with subtley and grace. Do you want to fill the white space with lines of dots to aid readability, even though the chapter titles are all different lengths? page numbers? How deep should the TOC been?  etc etc etc. How to do this is beyond the scope of this course, but now you know about it, go look it up. easy as $\pi$.
+
+Ok.
+
+Main matter we've done.
+
+\begin{verbatim}
+\renewcommand{\sectionmark}[1]{\markright{\thesection \ #1}{}}
+\end{verbatim}
+
+This command tells latex to 'renewcommand', i.e. change the meaning of the following command from this point in the document forward, over-riding previous definitions.
+\begin{verbatim}
+\sectionmark}[1]{\markright{\thesection \ #1}{}
+\end{verbatim}
+
+Is latex speak for ``please write the section heading at the top right hand side of each page. thanks''. This works in conjunction with a command in the style file which we'll talk about later. You have to tell latex to switch on headings as well as where to put them.
+
+\begin{verbatim}
+\include{Chapters/Overview}
+\include{Chapters/MyFirstPage}
+\include{Chapters/Lists}
+\include{Chapters/mathsEquations}
+\include{Chapters/ChemicalEquations}
+\include{Chapters/Tables}
+\include{Chapters/Figures}
+\include{Chapters/Sectioning}
+\include{Chapters/externalReferencing}
+\include{Chapters/ThesisTemplateMainFile}
+%\include{Chapters/ChapterThatIsNotCompiled}
+\end{verbatim}
+
+This is the include command again. You will notice that one of the include lines is commented out. This is a handy trick to only build certain parts of my thesis. Which can be useful if individual chapters are being reviewed.
+
+\pagebreak
+
+\begin{verbatim}
+\appendix
+%\include{Appendices/UsefulWebsites}
+
+\singlespacing
+
+\backmatter
+\addcontentsline{toc}{chapter}{References}
+\bibliographystyle{Bibliography/cjfthesisv1}
+\renewcommand{\bibname}{References}
+\bibliography{Bibliography/LatexCourseBib}
+\end{verbatim}
+
+The rest is easy. {\textbackslash}Appendix means we are in the appendix now and start labelling sections with A.1.2 instead of 1.2.3.  
+
+{\textbackslash}addcontentsline means forcibly insert a contents line about the references into the contents table. 
+
+{\textbackslash}\{bibliographystyle\{Bibliography/cjfthesisv1\}\} means use the biblography style defined in the file cjfthesisv1. Defining a bibliography style will be covered later if we have time. This is where you specify how the references will appear (names, journals, full stops, commas etc).
+
+{\textbackslash}renewcommand\{{\textbackslash}bibname\}\{References\} means: rename the bibliography chapter as `References'
+
+{\textbackslash}biblography means add the following bibliography.  You can reference entries in this bibliography file very easily.
+
+The astute among you will realise that LaTeX will have to read the document several times before it can be compiled with all the references.  Hey ho. No problem. You can go and have a cuppa while LaTeX does your references for you in the style of your favorite journal... nice.
+
+
+

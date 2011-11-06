@@ -1,0 +1,33 @@
+\chapter{External Referencing}
+
+Referencing is usually performed using a separate program called BibTex.  This program understands the file format .bib.
+
+To create a reference within your document first you must create a .bib file by exporting your list of references from which ever referencing software you used, such as endnote, mendeley or whatever you use.
+
+You can refer to an entry in the .bib file using the {\textbackslash}cite\{ref:Name\} command. the identifier `ref:Name' is the unique identifier which is the first line of each item included in your bibliography file.
+
+For example, open the file LaTexCourseBib.bib in the bibliography directory. The first entry has the identifier `Horcas2007'.  This can be invoked as follows:
+
+
+\begin{verbatim}
+For example, this interesting fact\cite{Horcas2007}, is a cracking example.
+\end{verbatim}
+
+For example, this interesting fact\cite{Horcas2007}, is a cracking example.
+
+During compilation latex and bibtex co-operate. During the first compilation latex generates a list of references that it needs.  During the second compilation bibtex populates the details from the .bib file into a shorter, ordered .bib file. The third compilation inserts markers at the right place in the main file and the fourth compilation generates the final list of references. Thus the compilation sequence is latex, bibtex, latex, latex.
+
+The style of the referencing format can be changed using the command {\textbackslash}bibliographyStyle\{\}. e.g. the style used in this document is cjfthesisv1.bst which is invoked by 
+
+\begin{verbatim}
+\bibliographystyle{Bibliography/cjfthesisv1}
+\end{verbatim}
+
+The location of the list of references in the document is specified by issuing the {\textbackslash}bibliography\{\} command which also specifies the master bibliography file.
+
+\begin{verbatim}
+\bibliography{Bibliography/LaTeXCourseBib}
+\end{verbatim}
+
+
+

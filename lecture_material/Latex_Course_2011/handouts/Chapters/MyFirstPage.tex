@@ -1,0 +1,225 @@
+\chapter{My First Page}
+
+\section{The Very Beginning}
+The very simplest LaTeX document might look like this:
+
+\begin{verbatim}
+\documentclass[a4paper,12pt]{article}
+\begin{document}
+Hello World.
+\end{document}
+\end{verbatim}
+
+\pagebreak
+\thispagestyle{empty}
+Hello World.
+\pagebreak
+\subsection{Break Down}
+What's all the gobbledegook around my simple message???
+
+In LaTeX we intersperse text and commands.  Commands are preceded by a \textbackslash. For example the first line in a LaTeX document \underline{\textbf{\emph{must}}} be:
+
+\begin{verbatim}
+\documentclass[options]{class}
+\end{verbatim}
+
+Where the word ''class'' may be substituted for one of many things such as: article, proc, minimal, report, book, letter, memoir, slides, beamer.
+
+Similarly, and completely generally in LaTeX speak, the square brackets denote the existence of optional parameters. Each individual command can take its own parameters and for the ''{\textbackslash}documentclass'' command there are options for controlling font size, font family, landscape, oneside, twosided, page size and so on. These options will persist throughout the entire document. For example the document class command for this document, (which is likely to be like the one you would use for a thesis), would be:
+
+\begin{verbatim}
+\documentclass[12pt, oneside, a4paper]{book}
+\end{verbatim}
+
+Other options include:
+
+\begin{itemize}
+\item {10pt, 11pt, 12pt (default is 10pt).}
+\item {letterpaper, legalpaper, a4paper, executivepaper, a5paper, b5paper}
+\end{itemize}
+and so on.
+
+\pagebreak
+\section{Can I start typing please?}
+
+After we have set up the document we can start actual work on our document. So we must tell LaTeX that what follows is to be interpreted as a document.  The command {\textbackslash}begin can take many different parameters and is a command to enter what is known, in LaTeX speak, as 'an environment'. Thus the commands:
+\begin{verbatim}
+\begin{document}
+
+\end{document}
+\end{verbatim}
+
+tells LaTeX to enter and leave the document environment, and thus constitute the outer limits of our document file. Other environments include the equation environment, the itemize environment, the figure environment and so on. These will be encountered in due course.
+
+Every part of the LaTeX file is therefore within an environment of specific type and the content within each environment consists of commands or text.
+
+That's basically it.
+
+So let's get on with it shall we...
+
+\pagebreak
+\section{The ground rules}
+\begin{quote}
+Hold on, hold on, hold on my son.
+
+First the lessons.
+
+Then the fun!
+\end{quote}
+Dr Seuss.
+
+\subsection{Spaces}
+Whitespace characters, such as blank or tab, are treated uniformly as space by LaTeX. Several consecutive whitespace characters are treated as one single space. Whitespace at the start of a line is generally ignored, and a single line break is treated as whitespace. An empty line between two lines of text defines the end of a paragraph. Several empty lines are treated the same as one empty line. The text below is an example.
+
+\begin{verbatim}
+It does not matter whether you
+enter one or several             spaces
+after a word. The final result will be typeset beautifully
+according    to     precise rules.
+
+
+
+
+An empty line starts a new
+paragraph. Note the indentation on the first line of the paragraph, 
+except at the beginning of the section. 
+\end{verbatim}
+
+\vspace*{2ex}
+\vspace*{2ex}
+
+It does not matter whether you
+enter one or several             spaces
+after a word. The final result will be typeset beautifully
+according    to     specific rules.
+
+
+
+
+An empty line starts a new
+paragraph. Note the indentation on the first line of the paragraph, except at the beginning of the section. 
+
+\pagebreak
+\subsection{Special Characters}
+The symbols 
+
+\# \$ \% \textasciicircum{} \& \_ \{ \} \~{} \textbackslash
+
+are reserved characters that either have a special meaning under LaTeX or are unavailable in all the fonts. If you enter them directly in your text, they will normally not print, but rather make LaTeX do strange things.
+
+To overide the special meanings of these symbols and allow them to produced within your text you may use the following sequences:
+\begin{verbatim}
+\# \$ \% \textasciicircum{} \& \_ \{ \} \~{} \textbackslash
+\end{verbatim}
+
+Other symbols and many more can be printed with special commands in mathematical formulae or as accents.
+
+The backslash character '\textbackslash' cannot be entered by adding another backslash in front of it ( \textbackslash\textbackslash); because this sequence means ''linebreak''.
+
+The command \textbackslash\~{}\{\} produces a tilde which is placed over the next letter. For example \textbackslash\~{}\{n\} gives \~{n}. To produce just the character \~{}, use \textbackslash\~{}\{\} which places a \~{} over an empty box.
+
+Similarly, the command \textbackslash\textasciicircum{} produces a hat over the next character, for example \textbackslash\textasciicircum\{o\} produces \^{o}.
+
+\pagebreak
+\section{Preamble}
+After the {\textbackslash}documentclass command we add ''preamble''. Here we load special features that we will use throughout our document to expand on the basic capabilities of LaTex. These are contained in units called ''packages'' which we can tell our LaTeX compiler to download by using the command ''{\textbackslash}include\{packageName\}''. 
+
+There are many repositories of such packages on the web. Your compiler generally knows where to look and most standard packages are included with any install. For example, to include a special set of typesetting instructions to handle chemical equations we can grow our simple document with a single command like this:
+
+\begin{verbatim}
+\documentclass[a4paper,12pt]{article}
+\usepackage[version=3]{mhchem}
+\begin{document}
+Hello World!
+
+We all need \ce{H2O}.
+
+I'm less fussed about \ce{^{235}_{92}U+}.
+
+\end{document}
+\end{verbatim}
+
+\vspace{2ex}
+
+\pagebreak
+\thispagestyle{empty}
+Hello World!
+
+We all need \ce{H2O}.
+
+I'm less fussed about \ce{^{235}_{92}U+}.
+\pagebreak
+
+Here we have loaded a package called: "`mhchem"' which took the option ''[version=3]''. This is a package for drawing chemical equations easily and it has it's own instruction manual which you can follow easily. It is included in the bundle of files for this course.
+
+Other things we can do in the premable within LaTeX are to redefine existing commands or create our own personal commands. These can be stored in a file called the 'style file' which we can load at the beginning of our document, in place of our documentclass. More about this later on...
+
+
+\subsection{Comments}
+It is often useful to comment your LaTeX documents. You can leave yourself amusing, sarcastic messages that won't get printed out in the final document. Use this to make your own notes as the course progresses.
+
+To get a comment use the \% command, which tells LaTeX to ignore the rest of the line, the line break and all the white space at the beginning of the next line, for example, we may add to our continually evolving document...
+
+\begin{verbatim}
+\documentclass[a4paper,12pt]{article}
+\usepackage[version=3]{mhchem}
+\begin{document}
+Hello World!
+
+%All humans need water and I would like 
+%to include this concept in my arguments.
+We all need \ce{H2O}.
+
+%Uranium 235 is toxic, which is why I don't want to consume it... 
+I'm less fussed about \ce{^{235}_{92}U+}.
+
+\end{document}
+\end{verbatim}
+
+\vspace{4ex}
+Hello World!
+
+%All humans need water and I would like to include this concept in my arguments.
+We all need \ce{H2O}.
+
+%Uranium 235 is toxic, which is why I don't want to consume it... 
+I'm less fussed about \ce{^{235}_{92}U+}.
+
+\pagebreak
+\section{Compiling}
+Once the document is finished you can compile it. Your compiler will depend on the platform that you use. In the PWF we are using winEDT to edit the documents (a LaTeX front end) and texlive2008 which is the compiler itself. I use MiKTex and the front end texCenter.  There is no need to use a front end. If you prefer you can use a simple text editor and a command line.
+
+the recommended distributions are:
+\begin{itemize}
+\item MiKTeX or TeX Live for Windows
+\item TeX Live for Unix/Linux
+\item MacTeX or TeX Live for Mac OS.
+\end{itemize}
+
+Once you have installed your software and got it working, written your source code and tried to compile it, there will nearly always be something wrong with your file. 
+
+Any errors will be highlighted in the console window or error output box of your front end.  Some front ends dump the running commentary which LaTeX produces into a text file for easy reading afterwards.
+
+In a compile attempt (successful or otherwise) LaTeX may produce the following files:
+
+projectname.aux
+
+projectname.bbl
+
+projectname.lof
+
+projectname.lot
+
+projectname.txt
+
+projectname.toc
+
+projectname.dvi
+
+These are interim files (toc= table of contents, bbl = bibliography etc). To be honest I have no idea what half of these things contain.  You only need the .tex file and a compiler with the right packages installed to produce them again.
+
+Some versions of LaTeX only produce DVI files and you then need to convert the dvi file to a PDF or download a dvi viewer. You can also convert DVI files to PS files and then view them.  The good thing about front ends is that you can set them up to produce PDFs directly.
+
+OK. So we have now produced a silly document but we understand it.  Now lets get on with learning how to make our own documents.
+
+
