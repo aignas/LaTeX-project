@@ -7,6 +7,13 @@ TMP_FNAME="template_preamble.tex"
 UP_FOLNAME="upload-dir"
 # ===============================================================================
 
+function del_logs {
+    cd $1 || return 1
+    echo "Deleting unnecessary files"
+    rm `find * | egrep '\.(log|aux|out|toc|tdo|bbl|blg|nav|snm)'`
+    cd ..
+}
+
 # ===============================================================================
 # Preparing publishing templates for zipping.
 #
@@ -18,9 +25,8 @@ function prep_pub {
         cp -a template/* ./
         rm -r template
     fi
-    echo "Deleting unnecessary files"
-    rm `ls -1 | egrep 'log|aux|out|toc|tdo|bbl|blg|nav|snm'`
     cd ..
+    del_logs $1
 }
 # ===============================================================================
 
@@ -31,10 +37,7 @@ function prep_tutorials {
     cp template_preamble.tex ${1}
     texname=${1:3}
     sed -i "s/input{.\/\.\.\/${TMP_FNAME}}/input{\.\/${TMP_FNAME}}/" ${1}/${texname}.tex
-    cd $1 || return 1
-    echo "Deleting unnecessary files"
-    rm `ls -1 | egrep 'log|aux|out|toc|tdo|bbl|blg|nav|snm'`
-    cd ..
+    del_logs
 }
 # ===============================================================================
 
@@ -42,10 +45,7 @@ function prep_tutorials {
 # Preparing the common templates for zipping.
 #
 function prep_templates {
-    cd $1 || return 1
-    echo "Deleting unnecessary files"
-    rm `ls -1 | egrep 'log|aux|out|toc|tdo|bbl|blg|nav|snm'`
-    cd ..
+    del_logs
 }
 # ===============================================================================
 
@@ -53,10 +53,7 @@ function prep_templates {
 # Preparing the lecture material for zipping
 #
 function prep_templates {
-    cd $1 || return 1
-    echo "Deleting unnecessary files"
-    rm `find* | egrep 'log|aux|out|toc|tdo|bbl|blg|nav|snm'`
-    cd ..
+    del_logs
 }
 # ===============================================================================
 
