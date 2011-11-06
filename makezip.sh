@@ -8,10 +8,8 @@ UP_FOLNAME="upload-dir"
 # ===============================================================================
 
 function del_logs {
-    cd $1 || return 1
     echo "Deleting unnecessary files"
-    rm `find * | egrep '\.(log|aux|out|toc|tdo|bbl|blg|nav|snm)'`
-    cd ..
+    rm `find $1 | egrep '\.(log|aux|out|toc|tdo|bbl|blg|nav|snm)'`
 }
 
 # ===============================================================================
@@ -37,7 +35,7 @@ function prep_tutorials {
     cp template_preamble.tex ${1}
     texname=${1:3}
     sed -i "s/input{.\/\.\.\/${TMP_FNAME}}/input{\.\/${TMP_FNAME}}/" ${1}/${texname}.tex
-    del_logs
+    del_logs $1
 }
 # ===============================================================================
 
@@ -45,7 +43,7 @@ function prep_tutorials {
 # Preparing the common templates for zipping.
 #
 function prep_templates {
-    del_logs
+    del_logs $1
 }
 # ===============================================================================
 
@@ -53,7 +51,7 @@ function prep_templates {
 # Preparing the lecture material for zipping
 #
 function prep_templates {
-    del_logs
+    del_logs $1
 }
 # ===============================================================================
 
@@ -150,6 +148,7 @@ case $1 in
     --help|-h|help|h)
         echo "Options for this script:"
         echo "     --zip   | -z  to compress all folders in this directory."
+        echo "     --upload| -u  to upload all compressed files to a pwf webspace."
         echo "     --clean | -c  to delete all the .zip files in this directory."
         echo "     --help  | -h  to produce this help message."
         ;;
