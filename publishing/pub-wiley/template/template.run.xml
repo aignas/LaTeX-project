@@ -41,34 +41,36 @@
   >
 ]>
 <requests version="1.0">
-  <internal package="biblatex" priority="9" active="0">
+  <internal package="biblatex" priority="9" active="1">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>template.aux</file>
-      <file>template-blx.bib</file>
+      <file>template.bcf</file>
     </provides>
     <requires type="dynamic">
       <file>template.bbl</file>
     </requires>
     <requires type="static">
+      <file>blx-dm.def</file>
       <file>blx-compat.def</file>
       <file>biblatex.def</file>
       <file>chem-angew.bbx</file>
+      <file>numeric-comp.bbx</file>
+      <file>numeric.bbx</file>
+      <file>standard.bbx</file>
       <file>chem-angew.cbx</file>
       <file>numeric-comp.cbx</file>
       <file>biblatex.cfg</file>
       <file>english.lbx</file>
     </requires>
   </internal>
-  <external package="biblatex" priority="5" active="0">
-    <generic>bibtex</generic>
+  <external package="biblatex" priority="5" active="1">
+    <generic>biber</generic>
     <cmdline>
-      <binary>bibtex</binary>
-      <option>-min-crossrefs 2</option>
+      <binary>biber</binary>
       <infile>template</infile>
     </cmdline>
     <input>
-      <file>template.aux</file>
+      <file>template.bcf</file>
     </input>
     <output>
       <file>template.bbl</file>
@@ -77,13 +79,7 @@
       <file>template.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>template.aux</file>
-      <file>template-blx.bib</file>
-    </requires>
-    <requires type="editable">
-    </requires>
-    <requires type="static">
-      <file>biblatex.bst</file>
+      <file>template.bcf</file>
     </requires>
   </external>
 </requests>
