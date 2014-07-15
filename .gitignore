@@ -7,8 +7,13 @@
 acs*.bib
 *.bbl
 *.blg
+*.bcf
+*.run.xml
 *.nav
 *.snm
+
+# Do not include the vim files
+*.vim
 
 # Do not add the Compiled .pdf files
 *eps-converted-to.pdf
